@@ -52,6 +52,19 @@ landing page and is prose — apply literary-maverick here.
 The body is the module content: a mix of **prose** (governed by `voice/literary-maverick.md`) and
 **formal math** (governed by `voice/math-style.md`). See `course-design.md` for the section shape.
 
+## Frontmatter must be valid YAML
+
+Frontmatter is parsed by a strict YAML loader at build time. The trap: any **unquoted** string value
+containing a colon-space (`: `) — common in titles and summaries — is read as a nested mapping and
+**breaks the build**. Always double-quote `title`, `summary`, and `description` when in doubt:
+
+```yaml
+summary: "Strip arithmetic down to its bones: a set, a way to combine two things."
+title: "Counting Tells the Truth: Lagrange's Theorem"
+```
+
+`validate-schema.mjs` runs the same strict parser, so the verify stage catches this before a build.
+
 ## Invariants (the verify stage checks all of these)
 
 1. Every id in `moduleOrder` has a matching `NN-<id>.md` file, and every module file appears in

@@ -3,7 +3,7 @@
 // OUTSIDE Astro, so the verify stage fails fast before a build is attempted.
 // Usage: node shared/scripts/validate-schema.mjs <slug>
 // Exit code 0 = valid; 1 = one or more violations (printed).
-import { readdirSync, existsSync } from 'node:fs';
+import { readdirSync, existsSync, readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { readFrontmatter } from './lib/frontmatter.mjs';
@@ -12,13 +12,32 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const LEVELS = ['intro', 'highschool', 'undergrad', 'grad'];
 const SCHEMA_VERSION = 1;
 
-async function loadKatex() {
-  // KaTeX lives in the site's node_modules; load it if present, else skip math checks.
+async function loadFromSite(rel) {
+  // Load a dependency from the site's node_modules if present, else null.
   try {
-    const url = pathToFileURL(join(ROOT, 'site', 'node_modules', 'katex', 'dist', 'katex.mjs'));
-    return (await import(url.href)).default;
+    const url = pathToFileURL(join(ROOT, 'site', 'node_modules', rel));
+    return await import(url.href);
   } catch {
     return null;
+  }
+}
+
+async function loadKatex() {
+  const mod = await loadFromSite('katex/dist/katex.mjs');
+  return mod ? mod.default : null;
+}
+
+// Strict YAML check: catches frontmatter the loose parser tolerates but Astro's
+// js-yaml rejects (e.g. an unquoted value containing ": "). This is the bug class
+// that would otherwise only surface at build time.
+function strictYamlCheck(yaml, path, raw, errors) {
+  if (!yaml) return;
+  const m = raw.match(/^---\n([\s\S]*?)\n---/);
+  if (!m) return;
+  try {
+    yaml.load(m[1]);
+  } catch (e) {
+    errors.push(`${path}: invalid YAML frontmatter — ${e.message.split('\n')[0]}`);
   }
 }
 
@@ -46,6 +65,10 @@ async function validate(slug) {
   if (!existsSync(coursePath)) return [`missing _course.md in ${dir}`];
 
   const katex = await loadKatex();
+  const yaml = (await loadFromSite('js-yaml/dist/js-yaml.mjs'));
+  const yamlLib = yaml ? yaml.default : null;
+
+  strictYamlCheck(yamlLib, '_course.md', readFileSync(coursePath, 'utf8'), errors);
   const { data: course, body: courseBody } = readFrontmatter(coursePath);
 
   // --- _course.md field checks ---
@@ -69,6 +92,7 @@ async function validate(slug) {
 
   for (const f of files) {
     const id = f.replace(/\.md$/, '');
+    strictYamlCheck(yamlLib, f, readFileSync(join(dir, f), 'utf8'), errors);
     const { data: m, body } = readFrontmatter(join(dir, f));
     if (!m.title) errors.push(`${f}: missing title`);
     if (!m.summary) errors.push(`${f}: missing summary`);
