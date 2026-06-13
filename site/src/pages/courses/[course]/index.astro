@@ -1,0 +1,76 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import { url, moduleUrl } from '../../../lib/url';
+
+export async function getStaticPaths() {
+  const courses = await getCollection('courses');
+  const modules = await getCollection('modules');
+  return courses.map((course) => {
+    const slug = course.id.split('/')[0];
+    const courseModules = modules
+      .filter((m) => m.id.split('/')[0] === slug)
+      .sort((a, b) => a.data.order - b.data.order);
+    return {
+      params: { course: slug },
+      props: { course, courseModules },
+    };
+  });
+}
+
+const { course, courseModules } = Astro.props;
+const { data } = course;
+const slug = course.id.split('/')[0];
+// The course intro prose (the body of _course.md) renders on the landing page.
+const { Content } = await render(course);
+---
+
+<Base title={data.title} description={data.description}>
+  <p class="crumbs"><a href={url()}>Catalog</a> &nbsp;/&nbsp; {data.title}</p>
+
+  <h1>{data.title}</h1>
+  <p class="lead">{data.description}</p>
+
+  <div class="badges">
+    <span class="badge level">{data.level}</span>
+    <span class="badge">{data.moduleOrder.length} modules</span>
+    <span class="badge">~{data.estimatedHours}h</span>
+    {data.tags.map((t) => <span class="badge">{t}</span>)}
+  </div>
+
+  {
+    data.prerequisites.length > 0 && (
+      <div class="objectives">
+        <strong>Before you start</strong>
+        <ul>
+          {data.prerequisites.map((p) => (
+            <li>{p}</li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
+  <div class="prose"><Content /></div>
+
+  <h2>Modules</h2>
+  <ol class="modules">
+    {
+      courseModules.map((m) => {
+        const moduleId = m.id.split('/').slice(1).join('/');
+        return (
+          <li>
+            <a href={moduleUrl(slug, moduleId)}>
+              <span class="num">{String(m.data.order).padStart(2, '0')}</span>
+              <span>
+                <span class="mtitle">{m.data.title}</span>
+                <span class="msum">{m.data.summary}</span>
+              </span>
+              <span class="mtime">{m.data.estimatedMinutes} min</span>
+            </a>
+          </li>
+        );
+      })
+    }
+  </ol>
+</Base>

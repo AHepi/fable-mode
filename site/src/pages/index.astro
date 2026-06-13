@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { courseUrl } from '../lib/url';
+
+// Auto-discovery: every courses/<slug>/_course.md becomes a catalog entry.
+// Dropping a new course folder adds it here with zero code changes.
+const courses = (await getCollection('courses')).sort((a, b) =>
+  a.data.title.localeCompare(b.data.title),
+);
+---
+
+<Base title="Catalog" description="Browse every course on Fable Academy.">
+  <h1>Fable Academy</h1>
+  <p class="lead">
+    A growing library of courses — researched, written, and shipped by an
+    automated production pipeline. Pick one and start reading.
+  </p>
+
+  {courses.length === 0 && <p class="lead">No courses published yet.</p>}
+
+  <div class="grid">
+    {
+      courses.map((course) => {
+        const slug = course.id.split('/')[0];
+        return (
+          <a class="card" href={courseUrl(slug)}>
+            <h3>{course.data.title}</h3>
+            <p>{course.data.description}</p>
+            <div class="badges">
+              <span class="badge level">{course.data.level}</span>
+              <span class="badge">{course.data.moduleOrder.length} modules</span>
+              <span class="badge">~{course.data.estimatedHours}h</span>
+            </div>
+          </a>
+        );
+      })
+    }
+  </div>
+</Base>

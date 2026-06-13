@@ -1,0 +1,12 @@
+# Node / Astro
+site/node_modules/
+site/dist/
+site/.astro/
+npm-debug.log*
+
+# OS
+.DS_Store
+
+# Per-run working artifacts are kept by default for provenance/inspection.
+# To treat runs as ephemeral, uncomment the next line.
+# runs/

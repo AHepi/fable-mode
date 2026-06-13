@@ -1,0 +1,39 @@
+---
+import 'katex/dist/katex.min.css';
+import '../styles/global.css';
+import { url } from '../lib/url';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description } = Astro.props;
+const siteName = 'Fable Academy';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} · {siteName}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="icon" href={url('favicon.svg')} type="image/svg+xml" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href={url()}>{siteName}</a>
+        <span class="tagline">Courses, written to be read.</span>
+      </div>
+    </header>
+    <main class="wrap">
+      <slot />
+    </main>
+    <footer class="footer">
+      <div class="wrap">
+        Built with the ICM content pipeline. Every course is plain markdown.
+      </div>
+    </footer>
+  </body>
+</html>

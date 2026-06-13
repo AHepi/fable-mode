@@ -1,0 +1,85 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import { url, courseUrl, moduleUrl } from '../../../lib/url';
+
+export async function getStaticPaths() {
+  const courses = await getCollection('courses');
+  const modules = await getCollection('modules');
+
+  return modules.map((entry) => {
+    const slug = entry.id.split('/')[0];
+    const moduleId = entry.id.split('/').slice(1).join('/');
+    const course = courses.find((c) => c.id.split('/')[0] === slug);
+
+    // Build prev/next from the course's own ordering.
+    const siblings = modules
+      .filter((m) => m.id.split('/')[0] === slug)
+      .sort((a, b) => a.data.order - b.data.order);
+    const idx = siblings.findIndex((m) => m.id === entry.id);
+
+    return {
+      params: { course: slug, module: moduleId },
+      props: {
+        entry,
+        courseTitle: course?.data.title ?? slug,
+        prev: idx > 0 ? siblings[idx - 1] : null,
+        next: idx < siblings.length - 1 ? siblings[idx + 1] : null,
+      },
+    };
+  });
+}
+
+const { entry, courseTitle, prev, next } = Astro.props;
+const slug = entry.id.split('/')[0];
+const { Content } = await render(entry);
+const { data } = entry;
+const mid = (m: { id: string }) => m.id.split('/').slice(1).join('/');
+---
+
+<Base title={data.title} description={data.summary}>
+  <p class="crumbs">
+    <a href={url()}>Catalog</a> &nbsp;/&nbsp;
+    <a href={courseUrl(slug)}>{courseTitle}</a> &nbsp;/&nbsp; {data.title}
+  </p>
+
+  <h1>{data.title}</h1>
+
+  {
+    data.objectives.length > 0 && (
+      <div class="objectives">
+        <strong>What you'll be able to do</strong>
+        <ul>
+          {data.objectives.map((o) => (
+            <li>{o}</li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
+  <article class="prose"><Content /></article>
+
+  <nav class="pager">
+    {
+      prev ? (
+        <a href={moduleUrl(slug, mid(prev))}>
+          <span class="dir">← Previous</span>
+          {prev.data.title}
+        </a>
+      ) : (
+        <span />
+      )
+    }
+    {
+      next ? (
+        <a href={moduleUrl(slug, mid(next))} style="text-align:right">
+          <span class="dir">Next →</span>
+          {next.data.title}
+        </a>
+      ) : (
+        <span />
+      )
+    }
+  </nav>
+</Base>
