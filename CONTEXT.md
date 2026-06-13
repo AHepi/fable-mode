@@ -25,10 +25,12 @@ Before stage 1, create the run's working folder and brief:
 1. Derive a slug: `node shared/scripts/slugify.mjs "<topic>"` (e.g. `abstract-algebra`).
 2. `bash shared/scripts/scaffold-run.sh <slug>` — creates `runs/<run-id>/` with one subfolder per
    stage and a `run-brief.md` seeded from `shared/templates/run-brief.md`.
-3. Fill in `runs/<run-id>/run-brief.md`: `topic`, `slug`, `assumedBackground`, `mode`, `gates`, and
-   the **Interpretation notes** section — write down, in plain words, what you are assuming the
-   prompt means (scope, rigor, what "the assumed background" can be taken to already know). This is
-   where a vague prompt gets pinned down before any expensive work happens.
+3. Fill in `runs/<run-id>/run-brief.md`: `topic`, `slug`, `assumedBackground`, `kind`, `mode`,
+   `gates`, and the **Interpretation notes** section — write down, in plain words, what you are
+   assuming the prompt means (scope, rigor, what "the assumed background" can be taken to already
+   know). Choose the `kind` (`stem | humanities | language | skill | general`) that fits the subject;
+   it selects the module template and whether math rules apply (see `_config/course-design.md §0`).
+   This is where a vague prompt gets pinned down before any expensive work happens.
 
 Every stage reads `runs/<run-id>/run-brief.md` first. That is how the brief threads through the
 pipeline — not as arguments, but as a file every stage agrees to read.

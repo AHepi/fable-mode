@@ -28,6 +28,7 @@ site/src/content/courses/<slug>/
 | `title` | string | Course title, e.g. `Abstract Algebra` |
 | `description` | string | One sentence; shown on the catalog card and landing page |
 | `level` | enum | one of `intro` \| `highschool` \| `undergrad` \| `grad` |
+| `kind` | enum | `stem` \| `humanities` \| `language` \| `skill` \| `general`. Default `stem`. Selects the module template and whether math (KaTeX) rules/validation apply (only `stem`). |
 | `prerequisites` | string[] | Plain-language; may be empty |
 | `tags` | string[] | Lowercase topical tags; may be empty |
 | `estimatedHours` | number > 0 | Whole-course estimate |
@@ -61,6 +62,18 @@ optional with safe defaults so older courses keep validating; the assembly stage
 The body is the module content: a mix of **prose** (governed by `_config/voice/literary-maverick.md`)
 and **formal math** (governed by `_config/math-style.md`). See `course-design.md` for the section shape.
 
+## Media & assets
+
+- **Images** live co-located in the course folder under `courses/<slug>/assets/` and are referenced
+  from a module with a **relative** path: `![descriptive alt text](./assets/diagram.svg)`. Astro
+  optimizes them and applies the GitHub Pages base path automatically — do **not** hand-write an
+  absolute `/fable-mode/...` image path.
+- **Every image must have non-empty alt text** that conveys its information (WCAG 1.1.1). The verify
+  stage fails on an empty `![]( )`. SVG diagrams should also carry a `<title>`/`aria-label`.
+- **Audio/video** files go in `site/public/media/` and are referenced with the base path via the
+  site's `url()` helper in a component, or an inline `<audio controls>` / `<video controls>` element.
+  Keep media out of `runs/`; only finished assets belong in the site.
+
 ## Frontmatter must be valid YAML
 
 Frontmatter is parsed by a strict YAML loader at build time. The trap: any **unquoted** string value
@@ -84,6 +97,18 @@ title: "Counting Tells the Truth: Lagrange's Theorem"
 4. `schemaVersion` equals `1`.
 5. Every `$…$` / `$$…$$` block is valid KaTeX (a bad equation breaks the build — catch it here).
 6. The course folder validates: `node shared/scripts/validate-schema.mjs <slug>` exits 0.
+
+## Single source of truth & versioning
+
+The field definitions live in **one** place — `site/src/schema/course-schema.mjs` — which both the
+Astro collection (`site/src/content.config.ts`) and the out-of-band validator
+(`shared/scripts/validate-schema.mjs`) import via a `buildSchemas(z)` factory. They cannot drift.
+This doc is the prose mirror; if it disagrees with the code, the code wins.
+
+When the schema changes incompatibly, bump `SCHEMA_VERSION` and register a migration in that file's
+`MIGRATIONS` map. `node shared/scripts/migrate-courses.mjs [--apply]` walks every shipped course and
+applies registered migrations. Additive **optional** fields (with defaults) are back-compatible and
+need no migration — which is why the provenance and `kind` fields did not bump the version.
 
 ## Why `_course.md` and not `course.json`
 

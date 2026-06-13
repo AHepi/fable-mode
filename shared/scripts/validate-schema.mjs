@@ -1,22 +1,22 @@
 #!/usr/bin/env node
 // Validate a shipped course against the content schema and ICM invariants,
 // OUTSIDE Astro, so the verify stage fails fast before a build is attempted.
-// Usage: node shared/scripts/validate-schema.mjs <slug>
+// Field-level validation reuses the SINGLE source of truth in
+// site/src/schema/course-schema.mjs (the same schema the Astro collection uses),
+// so the two can never drift. Usage: node shared/scripts/validate-schema.mjs <slug>
 // Exit code 0 = valid; 1 = one or more violations (printed).
 import { readdirSync, existsSync, readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { readFrontmatter } from './lib/frontmatter.mjs';
+import { createRequire } from 'node:module';
+import { readFrontmatter, parseFrontmatter } from './lib/frontmatter.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
-const LEVELS = ['intro', 'highschool', 'undergrad', 'grad'];
-const SCHEMA_VERSION = 1;
+const SITE = join(ROOT, 'site');
 
 async function loadFromSite(rel) {
-  // Load a dependency from the site's node_modules if present, else null.
   try {
-    const url = pathToFileURL(join(ROOT, 'site', 'node_modules', rel));
-    return await import(url.href);
+    return await import(pathToFileURL(join(SITE, 'node_modules', rel)).href);
   } catch {
     return null;
   }
@@ -27,23 +27,48 @@ async function loadKatex() {
   return mod ? mod.default : null;
 }
 
-// Strict YAML check: catches frontmatter the loose parser tolerates but Astro's
-// js-yaml rejects (e.g. an unquoted value containing ": "). This is the bug class
-// that would otherwise only surface at build time.
-function strictYamlCheck(yaml, path, raw, errors) {
-  if (!yaml) return;
-  const m = raw.match(/^---\n([\s\S]*?)\n---/);
-  if (!m) return;
+// Resolve zod from the site's deps and build the shared schema with it.
+async function loadSchemas() {
   try {
-    yaml.load(m[1]);
+    const require = createRequire(join(SITE, 'package.json'));
+    const zodMod = await import(pathToFileURL(require.resolve('zod')).href);
+    const z = zodMod.z ?? zodMod.default?.z ?? zodMod.default;
+    const schemaMod = await import(
+      pathToFileURL(join(SITE, 'src', 'schema', 'course-schema.mjs')).href
+    );
+    return { ...schemaMod.buildSchemas(z), MATH_KINDS: schemaMod.MATH_KINDS };
   } catch (e) {
-    errors.push(`${path}: invalid YAML frontmatter — ${e.message.split('\n')[0]}`);
+    return null;
   }
+}
+
+// Parse frontmatter with js-yaml (the loader Astro uses) so nested structures
+// like `sources` parse correctly; fall back to the lenient parser if absent.
+function parseDoc(yamlLib, raw) {
+  if (yamlLib) {
+    const m = raw.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
+    if (m) {
+      try {
+        return { data: yamlLib.load(m[1]) || {}, body: m[2], yamlError: null };
+      } catch (e) {
+        return { data: {}, body: m[2], yamlError: e.message.split('\n')[0] };
+      }
+    }
+  }
+  return { ...parseFrontmatter(raw), yamlError: null };
+}
+
+function zodErrors(result, file, errors) {
+  if (result.success) return result.data;
+  for (const issue of result.error.issues) {
+    const where = issue.path.length ? issue.path.join('.') : '(root)';
+    errors.push(`${file}: ${where} — ${issue.message}`);
+  }
+  return null;
 }
 
 function checkMath(katex, body, errors, file) {
   if (!katex) return;
-  // Display blocks first, then inline (after stripping display blocks).
   const display = [...body.matchAll(/\$\$([\s\S]+?)\$\$/g)].map((m) => [m[1], true]);
   const inline = [...body.replace(/\$\$[\s\S]+?\$\$/g, '').matchAll(/(?<!\\)\$([^\n$]+?)(?<!\\)\$/g)]
     .map((m) => [m[1], false]);
@@ -56,33 +81,45 @@ function checkMath(katex, body, errors, file) {
   }
 }
 
+// WCAG 1.1.1: every informative image needs a text alternative. Flag markdown
+// images with empty alt text. (Decorative images should use an explicit
+// role/empty alt in HTML; bare `![]()` in course content is treated as a miss.)
+function checkAltText(body, errors, file) {
+  // Strip fenced code so example syntax isn't flagged.
+  const stripped = body.replace(/```[\s\S]*?```/g, '');
+  for (const m of stripped.matchAll(/!\[(.*?)\]\(([^)]+)\)/g)) {
+    if (m[1].trim() === '') {
+      errors.push(`${file}: image \`${m[2]}\` has empty alt text (WCAG 1.1.1)`);
+    }
+  }
+}
+
 async function validate(slug) {
   const errors = [];
   const dir = join(ROOT, 'site', 'src', 'content', 'courses', slug);
   if (!existsSync(dir)) return [`course folder not found: ${dir}`];
-
   const coursePath = join(dir, '_course.md');
   if (!existsSync(coursePath)) return [`missing _course.md in ${dir}`];
 
   const katex = await loadKatex();
-  const yaml = (await loadFromSite('js-yaml/dist/js-yaml.mjs'));
-  const yamlLib = yaml ? yaml.default : null;
+  const yamlLib = (await loadFromSite('js-yaml/dist/js-yaml.mjs'))?.default ?? null;
+  const schemas = await loadSchemas();
+  if (!schemas) errors.push('(warning) could not load zod/schema from site/node_modules — run npm install in site/; field validation skipped');
 
-  strictYamlCheck(yamlLib, '_course.md', readFileSync(coursePath, 'utf8'), errors);
-  const { data: course, body: courseBody } = readFrontmatter(coursePath);
+  // --- course ---
+  const courseRaw = readFileSync(coursePath, 'utf8');
+  const { data: course, body: courseBody, yamlError } = parseDoc(yamlLib, courseRaw);
+  if (yamlError) errors.push(`_course.md: invalid YAML frontmatter — ${yamlError}`);
+  if (schemas) zodErrors(schemas.courses.safeParse(course), '_course.md', errors);
 
-  // --- _course.md field checks ---
-  if (!course.title) errors.push('_course.md: missing title');
-  if (!course.description) errors.push('_course.md: missing description');
-  if (!LEVELS.includes(course.level)) errors.push(`_course.md: level must be one of ${LEVELS.join('|')} (got ${course.level})`);
-  if (!(Number(course.estimatedHours) > 0)) errors.push('_course.md: estimatedHours must be a positive number');
-  if (Number(course.schemaVersion) !== SCHEMA_VERSION) errors.push(`_course.md: schemaVersion must be ${SCHEMA_VERSION}`); // invariant 4
-  if (!Array.isArray(course.moduleOrder) || course.moduleOrder.length < 1) errors.push('_course.md: moduleOrder must list >= 1 module');
-  checkMath(katex, courseBody, errors, '_course.md');
+  const kind = course.kind ?? 'stem';
+  const mathOn = !schemas || schemas.MATH_KINDS.includes(kind);
+  if (mathOn) checkMath(katex, courseBody, errors, '_course.md');
+  checkAltText(courseBody, errors, '_course.md');
 
   const moduleOrder = Array.isArray(course.moduleOrder) ? course.moduleOrder : [];
 
-  // --- module files ---
+  // --- modules ---
   const files = readdirSync(dir).filter((f) => f.endsWith('.md') && !f.startsWith('_'));
   const ids = files.map((f) => f.replace(/\.md$/, ''));
 
@@ -92,11 +129,11 @@ async function validate(slug) {
 
   for (const f of files) {
     const id = f.replace(/\.md$/, '');
-    strictYamlCheck(yamlLib, f, readFileSync(join(dir, f), 'utf8'), errors);
-    const { data: m, body } = readFrontmatter(join(dir, f));
-    if (!m.title) errors.push(`${f}: missing title`);
-    if (!m.summary) errors.push(`${f}: missing summary`);
-    if (!(Number(m.estimatedMinutes) > 0)) errors.push(`${f}: estimatedMinutes must be positive`);
+    const raw = readFileSync(join(dir, f), 'utf8');
+    const { data: m, body, yamlError: myErr } = parseDoc(yamlLib, raw);
+    if (myErr) errors.push(`${f}: invalid YAML frontmatter — ${myErr}`);
+    if (schemas) zodErrors(schemas.modules.safeParse(m), f, errors);
+
     // invariant 2: course field == folder
     if (m.course !== slug) errors.push(`${f}: course "${m.course}" != folder "${slug}"`);
     // invariant 3: order == index in moduleOrder, and filename prefix matches order
@@ -104,7 +141,9 @@ async function validate(slug) {
     if (idx >= 0 && Number(m.order) !== idx + 1) errors.push(`${f}: order ${m.order} != position ${idx + 1} in moduleOrder`);
     const prefix = f.match(/^(\d+)-/);
     if (prefix && Number(prefix[1]) !== Number(m.order)) errors.push(`${f}: filename prefix ${prefix[1]} != order ${m.order}`);
-    checkMath(katex, body, errors, f); // invariant 5
+
+    if (mathOn) checkMath(katex, body, errors, f); // invariant 5 (math kinds only)
+    checkAltText(body, errors, f);
   }
 
   return errors;
@@ -117,12 +156,14 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     process.exit(1);
   }
   const errors = await validate(slug);
-  if (errors.length === 0) {
+  const hard = errors.filter((e) => !e.startsWith('(warning)'));
+  for (const w of errors.filter((e) => e.startsWith('(warning)'))) console.error(w);
+  if (hard.length === 0) {
     console.log(`✓ courses/${slug} is valid against the schema.`);
     process.exit(0);
   }
-  console.error(`✗ courses/${slug}: ${errors.length} problem(s):`);
-  for (const e of errors) console.error(`  - ${e}`);
+  console.error(`✗ courses/${slug}: ${hard.length} problem(s):`);
+  for (const e of hard) console.error(`  - ${e}`);
   process.exit(1);
 }
 

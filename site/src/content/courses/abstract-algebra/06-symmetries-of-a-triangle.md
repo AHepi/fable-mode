@@ -27,6 +27,8 @@ Get the cardboard triangle in your hands. The hole it fits into is fixed in spac
 
 Three turns and three flips. That is the whole list — six moves, and the cardboard refuses every other attempt. (A turn of $60°$, for instance, leaves the corners pointing the wrong way; it won't drop in.)
 
+![An equilateral triangle with corners labelled 1, 2, and 3, a dashed vertical line marking one reflection axis through the top corner, and a curved arrow showing a 120-degree rotation.](./assets/triangle-symmetries.svg)
+
 The thing to *do*, the operation, is to chain two moves together: **do one symmetry, then another, and ask which single symmetry has the same overall effect.** Turn by $120°$, then turn by $120°$ again, and the net effect is one turn of $240°$ — a move that is already on our list. That is the pattern we will lean on: any two symmetries, performed back to back, always add up to a third symmetry that was on the list all along.
 
 ## The setup: naming the six moves

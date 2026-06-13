@@ -2,6 +2,7 @@
 title: COURSE TITLE
 description: One-sentence description shown on the catalog card and landing page.
 level: highschool        # intro | highschool | undergrad | grad
+kind: stem               # stem | humanities | language | skill | general
 prerequisites:
   - Plain-language prerequisite
 tags: [tag-one, tag-two]

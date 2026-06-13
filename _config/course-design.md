@@ -11,6 +11,42 @@ time.** Design for the person reading, not for coverage.
 
 ---
 
+## 0. Course kind and module template
+
+A course has a `kind` (in `_course.md`): `stem | humanities | language | skill | general`. The
+`kind` decides the **module template** and whether the math/KaTeX rules apply. Pick the kind that
+fits the subject during the curriculum stage; copy the matching template per module:
+
+| kind | template | spine | math rules |
+|------|----------|-------|------------|
+| `stem` (default) | `shared/templates/module.md` | hook → intuition → definition → worked example → checks → exercises → recap | **on** (`math-style.md`, KaTeX validated) |
+| `humanities` | `shared/templates/module.humanities.md` | hook → context → narrative → primary source → analysis → checks → discussion/essay → recap | off |
+| `language` | `shared/templates/module.language.md` | hook → dialogue → vocabulary → grammar pattern → pronunciation → drills → spaced review → recap | off |
+| `skill` | `shared/templates/module.skill.md` | hook → scenario → framework → walkthrough → checks → practice scenario → reflection → recap | off |
+| `general` | `shared/templates/module.md` (adapt) | as appropriate | off |
+
+The pedagogy below (retrieval practice, elaborated feedback, observable objectives, sequencing,
+level calibration) applies to **every** kind. Only the section "furniture" and the assessment type
+change. The math-specific guidance in `math-style.md` is loaded only for `stem` (and other
+quantitative) courses.
+
+### Assessment types by kind
+
+Not every domain has a single right answer. Match the assessment to the kind:
+
+- **Answer-key** (stem): exercises with elaborated worked solutions (§5).
+- **Rubric** (skill, some humanities): the learner self-scores against explicit criteria ("did you
+  do X, Y, Z?", 1–5) given in a `<details>` block — no single correct answer.
+- **Open / essay** (humanities): discussion and writing prompts judged against "what a strong
+  response does" criteria, acknowledging more than one defensible reading.
+- **Drill** (language): fill-in / transform / translate items with answers hidden in `<details>`,
+  plus spaced review of earlier material.
+
+Whatever the type, keep the evidence-based core: distributed attempt-before-reveal checks, and
+feedback that *explains* rather than just marking right/wrong.
+
+---
+
 ## 1. What a good module looks like
 
 A module teaches **one big idea** and is readable in a single sitting.

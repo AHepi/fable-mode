@@ -10,10 +10,12 @@ and the place the two voices meet — bold prose for explanation, precise formal
 - **L4** `runs/<run-id>/02_curriculum/output/curriculum.md` — the module specs and ordering.
 - **L4** `runs/<run-id>/01_research/output/research.md` — facts, examples, pitfalls (reference, not copy).
 - **L3** `_config/voice/literary-maverick.md` — governs **prose** (hooks, intuition, transitions, recaps).
-- **L3** `_config/math-style.md` — governs **formal** content and the KaTeX subset. Read its
-  prose/formal boundary: formal blocks are precise and are **never** run through the prose rewrite loop.
-- **L3** `_config/course-design.md` — the module section shape and exercise design.
-- **L3** `shared/templates/module.md` — the section skeleton each module follows.
+- **L3** `_config/math-style.md` — governs **formal** content and the KaTeX subset. Load this **only
+  for `stem`/quantitative `kind`**. Read its prose/formal boundary: formal blocks are precise and are
+  **never** run through the prose rewrite loop.
+- **L3** `_config/course-design.md` — pedagogy, the per-kind section shape (§0), and exercise design.
+- **L3** the module template for the course `kind` (§0): `shared/templates/module.md` (stem) or
+  `module.humanities.md` / `module.language.md` / `module.skill.md`.
 
 ## Process
 

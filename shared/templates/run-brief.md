@@ -3,6 +3,7 @@ runId: SLUG-DATE
 topic: TOPIC
 slug: SLUG
 assumedBackground: BACKGROUND
+kind: stem              # stem | humanities | language | skill | general (sets template + math rules)
 mode: autonomous        # autonomous | gated
 gates: [curriculum]     # gates that still block even in autonomous mode
 createdAt: DATE
