@@ -10,19 +10,24 @@ against the schema and the earlier stages' decisions.
 - **L4** `runs/<run-id>/02_curriculum/output/curriculum.md` — to cross-check the shipped course
   against the approved plan.
 - The shipped course at `site/src/content/courses/<slug>/`.
-- **L3** `_config/content-schema.md`, `_config/voice/math-style.md`.
+- **L3** `_config/content-schema.md`, `_config/math-style.md`.
 
 ## Process
 
-1. **Schema + math + invariants:** `node shared/scripts/validate-schema.mjs <slug>` (exits non-zero
+1. **Reference integrity:** `node shared/scripts/validate-references.mjs` — fail if any contract or
+   config file points at a repo file that doesn't exist (catches mis-pathed references).
+2. **Schema + math + invariants:** `node shared/scripts/validate-schema.mjs <slug>` (exits non-zero
    on any violation, including invalid KaTeX). Fix the offending module before continuing.
-2. **Cross-stage consistency:** every module in the approved `curriculum.md` exists and matches its
+3. **Cross-stage consistency:** every module in the approved `curriculum.md` exists and matches its
    spec (title, objectives, prereqs); nothing was added or dropped silently.
-3. **Voice boundary:** spot-check modules — prose shows literary-maverick qualities; formal blocks
+4. **Voice boundary:** spot-check modules — prose shows literary-maverick qualities; formal blocks
    (Definition/Theorem/Proof/Example) are precise and were not rewritten by the prose loop.
-4. **Base-path lint:** the shipped markdown must not contain hand-written absolute internal links
+5. **Pedagogy & governance:** modules carry distributed retrieval checks and elaborated worked
+   solutions (`course-design.md`); `_course.md` has provenance (`aiGenerated`, `generatedDate`,
+   `sources`, `reviewed`); the bias screen was run.
+6. **Base-path lint:** the shipped markdown must not contain hand-written absolute internal links
    (`](/...)` or `href="/..."`); links inside the site code go through `site/src/lib/url.ts`.
-5. **Build:** `bash shared/scripts/build-site.sh` — a clean Astro build re-validates the schema and
+7. **Build:** `bash shared/scripts/build-site.sh` — a clean Astro build re-validates the schema and
    renders all KaTeX. A green build is the ship signal.
 
 ## Outputs

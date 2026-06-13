@@ -24,21 +24,29 @@ A module teaches **one big idea** and is readable in a single sitting.
 ### Section shape
 
 Modules follow this arc. Not every section is mandatory in every module, but the order
-is fixed and the spine (intuition → definition → example → exercise) is.
+is fixed and the spine (intuition → definition → example → exercise) is. Questioning is
+**distributed through the body**, not saved for the end (see §1.5).
 
 1. **Hook** *(prose)* — a motivating opening: a concrete question, a puzzle, a picture,
    or a reason this idea earns the reader's attention. Governed by `literary-maverick`.
    Strong opening line. No throat-clearing, no "in this module we will."
 2. **Intuition** *(prose)* — the idea in plain words and images before any formalism.
    Beat the curse of knowledge: gloss jargon, prefer the concrete.
-3. **Formal definitions** *(formal — see `math-style.md`)* — the precise statement(s).
-   This is where the prose hands off to the formal standard. Definitions are not punched
-   up.
+3. **Formal definitions** *(formal — see `_config/math-style.md`)* — the precise
+   statement(s). This is where the prose hands off to the formal standard. Definitions
+   are not punched up.
 4. **Worked examples** *(formal setup, light prose narration)* — at least one fully
    worked example showing the method, not just the answer. Examples are where intuition
    and formalism meet.
-5. **Exercises** — a few problems for the reader to do (see §5).
-6. **Recap** *(prose)* — three to five sentences naming what was established and what it
+5. **Check yourself** *(formative retrieval)* — immediately after a concept is
+   introduced (after a definition or worked example, mid-module), a short prompt the
+   learner attempts **from memory** before being shown anything. The answer lives in a
+   collapsible `<details><summary>Show answer</summary> … </details>` block so the
+   reader commits to an attempt before the reveal. Distribute these through the body (see
+   §1.5); this is not a single section but a recurring beat.
+6. **Exercises** — a few problems for the reader to do, each with a worked solution (see
+   §5).
+7. **Recap** *(prose)* — three to five sentences naming what was established and what it
    sets up next. A bridge, not a summary dump.
 
 ### Learning objectives
@@ -49,6 +57,31 @@ is fixed and the spine (intuition → definition → example → exercise) is.
 - 2–5 objectives per module, each tied to something the module actually delivers.
 - These go in the module frontmatter `objectives:` array. Good: "Compute the derivative
   of a polynomial using the power rule." Bad: "Understand derivatives."
+
+---
+
+## 1.5. Retrieval practice and formative checks
+
+Learners remember what they **retrieve**, not what they re-read. Pulling an idea back
+from memory is one of the most robust learning effects there is (the testing effect:
+Roediger & Karpicke; Dunlosky rates practice testing top-tier), and the gain only lands
+if the learner **attempts before seeing the answer** (Black & Wiliam, formative
+assessment).
+
+- **Distribute, don't postpone.** Place **1–3 quick retrieval checks through the module
+  body** — a short "Check yourself" prompt right after a definition or worked example —
+  rather than saving all questioning for the end-of-module exercises. Spacing the
+  retrieval across the module beats clustering it.
+- **Attempt before reveal.** Each check is a question the reader answers from memory
+  *first*; the answer is hidden in a collapsible `<details><summary>Show
+  answer</summary> … </details>` block (native HTML, works in static Markdown, no
+  JavaScript, keyboard-accessible). The collapse is the mechanism: it forces a commitment
+  before the reveal.
+- **Difficulty is the point.** Frame struggle as expected and productive — a check that
+  takes effort is doing its job (desirable difficulties: Bjork). Do not apologize for a
+  hard question or hand the answer over early.
+- The **end-of-module Exercises** remain in addition to these mid-module checks; they now
+  ship with full worked solutions (see §5).
 
 ---
 
@@ -148,8 +181,19 @@ never assume it.
     connect to an earlier module.
   - Optionally one **stretch** problem, clearly marked, that reaches a little past the
     module.
-- **Brief answer hints.** Give each exercise a short hint or a final answer (not a full
-  solution) so a solo reader can check themselves and get unstuck. Keep hints terse.
+- **Worked solutions, not just answers.** Every exercise ships with a **worked solution
+  that explains the *reasoning*** — the method and *why* it works, not merely the final
+  answer. Elaborated feedback beats knowledge-of-result by a wide margin (Hattie &
+  Timperley 2007; Shute 2008); a bare answer tells the reader *whether* they were right
+  but not *how to think*.
+  - **Target the misconception.** For any multiple-choice item or a problem prone to a
+    common mistake, the solution must name *why the tempting wrong answer is wrong* —
+    drawing on the "common pitfalls" gathered in research. Diagnose the error, don't just
+    correct it.
+  - **Keep solutions collapsible** so they don't spoil the attempt. Wrap each in a native
+    HTML `<details><summary>Show solution</summary> … </details>` block (works in static
+    Markdown, no JavaScript, keyboard-accessible). The reader attempts first, then
+    reveals.
 - Match exercise rigor to `level`: a `highschool` exercise asks for a computation or a
   reasoned explanation, not a formal proof; an `undergrad`/`grad` exercise may ask for a
   proof.
@@ -169,10 +213,15 @@ Apply at the curriculum stage and again at authoring.
       (highschool = algebra + functions + basic geometry/trig, NOT calculus, NOT
       set-theoretic rigor, NOT proof experience).
 - [ ] Every module has a hook (prose) → intuition (prose) → formal definitions →
-      worked example(s) → exercises → recap.
+      worked example(s) → check-yourself prompts → exercises → recap.
+- [ ] Distributed retrieval checks present (1–3 "Check yourself" prompts through the
+      module body, attempt-before-reveal in `<details>` blocks), not all questioning at
+      the end.
 - [ ] Objectives are written as observable verbs and reflect what the module delivers.
 - [ ] Each module length is sane (~1,000–2,500 words; `estimatedMinutes` honest).
-- [ ] Each module has 3–6 exercises spanning mechanical → conceptual, with hints.
+- [ ] Each module has 3–6 exercises spanning mechanical → conceptual.
+- [ ] Every exercise has an elaborated worked solution (reasoning, not just the answer;
+      misconception-targeted where relevant) in a collapsible `<details>` block.
 - [ ] Earlier ideas spiral back, used more fluently, in later modules.
 - [ ] Frontmatter (`title`, `course`, `order`, `summary`, `estimatedMinutes`,
       `objectives`, `prerequisites`) is complete and `order` matches the course's

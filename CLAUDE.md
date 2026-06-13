@@ -63,7 +63,7 @@ Full routing and the autonomous-vs-gated rules are in `CONTEXT.md`.
   `site/src/content.config.ts` (documented in `_config/content-schema.md`). When in doubt, run
   `node shared/scripts/validate-schema.mjs <slug>`.
 - **Prose vs. formal math.** literary-maverick styles the *prose*; it must never rewrite a
-  definition, theorem, or proof. See `_config/voice/math-style.md`.
+  definition, theorem, or proof. See `_config/math-style.md`.
 - **GitHub Pages base path.** The site deploys under `/fable-mode/`. Internal links in the site code
   must use the `url()` helper (`site/src/lib/url.ts`), never bare absolute paths.
 - The Astro app lives entirely under `site/`. Run npm commands from there.

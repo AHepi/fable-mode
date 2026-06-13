@@ -7,6 +7,13 @@ prerequisites:
 tags: [tag-one, tag-two]
 estimatedHours: 12
 schemaVersion: 1
+aiGenerated: true
+model: Fable Academy pipeline
+generatedDate: "YYYY-MM-DD"
+reviewed: false
+sources:
+  - title: Source title
+    url: https://example.com
 moduleOrder:
   - 01-first-module
   - 02-second-module

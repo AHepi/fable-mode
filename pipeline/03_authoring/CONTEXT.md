@@ -10,7 +10,7 @@ and the place the two voices meet — bold prose for explanation, precise formal
 - **L4** `runs/<run-id>/02_curriculum/output/curriculum.md` — the module specs and ordering.
 - **L4** `runs/<run-id>/01_research/output/research.md` — facts, examples, pitfalls (reference, not copy).
 - **L3** `_config/voice/literary-maverick.md` — governs **prose** (hooks, intuition, transitions, recaps).
-- **L3** `_config/voice/math-style.md` — governs **formal** content and the KaTeX subset. Read its
+- **L3** `_config/math-style.md` — governs **formal** content and the KaTeX subset. Read its
   prose/formal boundary: formal blocks are precise and are **never** run through the prose rewrite loop.
 - **L3** `_config/course-design.md` — the module section shape and exercise design.
 - **L3** `shared/templates/module.md` — the section skeleton each module follows.
@@ -26,6 +26,13 @@ and the place the two voices meet — bold prose for explanation, precise formal
    the remaining modules in parallel. (This is the cheap "sample" gate.)
 4. Each module file carries correct frontmatter: `title`, `course` (= slug), `order`, `summary`,
    `estimatedMinutes`, `objectives`, `prerequisites`. Filenames are `NN-<slug>.md` with `NN` = order.
+5. **Pedagogy (per `course-design.md`):** distribute 1–3 "Check yourself" retrieval prompts through
+   each module (attempt-before-reveal, answer hidden in a `<details>` block), and give every exercise
+   an elaborated worked solution — explain the reasoning, and for mistake-prone items say why the
+   tempting wrong answer is wrong (use the research stage's "common pitfalls").
+6. **Bias screen:** before finishing, review each module's names, examples, and scenarios for
+   demographic/cultural stereotyping and representational balance; revise anything skewed. (Generated
+   content reproduces training-data stereotypes; this screen is a required pass, not optional.)
 
 ## Outputs
 
@@ -39,6 +46,9 @@ and the place the two voices meet — bold prose for explanation, precise formal
 - All math is valid KaTeX within the supported subset (`math-style.md`) — a bad equation breaks the
   build later, so catch it now.
 - Frontmatter is complete and `order`/filename/`course` are consistent with the curriculum.
+- Each module has distributed retrieval checks (attempt-before-reveal) and every exercise has an
+  elaborated worked solution, not a bare answer.
+- The bias screen was run: names/examples/scenarios are checked for stereotyping and balance.
 
 ## Gate
 

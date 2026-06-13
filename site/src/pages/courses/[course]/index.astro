@@ -73,4 +73,27 @@ const { Content } = await render(course);
       })
     }
   </ol>
+
+  <section class="provenance">
+    <h2>About this course</h2>
+    <p>
+      {
+        data.aiGenerated
+          ? `This course was drafted by the Fable Academy production pipeline${data.generatedDate ? ` on ${data.generatedDate}` : ''}. ${data.reviewed ? 'It has been reviewed by a human subject-matter expert.' : 'It has not yet had a human subject-matter-expert review — treat it as a careful draft and verify anything you rely on.'}`
+          : 'This course was written by a human author.'
+      }
+    </p>
+    {
+      data.sources.length > 0 && (
+        <>
+          <h3>Sources</h3>
+          <ul>
+            {data.sources.map((s) => (
+              <li>{s.url ? <a href={s.url}>{s.title}</a> : s.title}</li>
+            ))}
+          </ul>
+        </>
+      )
+    }
+  </section>
 </Base>

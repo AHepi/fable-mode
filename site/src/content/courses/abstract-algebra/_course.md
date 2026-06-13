@@ -9,6 +9,14 @@ prerequisites:
 tags: [algebra, group-theory, pure-math, symmetry]
 estimatedHours: 5
 schemaVersion: 1
+aiGenerated: true
+model: Fable Academy pipeline
+generatedDate: "2026-06-13"
+reviewed: false
+sources:
+  - title: "Pinter, A Book of Abstract Algebra (2nd ed.)"
+  - title: "Fraleigh, A First Course in Abstract Algebra"
+  - title: "Gallian, Contemporary Abstract Algebra"
 moduleOrder:
   - 01-the-secret-life-of-symmetry
   - 02-clock-arithmetic

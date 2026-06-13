@@ -20,7 +20,10 @@ Most of this stage is scripts, not judgement:
    `site/src/content/courses/<slug>/` and seed `_course.md` from the template if absent.
 2. Write the real `_course.md`: fill the metadata from `curriculum.md` (title, description, level,
    prerequisites, tags, estimatedHours, `schemaVersion: 1`) and write the course-intro prose in the
-   body (literary-maverick). Stage it at `runs/<run-id>/04_assembly/output/_course.md`.
+   body (literary-maverick). Also fill the **provenance** fields: `aiGenerated: true`,
+   `model: Fable Academy pipeline`, `generatedDate` (today, ISO), `reviewed: false`, and `sources`
+   (real, resolvable references drawn from `runs/<run-id>/01_research/output/research.md` — no
+   fabricated citations). Stage it at `runs/<run-id>/04_assembly/output/_course.md`.
 3. `node shared/scripts/copy-artifacts.mjs <run-id> <slug>` — copy the authored module files and the
    staged `_course.md` into `site/src/content/courses/<slug>/`.
 4. `node shared/scripts/build-course-json.mjs <slug>` — derive `moduleOrder` from the module files'

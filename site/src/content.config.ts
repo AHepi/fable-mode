@@ -23,6 +23,15 @@ const courses = defineCollection({
     // Authoritative module ordering: filenames without the .md extension.
     moduleOrder: z.array(z.string()).min(1),
     schemaVersion: z.literal(SCHEMA_VERSION).default(SCHEMA_VERSION),
+    // Provenance & governance (2024–26 AI-content standards: disclosure, sources,
+    // SME sign-off). Optional with defaults so older courses keep validating.
+    aiGenerated: z.boolean().default(true),
+    model: z.string().optional(),
+    generatedDate: z.string().optional(), // ISO date the pipeline produced it
+    reviewed: z.boolean().default(false), // true once a human SME signs off
+    sources: z
+      .array(z.object({ title: z.string(), url: z.string().optional() }))
+      .default([]),
   }),
 });
 

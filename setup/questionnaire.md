@@ -16,7 +16,7 @@ You do not need to re-answer them per course.
 - Keep the literary-maverick voice as-is, or adjust register (more formal? more playful?)?
 - Any audience-specific constraints (reading level, length caps per module)?
 
-## 3. Mathematical / formal style → `_config/voice/math-style.md`
+## 3. Mathematical / formal style → `_config/math-style.md`
 
 - Notation conventions you want enforced?
 - Proof rigor expectations by level?

@@ -33,9 +33,18 @@ site/src/content/courses/<slug>/
 | `estimatedHours` | number > 0 | Whole-course estimate |
 | `moduleOrder` | string[] | **Authoritative ordering**: module ids (filenames w/o `.md`), in order. ≥ 1 entry |
 | `schemaVersion` | literal `1` | Must equal the version the site expects |
+| `aiGenerated` | boolean | Whether the course was AI-drafted. Default `true`. Rendered as a disclosure. |
+| `model` | string? | Optional label of the producing system (e.g. `Fable Academy pipeline`). |
+| `generatedDate` | string? | ISO date the pipeline produced the course. |
+| `reviewed` | boolean | `true` once a human subject-matter expert has signed off. Default `false`. |
+| `sources` | `{title, url?}[]` | Bibliography of real, resolvable references. May be empty. |
 
 The **body** of `_course.md` (below the frontmatter) is the course introduction. It renders on the
 landing page and is prose — apply literary-maverick here.
+
+The provenance fields (`aiGenerated`, `model`, `generatedDate`, `reviewed`, `sources`) implement
+2024–26 AI-content norms — disclosure, traceable sources, and an explicit SME-review flag. They are
+optional with safe defaults so older courses keep validating; the assembly stage should populate them.
 
 ## Module `NN-<slug>.md` frontmatter
 
@@ -49,8 +58,8 @@ landing page and is prose — apply literary-maverick here.
 | `objectives` | string[] | Observable "you'll be able to…" outcomes; may be empty |
 | `prerequisites` | string[] | Module-level prereqs (e.g. earlier module ids or concepts); may be empty |
 
-The body is the module content: a mix of **prose** (governed by `voice/literary-maverick.md`) and
-**formal math** (governed by `voice/math-style.md`). See `course-design.md` for the section shape.
+The body is the module content: a mix of **prose** (governed by `_config/voice/literary-maverick.md`)
+and **formal math** (governed by `_config/math-style.md`). See `course-design.md` for the section shape.
 
 ## Frontmatter must be valid YAML
 

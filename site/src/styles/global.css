@@ -117,5 +117,30 @@ ol.modules .mtime { margin-left: auto; color: var(--muted); font-size: 0.8rem; w
 .pager a { max-width: 48%; }
 .pager .dir { display: block; color: var(--muted); font-size: 0.78rem; }
 
+.provenance {
+  margin-top: 3rem;
+  padding: 1rem 1.2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.provenance h2 { font-size: 1.05rem; margin: 0 0 0.5rem; color: var(--text); }
+.provenance h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.03em; margin: 0.9rem 0 0.3rem; color: var(--text); }
+.provenance ul { margin: 0; padding-left: 1.1rem; }
+
+/* Collapsible answers/solutions (attempt-before-reveal). Native <details>, no JS. */
+.prose details {
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 0.6rem 1rem;
+  margin: 1rem 0;
+  background: var(--surface);
+}
+.prose details summary { cursor: pointer; font-weight: 600; color: var(--accent); }
+.prose details[open] summary { margin-bottom: 0.5rem; }
+
 .footer { color: var(--muted); font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 4rem; }
 .footer .wrap { padding: 1.5rem 1.25rem; }
