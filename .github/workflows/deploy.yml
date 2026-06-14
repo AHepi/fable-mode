@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, claude/ultracode-effort-6q9pqq]
   workflow_dispatch:
 
 permissions:
@@ -23,6 +23,8 @@ jobs:
         working-directory: site
     steps:
       - uses: actions/checkout@v4
+      # Configures the Pages site to deploy from this workflow (not branch/Jekyll).
+      - uses: actions/configure-pages@v5
       - uses: actions/setup-node@v4
         with:
           node-version: 22
