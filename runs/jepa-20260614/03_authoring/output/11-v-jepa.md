@@ -129,5 +129,3 @@ The point of the hole is to make the model lean on how things change. Masking th
 ## Recap
 
 V-JEPA is I-JEPA with a clock. The three roles, the slow-moving answer key, the latent-space comparison, the absence of any pixel decoder — all of it carries over from the image case unchanged; the one new ingredient is **time**, baked into spacetime patches and into holes that span several frames at once. That small change buys something large. A still image can say what the world *is*; only video can show how it *behaves* — things persisting, falling, slipping out of sight and coming back — and a model forced to predict the gist of missing moments has no choice but to drink in those regularities. That hard-won sense of how the world tends to change is the seed of a **world model**, and it's the bridge into the last leg of the course: what such a model might let a machine anticipate, how the whole approach stacks up against the chatbots you started out comparing it to, and where the honest edges of this bet still lie.
-</content>
-</invoke>

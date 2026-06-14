@@ -1,5 +1,5 @@
 ---
-title: I-JEPA: Doing It on Images
+title: "I-JEPA: Doing It on Images"
 course: jepa
 order: 10
 summary: The image instance end to end — hide several target blocks, encode a visible context block, and predict the hidden blocks' representations — with no pixel decoder and no hand-crafted data augmentations.

@@ -9,8 +9,8 @@ objectives:
   - Explain "error" as a distance between a prediction and the desired answer.
   - State that the adjustment machinery can itself be treated as a black box here, with no equations needed.
 prerequisites:
-  - 02
-  - 03
+  - 02-the-black-box
+  - 03-representation-space
 ---
 
 Hide a coin in one hand behind your back and ask a small child to guess which. She points.
