@@ -27,6 +27,11 @@ the finished product back against the schema, the canon, and the earlier stages'
    another.
 5. **Voice boundary & coherence:** prose shows literary-maverick qualities and one consistent voice;
    formal blocks (Definition/Theorem/Proof/Example) are precise and were not rewritten by the loop.
+5a. **Metaphor & bridge (by reading, not by lint):** confirm each module's central metaphor points at
+   one correct referent with no misleading association (e.g. no "slots and a crank" reading as a slot
+   machine — randomness) and is paid off rather than announced and dropped; and confirm every formal
+   definition is reached by an intuition→definition bridge that decodes its notation piece by piece —
+   none arrives as a cliff. The prose linter (step 3) does **not** cover this; it must be read.
 6. **Pedagogy & governance:** modules carry distributed retrieval checks and elaborated worked
    solutions; `_course.md` has provenance (`aiGenerated`, `generatedDate`, `sources`, `reviewed`);
    the bias screen was run.

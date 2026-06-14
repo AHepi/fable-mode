@@ -15,7 +15,7 @@ Hand someone a group of size $12$ and ask which subgroups it could possibly hold
 
 You don't. A subgroup of size $5$ inside a group of size $12$ is impossible, and you can know that before you've drawn a single Cayley table. The reason is almost embarrassingly simple: $5$ does not divide $12$. That one observation — a fact about division you've owned since grade school — turns out to police every subgroup of every finite group there is. This module is about why counting gets the last word.
 
-Picture a chocolate bar. The whole bar is your group $G$; one square of it is a subgroup $H$ sitting inside. The claim — this is the whole trick — is that $H$ snaps $G$ into slices, and **every slice is exactly the size of $H$.**
+Picture a chocolate bar scored into equal slices. The whole bar is your group $G$; one slice of it is a subgroup $H$ sitting inside. The claim — this is the whole trick — is that $H$ snaps the rest of $G$ into more slices just like it, and **every slice is exactly the size of $H$.**
 
 If each piece is the size of $H$, then the size of the whole bar is just *the size of one piece times the number of pieces*: a whole-number multiple of the size of $H$. Said the other way around, the size of $H$ divides the size of $G$, with nothing left over.
 

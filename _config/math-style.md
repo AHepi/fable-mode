@@ -41,6 +41,17 @@ How to apply the boundary in practice:
 - When in doubt about whether a sentence is prose or formal: if changing a word could
   change a truth value, it is formal. Hands off.
 
+> **The one sanctioned crossing: the bridge.** The boundary forbids prose from *rewriting*
+> a definition; it does **not** license prose to *abandon* the reader at the definition's
+> door. Between an intuition and the formal statement it motivates there must be an explicit
+> connective passage — the **bridge** — that decodes the notation back into the intuition,
+> mapping **each piece** of the formalism onto the picture that motivated it. For a binary
+> operation: "the two inputs are the ordered pair $(a,b)$; '$S \times S$' means pick one
+> element of $S$, then another; and the result $a * b$ must land back in $S$." This is prose
+> reaching deliberately across the boundary — and it is the *only* place it may. The bridge
+> reads the definition; it never changes it (every symbol and condition stays exactly as the
+> formal block states them). A definition that arrives with no bridge is a defect — a cliff.
+
 ---
 
 ## 2. Notation conventions

@@ -38,7 +38,14 @@ and the place the two voices meet — bold prose for explanation, precise formal
    each module (attempt-before-reveal, answer hidden in a `<details>` block), and give every exercise
    an elaborated worked solution — explain the reasoning, and for mistake-prone items say why the
    tempting wrong answer is wrong (use the research stage's "common pitfalls").
-6. **Bias screen:** before finishing, review each module's names, examples, and scenarios for
+6. **Metaphor & bridge (per `course-design.md`):** vet the module's motivating metaphor — it must
+   point at exactly **one** correct referent with no misleading association (e.g. "slots and a crank"
+   wrongly evokes a slot machine — randomness), be **paid off** (developed/reused, not announced then
+   dropped), and be cashed into the formal content; if it can't, use a clean concrete shape or no
+   image. Then **build the intuition→definition bridge**: decode the formal notation back into the
+   intuition, mapping each piece (inputs, the set, the result) onto the picture. A definition with no
+   bridge — a cliff into notation — is a defect.
+7. **Bias screen:** before finishing, review each module's names, examples, and scenarios for
    demographic/cultural stereotyping and representational balance; revise anything skewed. (Generated
    content reproduces training-data stereotypes; this screen is a required pass, not optional.)
 
@@ -56,6 +63,10 @@ and the place the two voices meet — bold prose for explanation, precise formal
 - Frontmatter is complete and `order`/filename/`course` are consistent with the curriculum.
 - Each module has distributed retrieval checks (attempt-before-reveal) and every exercise has an
   elaborated worked solution, not a bare answer.
+- The motivating metaphor points at one correct referent (no misleading association), is paid off
+  (developed/reused, not dropped), and is cashed into the formal content — or there is no metaphor.
+- Every formal definition is reached by an intuition→definition bridge that decodes the notation,
+  mapping each piece onto the intuition; no definition arrives as a cliff.
 - The bias screen was run: names/examples/scenarios are checked for stereotyping and balance.
 
 ## Gate

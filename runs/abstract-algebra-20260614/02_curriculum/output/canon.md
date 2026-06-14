@@ -162,11 +162,19 @@ delete the re-derivation, insert the suggested one-liner.
 Each running image belongs to **one** module as a set-piece. Other modules may *reference* it
 ("the clock from module 02") but must not re-introduce or re-explain it as if new.
 
+**Ownership is not endorsement.** A metaphor earns a place here only if it (1) points at exactly
+**one correct** real-world referent and carries no misleading association (a "machine with slots and
+a crank" evokes a *slot machine* — randomness, gambling — the opposite of a deterministic operation);
+(2) is **paid off**, not announced-as-central and then dropped; and (3) can be **cashed into the
+formal definition** — the prose must map each piece of the image onto the notation it motivates.
+An image that fails any of these is **cut, not assigned** — and sometimes the right call is no
+metaphor at all, just a clean concrete "shape" the definition reads straight off.
+
 | Metaphor / image | OWNER | May be referenced by | Current offenders |
 |---|---|---|---|
 | **Square: quarter-turn / flip "kept its secret"** | **01** | 11 (closing callback) | OK. 11's recap callback to the square is intentional and good — it bookends the course. |
 | **Clock face / hours wrapping / "the hand sweeps past 12"** | **02** | 03, 04, 05, 07, 08, 09, 11 | Mild: several modules re-narrate "the hand wraps around." Reduce to "on the clock (module 02), …". The full hand-sweep story stays in 02 only. |
-| **Two-slot machine / crank / "feed two inputs, one drops out"** | **03** | 10 (reuses "machine" for groups-as-machines) | **Tension:** 10 builds its own "machine" metaphor ("think of a group as a machine… the wiring, not the labels"). This is a *different* machine image (whole-group-as-machine vs. operation-as-two-slot-machine). **Decision:** 03 owns "two-slot operation machine"; 10 owns "group-as-machine / wiring vs. labels." Keep both but have 10 nod to 03 ("not the two-slot machine of module 03 — now the *whole group* is the machine"). |
+| **The *shape* of an operation: "two in, one of the same kind out"** | **03** | — | **No slot/crank/contraption image.** 03 motivates a binary operation as a plain shape — two from $S$ in, one from $S$ out — and reads the notation $* : S \times S \to S$ straight off it (the bridge *is* the motivation). The earlier "two-slot machine with a crank" is **removed**: it evoked a slot machine (randomness/gambling — the wrong referent), was billed as "the star of this module," and then abandoned. Module 10's separate "group-as-machine" image must not reference it. |
 | **Key & lock / "once you know the shape of a key you see locks everywhere"** | **05** | — | OK, unique to 05. |
 | **Cardboard/paper triangle in a triangular hole; "seats" for corners** | **06** | 07, 08 (rotations callback) | 07 and 08 re-describe the triangle's rotations. **Fix:** cite "$D_3$ from module 06" and the seat-tracking convention rather than re-explaining what a rotation does. |
 | **Rooms inside a house / floor plan (subgroups)** | **07** | — | OK, unique to 07. |

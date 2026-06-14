@@ -13,18 +13,18 @@ prerequisites: [01-the-secret-life-of-symmetry, 02-clock-arithmetic]
 
 You have spent your whole life adding. Two numbers go in, one comes out, and you never once asked how the adding works. On the clock you saw the same move with a twist, the numbers wrapping around: $9 + 5$ landed on $2$ instead of $14$.
 
-Both are the same kind of thing: feed it two inputs, get one back. That thing has a name and exactly four properties worth caring about. Pin them down here, and the next module's definition of a group is just those four, assembled.
+Both are the same kind of thing, and that kind has a shape: take **two** things from some collection, combine them, and get back **one** thing — and the thing you get back belongs to the same collection. Addition has this shape. So does clock arithmetic, which takes two hours from $\{0, 1, \dots, 11\}$ and hands back another hour. So do "multiply two numbers" and "keep the larger of the two." This module is about the shape itself, not the numbers that happen to wear it.
 
-Forget numbers for a second and picture a machine with two slots. Feed something into the left slot and something into the right, turn the crank, and a single result drops out. Ordinary addition is one such machine: put in $3$ and $4$ and it returns $7$. Clock addition is another: feed it $9$ and $5$ on a $12$-hour face and you get $2$.
+The shape has a name — a **binary operation** — and a one-line piece of notation we will read together: $* : S \times S \to S$. Don't let the symbols put you off; each part is just a piece of "two things in, one of the same kind out," and the definition below translates them straight back into that.
 
-The machine is the star of this module, not the numbers it happens to eat. Mathematicians call it an **operation**, and they care about four questions you can ask of any such machine:
+First, the four questions worth asking of any operation — the same four the next module bolts together into the definition of a group:
 
-- **Does the result stay in the set?** Feed it two clock numbers; does the answer come back as a clock number, or escape the set entirely?
-- **Does grouping matter?** If you combine three things, does it matter which two you crank first?
+- **Does the result stay in the collection?** Combine two hours on the clock; does the answer come back as an hour, or escape to something that is not an hour at all?
+- **Does grouping matter?** If you combine three things, does it matter which two you combine first?
 - **Is there a do-nothing element?** A special element that, combined with any other, leaves the other unchanged.
-- **Can every move be undone?** For each thing, is there a partner that cancels it and brings you back to where you started?
+- **Can every move be undone?** For each element, is there a partner that combines with it to bring you back to the do-nothing element?
 
-Those four questions are closure, associativity, identity, and inverse. We'll make each one precise, and check it against the two machines you already trust: $+$ on ordinary numbers, and $+$ on the clock.
+Those four are closure, associativity, identity, and inverse. We will make each one precise and test it against the two operations you already trust: $+$ on ordinary numbers, and $+$ on the clock.
 
 ## Definition (Binary operation)
 
@@ -36,7 +36,7 @@ $$
 
 that assigns to every ordered pair $(a, b)$ of elements of $S$ a single element of $S$, written $a * b$.
 
-Two requirements are packed into that one line. First, the domain is $S \times S$: *every* pair of inputs must get an answer — the machine never jams. Second, the codomain is $S$ itself: the answer always lands back inside $S$. Ordinary addition is the binary operation $+ : \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}$. Clock addition is a binary operation on $\mathbb{Z}_{12} = \{0, 1, 2, \dots, 11\}$, the set of hours on the face.
+Read that line back into the shape. The domain $S \times S$ is *the two things you take in* — every ordered pair $(a, b)$ of elements of $S$, and *every* such pair must get an answer. The codomain $S$ is *the one thing of the same kind that comes out* — the result always lands back inside $S$. So $* : S \times S \to S$ says exactly "two from $S$ in, one from $S$ out," made precise. Ordinary addition is this line with $S = \mathbb{Z}$ and $*$ being $+$; clock addition is it with $S = \mathbb{Z}_{12} = \{0, 1, 2, \dots, 11\}$, the hours on the face.
 
 ## Check yourself
 
@@ -198,4 +198,4 @@ This little operation has all four properties at once: the complete checklist, i
 
 ## Recap
 
-An operation is a two-slot machine: a function $* : S \times S \to S$. That definition already guarantees closure — the result lands back in $S$. The other three properties are not free: an operation may or may not be associative, may or may not have an identity, may or may not give every element an inverse. Ordinary addition and clock addition have all three; subtraction loses associativity, and whole-number multiplication loses inverses, and those failures are the instructive part. Demand all four at once — closure, associativity, identity, inverse — and you have the central object of this course: a group.
+An operation is the shape we started with — two from $S$ in, one from $S$ out — written $* : S \times S \to S$. That definition already guarantees closure: the result lands back in $S$. The other three properties are not free: an operation may or may not be associative, may or may not have an identity, may or may not give every element an inverse. Ordinary addition and clock addition have all three; subtraction loses associativity, and whole-number multiplication loses inverses, and those failures are the instructive part. Demand all four at once — closure, associativity, identity, inverse — and you have the central object of this course: a group.

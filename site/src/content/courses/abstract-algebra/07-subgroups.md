@@ -13,7 +13,7 @@ prerequisites: [04-what-is-a-group, 06-symmetries-of-a-triangle]
 
 Set a clock to even hours only — 0, 2, 4, 6, 8, 10 — and add as usual. Two evens make an even; you never once land on an odd number. The little world of even hours sits *inside* the full twelve-hour clock, closed up and self-contained, running its own arithmetic without ever needing the odd numbers at all.
 
-A group can shelter smaller groups inside itself, complete and self-sufficient, like a room inside a house. Find those rooms and you start to see the floor plan — the hidden structure that makes one group different from another. We have a name for such a room: a **subgroup**.
+That little world of even hours is the whole idea in miniature: a group can shelter smaller groups inside itself, each one complete and self-sufficient, running the same operation on fewer elements. Finding them is how you read a group's hidden structure — the thing that makes one group different from another. We have a name for such an inner group: a **subgroup**.
 
 You already met $\mathbb{Z}_6$ — the integers $\{0,1,2,3,4,5\}$ added mod $6$ — and you met $D_3$, the six symmetries of an equilateral triangle. Each is a group: it has an identity, every element has an inverse, and combining two elements always lands you back inside the set.
 

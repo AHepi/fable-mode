@@ -41,7 +41,14 @@ canon's symbol registry requires it, and then identically everywhere.
    dry modules warmer and the over-lyrical ones back, consistently.
 7. **Fix page-local flow** as you go: logical contradictions in the prose framing, buried subjects,
    weak transitions, mumbled endings, hedges, em-dash monotony.
-8. Write the edited modules to `runs/<run-id>/04_editorial/output/NN-<slug>.md` — same filenames as
+8. **Metaphor & bridge audit.** Read each module's central image and its definition-seam. Kill or
+   rebuild any metaphor that points at the wrong referent (e.g. "slots and a crank" evoking a slot
+   machine — randomness) or that was announced as central and then abandoned; prefer a clean concrete
+   shape or no image to a broken one. Then confirm every formal definition is reached by an
+   intuition→definition bridge that decodes the notation piece by piece — add the bridge where a
+   definition arrives as a cliff. This is a **semantic** judgement (a careful human/LLM read), not
+   something the mechanical prose lint can catch; it is precisely why this pass exists.
+9. Write the edited modules to `runs/<run-id>/04_editorial/output/NN-<slug>.md` — same filenames as
    stage 03. (Assembly reads these, falling back to the authoring output if this stage was skipped.)
 
 Delegation: you may fan out per-module edits, but only **after** the canon's decisions are fixed, and
@@ -60,6 +67,10 @@ every sub-agent must edit against the same canon so the result stays consistent.
 - Names and symbols are consistent across all modules (the canon registry holds).
 - No fact owned by one module is fully re-derived in another; later uses are callbacks.
 - The course reads in one voice; hooks and recaps are not template-stamped.
+- **Metaphor & bridge audit done (semantic, not lint):** every central image points true and is paid
+  off (the broken/abandoned ones were killed or rebuilt), and every formal definition is reached by a
+  bridge that decodes its notation — no definition lands as a cliff. The mechanical prose lint does
+  not catch this; it was checked by reading.
 - **Math is untouched:** every Definition/Theorem/Proof/Example and equation is identical to stage 03
   except for canon-required symbol unification applied identically everywhere.
 

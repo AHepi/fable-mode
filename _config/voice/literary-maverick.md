@@ -226,6 +226,16 @@ Before calling a single page (a module, an essay, a post) done, read it start to
 - **A strong opening *and* a strong close.** The loop guards opening lines; it must guard closings too. End the whole piece on a strong, stressed word — not an administrative mumble ("…in the next section") and not a deflating "is just a."
 - **Don't expose the scaffolding.** Section labels that name the *device* ("The hook", "Intuition") belong in the outline, not as visible headings; classic style shows the thing, it doesn't announce the move.
 
+#### Metaphors must point true, pay off, and bridge
+
+An image is a loan against the reader's trust, and a bad one costs more than it buys. Before you let a metaphor carry an idea, hold it to three tests — and if it can't clear all three, cut it. A clean concrete *shape* the definition can be read straight off beats a vivid image that misleads.
+
+- **Point true.** The picture must aim at exactly **one** correct real-world referent and drag no wrong association in behind it. "A machine with slots and a crank" sounds harmless until you hear the slot machine in it — gambling, chance, randomness — the exact opposite of the deterministic operation you meant to show. The reader's first instinct is the one that sticks; if the nearest association is the wrong one, the image has already lied. One referent, and the right one, or none.
+- **Pay it off.** A metaphor announced as central and then dropped is a debt left unpaid — the reader keeps waiting for the crank to turn again and it never does. If you raise an image, develop it and reuse it; don't strand it after one sentence.
+- **Cash it in.** Every piece of the image must map onto the thing it motivates. If the machine has two slots, say what the two slots *are*; if it has a crank, say what turning the crank *does*. An image that isn't spent on the formal content is decoration, and decoration in a lesson is noise.
+
+When no image survives all three, write none. A plain, exact shape — "two things go in, one comes out, and what comes out is fixed by what went in" — is not a failure of nerve; it's the honest version of what the broken metaphor was pretending to do. And wherever an intuition hands off to a formal definition, owe the reader the connective passage that maps the picture onto the notation, piece by piece — never set an image down beside a definition and trust them to find each other. (That handoff is the *bridge*; `_config/math-style.md` makes it a rule.)
+
 ### The whole course
 
 When many pieces share one reader and one subject, they must read as one book, not as a stack of strangers. Before a course ships, hold the whole set to these:
