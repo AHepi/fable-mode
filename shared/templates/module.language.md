@@ -46,9 +46,11 @@ the weight. Name the exception if there is a common one.
 
 ## Pronunciation notes
 <!--
-Text guidance on sounds, stress, liaison. If an audio file exists for this module, link it
-here — e.g. an <audio controls src="..."></audio> element, or ![](path/to/clip) where the
-media pipeline provides one. Describe the sound in words too, so the note stands without audio.
+Text guidance on sounds, stress, liaison. For audio, put the file in site/public/media/ and embed
+it with a root-relative path (the build adds the base automatically):
+<audio controls src="/media/your-clip.mp3"></audio>. Do NOT use image syntax ![]() for audio, and
+do NOT hand-write the /fable-mode/ base. Describe the sound in words too, so the note stands without
+audio.
 -->
 
 ## Practice drills

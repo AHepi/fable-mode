@@ -59,8 +59,10 @@ optional with safe defaults so older courses keep validating; the assembly stage
 | `objectives` | string[] | Observable "you'll be able to…" outcomes; may be empty |
 | `prerequisites` | string[] | Module-level prereqs (e.g. earlier module ids or concepts); may be empty |
 
-The body is the module content: a mix of **prose** (governed by `_config/voice/literary-maverick.md`)
-and **formal math** (governed by `_config/math-style.md`). See `course-design.md` for the section shape.
+The body is the module content. For `stem` courses it is a mix of **prose** (governed by
+`_config/voice/literary-maverick.md`) and **formal math** (governed by `_config/math-style.md`). For
+non-`stem` kinds there are no formal-math blocks; the body follows that kind's template
+(see `course-design.md §0`), and dollar signs are treated as literal text, not math.
 
 ## Media & assets
 
@@ -70,9 +72,11 @@ and **formal math** (governed by `_config/math-style.md`). See `course-design.md
   absolute `/fable-mode/...` image path.
 - **Every image must have non-empty alt text** that conveys its information (WCAG 1.1.1). The verify
   stage fails on an empty `![]( )`. SVG diagrams should also carry a `<title>`/`aria-label`.
-- **Audio/video** files go in `site/public/media/` and are referenced with the base path via the
-  site's `url()` helper in a component, or an inline `<audio controls>` / `<video controls>` element.
-  Keep media out of `runs/`; only finished assets belong in the site.
+- **Audio/video** files go in `site/public/media/` and are referenced with a **root-relative**
+  `/media/...` path — the build prefixes the GitHub Pages base automatically (a rehype step), so do
+  not hand-write `/fable-mode/...`. Use an inline `<audio controls src="/media/clip.mp3">` or
+  `<video controls src="/media/clip.mp4">` element. Keep media out of `runs/`; only finished assets
+  belong in the site.
 
 ## Frontmatter must be valid YAML
 
@@ -95,7 +99,9 @@ title: "Counting Tells the Truth: Lagrange's Theorem"
 3. Each module's `order` equals its 1-based index in `moduleOrder`, and the filename prefix `NN`
    matches `order` (zero-padded to 2 digits).
 4. `schemaVersion` equals `1`.
-5. Every `$…$` / `$$…$$` block is valid KaTeX (a bad equation breaks the build — catch it here).
+5. For `stem` (math) kinds, every `$…$` / `$$…$$` block is valid KaTeX (a bad equation breaks the
+   build — catch it here). For non-math kinds, dollar signs are left as literal text and not validated
+   or rendered as math.
 6. The course folder validates: `node shared/scripts/validate-schema.mjs <slug>` exits 0.
 
 ## Single source of truth & versioning

@@ -59,6 +59,13 @@ A module teaches **one big idea** and is readable in a single sitting.
 
 ### Section shape
 
+> **Scope:** the detailed arc below is the **`stem` default** (the shape `shared/templates/module.md`
+> encodes). Non-`stem` kinds follow their own template's shape from §0 — e.g. humanities is
+> context → narrative → source → analysis → discussion; language is dialogue → vocab → pattern →
+> drills → spaced review. The *pedagogy* in this file (distributed retrieval §1.5, elaborated
+> feedback §5, observable objectives, honest sequencing §3, the recap) applies to **every** kind;
+> only the section "furniture" changes.
+
 Modules follow this arc. Not every section is mandatory in every module, but the order
 is fixed and the spine (intuition → definition → example → exercise) is. Questioning is
 **distributed through the body**, not saved for the end (see §1.5).
@@ -126,6 +133,12 @@ assessment).
 The course's `level` field (in `_course.md`) is one of `intro | highschool | undergrad
 | grad`. Calibrate **assumed knowledge, jargon-unpacking, and rigor** to it. Pitch one
 notch *below* where you think the reader is — the curse of knowledge always overestimates.
+
+> **Non-academic kinds:** the academic ladder maps loosely for `language`/`skill`/`general`
+> courses. Read `intro` as "no prior exposure," `highschool`/`undergrad` as "some/substantial prior
+> familiarity," `grad` as "advanced practitioner." The descriptions below are framed in math terms;
+> for a non-stem course, calibrate the *analogous* background (prior vocabulary, reading level, prior
+> practice) rather than the math specifics.
 
 ### `intro`
 
@@ -210,6 +223,11 @@ never assume it.
 
 ## 5. Exercise design
 
+> **Scope:** this describes the **answer-key** assessment used by `stem` (and many `general`)
+> courses. Other kinds use the assessment type from §0 — `rubric` (skill), `open`/essay (humanities),
+> `drill` (language). Whatever the type, keep the shared principles: distributed attempt-before-reveal
+> checks (§1.5) and feedback that *explains* rather than just marking right/wrong.
+
 - **A few per module** — roughly 3–6. Enough to practice the one idea; not a problem set.
 - **Range from mechanical to conceptual** within each module:
   - 1–2 **mechanical**: apply the definition/procedure directly. Builds fluency.
@@ -239,25 +257,33 @@ never assume it.
 
 ## 6. Curriculum-quality checklist
 
-Apply at the curriculum stage and again at authoring.
+Apply at the curriculum stage and again at authoring. Items marked *(stem)* apply to math/`stem`
+courses; for other kinds, substitute the equivalent from that kind's template (e.g. a humanities
+module's "formal definitions → worked example → exercises" becomes "narrative → primary source →
+analysis → discussion", and "worked solution" becomes the kind's rubric/criteria). The kind-neutral
+items (one big idea, ordering, objectives, distributed retrieval, length, frontmatter) apply to all.
 
+- [ ] `kind` is set in `_course.md` and the matching module template (§0) was used.
 - [ ] Course has 8–14 modules (or is explicitly split into a sequence).
 - [ ] Each module teaches exactly one big idea.
 - [ ] Modules are ordered so each uses only prior modules + stated prerequisites; no
       forward references.
 - [ ] `level` is set, and assumed knowledge / jargon / rigor are calibrated to it
-      (highschool = algebra + functions + basic geometry/trig, NOT calculus, NOT
-      set-theoretic rigor, NOT proof experience).
-- [ ] Every module has a hook (prose) → intuition (prose) → formal definitions →
-      worked example(s) → check-yourself prompts → exercises → recap.
+      (stem highschool = algebra + functions + basic geometry/trig, NOT calculus, NOT
+      set-theoretic rigor, NOT proof experience; non-stem: calibrate the analogous background, §2).
+- [ ] *(stem)* Every module has a hook (prose) → intuition (prose) → formal definitions →
+      worked example(s) → check-yourself prompts → exercises → recap. *(other kinds: the
+      template's spine from §0.)*
 - [ ] Distributed retrieval checks present (1–3 "Check yourself" prompts through the
       module body, attempt-before-reveal in `<details>` blocks), not all questioning at
       the end.
 - [ ] Objectives are written as observable verbs and reflect what the module delivers.
 - [ ] Each module length is sane (~1,000–2,500 words; `estimatedMinutes` honest).
-- [ ] Each module has 3–6 exercises spanning mechanical → conceptual.
-- [ ] Every exercise has an elaborated worked solution (reasoning, not just the answer;
-      misconception-targeted where relevant) in a collapsible `<details>` block.
+- [ ] Each module has assessment matched to its kind (§0): *(stem)* 3–6 exercises
+      mechanical → conceptual; (skill) a rubric self-check; (humanities) an open/essay prompt with
+      criteria; (language) drills + spaced review.
+- [ ] Feedback explains rather than just marking right/wrong — *(stem)* an elaborated worked
+      solution in a `<details>` block; other kinds, the criteria/rubric in a `<details>` block.
 - [ ] Earlier ideas spiral back, used more fluently, in later modules.
 - [ ] Frontmatter (`title`, `course`, `order`, `summary`, `estimatedMinutes`,
       `objectives`, `prerequisites`) is complete and `order` matches the course's
