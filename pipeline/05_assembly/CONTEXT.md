@@ -1,4 +1,4 @@
-# Stage 04 — Assembly
+# Stage 05 — Assembly
 
 Cross the boundary from workshop to shelf. This is the **only** stage that writes into the site.
 Mechanical work: write the course metadata, ship the module files, and derive the authoritative
@@ -8,7 +8,8 @@ ordering from the files themselves so it cannot drift.
 
 - **L4** `runs/<run-id>/run-brief.md` — for the slug.
 - **L4** `runs/<run-id>/02_curriculum/output/curriculum.md` — for the course-level metadata.
-- **L4** `runs/<run-id>/03_authoring/output/*.md` — the authored modules.
+- **L4** `runs/<run-id>/04_editorial/output/*.md` — the **edited** modules (copy-artifacts falls back
+  to `03_authoring/output/` if the editorial stage was skipped).
 - **L3** `_config/content-schema.md` — the exact shape every file must take.
 - **L3** `shared/templates/_course.md` — the metadata skeleton.
 
@@ -23,16 +24,17 @@ Most of this stage is scripts, not judgement:
    body (literary-maverick). Also fill the **provenance** fields: `aiGenerated: true`,
    `model: Fable Academy pipeline`, `generatedDate` (today, ISO), `reviewed: false`, and `sources`
    (real, resolvable references drawn from `runs/<run-id>/01_research/output/research.md` — no
-   fabricated citations). Stage it at `runs/<run-id>/04_assembly/output/_course.md`.
-3. `node shared/scripts/copy-artifacts.mjs <run-id> <slug>` — copy the authored module files and the
-   staged `_course.md` into `site/src/content/courses/<slug>/`.
+   fabricated citations). Stage it at `runs/<run-id>/05_assembly/output/_course.md`.
+3. `node shared/scripts/copy-artifacts.mjs <run-id> <slug>` — copy the edited module files (from the
+   editorial stage, or authoring as fallback) and the staged `_course.md` into
+   `site/src/content/courses/<slug>/`.
 4. `node shared/scripts/build-course-json.mjs <slug>` — derive `moduleOrder` from the module files'
    `order` frontmatter and write it into `_course.md`. Never hand-maintain `moduleOrder`.
 
 ## Outputs
 
 - `site/src/content/courses/<slug>/_course.md` and `NN-<slug>.md` files — the shipped course.
-- `runs/<run-id>/04_assembly/output/_course.md` — the staged metadata (provenance for this run).
+- `runs/<run-id>/05_assembly/output/_course.md` — the staged metadata (provenance for this run).
 
 ## Verify
 

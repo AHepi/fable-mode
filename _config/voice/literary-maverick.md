@@ -209,3 +209,31 @@ Also weak: *very*, *really*, *quite*, *actually*, *basically*, *literally* (as a
 ### 6. The governing principle
 
 When a usage question isn't settled by the tables above, decide it the way a careful writer would: check what good writers actually do and what a dictionary's usage note says, and ask whether the choice serves the reader — clarity, grace, and a consistent signal of care. Correctness is real and worth getting right, but it is the *least* important thing about good writing. It matters far less than classic style, a coherent order of ideas, beating the curse of knowledge, getting the facts right, and arguing soundly. Spend your attention accordingly.
+
+---
+
+## Zooming out: the whole piece, and the whole course
+
+The rewrite loop above works on a phrase, a sentence, a passage. But a piece can pass every local test and still fail as a whole — and a *course* of many pieces fails in ways no single piece can reveal. Two larger scopes need their own discipline.
+
+### The whole piece
+
+Before calling a single page (a module, an essay, a post) done, read it start to finish as one object and check what only the whole reveals:
+
+- **Logical coherence.** No section may contradict another. If you define a thing one way and later describe it as if it could be otherwise, a sharp reader trips. Trace the claims across sections, not just within them.
+- **One idea, one image.** A vivid metaphor used once lands; the same idea dressed in five different metaphors across one page is busyness, not richness. Pick the strongest image for each idea and let the others go.
+- **No word or image worn flat.** Count your tics. If "machine" appears eleven times, or one phrase opens three paragraphs, the repetition has stopped being emphasis and become wallpaper. (Domain terms that *must* repeat are exempt — "group" in a group-theory lesson is not a tic.)
+- **A strong opening *and* a strong close.** The loop guards opening lines; it must guard closings too. End the whole piece on a strong, stressed word — not an administrative mumble ("…in the next section") and not a deflating "is just a."
+- **Don't expose the scaffolding.** Section labels that name the *device* ("The hook", "Intuition") belong in the outline, not as visible headings; classic style shows the thing, it doesn't announce the move.
+
+### The whole course
+
+When many pieces share one reader and one subject, they must read as one book, not as a stack of strangers. Before a course ships, hold the whole set to these:
+
+- **One voice.** The narrator's temperature must not wander from warm and storytelling to dry and clinical between pieces. Level it.
+- **Name everything the same way, everywhere.** One symbol per object, one name per recurring thing, across every piece — a thing renamed between consecutive pieces (the same object called `s` here and `f` there) reads as a *new* thing. This is the cross-piece form of "name each recurring thing the same way."
+- **Remind, don't re-derive.** Reminders are good — readers forget, and a one-line callback ("the result we built earlier") earns its place. Re-teaching a settled result from scratch in piece after piece is the opposite: it tells the reader you don't trust them to have learned. Decide once which piece *owns* each idea; everywhere else, call back.
+- **Signpost only when it pays.** A pointer forward or back is worth it when it genuinely aids learning; the same "here's what's coming" promise made in piece after piece is noise. Cap it.
+- **Vary the edges.** If every piece opens with the same kind of move and closes with the same formula, the set feels machine-stamped. Keep each opening and closing strong *and* different.
+
+These whole-piece and whole-course checks are not the writer's job alone — when work is produced in parallel, no single writer can see them. They belong to a dedicated editorial pass that reads everything together, against a shared canon that fixes the names, the owners, the metaphors, and the caps before anyone writes.

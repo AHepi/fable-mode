@@ -22,12 +22,19 @@ here is the most expensive kind to make. It is the primary human review gate.
 4. Sketch the prerequisite graph and sanity-check the ordering against it.
 5. Draft the course-level metadata: title, one-sentence description, `level`, course
    `prerequisites`, `tags`, `estimatedHours`.
+6. **Write the canon** (`shared/templates/canon.md` is the skeleton): the one decision per recurring
+   thing that keeps the blind-parallel authors consistent — the symbol & naming registry (one symbol
+   and one name per object), the "already-taught" ledger that says which module *owns* each shared
+   fact (others call back, never re-derive), the metaphor-ownership map (one running image per
+   module), the capped stock-phrase list, and the one-line voice target. Authoring and editorial both
+   read this; without it, the eleven modules drift apart.
 
 ## Outputs
 
 - `runs/<run-id>/02_curriculum/output/curriculum.md` — the course metadata block, the prerequisite
   graph, and a numbered list of module specs (title, slug, summary, objectives, prereqs, est. time).
-  This file is the brief that every authoring sub-agent receives.
+- `runs/<run-id>/02_curriculum/output/canon.md` — the consistency contract above. Every authoring
+  sub-agent and the editorial stage read it.
 
 ## Verify
 
@@ -35,6 +42,8 @@ here is the most expensive kind to make. It is the primary human review gate.
 - Objectives are observable ("state", "compute", "prove that…"), not vague ("understand").
 - Scope matches the assumed background — nothing requires knowledge the brief says the reader lacks.
 - Module count and per-module scope are within `course-design.md` guidance.
+- `canon.md` exists and is decisive: one symbol/name per recurring object, an owner for every shared
+  fact, a metaphor per module, and phrase caps — no "TBD"s.
 
 ## Gate
 

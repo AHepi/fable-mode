@@ -15,11 +15,13 @@ FORMAL blocks (Definition / Theorem / Proof / Example) follow _config/math-style
 and are NOT run through the prose rewrite loop.
 -->
 
-## The hook
-<!-- PROSE: a concrete motivating opening. Why should the reader care? -->
-
-## Intuition
-<!-- PROSE: build the idea informally before the formalism. -->
+<!--
+OPENING (PROSE, no craft-label heading — don't title it "The hook" or "Intuition";
+classic style shows the thing, it doesn't announce the move). Start with a concrete
+motivating opening, then build the idea informally before the formalism. Vary this
+opening from the other modules' (see canon + course-design §1). Flow straight into
+the first formal section below.
+-->
 
 ## Definition (Name)
 <!-- FORMAL: precise, minimal, notation defined before use. -->

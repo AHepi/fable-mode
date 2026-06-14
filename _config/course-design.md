@@ -66,9 +66,19 @@ A module teaches **one big idea** and is readable in a single sitting.
 > feedback §5, observable objectives, honest sequencing §3, the recap) applies to **every** kind;
 > only the section "furniture" changes.
 
-Modules follow this arc. Not every section is mandatory in every module, but the order
-is fixed and the spine (intuition → definition → example → exercise) is. Questioning is
-**distributed through the body**, not saved for the end (see §1.5).
+Modules follow this arc. The spine (intuition → definition → example → exercise) is the default
+order, not a straitjacket: keep the cumulative logic, but **vary the surface across modules.** Hooks
+must not all open with the same move (e.g. a physical imperative — "Turn…", "Cut…", "Set…"), and
+recaps must not all close with the same "Next we…" formula. Eleven identically-stamped openings read
+as machine-assembled; the section shape is for the reader's orientation, not a template to rubber-stamp.
+Questioning is **distributed through the body**, not saved for the end (see §1.5).
+
+**Follow the canon.** A course's `runs/<run-id>/02_curriculum/output/canon.md` fixes the symbols,
+names, who-owns-which-fact, the running metaphors, and the phrase caps. It is binding: use the canon's
+symbol for each object, **call back** to facts an earlier module owns instead of re-deriving them
+(a one-line reminder is good — a fresh re-derivation is not), and keep each running image to the
+module that owns it. The editorial stage (`pipeline/04_editorial`) enforces all of this across the
+finished course.
 
 1. **Hook** *(prose)* — a motivating opening: a concrete question, a puzzle, a picture,
    or a reason this idea earns the reader's attention. Governed by `literary-maverick`.

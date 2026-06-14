@@ -16,7 +16,7 @@ DATE="$(date +%Y%m%d)"
 RUN_ID="${SLUG}-${DATE}"
 RUN_DIR="${ROOT}/runs/${RUN_ID}"
 
-for stage in 01_research 02_curriculum 03_authoring 04_assembly 05_verify; do
+for stage in 01_research 02_curriculum 03_authoring 04_editorial 05_assembly 06_verify; do
   mkdir -p "${RUN_DIR}/${stage}/output"
 done
 

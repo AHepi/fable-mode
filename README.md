@@ -12,7 +12,7 @@ The repo is two zones joined by one plain-text contract:
 
 - **The factory** — an [ICM](https://github.com/RinDig/Interpretable-Context-Methodology-ICM-)
   (Interpretable Context Methodology) workspace. Orchestration lives in the *folder structure*, not
-  in framework code: numbered stage folders (`pipeline/01_research` … `05_verify`), each with a
+  in framework code: numbered stage folders (`pipeline/01_research` … `06_verify`), each with a
   `CONTEXT.md` contract; stable reference material in `_config/`; non-AI helpers in `shared/scripts/`.
   One agent (driven by the `fable-mode` skill) reads the right files at the right moment and
   delegates per-module writing to parallel sub-agents.

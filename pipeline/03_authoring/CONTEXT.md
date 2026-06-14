@@ -8,6 +8,8 @@ and the place the two voices meet — bold prose for explanation, precise formal
 
 - **L4** `runs/<run-id>/run-brief.md` — read first.
 - **L4** `runs/<run-id>/02_curriculum/output/curriculum.md` — the module specs and ordering.
+- **L4** `runs/<run-id>/02_curriculum/output/canon.md` — the symbol/naming registry, the "who owns
+  what" ledger, the metaphor map, the phrase caps, the voice target. **Binding** on every writer.
 - **L4** `runs/<run-id>/01_research/output/research.md` — facts, examples, pitfalls (reference, not copy).
 - **L3** `_config/voice/literary-maverick.md` — governs **prose** (hooks, intuition, transitions, recaps).
 - **L3** `_config/math-style.md` — governs **formal** content and the KaTeX subset. Load this **only
@@ -21,9 +23,13 @@ and the place the two voices meet — bold prose for explanation, precise formal
 
 1. Read the curriculum and the run brief. Confirm the module list and ordering.
 2. For each module, spawn a sub-agent (fable-mode "delegate independent work"). Brief it with:
-   that module's spec from `curriculum.md`, the relevant slice of `research.md`, and the L3 voice +
-   math-style references. Tell it to write to `runs/<run-id>/03_authoring/output/NN-<module-slug>.md`
-   following the schema (`_config/content-schema.md`) and the section shape.
+   that module's spec from `curriculum.md`, **the canon** (`canon.md`), the relevant slice of
+   `research.md`, a one- to two-line **"story so far"** summary of each earlier module, and the L3
+   voice + math-style references. Tell it to write to
+   `runs/<run-id>/03_authoring/output/NN-<module-slug>.md` following the schema and the section shape.
+   The writer must use the canon's symbols and names, and **call back** to facts the ledger marks as
+   owned by an earlier module rather than re-deriving them (a one-line reminder is welcome; a fresh
+   re-derivation is not). It must vary its hook and recap from the modules before it.
 3. **Sample first.** Author module 01 alone, review it for voice + level calibration, then fan out
    the remaining modules in parallel. (This is the cheap "sample" gate.)
 4. Each module file carries correct frontmatter: `title`, `course` (= slug), `order`, `summary`,

@@ -9,19 +9,27 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 
+function hasModules(dir) {
+  return existsSync(dir) && readdirSync(dir).some((f) => f.endsWith('.md') && !f.startsWith('_'));
+}
+
 function copyArtifacts(runId, slug) {
+  const editorial = join(ROOT, 'runs', runId, '04_editorial', 'output');
   const authoring = join(ROOT, 'runs', runId, '03_authoring', 'output');
-  const assembly = join(ROOT, 'runs', runId, '04_assembly', 'output');
+  // Ship the edited modules from the editorial stage; fall back to the raw
+  // authoring output if the editorial stage was skipped.
+  const modulesDir = hasModules(editorial) ? editorial : authoring;
+  const assembly = join(ROOT, 'runs', runId, '05_assembly', 'output');
   const dest = join(ROOT, 'site', 'src', 'content', 'courses', slug);
   mkdirSync(dest, { recursive: true });
 
   const copied = [];
 
-  // Module files: NN-*.md from authoring output (skip any _-prefixed files).
-  if (existsSync(authoring)) {
-    for (const f of readdirSync(authoring)) {
+  // Module files: NN-*.md (skip any _-prefixed files).
+  if (existsSync(modulesDir)) {
+    for (const f of readdirSync(modulesDir)) {
       if (f.endsWith('.md') && !f.startsWith('_')) {
-        copyFileSync(join(authoring, f), join(dest, f));
+        copyFileSync(join(modulesDir, f), join(dest, f));
         copied.push(f);
       }
     }

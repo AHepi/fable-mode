@@ -49,9 +49,13 @@ Load only what each stage's contract names — never the whole repo.
 3. You walk `pipeline/` in numeric order. At each stage you read its `CONTEXT.md`, load exactly the
    files its Inputs section names, do the work (delegating per-item subtasks to sub-agents where the
    contract says to), and write to that stage's output folder under `runs/<run-id>/`.
-4. The **assembly** stage writes the finished course into `site/src/content/courses/<slug>/`.
-5. The **verify** stage validates the course against the schema and smoke-builds the site.
-6. You commit. Merging to `main` triggers the GitHub Pages deploy.
+4. The **editorial** stage reads every module together and edits them as one book — unifying names
+   and symbols to the curriculum's `canon.md`, turning re-derivations into callbacks, capping repeated
+   phrases, varying hooks/recaps, and leveling the voice. (This is what keeps blind-parallel authors
+   from drifting apart.)
+5. The **assembly** stage writes the finished course into `site/src/content/courses/<slug>/`.
+6. The **verify** stage validates the schema, lints prose continuity, and smoke-builds the site.
+7. You commit. Merging to `main` triggers the GitHub Pages deploy.
 
 Full routing and the autonomous-vs-gated rules are in `CONTEXT.md`.
 

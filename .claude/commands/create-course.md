@@ -18,10 +18,11 @@ Do this:
    `bash shared/scripts/scaffold-run.sh <slug>`, then fill in `runs/<run-id>/run-brief.md` —
    especially the **Interpretation notes**: state in plain words what you take the topic, scope,
    rigor, and assumed background to mean.
-4. **Walk the pipeline** `01_research → 02_curriculum → 03_authoring → 04_assembly → 05_verify`,
-   in order. At each stage, read its `CONTEXT.md`, load only the files its Inputs section names, do
-   the work, write to that stage's `runs/<run-id>/` output folder, and run its Verify section before
-   advancing. Stage 03 fans out: one sub-agent per module, in parallel.
+4. **Walk the pipeline** `01_research → 02_curriculum → 03_authoring → 04_editorial → 05_assembly →
+   06_verify`, in order. At each stage, read its `CONTEXT.md`, load only the files its Inputs section
+   names, do the work, write to that stage's `runs/<run-id>/` output folder, and run its Verify
+   section before advancing. Stage 03 fans out: one sub-agent per module, in parallel. Stage 04 reads
+   all modules together and edits them as a single book.
 5. **Default to autonomous mode** but honor the brief's `gates` (the curriculum gate blocks by
    default — pause there for approval unless the user told you to run unattended).
 6. **Ship.** The verify stage's clean build is the signal. Tell the user the course is at

@@ -1,7 +1,7 @@
 # Content Schema — the Pipeline ↔ Site Contract (Layer 3)
 
 This is the **interface** between the factory and the shelf. The assembly stage
-(`pipeline/04_assembly`) writes files that must validate against this contract; the site enforces it
+(`pipeline/05_assembly`) writes files that must validate against this contract; the site enforces it
 in code at `site/src/content.config.ts`. If the two ever disagree, the code is authoritative — fix
 this doc to match, then keep them in sync.
 

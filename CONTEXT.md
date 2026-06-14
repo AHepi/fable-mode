@@ -13,10 +13,11 @@ Run the pipeline in numeric order. Each stage is a contract you read at the mome
 | Stage | Folder | Job | Default gate |
 |-------|--------|-----|--------------|
 | 1 | `pipeline/01_research/` | Research the topic, scoped to the assumed background | — |
-| 2 | `pipeline/02_curriculum/` | Design the module breakdown & ordering | **review** |
+| 2 | `pipeline/02_curriculum/` | Design the module breakdown & ordering; emit the canon | **review** |
 | 3 | `pipeline/03_authoring/` | Write every module (fan out to sub-agents) | sample review |
-| 4 | `pipeline/04_assembly/` | Assemble + ship into `site/src/content/courses/<slug>/` | — |
-| 5 | `pipeline/05_verify/` | Validate against the schema; smoke-build the site | **review** |
+| 4 | `pipeline/04_editorial/` | Edit the modules **as one book**: dedupe, unify names, vary, level voice | **review** |
+| 5 | `pipeline/05_assembly/` | Assemble + ship into `site/src/content/courses/<slug>/` | — |
+| 6 | `pipeline/06_verify/` | Validate schema, lint prose continuity, smoke-build the site | **review** |
 
 ## Step 0 — parse the prompt into a run brief
 
