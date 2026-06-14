@@ -9,8 +9,13 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 
+// A shipped module file is named NN-<slug>.md (two-digit order prefix). This
+// deliberately excludes run artifacts that also live in the output dir, like
+// editorial-report.md — only true module files cross onto the shelf.
+const MODULE_FILE = /^\d{2}-.+\.md$/;
+
 function hasModules(dir) {
-  return existsSync(dir) && readdirSync(dir).some((f) => f.endsWith('.md') && !f.startsWith('_'));
+  return existsSync(dir) && readdirSync(dir).some((f) => MODULE_FILE.test(f));
 }
 
 function copyArtifacts(runId, slug) {
@@ -25,10 +30,11 @@ function copyArtifacts(runId, slug) {
 
   const copied = [];
 
-  // Module files: NN-*.md (skip any _-prefixed files).
+  // Module files only: NN-<slug>.md. Run artifacts (e.g. editorial-report.md)
+  // share the output dir and must NOT be shipped to the shelf.
   if (existsSync(modulesDir)) {
     for (const f of readdirSync(modulesDir)) {
-      if (f.endsWith('.md') && !f.startsWith('_')) {
+      if (MODULE_FILE.test(f)) {
         copyFileSync(join(modulesDir, f), join(dest, f));
         copied.push(f);
       }
