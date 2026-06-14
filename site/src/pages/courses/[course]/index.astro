@@ -11,27 +11,24 @@ export async function getStaticPaths() {
     const courseModules = modules
       .filter((m) => m.id.split('/')[0] === slug)
       .sort((a, b) => a.data.order - b.data.order);
-    return {
-      params: { course: slug },
-      props: { course, courseModules },
-    };
+    return { params: { course: slug }, props: { course, courseModules } };
   });
 }
 
 const { course, courseModules } = Astro.props;
 const { data } = course;
 const slug = course.id.split('/')[0];
-// The course intro prose (the body of _course.md) renders on the landing page.
 const { Content } = await render(course);
 ---
 
 <Base title={data.title} description={data.description}>
-  <p class="crumbs"><a href={url()}>Catalog</a> &nbsp;/&nbsp; {data.title}</p>
+  <p class="crumbs"><a href={url()}>Catalog</a><span class="sep">/</span>{data.title}</p>
 
   <h1>{data.title}</h1>
   <p class="lead">{data.description}</p>
 
   <div class="badges">
+    <span class="badge kind">{data.kind}</span>
     <span class="badge level">{data.level}</span>
     <span class="badge">{data.moduleOrder.length} modules</span>
     <span class="badge">~{data.estimatedHours}h</span>
@@ -42,11 +39,7 @@ const { Content } = await render(course);
     data.prerequisites.length > 0 && (
       <div class="objectives">
         <strong>Before you start</strong>
-        <ul>
-          {data.prerequisites.map((p) => (
-            <li>{p}</li>
-          ))}
-        </ul>
+        <ul>{data.prerequisites.map((p) => <li>{p}</li>)}</ul>
       </div>
     )
   }
@@ -62,7 +55,7 @@ const { Content } = await render(course);
           <li>
             <a href={moduleUrl(slug, moduleId)}>
               <span class="num">{String(m.data.order).padStart(2, '0')}</span>
-              <span>
+              <span class="mbody">
                 <span class="mtitle">{m.data.title}</span>
                 <span class="msum">{m.data.summary}</span>
               </span>
@@ -79,8 +72,8 @@ const { Content } = await render(course);
     <p>
       {
         data.aiGenerated
-          ? `This course was drafted by the Fable Academy production pipeline${data.generatedDate ? ` on ${data.generatedDate}` : ''}. ${data.reviewed ? 'It has been reviewed by a human subject-matter expert.' : 'It has not yet had a human subject-matter-expert review — treat it as a careful draft and verify anything you rely on.'}`
-          : 'This course was written by a human author.'
+          ? `Drafted by the Fable Academy production pipeline${data.generatedDate ? ` on ${data.generatedDate}` : ''}. ${data.reviewed ? 'Reviewed by a human subject-matter expert.' : 'Not yet reviewed by a human subject-matter expert — treat it as a careful draft and verify anything you rely on.'}`
+          : 'Written by a human author.'
       }
     </p>
     {

@@ -11,75 +11,85 @@ export async function getStaticPaths() {
     const slug = entry.id.split('/')[0];
     const moduleId = entry.id.split('/').slice(1).join('/');
     const course = courses.find((c) => c.id.split('/')[0] === slug);
-
-    // Build prev/next from the course's own ordering.
     const siblings = modules
       .filter((m) => m.id.split('/')[0] === slug)
       .sort((a, b) => a.data.order - b.data.order);
     const idx = siblings.findIndex((m) => m.id === entry.id);
-
     return {
       params: { course: slug, module: moduleId },
-      props: {
-        entry,
-        courseTitle: course?.data.title ?? slug,
-        prev: idx > 0 ? siblings[idx - 1] : null,
-        next: idx < siblings.length - 1 ? siblings[idx + 1] : null,
-      },
+      props: { entry, courseTitle: course?.data.title ?? slug, siblings, idx },
     };
   });
 }
 
-const { entry, courseTitle, prev, next } = Astro.props;
+const { entry, courseTitle, siblings, idx } = Astro.props;
 const slug = entry.id.split('/')[0];
 const { Content } = await render(entry);
 const { data } = entry;
 const mid = (m: { id: string }) => m.id.split('/').slice(1).join('/');
+const prev = idx > 0 ? siblings[idx - 1] : null;
+const next = idx < siblings.length - 1 ? siblings[idx + 1] : null;
 ---
 
-<Base title={data.title} description={data.summary}>
+<Base title={data.title} description={data.summary} wide>
   <p class="crumbs">
-    <a href={url()}>Catalog</a> &nbsp;/&nbsp;
-    <a href={courseUrl(slug)}>{courseTitle}</a> &nbsp;/&nbsp; {data.title}
+    <a href={url()}>Catalog</a><span class="sep">/</span>
+    <a href={courseUrl(slug)}>{courseTitle}</a><span class="sep">/</span>{data.title}
   </p>
 
-  <h1>{data.title}</h1>
+  <div class="module-layout">
+    <details class="toc" open>
+      <summary class="toc-head">In this course</summary>
+      <ol>
+        {
+          siblings.map((m) => (
+            <li>
+              <a href={moduleUrl(slug, mid(m))} class={m.id === entry.id ? 'current' : ''}>
+                {String(m.data.order).padStart(2, '0')}. {m.data.title}
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+    </details>
 
-  {
-    data.objectives.length > 0 && (
-      <div class="objectives">
-        <strong>What you'll be able to do</strong>
-        <ul>
-          {data.objectives.map((o) => (
-            <li>{o}</li>
-          ))}
-        </ul>
-      </div>
-    )
-  }
+    <article>
+      <p class="eyebrow">Module {data.order} of {siblings.length}</p>
+      <h1>{data.title}</h1>
 
-  <article class="prose"><Content /></article>
+      {
+        data.objectives.length > 0 && (
+          <div class="objectives">
+            <strong>What you'll be able to do</strong>
+            <ul>{data.objectives.map((o) => <li>{o}</li>)}</ul>
+          </div>
+        )
+      }
 
-  <nav class="pager">
-    {
-      prev ? (
-        <a href={moduleUrl(slug, mid(prev))}>
-          <span class="dir">← Previous</span>
-          {prev.data.title}
-        </a>
-      ) : (
-        <span />
-      )
-    }
-    {
-      next ? (
-        <a href={moduleUrl(slug, mid(next))} style="text-align:right">
-          <span class="dir">Next →</span>
-          {next.data.title}
-        </a>
-      ) : (
-        <span />
-      )
-    }
-  </nav>
+      <div class="prose"><Content /></div>
+
+      <nav class="pager">
+        {
+          prev ? (
+            <a class="prev" href={moduleUrl(slug, mid(prev))}>
+              <span class="dir">← Previous</span>
+              {prev.data.title}
+            </a>
+          ) : (
+            <span class="spacer" />
+          )
+        }
+        {
+          next ? (
+            <a class="next" href={moduleUrl(slug, mid(next))}>
+              <span class="dir">Next →</span>
+              {next.data.title}
+            </a>
+          ) : (
+            <span class="spacer" />
+          )
+        }
+      </nav>
+    </article>
+  </div>
 </Base>

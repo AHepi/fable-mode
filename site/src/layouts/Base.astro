@@ -1,4 +1,7 @@
 ---
+import '@fontsource-variable/fraunces';
+import '@fontsource-variable/inter';
+import '@fontsource-variable/newsreader';
 import 'katex/dist/katex.min.css';
 import '../styles/global.css';
 import { url } from '../lib/url';
@@ -6,8 +9,9 @@ import { url } from '../lib/url';
 interface Props {
   title: string;
   description?: string;
+  wide?: boolean;
 }
-const { title, description } = Astro.props;
+const { title, description, wide = false } = Astro.props;
 const siteName = 'Fable Academy';
 ---
 
@@ -22,18 +26,16 @@ const siteName = 'Fable Academy';
   </head>
   <body>
     <header class="site-header">
-      <div class="wrap">
+      <div class="bar">
         <a class="brand" href={url()}>{siteName}</a>
         <span class="tagline">Courses, written to be read.</span>
       </div>
     </header>
-    <main class="wrap">
+    <main class:list={['page', wide && 'page--wide']}>
       <slot />
     </main>
     <footer class="footer">
-      <div class="wrap">
-        Built with the ICM content pipeline. Every course is plain markdown.
-      </div>
+      <div class="bar">Every course here is plain Markdown, researched and written by an automated pipeline.</div>
     </footer>
   </body>
 </html>
