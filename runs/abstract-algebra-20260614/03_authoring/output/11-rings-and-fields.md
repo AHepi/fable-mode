@@ -217,7 +217,8 @@ no solution in $\mathbb{Z}$. Tie your answer to the ring/field distinction.
 
 <details><summary>Show solution</summary>
 
-In $\mathbb{Q}$ the number $3$ has an inverse, $\tfrac{1}{3}$, so $x = 3^{-1}\cdot 2 = \tfrac{2}{3}$ — a perfectly good rational. In $\mathbb{Z}$ there is no integer $3^{-1}$:
+In $\mathbb{Q}$ the number $3$ has an inverse, $\tfrac{1}{3}$, so $x = 3^{-1}\cdot 2 =
+\tfrac{2}{3}$ — a perfectly good rational. In $\mathbb{Z}$ there is no integer $3^{-1}$:
 nothing times $3$ gives $1$ inside the integers, because $\mathbb{Z}$ is only a *ring*, not
 a field. Without that inverse you cannot divide both sides by $3$, and indeed no integer $x$
 satisfies $3x = 2$. The lesson: solvability of $ax = b$ is precisely the thing fields give

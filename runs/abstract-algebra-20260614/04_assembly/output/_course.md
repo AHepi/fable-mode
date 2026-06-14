@@ -20,16 +20,6 @@ sources:
   - title: "Gallian, Contemporary Abstract Algebra"
 moduleOrder:
   - 01-the-secret-life-of-symmetry
-  - 02-clock-arithmetic
-  - 03-operations-and-their-rules
-  - 04-what-is-a-group
-  - 05-a-zoo-of-groups
-  - 06-symmetries-of-a-triangle
-  - 07-subgroups
-  - 08-cyclic-groups-and-generators
-  - 09-lagranges-theorem
-  - 10-homomorphisms-and-isomorphisms
-  - 11-rings-and-fields
 ---
 
 Turn a square coaster a quarter turn and it looks untouched. Add five hours to nine o'clock and you
