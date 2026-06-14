@@ -7,7 +7,7 @@ reasoning + very light arithmetic). Planned from `01_research/output/research.md
 
 ## Course metadata
 
-- **title:** How JEPA Works
+- **title:** How JEPA Works: Predicting the Gist, Not the Pixels
 - **description:** How JEPA learns from images and video by predicting the gist of what's hidden
   instead of the raw pixels — built from scratch for readers new to machine learning, and how it
   differs from LLMs.
