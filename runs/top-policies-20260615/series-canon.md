@@ -58,6 +58,12 @@ strongest critique** — then let the reader decide. Never campaigns, cheerleads
 back/reject this" is banned). Curious, fair, a little dry; respects the reader as a smart adult who
 wants the mechanics, not a verdict.
 
+**Beginner-first (non-negotiable, especially for the Essentials course):** assume the reader knows no
+economics or tax. Define every term in plain words — with an everyday example — the moment it first
+appears; lead with intuition before vocabulary; keep paragraphs short and one idea at a time; prefer
+fewer words. Never open on a dense concept like "capital gains tax." A term used before it is explained
+is a defect, not a style choice.
+
 ## 4. Owned-by-Essentials ledger
 
 The shared concepts **TOP 2026: The Essentials** gives the full treatment. Every sibling **calls back**

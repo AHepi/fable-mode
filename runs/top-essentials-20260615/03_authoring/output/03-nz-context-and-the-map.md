@@ -2,206 +2,206 @@
 title: "The NZ Context, and a Map of the Platform"
 course: top-essentials
 order: 3
-summary: "The New Zealand facts the policies lean on — and a map of the whole 2026 TOP platform so you know what each sibling course covers."
+summary: "The New Zealand numbers behind TOP's policies — in plain language — plus a friendly map of the whole 2026 platform so you know what each course covers."
 estimatedMinutes: 15
 objectives:
-  - State the key NZ-context facts — no comprehensive CGT, GST at 15%, the IRD effective-rate gap, and the housing and wealth concentration figures
-  - Explain why these specific facts make TOP's policies a particular fit for New Zealand rather than a generic prescription
-  - Map the whole 2026 TOP platform across three sibling courses (the Tax Reset; Homes, Energy and Oceans; Democracy and Everyday Life)
-  - Describe the pendulum politics metaphor and its guard (not all reversal is waste)
+  - State the key NZ facts in plain words — no general capital gains tax, GST at 15%, the IRD effective-rate finding, housing affordability figures
+  - Explain why these facts make TOP's proposed tools a particular fit for New Zealand
+  - Map the full 2026 TOP platform across three sibling courses
+  - Describe the pendulum politics metaphor and its guard
 prerequisites:
   - "01-the-diagnosis"
   - "02-the-policy-toolkit"
 ---
 
-The previous two modules built a set of concepts — the diagnosis, the toolkit — in the abstract. Now it is time to land them on something specific. New Zealand is not a generic case. Its tax system has a particular shape, its housing market has particular numbers, and its politics run on a particular rhythm. That specificity is why TOP's proposals look the way they do. This module lays out those facts, shows how they connect to the toolkit, and then draws a map of the full 2026 platform so you know exactly where to go next.
+You now have the story (Module 1) and the vocabulary (Module 2). This module puts them to work on the actual New Zealand picture.
+
+New Zealand is not a generic case. Its tax system has a particular shape. Its housing market has particular numbers. Its politics run on a particular rhythm. Those specifics are why TOP's proposals look the way they do — and why this course matters as a foundation for everything that follows.
+
+At the end, you will get a map of the whole 2026 platform, so you know exactly where to go next.
 
 ---
 
-## The tax picture: where NZ stands
+## What New Zealand taxes — and what it does not
 
-Start with what NZ taxes and, more importantly, what it does not.
+Let us start with a simple tally.
 
-Income is taxed at progressive rates, reaching 39% above two hundred thousand dollars a year. Spending is taxed through the GST at 15% — one of the broadest-based consumption taxes in the OECD, applying to food and rent as well as luxuries. What is conspicuously absent is a comprehensive tax on what people *own* and on what that ownership *earns* over time.
+New Zealand taxes income at progressive rates — meaning the more you earn, the higher the percentage you pay. The top rate reaches 39% above two hundred thousand dollars a year.
 
-According to OECD data, New Zealand is one of only two OECD member countries without a comprehensive capital gains tax. Belgium is the other. There is no inheritance tax. No stamp duty. No wealth tax. And the national land tax that once existed was wound down between the mid-1980s and 1991. The net result: wages taxed up to 39%; capital gains taxed at 0%.
+New Zealand also applies GST at 15% to almost everything people buy — food, rent, and luxuries alike. As you learned in Module 2, GST is what economists call **regressive**. That is a technical word with a simple meaning: a flat rate like 15% takes a bigger chunk of a low earner's income than a wealthy person's, because low earners spend a larger share of what they have. In other words, the GST burden falls more heavily on people with less money.
 
-The GST's breadth is worth pausing on, because it matters for who bears the burden. A 15% tax on almost everything you spend hits a lower-income household harder than a wealthy one, because lower-income households spend a larger share of what they earn. Economists call this **regressive** — the rate is flat, but the effective burden as a share of income falls more heavily on those with less. That is the context behind TOP's argument that the tax base penalises work and consumption while leaving wealth largely untouched.
+So: wages are taxed. Spending is taxed. Both taxes press harder on people who work for a living and spend most of what they earn.
 
-<details><summary>Check yourself — try this before reading on</summary>
+Now for the notable absence.
 
-**Why does the absence of a capital gains tax matter more in a country that also has a high income tax and a broad GST?**
+New Zealand does not have a general **capital gains tax** — the tax on profits from selling assets that Module 2 explained. According to OECD data, New Zealand is one of only two OECD member countries without one. (The other is Belgium.) There is also no inheritance tax, no stamp duty, and no wealth tax. The national land tax that once existed was gradually wound down and abolished in 1991.
 
-Take a moment, then expand.
+In plain words: wages taxed up to 39%, spending taxed at 15%, and capital gains taxed at 0% in most cases.
 
----
+This is the specific gap that TOP's policies are designed to address.
 
-The combination matters because the three taxes together determine which forms of income face the heaviest burden. Wages are taxed at up to 39%. Everything you spend faces 15% GST. But the profit on selling a house worth a million dollars — or several million dollars — is taxed at zero. Someone who earns most of their income through capital appreciation (owning assets that rise in value) ends up paying a much lower effective rate than someone who earns the same total through wages or salary, even though the wage earner looks wealthier on the IRD's books. That differential is the gap TOP's policies target.
+<details><summary>Check yourself: in your own words, what is "regressive" about GST?</summary>
+
+A regressive tax is one where the burden falls more heavily on lower earners, even though the rate is flat. With GST at 15%, a person who earns thirty thousand dollars a year and spends most of it will pay GST on most of their income. A person who earns three hundred thousand dollars and saves or invests a large portion pays GST on a much smaller share of their income. Same rate, but the hit feels bigger to the person with less.
 
 </details>
 
 ---
 
-## The effective-rate gap: the IRD finding
+## The IRD finding: who really pays what
 
-The aggregate picture becomes concrete in a single piece of research. In 2023, IRD published a study of high-wealth individuals — focusing on the 311 wealthiest New Zealand families. Its central finding: those families paid an **effective tax rate of roughly 8.9%**, compared to **roughly 20% for a median New Zealand household**. The reason, IRD found, was that approximately 80% of their income arrived as capital gains — which under current law are largely untaxed.
+This is one of the most striking pieces of evidence in the whole TOP story.
 
-That is not a claim about anything illegal. Every person in the study was operating within the rules. It is a finding about what the rules produce: a system where the households with the most wealth also pay the lowest effective rate, because their wealth mainly grows in a form the tax system does not reach.
+In 2023, Inland Revenue — the government agency that collects taxes, often called **IRD** — published a study of high-wealth New Zealanders. It looked at the 311 wealthiest families in the country.
 
-TOP attributes its diagnosis directly to this gap. The scales metaphor from the first module — the system pressing down on wages and consumption while leaving capital nearly untaxed — is what that IRD data looks like as a number.
+What it found: those families paid an **effective tax rate of about 8.9%**.
 
----
+The word "effective" is important here. It means the actual percentage of their total income that ended up as tax, once everything was counted. It is not the rate printed in the tax tables — it is the real share that went to the government.
 
-## Housing and wealth concentration
+By comparison, a median New Zealand household — an ordinary family in the middle of the income distribution — paid an effective rate of **about 20%**. More than twice as much, as a share of income.
 
-Alongside the tax picture sits a housing market with features worth naming precisely.
+Why the gap? IRD found that roughly 80% of those wealthy families' income arrived as capital gains — the profit on rising asset values. And as you know from Module 2, capital gains are largely not taxed in New Zealand.
 
-According to Stats NZ data, the price-to-income ratio for housing sits at roughly seven times the median annual household income nationally. In Auckland, where roughly a third of New Zealanders live, the median house price has been in the range of a million dollars in recent years, and the price-to-income ratio is higher still — closer to 8.6 times. These are among the worst affordability readings in the developed world.
+To be clear: no one in that study did anything illegal. Every person was operating within the rules. The finding is not about wrongdoing. It is about what the rules produce — a system where the households with the most wealth also pay the lowest effective rate, because their wealth mainly grows in a form the tax system does not reach.
 
-Home ownership among New Zealanders under 40 has fallen sharply since the early 1990s. Then, roughly three in four New Zealanders owned their home. Today the overall rate has dipped to around 66%, and the collapse is concentrated in younger age groups — the generation who arrived in the market after prices had already accelerated.
-
-The consequence is a particular shape of wealth distribution. According to Stats NZ household net worth data, approximately 48% of New Zealand household assets sit in property. The top 10% of households hold roughly 49% of total net worth; the bottom 20% hold median net assets of around eleven thousand dollars. Wealth is concentrated, and its main vehicle is housing.
-
-One note of historical context: New Zealand was once something of a world leader in land-value rating. Local councils rated on land value for roughly ninety years — a system wound down through the mid-1980s and abolished at the national level in 1991. And in 2019, the Tax Working Group recommended introducing a capital gains tax; the then-Prime Minister Ardern declined to proceed, citing a lack of mandate. Both facts are relevant not as history lessons but as single-sentence context: a land tax and a CGT are not unprecedented ideas in NZ, and both have been explicitly rejected at key political moments.
-
-<details><summary>Check yourself — try this before reading on</summary>
-
-**In your own words: how does the absence of a capital gains tax contribute to the housing and wealth concentration figures?**
+TOP points to this finding as the numerical face of the scales metaphor from Module 1: working is taxed; owning is largely not.
 
 ---
 
-When capital gains are untaxed, investing in property becomes more attractive relative to other uses of money — shares, business investment, savings. That preference flows through the whole economy: more money chases residential property, which pushes prices up, which concentrates wealth in those who already own, which makes entry harder for those who do not. The IRD effective-rate finding and the Stats NZ housing data are two readings of the same underlying mechanism — the one TOP calls the tilt toward owning over earning.
+## The housing picture
 
-</details>
+Set alongside the tax picture is a housing market with some striking numbers.
+
+According to Stats NZ data, the price-to-income ratio for housing in New Zealand sits at roughly seven times the median annual household income. In Auckland, where about a third of New Zealanders live, the median house price has been around a million dollars in recent years — with a price-to-income ratio closer to 8.6 times. These are among the worst affordability figures in the developed world.
+
+Home ownership among New Zealanders under 40 has fallen sharply since the early 1990s. In 1991, roughly three in four New Zealanders owned their home. Today the overall rate is around 66%, and the fall is concentrated in younger age groups.
+
+The result is a particular shape of wealth. According to Stats NZ household net worth data, roughly 48% of all New Zealand household assets sit in property. The top 10% of households hold about 49% of total net worth. The bottom 20% hold median net assets of around eleven thousand dollars.
+
+Wealth is concentrated, and its main vehicle is housing. This is not coincidence — it is, TOP argues, the predictable outcome of a tax system that treats owning property more gently than working.
+
+One note of historical context, worth a single sentence each: New Zealand's local councils used to rate on land value for roughly ninety years — that system was wound down in the 1980s and 1990s. And in 2019, an independent tax review recommended introducing a capital gains tax; the then-Prime Minister declined to proceed, saying there was no mandate for it. Both facts matter only as brief context: an LVT and a CGT are not new or radical ideas in NZ. They have been tried or proposed before, and both have been put aside at key political moments.
 
 ---
 
-## Why these facts make the policies fit
+## Why these facts make the tools fit
 
-Here is where the toolkit from the previous module connects to the facts.
+The vocabulary from Module 2 connects to the NZ facts directly.
 
-**The land value tax** (the annual tax on the unimproved value of land, not the building on it) targets an asset class NZ already assesses for local council rating. The administrative machinery for valuing land triennially already exists. Because land cannot run away or restructure, a national LVT would reach the wealth concentrated in property in a way that income tax cannot. TOP also argues it sidesteps the politically explosive CGT debate by taxing the *annual value of holding land* rather than the gain on sale — a distinction that matters in a country where two successive governments have flinched at the CGT question.
+The **land value tax** targets the asset that holds the most concentrated wealth in NZ and that the tax system barely touches. NZ already values land triennially for local council purposes, so the administrative machinery partly exists. And an LVT taxes the annual value of *holding* land — not the profit on selling it — which sidesteps the politically charged CGT debate that has stalled twice in recent years.
 
-**The Citizen's Income** (the near-unconditional floor payment from the toolkit) is a response to the cost-of-living squeeze that follows from a housing market priced at seven times income. A floor that does not abate sharply as you earn is particularly valuable in a market where the cost of getting started — a first rental bond, a first year of rent — is high. The broad GST's regressivity also means a cash floor would reach households disproportionately burdened by consumption taxes.
+The **Citizen's Income** responds to a cost of living squeezed by housing prices at seven times income. A floor that does not disappear when you work is especially useful when getting started costs so much. And because GST is regressive, a cash floor paid to everyone helps offset the fact that lower earners pay a larger share of their income in consumption tax.
 
-**The effective-rate gap** — 8.9% vs 20% — is the single piece of evidence TOP most often cites as the argument for shifting the tax base. If the wealthiest households pay less than half the effective rate of a median household because most of their income is untaxed capital, then any system that wants to raise that effective rate without touching those capital gains faces a structural ceiling. TOP's proposed route is to change what the system taxes, not just the rates at which it taxes income.
+These are TOP's arguments, grounded in IRD and Stats NZ data. Critics raise real questions: whether a land value tax fully reaches wealth held in shares rather than property; whether the CI at its proposed level is adequate for people with high needs; and whether the political obstacles are as manageable as TOP suggests. Those debates belong to the sibling courses. Here, the point is simply that the NZ context facts are what give these tools their specific shape.
 
-These are TOP's arguments — grounded in IRD and Stats NZ data, but framed by TOP. Independent analysts and critics raise real questions: whether a land value tax alone adequately reaches financial wealth (shares, bonds) that is not housed in property; whether the Citizen's Income at the proposed level is adequate for people with high costs; and whether the practical and political obstacles to shifting the tax base are as surmountable as TOP suggests. Those debates belong to the sibling courses. What matters here is that the NZ context facts are what give these policy instruments their specific shape and their specific justifications.
+---
+
+## Pendulum politics
+
+There is one more piece of context that threads through the whole platform.
+
+New Zealand governments change every three years — sometimes sooner. And when they change, they often reverse the signature decisions of their predecessors.
+
+TOP cites specific examples: a light-rail project for Auckland cancelled at a cost of around two hundred and twenty-nine million dollars; a ferry procurement cancelled at around three hundred million dollars; a polytechnic merger reversed at a similar figure. These are contested figures, and any selection of examples is inevitably partial. But the underlying pattern is real: a short electoral cycle, combined with two large parties trading power, tends to produce stop-start policy, cancelled infrastructure, and agencies remade and then unmade.
+
+TOP calls this **pendulum politics** — the way the system swings back and forth without settling.
+
+It is connected to the tax-and-housing story because fixing a structural problem — like the tilt in the scales — requires a change that holds across multiple elections. Pendulum politics makes that very hard.
+
+**The guard for this metaphor matters:** not all change is waste. Some of what governments reverse deserved to be reversed — that is how democratic accountability works. The pendulum critique is not that all political change is bad. It is a more targeted argument: that some specific decisions, especially long-horizon ones like infrastructure and constitutional reform, are genuinely damaged by short-cycle reversal. The "Democracy and Everyday Life" course explores what TOP proposes to do about this.
 
 ---
 
 ## A map of the platform
 
-The full 2026 TOP platform extends well beyond the Tax Reset. Here is what each sibling course covers.
+The full 2026 TOP platform goes well beyond the tax and income ideas. Here is a plain map of what each sibling course covers.
 
 ---
 
-**The Tax Reset** — *covered in the course "The Tax Reset"*
+**The Tax Reset** — the flagship package, three interlocking parts:
 
-TOP's flagship package, three interlocking parts:
+- The **Citizen's Income**: around three hundred and seventy dollars a week, paid near-unconditionally to almost all adults, replacing most existing welfare payments and NZ Super.
+- The **Land Value Tax (LVT)**: an annual tax on the value of urban land (TOP proposes 1.75%) and rural land (0.5%), projected to raise enough to fund the Citizen's Income with a surplus.
+- **Income tax and KiwiSaver reform**: simplified tax brackets; compulsory KiwiSaver contributions at a combined 12%, aimed at building a large domestic pool of savings for infrastructure.
 
-- The **Citizen's Income**: roughly three hundred and seventy dollars a week paid near-unconditionally to almost all adults, replacing most existing welfare payments and NZ Super.
-- The **Land Value Tax (LVT)**: an annual tax of 1.75% on urban land value (and 0.5% on rural), projected by TOP to raise roughly twenty-four billion dollars a year — enough to fund the Citizen's Income with a surplus.
-- **Income tax and KiwiSaver reform**: three simplified brackets; compulsory KiwiSaver at 12% combined contributions, building toward what TOP describes as a trillion-dollar domestic capital pool for infrastructure.
-
-TOP argues that 70% of households end up better off, 20% unchanged, and 10% pay more under the combined package — though this is TOP's own modelling, not independently verified. The sibling course works through the mechanism, the arithmetic, and the critiques in detail.
+TOP argues that 70% of households end up better off under the combined package, 20% are unchanged, and 10% pay more — though this is TOP's own modelling, not independently verified. The Tax Reset course works through the mechanism, the arithmetic, and the critiques in detail.
 
 ---
 
-**Homes, Energy and Oceans** — *covered in the course "Homes, Energy and Oceans"*
+**Homes, Energy and Oceans** — three policies for the productive economy and natural environment:
 
-Three policies for the productive economy and the natural environment:
-
-- **Affordable housing**: the LVT is the main lever, but the course also covers supply-side reforms — simpler zoning, easier consenting, support for modular building, and a new Urban Development Act.
-- **Abundant energy**: a twenty-five-year bipartisan strategy to build roughly three hundred percent of current renewable capacity, with grid and market reform to attract investment.
-- **Healthy oceans**: protecting thirty percent of NZ's ocean by 2035 (from roughly half a percent today), phasing out bottom trawling with worker transition support, and investing in aquaculture.
+- **Affordable housing**: the LVT does much of the work by making it expensive to sit on idle land, but this course also covers supply-side reforms — simpler planning rules, easier building consents, support for modular construction, and a new framework for urban development.
+- **Abundant energy**: a twenty-five-year strategy to build roughly three times current renewable generation capacity, with grid and market reform to attract investment and keep power affordable.
+- **Healthy oceans**: protecting 30% of New Zealand's ocean by 2035 (from roughly half a percent today), phasing out bottom trawling with worker transition support, and investing in aquaculture.
 
 ---
 
-**Democracy and Everyday Life** — *covered in the course "Democracy and Everyday Life"*
+**Democracy and Everyday Life** — policies on how decisions get made and how everyday life is experienced:
 
-Policies on how decisions get made and how ordinary life is experienced:
-
-- **Citizens' Voice**: government-convened citizens' assemblies — randomly selected, paid, representative — to study and recommend on gridlocked long-term issues, overseen by a new Parliamentary Commissioner.
-- **The Teal Card**: a package for under-thirties including free GP visits, dental and eye care, free public transport, a bike credit, and a five-thousand-dollar savings boost tied to completing a National Civic Service.
-- **Transport and drug reform**: permanent free public transport; road-user charging to replace fuel tax; and a harm-minimisation approach to drugs, including cannabis legalisation.
+- **Citizens' Voice**: government-convened citizens' assemblies — randomly selected groups of ordinary people, paid to study and recommend on gridlocked long-term issues — with a new Parliamentary Commissioner to oversee the process.
+- **The Teal Card**: a package for people under thirty, including free GP visits, dental and eye care, free public transport, a bike credit, and a five-thousand-dollar savings boost tied to completing a National Civic Service.
+- **Transport and drug reform**: permanent free public transport nationwide; road-user charging to replace fuel tax; and a harm-minimisation approach to drugs, including cannabis legalisation.
 
 ---
 
-Each of these courses stands on its own. A reader who starts with "Homes, Energy and Oceans" will find one-line callbacks to the diagnosis and toolkit from this primer, grounded enough to follow without having read it first.
+Each of these courses stands on its own. A reader who starts with "Homes, Energy and Oceans" will find brief callbacks to the ideas in this primer — enough to follow without having read it first. But having this foundation means you can follow the detail more closely, and you know where every piece fits.
 
 ---
 
-## The pendulum and what it does
+## Check yourself
 
-There is one more piece of context that runs through the whole platform, and it belongs here rather than in any one sibling course.
+<details><summary>From memory: what effective tax rate did IRD find for NZ's 311 wealthiest families — and what was the rate for a median household?</summary>
 
-New Zealand politics has a particular rhythm. Governments change, and when they do, they often reverse the signature policies of their predecessors. According to TOP's figures, the cancelled Auckland light-rail project cost roughly two hundred and twenty-nine million dollars before it was abandoned; a ferry procurement was cancelled at a cost of around three hundred million dollars; a polytechnic merger was reversed at a similar price. These are contested figures and a selective sample, but the underlying pattern is real: a three-year electoral cycle combined with two parties trading power produces stop-start policy, cancelled infrastructure, and organisations remade and unmade.
+About 8.9% for the wealthiest families, versus about 20% for a median household. The gap exists largely because the wealthiest families receive most of their income as capital gains — which are largely untaxed in New Zealand.
 
-TOP calls this **pendulum politics** — the lurch-and-reverse cycle. It is also the rationale for the Citizens' Voice proposals in the "Democracy and Everyday Life" course: the argument that some decisions should be taken out of the three-year partisan cycle and grounded in something more durable.
+</details>
 
-The metaphor has a guard, and it matters. Not all change is waste. Some of what governments reverse deserved to be reversed — that is how democratic accountability works. The pendulum critique is not an argument that every incumbent policy is worth preserving. It is an argument that some specific kinds of decision — long-term infrastructure, energy strategy, constitutional questions — are genuinely harmed by short-cycle reversal, and that a deliberative mechanism outside the partisan cycle might help with those specific ones. Keeping the guard in mind stops the metaphor from doing more work than it should.
+<details><summary>What does "regressive" mean in plain words?</summary>
+
+A regressive tax takes a bigger chunk of income from people with less money, even though the rate is flat. GST at 15% hits lower earners harder because they spend a larger share of what they earn, while wealthier people can save or invest a portion and avoid GST on that part.
+
+</details>
 
 ---
 
 ## Exercises
 
-**1. The no-CGT argument**
+**Exercise 1.** Explain the IRD finding to a friend who has never heard of it. Include: what was found, why it matters, and what is *not* being claimed (hint: no one did anything illegal).
 
-TOP's case for an LVT rests heavily on the fact that NZ has no comprehensive capital gains tax. Explain, in your own words, why that fact matters for TOP's argument — and name one objection a critic might raise about whether the LVT is the right response to it.
+<details><summary>Example answer</summary>
 
-<details><summary>Show approach</summary>
-
-A strong response identifies two things. First, the mechanism: without a CGT, the profit on rising property values is untaxed, which makes property more attractive than other investments and concentrates wealth in those who already own. An LVT reaches that wealth annually (taxing the land's value every year) rather than only on sale — which is how TOP frames it as a response to the no-CGT problem without triggering the political resistance a CGT attracts.
-
-Second, the objection: a land value tax only reaches wealth in property, not financial wealth (shares, bonds, managed funds). A critic could argue that if the goal is to close the effective-rate gap, a tax that exempts financial capital addresses only part of the problem — and that a CGT, a wealth tax, or both might do more of the work. A strong response names this trade-off rather than pretending the LVT is a complete answer.
+IRD looked at New Zealand's 311 wealthiest families and found they paid about 8.9% of their income in tax on average — compared to about 20% for an ordinary household. The reason is that most of their income came as capital gains — profit from rising asset values — which New Zealand largely does not tax. Nobody in the study broke any rules. The finding is simply about what the rules produce: the wealthiest families end up paying less, proportionally, because their wealth grows in a form the tax system doesn't reach.
 
 </details>
 
 ---
 
-**2. Platform map: which course covers which policy?**
-
-Without looking back at the map, assign each of the following to its sibling course (the Tax Reset; Homes, Energy and Oceans; Democracy and Everyday Life):
+**Exercise 2.** Without looking at the map, assign each of the following to its sibling course — the Tax Reset, Homes Energy and Oceans, or Democracy and Everyday Life:
 
 - The Citizen's Income
 - Citizens' assemblies
 - Phasing out bottom trawling
-- KiwiSaver at 12%
 - The Teal Card
-- Zoning and consenting reform
+- Simplified KiwiSaver rules
+- New planning laws for housing
 
-<details><summary>Show answer</summary>
+<details><summary>Example answer</summary>
 
-- **The Tax Reset**: the Citizen's Income; KiwiSaver at 12% (part of the income-tax and KiwiSaver reform)
-- **Homes, Energy and Oceans**: phasing out bottom trawling (Healthy Oceans); zoning and consenting reform (Affordable Housing)
-- **Democracy and Everyday Life**: citizens' assemblies (Citizens' Voice); the Teal Card
-
-</details>
-
----
-
-**3. The pendulum — applying the guard**
-
-A reader argues: "TOP's Citizens' Voice policy proves that political change is always wasteful — we should just leave things as they are." What is wrong with that reading of the pendulum metaphor, and how does the guard correct it?
-
-<details><summary>Show approach</summary>
-
-The reader has collapsed the metaphor's guard. The pendulum critique is not that change is bad — it is that *certain specific decisions* are harmed by short-cycle reversal: long-horizon infrastructure, constitutional arrangements, long-term environmental policy. It is also not an argument against reversal as such; democratic accountability requires that bad policies can be changed. A strong response explains that the Citizens' Voice proposal is targeted at gridlocked long-term decisions where the costs of reversal are particularly high, and is explicitly *not* a claim that every incumbent policy deserves entrenchment. "Not all change is waste" is the guard — and invoking the metaphor without its guard produces a conclusion neither TOP nor the data support.
+- **The Tax Reset**: the Citizen's Income; simplified KiwiSaver rules
+- **Homes, Energy and Oceans**: phasing out bottom trawling; new planning laws for housing
+- **Democracy and Everyday Life**: citizens' assemblies; the Teal Card
 
 </details>
 
 ---
 
-**4. Connecting the facts to the diagnosis**
+**Exercise 3.** Explain pendulum politics in your own words — and then explain the guard (why the metaphor can mislead if used carelessly).
 
-M1 introduced the scales metaphor (the system tilts toward owning over earning). M3 gave you the NZ-specific data. In two or three sentences, explain how the IRD effective-rate finding and the Stats NZ housing data together support the scales metaphor — and name one piece of evidence that would, if it existed, weaken that support.
+<details><summary>Example answer</summary>
 
-<details><summary>Show approach</summary>
+Pendulum politics is the way New Zealand governments tend to reverse each other's big decisions. One government starts a project; the next cancels it; money is spent and then wasted. The pattern is particularly hard on long-term decisions that need years to play out.
 
-The IRD finding (8.9% effective rate for the wealthiest families vs 20% for a median household) shows that those whose income comes mainly from capital gains pay far less as a share of income than those who earn wages — precisely the tilt the scales metaphor describes. The Stats NZ data (48% of household assets in property; top 10% holding roughly half of net worth) shows where the wealth has pooled: in the asset class that the tax system treats most lightly. Together they make the mechanism concrete.
-
-Evidence that would weaken the support: if the IRD found that high-wealth households' capital gains were already being taxed at rates similar to income (through some other mechanism the study did not capture), or if Stats NZ data showed wealth broadly distributed across asset classes rather than concentrated in property. Neither appears to be the case, but naming the hypothetical counterfactual is part of thinking carefully about what the data actually shows.
+The guard: not all change is waste. Democratic accountability *requires* that bad policies can be reversed. The pendulum critique is not that change itself is bad — it is that some specific decisions, especially long-horizon ones, are genuinely harmed by short-cycle reversal. Without the guard, the metaphor can sound like an argument against any change, which is not what TOP is saying.
 
 </details>
 
@@ -209,4 +209,10 @@ Evidence that would weaken the support: if the IRD found that high-wealth househ
 
 ## Recap
 
-New Zealand is an unusual case: high income and consumption taxes alongside no comprehensive capital gains tax, no inheritance tax, and no national land tax. That combination, documented by IRD and Stats NZ, is what gives TOP's proposals their particular shape — the LVT as an annual reach into untaxed land wealth, the Citizen's Income as a floor in a high-cost housing market, the platform-wide rebalancing of a tax base that currently presses hardest on wages and spending. Three sibling courses explore the policies in depth. This one has given you the vocabulary and the facts to follow any of them — and the map to choose where to start.
+New Zealand sits in an unusual position: high income and consumption taxes alongside no general capital gains tax, no inheritance tax, and no national land tax. According to IRD, that combination produces a striking gap — the wealthiest families pay about half the effective tax rate of a median household, because most of their income arrives as untaxed capital gains.
+
+Alongside that sits a housing market priced at seven times the median income, with wealth heavily concentrated in property.
+
+These facts are why TOP's toolkit — the land value tax, the Citizen's Income, the shifted tax base — is shaped the way it is. They are not generic prescriptions. They are responses to this specific country's specific situation.
+
+Three sibling courses explore the policies in depth. You now have the vocabulary and the facts to follow any of them.

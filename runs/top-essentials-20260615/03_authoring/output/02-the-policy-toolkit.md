@@ -2,163 +2,180 @@
 title: The Policy Toolkit
 course: top-essentials
 order: 2
-summary: "The five or six concepts you need to follow any TOP policy — defined in plain words, once, with concrete New Zealand examples."
+summary: "The key words behind every TOP policy — defined one at a time in plain language, with everyday examples, so nothing in the rest of the series stops you cold."
 estimatedMinutes: 16
 objectives:
-  - Define tax base, land value tax, Citizen's Income, economic distortion, means-testing, and tax incidence in plain words
-  - Explain, using the signpost metaphor, why a tax can change behaviour and waste value
-  - State TOP's central argument for why a land value tax barely distorts economic behaviour, and name one practical complication of that argument
-  - Distinguish a floor (unconditional) from a safety net (means-tested) and explain why a floor's height matters
+  - Define tax, tax base, capital gain, capital gains tax, land value tax, Citizen's Income, economic distortion, and means-testing in plain words
+  - Explain, using the signpost metaphor, why taxes can quietly change people's choices
+  - Distinguish a floor (unconditional) from a safety net (means-tested), and explain why a floor's height matters
 prerequisites:
   - "01-the-diagnosis"
 ---
 
-Every policy argument runs on jargon. The people who sound confident at the dinner table aren't necessarily smarter — they've just picked up a small vocabulary that lets them follow the logic. This module gives you that vocabulary for The Opportunity Party's platform. Five concepts, each defined once in plain words. After this, nothing in the series should stop you cold.
+Every policy argument runs on a small set of words. Once you know them, the arguments open up. Once you do not, you feel like you are listening to a conversation through a closed door.
 
-The previous module established TOP's core claim: the scales in New Zealand are tilted toward owning land rather than working or building a business. The policies in the rest of this series are all attempts to retilt those scales. But to understand *how* they propose to do that, you need to know what a tax base is, how a land value tax works, what a Citizen's Income actually means, and why economists care about something called distortion. Let's build the toolkit.
+This module is the key. Eight concepts — each defined in plain words with a concrete example. Nothing in the rest of this series should stop you cold after this.
 
 ---
 
-## What gets taxed: the tax base
+## 1. Tax
 
-The **tax base** is simply *what* gets taxed. Not how much — the rate — but the underlying thing the tax is measured against.
+A **tax** is a compulsory payment to the government. "Compulsory" means you do not get a choice — if the rule says you owe it, you owe it. The government uses the money to fund shared things: roads, hospitals, schools, courts.
 
-NZ's current main bases: your **income** (wages, salary), your **spending** (GST, the 15% charged on almost everything you buy), and some **capital gains** at the margin (a narrow bright-line test on investment properties sold within two years). Notably absent: a comprehensive tax on land, on wealth, or on most capital gains. That absence is the gap the previous module identified — the tilt in the scales.
+You already met tax in the previous module. When Aroha earns wages, a portion goes to the government before she sees it. That is income tax.
 
-TOP's core move is to **shift part of the base toward land** — to tax land value directly rather than relying so heavily on taxing the wages people earn and the things they buy. Why? Because the argument is that taxing income discourages work, taxing spending discourages consumption, but taxing land — which exists whether you use it or not — discourages *sitting on it*.
+There are many kinds of tax. Two come up immediately in the TOP story:
 
-<details><summary>Check yourself: what's the difference between a tax rate and a tax base?</summary>
+- **Income tax** — a tax on what you *earn*. The more you earn, the higher the rate. Wages are deducted automatically.
+- **GST** — short for "Goods and Services Tax." A 15% charge added to the price of almost everything you buy in New Zealand. It is already in the price at the checkout. You pay it whether you notice it or not.
 
-The **base** is the thing being taxed (income, spending, land value). The **rate** is the percentage applied to it. You could have a low rate on a broad base, or a high rate on a narrow base. When TOP talks about shifting the base toward land, they mean changing *what* gets taxed, not just adjusting the percentages on existing taxes.
+These two raise most of the government's money. What they reach — and what they do not reach — is what the next few concepts are about.
+
+---
+
+## 2. Capital gain — and capital gains tax
+
+Back to the bike from the previous module.
+
+You buy a second-hand bike for 100 dollars. A year later, you sell it for 150 dollars. That extra 50 dollars — the profit on the sale — is a **capital gain**. "Capital" just means an asset you own. The "gain" is the profit when you sell it for more than you paid.
+
+Scale this up. You buy a house for 400,000 dollars. Ten years later it is worth 750,000 dollars. That extra 350,000 dollars is also a capital gain.
+
+In most countries, you pay a tax on that profit. That tax is called a **capital gains tax** — shortened to **CGT**.
+
+New Zealand, for most of its history, has not had a general capital gains tax. If you sell an asset for more than you paid, that profit is largely not taxed.
+
+This is a central fact in the whole TOP story. Aroha pays income tax on every dollar she earns at work. But if Glen sells a property that has doubled in value, that profit — often hundreds of thousands of dollars — is largely untaxed. More on the NZ specifics in Module 3.
+
+<details><summary>Check yourself: what is the difference between income tax and a capital gains tax?</summary>
+
+Income tax is on what you *earn* — wages, salary, fees for work. A capital gains tax is on the *profit when you sell an asset* for more than you paid. In New Zealand, income from work is taxed; profit from selling a house is largely not. That gap is what TOP is reacting to.
 
 </details>
 
 ---
 
-## The land value tax: taxing the spot, not the house
+## 3. Tax base
 
-A **land value tax (LVT)** is an annual tax on the *unimproved value of land* — the value of the location itself, not the building or renovations on it.
+A handy piece of shorthand.
 
-Here's a concrete NZ example. Imagine a 700-square-metre section in Tāmaki Makaurau/Auckland. The section might be worth around one million dollars because of where it sits: near schools, transport links, and the economic activity the city provides. The house on it might add another six hundred thousand. An LVT is charged only on the one million — the value of the *spot*. If you knock the house down and rebuild something nicer, your LVT bill doesn't change, because the land beneath it is exactly the same spot.
+The **tax base** is simply *what* the government chooses to tax. Not the percentage — that is the rate. The base is the underlying thing the tax is measured against.
 
-This gives the **spot-not-house** image its meaning: the tax is on the worth of the location, not the structure. Two guards to keep in mind:
+New Zealand's current main base is income and spending: what you earn (income tax) and what you buy (GST). What is largely *not* in the base is the value of assets — especially land.
 
-- An LVT does **not** tax your building, your renovations, or the effort you've put into improving a property. It's sometimes described as a tax on "having a home," but that's inaccurate — it's a tax on the *value of the ground beneath the home*, much of which was created by the community's investment (roads, schools, rail) rather than the owner's.
-- The thing being taxed is the *value* of the location — not the dirt itself. What makes a section in central Auckland worth a million dollars and a similar-sized section in rural Southland worth twenty thousand is proximity to people, services, and infrastructure. That locational value is what an LVT reaches.
+TOP's core move is to shift part of the base toward land. To tax what you *own* (the value of land) alongside what you earn and spend. That shift is what the next concept is about.
 
-TOP proposes 1.75% per year on urban land value and 0.5% on rural land value, with a **deferral option** for owners who are land-rich but cash-poor — the bill accrues against the title and is paid when the property sells.
+---
+
+## 4. Land value tax
+
+TOP's signature idea.
+
+A **land value tax** — **LVT** for short — is an annual tax on the value of land. Not the house on it. Just the land itself — the bare section, the spot.
+
+Imagine a section in Auckland. Because of where it sits — near schools, transport, and the economic life of the city — the section might be worth around a million dollars. The house on top might add another six hundred thousand. An LVT is charged only on the section's value — the million-dollar spot.
+
+The image: **taxing the worth of the spot, not the house on it**.
+
+If you knock the house down and rebuild something nicer, your LVT bill does not change. The land beneath it is the same spot.
+
+Two things to keep clear:
+- An LVT does *not* tax your building or renovations.
+- Much of what makes a section valuable — nearby roads, schools, trains — was created by the community, not the owner.
+
+**"Land can't run away."** This is why economists say an LVT is hard to dodge. If the government raises income tax, some people work less or move abroad. But land in Auckland cannot be moved offshore to avoid the tax. It stays where it is. That matters — and it leads directly to the next concept.
 
 <details><summary>Check yourself: if you renovate your kitchen for fifty thousand dollars, does your LVT bill go up?</summary>
 
-Under an LVT, no — because the tax is on the *unimproved land value*, not the building or its improvements. Your renovation adds value to the structure, but the land beneath it is the same spot. This is one of the design features TOP highlights: an LVT doesn't penalise people for building or improving.
+No. The tax is on the *unimproved value of the land* — the spot itself. Your renovation adds value to the building, not the section. This is one reason TOP argues an LVT does not punish people for improving their property.
 
 </details>
 
 ---
 
-## The Citizen's Income: a floor, not a net
+## 5. Economic distortion
 
-The **Citizen's Income (CI)** is TOP's version of what economists call a **UBI (universal basic income)**: a regular, near-unconditional payment to almost all adults.
+Taxes do not just raise money. They quietly change people's choices. That effect is called **economic distortion**.
 
-TOP proposes around 370 dollars a week (roughly 19,400 dollars a year), paid to nearly all adults and means-tested only above roughly 350,000 dollars of annual income. It would replace most of the current welfare system — Jobseeker, Student Allowance, and ultimately NZ Super — though TOP proposes a transitional top-up for current superannuitants.
+Think of a tax as a **toll that changes which road people take**. A toll on the motorway sends some drivers down back roads, some to carpool, some to stay home. The toll has *steered* behaviour.
 
-The image that captures what this is for: **a floor you stand on, versus a safety net with holes**.
+Income tax works the same way. If the government takes 33 cents from every extra dollar you earn, some people will work fewer hours or find ways to reduce their taxable income. The economy produces a little less than it otherwise would.
 
-Current welfare works like a safety net: it's there to catch you if you fall, but you have to fall first, prove you've fallen (means-testing), and thread through the right holes. Some people miss. A net also has **abatement traps** — the rules that claw back your benefit as you start earning, sometimes so steeply that taking a part-time job leaves you no better off.
+Now think about land. Land cannot move. The supply of land in any location is fixed. A tax on land value lands on the owner regardless of what they do with the land — whether they build, rent, sell, or leave it empty. Because the land cannot respond by disappearing or doing less, the tax barely steers anyone away from useful activity.
 
-A Citizen's Income is a floor: it's there regardless of whether you fall, unconditionally, without the threading. You stand on it and earn *above* it without penalty. This is what "unconditional" means in practice — not that the payment is unlimited, but that it doesn't disappear when you work.
+In plain words: **a tax on land has near-zero distortion, because the land cannot respond to the tax**.
 
-**Guard:** a floor's *height* matters. TOP's proposed floor of around 370 dollars a week is close to the Jobseeker rate, and critics note it would be inadequate for many disabled people currently receiving Supported Living payments of around 800 dollars a week. The floor is real; that doesn't mean everyone stands comfortably on it. Keep both things in mind.
+TOP's central argument: shift the base toward land and away from income, and you raise the same revenue while steering people's choices far less.
 
----
+<details><summary>Check yourself: why does an LVT cause less distortion than income tax?</summary>
 
-## Economic distortion: the toll that changes which road you take
-
-Taxes don't just raise money — they change behaviour. This effect is called **economic distortion**, sometimes **deadweight loss**.
-
-Think of a tax as a **signpost** — or more precisely, as a **toll that changes which road people take**. A toll on State Highway 1 doesn't just collect revenue; it sends some drivers down back roads, some to stay home, some to carpool. The toll has *steered* behaviour. In economics, when a tax steers people away from something that would otherwise be worth doing, the value of those foregone activities is the distortion — the waste.
-
-Income tax is a classic example. If the government takes 33 cents of every extra dollar you earn, some people will work slightly fewer hours, decline certain projects, or structure their income to minimise the tax. The economy produces a little less than it otherwise would. That lost production is the deadweight.
-
-Now consider land. Land can't move. You can't take your Auckland section offshore to avoid the tax. You can't build less of it. The supply of land in any particular location is fixed.
-
-This is where TOP's **land-can't-run-away** argument comes in: because the supply of land is fixed, a tax on land value can't drive it away or make less of it exist. The landowner faces the tax regardless of what they do with the land — so the tax barely changes what they *do* with it. The classic economic conclusion is that an LVT has **near-zero distortion**: it raises revenue without steering people away from economically useful activity.
-
-**TOP's central argument in one sentence:** shift the tax base toward land and away from income, and you get the same revenue with less steering — less distortion of work, enterprise, and consumption.
-
-**Hold the guard:** the claim that LVT has near-zero distortion is one that most mainstream economists broadly accept in theory. In practice, two complications arise. First, **tax incidence** (see below) — the question of whether landlords pass the tax to tenants. Second, **valuation** — land values are estimates, not market prices, and disputed valuations create uncertainty and compliance cost. These are the practical critiques; the deeper M-level arguments live in the sibling "Tax Reset" course.
-
-<details><summary>Check yourself: why does a land value tax cause less distortion than an income tax, according to this argument?</summary>
-
-Because the supply of land in a given location is fixed — you can't produce more or less of it in response to the tax. An income tax can cause people to work less (or restructure income), reducing economic activity. But a landowner faces the LVT whether they build, sell, leave the land idle, or rent it out — the tax doesn't change the *amount* of land available, so it barely steers behaviour. The economist's term for this: the tax base is inelastic (unresponsive to price changes).
+Because land in a given location is fixed — it cannot be moved or produced in response to the tax. An income tax can cause people to work less. But a landowner pays an LVT whether they build, rent, or sit on the land. The tax does not change how much land there is, so it barely steers behaviour.
 
 </details>
 
 ---
 
-## Means-testing and tax incidence: two more tools
+## 6. The Citizen's Income
 
-**Means-testing** limits a payment by income or assets — you only get it if you earn below a threshold. Most current NZ welfare (Jobseeker, Working for Families) is means-tested. NZ Super is the main exception: everyone over 65 gets it regardless of wealth.
+TOP's other big idea.
 
-TOP's Citizen's Income removes most means-testing for working-age adults (the floor is near-universal) but *adds* means-testing to Super, which would reduce the CI for high-income retirees. Whether removing means-testing is an improvement depends partly on whether the floor is high enough — a means-tested system that gives more to those with the greatest need may serve vulnerable people better than a lower universal floor that serves everyone equally.
+A **Citizen's Income** — sometimes called a **UBI** (short for **universal basic income**) — is a regular payment made to almost all adults, no strings attached.
 
-**Tax incidence** — sometimes called pass-through — is the question of who *really* bears a tax, as opposed to who writes the cheque to Inland Revenue. This distinction matters more than it might seem.
+TOP's version would pay around three hundred and seventy dollars a week to nearly every adult. You receive it whether you are employed, studying, or caring for children. You do not have to prove you need it.
 
-Take the most common concern about an LVT: what stops landlords passing the tax to tenants through higher rents? Standard economic theory says: land supply is fixed, so landlords are already charging what the market will bear. Adding an LVT doesn't give them new power to charge more — the market price of the rent is set by what tenants can pay, not by the landlord's cost base. Under this theory, LVT incidence lands on the **landowner**, not the tenant.
+Here is the contrast that makes sense of it.
 
-The honest caveat: economists broadly accept this reasoning in competitive markets with fixed land supply. In practice, NZ's rental market has its own frictions — limited housing supply in cities, planning rules, etc. — and the incidence question remains debated. The theoretical case is strong; the empirical evidence is less settled.
+Current welfare works like a **safety net**. It catches you if you fall — but you have to fall first, then prove you've fallen, then thread through the requirements. Some people miss. And if you start earning a little, your payment often drops sharply, sometimes leaving you no better off for working. That trap makes it hard to climb back out.
+
+A Citizen's Income is a **floor you stand on, not a safety net with holes**. It is there whether you fall or not. You do not have to prove anything. And if you earn more on top of it, the floor does not disappear.
+
+**The guard: a floor's height matters.** TOP proposes about three hundred and seventy dollars a week — close to the Jobseeker rate. People with serious disabilities can currently receive around eight hundred dollars a week through Supported Living. A floor at three hundred and seventy does not hold those people at the height they need. The floor is real; that does not mean everyone stands comfortably on it.
+
+---
+
+## 7. Means-testing
+
+One last concept — short but useful.
+
+**Means-testing** limits a payment to people whose income (or assets) falls below a certain level. You only get it if you can show you do not earn too much.
+
+Most NZ welfare is means-tested: Jobseeker, Working for Families. NZ Super — the pension for everyone over 65 — is the main exception: everyone over 65 gets it regardless of wealth.
+
+TOP's Citizen's Income removes most means-testing for working-age adults — almost everyone gets it. But TOP *adds* means-testing to Super, reducing the CI for high-income retirees.
+
+Whether removing means-testing is an improvement depends, again, on the floor's height. A means-tested system can concentrate more money on those who need it most. A universal floor gives the same to everyone — which means those with the greatest needs may be less well served if the floor is low.
 
 ---
 
 ## Exercises
 
-**1. Explaining distortion to a friend**
+**Exercise 1.** Explain the difference between income tax and GST to someone who has never thought about it. Use a concrete everyday example.
 
-You're at a barbecue and a friend says: "I don't see why TOP keeps going on about land taxes — all taxes discourage something, right?" Using the toll-road image from this module, explain why TOP argues a land value tax is different from an income tax when it comes to distortion. What can't land do, that income can?
+<details><summary>Example answer</summary>
 
-<details><summary>Show a strong response</summary>
-
-A strong response would make three moves. First, agree with the friend: yes, most taxes do discourage something — an income tax makes working slightly less rewarding, a sales tax makes spending slightly less attractive. That's economic distortion. Second, introduce the fixed-supply point: land in a given location can't be produced in response to prices, moved offshore, or hidden. A tax on land value lands on the owner regardless of what they do with it — so the tax doesn't change *how much* land exists or where it is. Third, connect this to behaviour: because the owner pays the LVT whether they build, rent, sit on it, or sell, the tax barely steers their decision. Compare that to an income tax, which directly reduces the return to working more. The toll-road image works here: an income tax is a toll on the main road (work), so some traffic diverts. An LVT is more like a fee for owning the plot the road sits on — the plot's not going anywhere.
-
-The one thing to add: this is the theoretical argument. In practice, debate continues over whether landlords pass the tax to tenants and how hard land valuation is in the real world — so "near-zero distortion" is a strong claim with real substance behind it, not a proven fact.
+Income tax is taken from the money you *earn*. If your wages are five hundred dollars this week, the government takes a share before you see it. GST is added to the things you *buy*. If a sandwich costs seven dollars, you actually pay eight dollars and five cents at the checkout, with the extra going to the government as tax. Both are taxes, but they reach into different moments: one at your payslip, one at the till.
 
 </details>
 
-**2. Floor vs. safety net — where the metaphor holds and where it bends**
+---
 
-What is the difference between a floor and a safety net as described in this module? Think of someone who currently receives around 800 dollars a week in Supported Living payments due to a serious disability. Does TOP's proposed Citizen's Income of around 370 dollars a week function as a floor for this person in the sense the module describes? What does that reveal about the limits of the metaphor?
+**Exercise 2.** In your own words: what is a capital gain, and why does it matter that New Zealand does not generally tax it?
 
-<details><summary>Show a strong response</summary>
+<details><summary>Example answer</summary>
 
-The floor/safety net distinction is about *conditionality*: a safety net requires you to prove you've fallen and meet specific criteria; a floor is there regardless. In that sense, the Citizen's Income is a floor — you don't need to prove anything to receive it.
-
-But for a person receiving 800 dollars a week under Supported Living, the floor's *height* matters as much as its existence. A floor at 370 dollars a week is a step down from a safety net that provided 800 dollars based on assessed need. The metaphor captures the removal of conditionality well, but it can mislead if it implies that everyone is equally served by the floor's existence. A floor below someone's actual living costs is still a floor — it just doesn't hold them at the height they need.
-
-This is one of the genuine critiques of TOP's CI design: replacing needs-based, higher-rate payments with a universal lower rate may leave those with the greatest needs worse off, even if it removes bureaucratic barriers for others. TOP and its critics genuinely disagree about how to weigh universality against adequacy.
+A capital gain is the profit you make when you sell something for more than you paid. Buy a house for three hundred thousand, sell it for six hundred thousand — the extra three hundred thousand is your capital gain. Because New Zealand largely does not tax that profit, someone whose wealth grows through rising property values pays very little tax on that growth. Meanwhile someone earning the same amount through wages pays income tax on every dollar. That difference is the structural tilt TOP is reacting to.
 
 </details>
 
-**3. Spot the base**
+---
 
-NZ currently raises most of its revenue through income tax and GST. A property investor who owns five Auckland rental properties earns most of their return through rising land values, not through rental income. Using the concept of "tax base" from this module: why does TOP argue that this investor is undertaxed relative to a wage earner?
+**Exercise 3.** Explain the floor-and-safety-net image in your own words, and explain the guard — why the image can mislead.
 
-<details><summary>Show a strong response</summary>
+<details><summary>Example answer</summary>
 
-The tax base determines what gets taxed. A wage earner's income sits squarely in the income-tax base — PAYE is deducted automatically, and there's no way around it. The property investor's primary return — rising land values — sits outside NZ's current base. NZ has no comprehensive capital gains tax, and the bright-line test is narrow (two years for investment properties as of 2024). So most of the investor's wealth growth is untaxed.
+A safety net only catches you if you fall — and if you miss the holes, there is nothing. A floor is always there, whether you fall or not, and you stand on it while earning above it. The Citizen's Income is meant to work like the floor.
 
-TOP's argument is that this mismatch isn't accidental — it's a structural bias in which taxes the system reaches. Shifting the base toward land (via an LVT) would catch the value sitting in those sections annually, rather than waiting for a sale that may never trigger a capital-gains event. The investor still holds the land; the LVT is the state reaching that value every year regardless.
-
-</details>
-
-**4. Incidence at the dinner table**
-
-Someone objects: "A land value tax will just make rents go up — landlords will pass it straight to tenants." What's the economic argument against this? And what honest caveats would you add?
-
-<details><summary>Show a strong response</summary>
-
-The economic argument: landlords are already charging market rent — whatever tenants are able and willing to pay in a competitive market. Adding a new cost to the landlord doesn't automatically give them power to charge more; that power is determined by what tenants can pay and what alternatives they have. Because land supply is fixed, the landlord can't withdraw the property from the market to force rents higher (unlike, say, a manufacturer who can produce less). So under standard theory, the LVT incidence falls on the landowner: they absorb the tax out of the land's economic return (which theory says is a "rent" they capture from the location's value, not from their own effort or investment).
-
-Honest caveats: this reasoning holds best in competitive markets with truly fixed supply. NZ's rental market has significant supply constraints in cities — zoning, consent costs, infrastructure — and some economists argue that with restricted supply, landlords *can* pass more costs to tenants than the pure theory suggests. The theoretical case for landlord-incidence is well-established; the empirical picture in specific markets like Auckland is less clean. This is worth flagging in a debate: the theory is mainstream, but the practical outcome depends on market conditions.
+The guard: the height of the floor matters. If someone needs eight hundred dollars a week to meet specific needs, a floor at three hundred and seventy dollars is still a floor — it just does not hold them at a comfortable height. The image captures the "no strings" part well, but can mislead if it implies everyone is therefore fine.
 
 </details>
 
@@ -166,6 +183,20 @@ Honest caveats: this reasoning holds best in competitive markets with truly fixe
 
 ## Recap
 
-You now have the five concepts that unlock every TOP policy discussion: the **tax base** (what gets taxed — TOP's move is toward land); the **land value tax** (annual, on the spot's value, not the building); the **Citizen's Income** (a near-unconditional floor, with the guard that a floor's height matters); **economic distortion** (the toll that changes which road people take — and TOP's claim that land can't run, so an LVT barely steers); and **means-testing** and **tax incidence** (who qualifies, and who really pays).
+Eight concepts — each one a tool for the policies that follow.
 
-These concepts belong to this module. The rest of the series will call back to them, not re-explain them. The next module puts them against the NZ facts — the specific numbers and context that explain why TOP thinks these tools fit this country right now.
+**Tax**: a compulsory government payment. **Income tax** is on what you earn. **GST** is 15% on most things you buy.
+
+**Capital gain**: profit when you sell an asset for more than you paid. A **capital gains tax** (CGT) taxes that profit — and New Zealand largely does not have one.
+
+**Tax base**: what the government chooses to tax. TOP's core move is to shift part of the base toward land.
+
+**Land value tax (LVT)**: an annual tax on the value of a piece of land (the spot, not the house). Land cannot run away, so the tax barely distorts behaviour.
+
+**Economic distortion**: the way a tax quietly nudges people's choices, like a toll changing which road they take. LVT barely does this, because land cannot respond.
+
+**Citizen's Income**: TOP's near-unconditional payment to almost all adults. A floor you stand on — but the height of the floor matters.
+
+**Means-testing**: limiting a payment to people below a certain income. TOP removes it for the Citizen's Income and adds it to Super.
+
+These belong to this module. The rest of the series calls back to them, never re-explains them. Module 3 sets them against the specific NZ facts and maps the full platform.
