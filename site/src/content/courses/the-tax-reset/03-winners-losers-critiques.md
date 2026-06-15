@@ -8,7 +8,7 @@ objectives:
   - Describe TOP's 70/20/10 distributional claim and explain why it comes with an important attribution caveat
   - Walk through how the Tax Reset would affect four different household types and explain the direction of impact in each case
   - State the main critiques of the Tax Reset from both the political left and the political right
-  - Distinguish between the two separate questions: "does the package raise or lower someone's bill?" and "does it tax the right things?"
+  - Distinguish two separate questions — whether the package raises or lowers a given household's bill, and whether it taxes the right things
 prerequisites:
   - 01-the-citizens-income
   - 02-the-land-value-tax
