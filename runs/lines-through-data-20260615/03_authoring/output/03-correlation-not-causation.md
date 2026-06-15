@@ -45,7 +45,7 @@ That is a lurking variable doing exactly what lurking variables do. The correlat
 
 Notice what the best-fit line (M2) was doing this whole time. It threaded the cloud and drew a clean, confident slope through ice cream and drownings, just as it would for a genuine cause. *A line fit to coincidental or confounded data still draws a confident slope.* The slope is honest about the numbers and silent about the cause. Reading causation off a fitted line is reading a meaning that was never written there.
 
-And coincidence deserves one last look, because it is stranger than it sounds. Hunt across enough unrelated measurements — a nation's cheese consumption, a rare cause of death, some economy's yearly output — and you *will* turn up pairs whose lines march together almost perfectly. Whole collections of these have been gathered for laughs: two utterly unrelated trends that, side by side, hug a line tightly enough to embarrass a real finding. `[verify figures]` The joke is the shape of the curves, not any particular numbers or years. The lesson is blunt: a tight correlation is not evidence of a connection — it is an invitation to ask where the connection might come from, and "nowhere, it's a fluke" is a legitimate answer.
+And coincidence deserves one last look, because it is stranger than it sounds. Hunt across enough unrelated measurements — a nation's cheese consumption, a rare cause of death, some economy's yearly output — and you *will* turn up pairs whose lines march together almost perfectly. Whole collections of these have been gathered for laughs: two utterly unrelated trends that, side by side, hug a line tightly enough to embarrass a real finding. The joke is the shape of the curves, not any particular numbers or years. The lesson is blunt: a tight correlation is not evidence of a connection — it is an invitation to ask where the connection might come from, and "nowhere, it's a fluke" is a legitimate answer.
 
 ## Check yourself
 
@@ -112,4 +112,3 @@ No single right answer — the exercise is the *habit*. A strong response names 
 ## Recap
 
 You arrived able to read a cloud of points, measure how tightly it hugs a line, and summarize its trend with a best-fit line. You leave with the one question that keeps all of it honest: *when two things rise together, could it be coincidence, reverse causation, or a hidden third thing?* The ice cream never chilled the swimmers; the summer drove both, offstage, where the chart couldn't see it. A correlation is a beginning, not a verdict — the line through the cloud describes the numbers and stays silent about the cause. Carry that gap with you, and you've gained the rarest thing a chart can give: the refusal to be fooled by one.
-</content>

@@ -129,4 +129,3 @@ No. Significance depends on the sample as well as the effect: a small study has 
 ## Recap
 
 The word "significant" promises less than it sounds like it does. It says a result stood out from the noise — that it's detectable — and detectability rides on the sample size as much as on the effect, so a big enough study can flag a difference far too small to matter, while a small study can miss a real one. Hunting through many tests and reporting only the winner manufactures that same word out of pure luck. And a study that finds nothing has not shown there is nothing there; it may have been listening with ears too dull to hear it. Significant, big, and real are three different claims. Module 01 separated *surprising* from *real*; this module separated *significant* from *big*. The next takes up the honest way to report how big — a range, not a single number.
-</content>
