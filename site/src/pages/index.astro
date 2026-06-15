@@ -1,12 +1,30 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import { courseUrl } from '../lib/url';
+import { courseUrl, seriesUrl } from '../lib/url';
 
 // Auto-discovery: every courses/<slug>/_course.md becomes a catalog entry.
 const courses = (await getCollection('courses')).sort((a, b) =>
   a.data.title.localeCompare(b.data.title),
 );
+
+// Standalone courses (no series block) keep the existing flat-grid behavior.
+const standalone = courses.filter((c) => !c.data.series);
+
+// Courses with a series block are grouped by series.slug; membership is emergent.
+const seriesMap = new Map();
+for (const course of courses) {
+  const series = course.data.series;
+  if (!series) continue;
+  if (!seriesMap.has(series.slug)) seriesMap.set(series.slug, []);
+  seriesMap.get(series.slug).push(course);
+}
+const seriesGroups = [...seriesMap.entries()]
+  .map(([slug, members]) => {
+    members.sort((a, b) => a.data.series.order - b.data.series.order);
+    return { slug, title: members[0].data.series.title, members };
+  })
+  .sort((a, b) => a.title.localeCompare(b.title));
 ---
 
 <Base title="Catalog" description="Browse every course on Fable Academy.">
@@ -18,23 +36,67 @@ const courses = (await getCollection('courses')).sort((a, b) =>
 
   {courses.length === 0 && <p class="lead">No courses published yet.</p>}
 
-  <div class="catalog-grid">
-    {
-      courses.map((course) => {
-        const slug = course.id.split('/')[0];
-        return (
-          <a class="card" href={courseUrl(slug)}>
-            <h3>{course.data.title}</h3>
-            <p class="desc">{course.data.description}</p>
-            <div class="badges">
-              <span class="badge kind">{course.data.kind}</span>
-              <span class="badge level">{course.data.level}</span>
-              <span class="badge">{course.data.moduleOrder.length} modules</span>
-              <span class="badge">~{course.data.estimatedHours}h</span>
+  {
+    standalone.length > 0 && (
+      <div class="catalog-grid">
+        {standalone.map((course) => {
+          const slug = course.id.split('/')[0];
+          return (
+            <a class="card" href={courseUrl(slug)}>
+              <h3>{course.data.title}</h3>
+              <p class="desc">{course.data.description}</p>
+              <div class="badges">
+                <span class="badge kind">{course.data.kind}</span>
+                <span class="badge level">{course.data.level}</span>
+                <span class="badge">{course.data.moduleOrder.length} modules</span>
+                <span class="badge">~{course.data.estimatedHours}h</span>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    )
+  }
+
+  {
+    seriesGroups.length > 0 && (
+      <section class="series-section">
+        <h2>Series</h2>
+        {seriesGroups.map((group) => (
+          <div class="series-group">
+            <h3 class="series-heading">
+              <a href={seriesUrl(group.slug)}>{group.title}</a>
+            </h3>
+            <div class="catalog-grid">
+              {group.members.map((course) => {
+                const slug = course.id.split('/')[0];
+                const isEssentials = course.data.series.role === 'essentials';
+                return (
+                  <a class="card" href={courseUrl(slug)}>
+                    <h3>{course.data.title}</h3>
+                    <p class="desc">{course.data.description}</p>
+                    <div class="badges">
+                      {isEssentials && <span class="badge level">Essentials</span>}
+                      <span class="badge kind">{course.data.kind}</span>
+                      <span class="badge level">{course.data.level}</span>
+                      <span class="badge">{course.data.moduleOrder.length} modules</span>
+                      <span class="badge">~{course.data.estimatedHours}h</span>
+                    </div>
+                  </a>
+                );
+              })}
             </div>
-          </a>
-        );
-      })
-    }
-  </div>
+          </div>
+        ))}
+      </section>
+    )
+  }
 </Base>
+
+<style>
+  .series-section { margin-top: 2.6rem; }
+  .series-group { margin-bottom: 2rem; }
+  .series-heading { margin: 1.4rem 0 0.8rem; }
+  .series-heading a { color: var(--text); }
+  .series-heading a:hover { color: var(--accent); }
+</style>

@@ -49,6 +49,16 @@ and the place the two voices meet — bold prose for explanation, precise formal
    demographic/cultural stereotyping and representational balance; revise anything skewed. (Generated
    content reproduces training-data stereotypes; this screen is a required pass, not optional.)
 
+## Series mode
+
+When this course is a **sibling** member of a series (`role: course`), brief each authoring sub-agent
+with `runs/<series-id>/series-canon.md` alongside the course `canon.md`. Writers must **reuse the
+series-canon's shared terms and metaphors verbatim** (never rename or reinvent a shared image), and
+for any concept the series-canon marks as **owned by Essentials**, **call back** to the Essentials
+course — a one-line reminder, re-grounded just enough to stand alone — instead of re-deriving it. The
+course's own `canon.md` still governs which of *this* course's modules owns each local fact. (The
+Essentials course itself authors normally; it owns the shared canon rather than calling back to it.)
+
 ## Outputs
 
 - `runs/<run-id>/03_authoring/output/NN-<module-slug>.md` — one validated markdown file per module.

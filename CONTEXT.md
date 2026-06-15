@@ -19,6 +19,50 @@ Run the pipeline in numeric order. Each stage is a contract you read at the mome
 | 5 | `pipeline/05_assembly/` | Assemble + ship into `site/src/content/courses/<slug>/` | — |
 | 6 | `pipeline/06_verify/` | Validate schema, lint prose continuity, smoke-build the site | **review** |
 
+A single, standalone course is the **default** and is unchanged by everything below. Read the next
+section only when the request is explicitly for a *series* of mini-courses.
+
+## When the request is a course series
+
+Trigger phrases: *"create a course **series** on X"*, *"a set / family of mini-courses on X"*, *"an
+Essentials primer plus …"*, or any request for several small courses that should share one vocabulary.
+
+A **series** is a set of *mini*-courses that share a common vocabulary and metaphors. **Exactly one**
+member is the **Essentials** course — a short primer that establishes the shared canon. Every other
+member is a **standalone** mini-course (takeable on its own, self-contained) but is **authored against
+the Essentials canon**, so the whole series stays consistent: same terms, same metaphors, with the
+deeper minis **calling back** to Essentials concepts (re-grounded just enough to stand alone) rather
+than re-deriving them. This is the within-course `canon.md` idea lifted one level: at the series level
+the **Essentials course emits a shared series-canon** that every sibling authors against.
+
+Run a series like this:
+
+1. **Series brief.** `bash shared/scripts/scaffold-series.sh <series-id>` creates `runs/<series-id>/`
+   with a `series-brief.md` (seeded from `shared/templates/series-brief.md`) and an empty
+   `series-canon.md` (seeded from `shared/templates/series-canon.md`). Fill the brief: `seriesId`,
+   `seriesTitle`, audience/assumedBackground, `mode`/`gates`, the **member** list (each member's slug,
+   title, `role` [`essentials` | `course`], `order`, one-line scope), and the Interpretation notes.
+   Exactly one member is `essentials` (`order: 1`).
+2. **Essentials first.** Scaffold the Essentials member (`bash shared/scripts/scaffold-run.sh
+   <essentials-slug>`) and walk it through the normal six stages. Its curriculum stage (02)
+   **additionally** writes the shared canon at `runs/<series-id>/series-canon.md` — the shared TERMS
+   registry, the shared METAPHOR map, the shared VOICE target, and the ledger of concepts **owned by
+   Essentials** (siblings call back, never re-derive).
+3. **Siblings author against it.** Scaffold and run each remaining member through the normal pipeline,
+   with two deltas: its **curriculum (02)** and **authoring (03)** read `runs/<series-id>/series-canon.md`
+   as a binding L3 input, aligning every shared name/metaphor to it and calling back to Essentials for
+   shared concepts while staying standalone. Each member's own `canon.md` still governs its internal
+   module consistency.
+4. **Assembly writes the series block.** Each member's assembly stage (05) writes the `series`
+   frontmatter block into its `_course.md` (`slug`/`title`/`role`/`order`, `blurb` on Essentials);
+   the values come from the series brief.
+5. **Verify the series invariants.** The verify stage runs `node shared/scripts/validate-series.mjs`
+   (exactly one `essentials` per series, identical `title`, unique `order`) in addition to the
+   per-course schema checks.
+
+Each member is its own run with its own slug/folder; `runs/<series-id>/` only holds the series brief
+and series-canon that coordinate them.
+
 ## Step 0 — parse the prompt into a run brief
 
 Before stage 1, create the run's working folder and brief:
@@ -57,6 +101,8 @@ voice/math references named in `03_authoring/CONTEXT.md`. Do not serialize modul
 ## Other requests
 
 - *"add another course"* — same pipeline, new run, new slug. Courses are additive; never overwrite.
+- *"create a course series / a set of mini-courses"* — series mode: see "When the request is a course
+  series" above (Essentials first, emitting `runs/<series-id>/series-canon.md`; siblings author against it).
 - *"change the house style / pedagogy / brand"* — edit the L3 files in `_config/`. That reconfigures
   the factory for all future runs ("configure the factory, not the product").
 - *"re-do the curriculum / a module"* — edit the relevant `runs/<run-id>/` artifact and re-run from

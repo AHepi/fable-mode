@@ -31,6 +31,21 @@ Most of this stage is scripts, not judgement:
 4. `node shared/scripts/build-course-json.mjs <slug>` — derive `moduleOrder` from the module files'
    `order` frontmatter and write it into `_course.md`. Never hand-maintain `moduleOrder`.
 
+## Series mode
+
+When this course is a member of a **series**, the assembled `_course.md` **MUST** include the `series`
+frontmatter block, with values taken from `runs/<series-id>/series-brief.md`:
+
+- `slug` (the `series-id`, shared verbatim by every member; the `/series/<slug>` route),
+- `title` (identical across all members),
+- `role` (`essentials` for exactly one member, `course` for the rest),
+- `order` (unique within the series; Essentials is `1`),
+- `blurb` (optional one-line series description, conventionally set on the Essentials course).
+
+See `_config/content-schema.md` (the `series` section) for the exact shape. The verify stage then runs
+`node shared/scripts/validate-series.mjs` to enforce the series invariants (exactly one `essentials`,
+identical `title`, unique `order`) across all shipped members.
+
 ## Outputs
 
 - `site/src/content/courses/<slug>/_course.md` and `NN-<slug>.md` files — the shipped course.

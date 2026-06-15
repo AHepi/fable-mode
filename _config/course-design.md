@@ -250,6 +250,21 @@ never assume it.
 - If the subject genuinely needs more than ~14 modules, design **Course I / Course II**
   with clean prerequisites between them rather than one sprawling course.
 
+### Mini-courses and series
+
+A **mini-course** is deliberately small — roughly **3–6 modules** covering **one tight idea-cluster**,
+not a full first course. The §1 module rules (one big idea, observable objectives, distributed
+retrieval, honest length) and the §2 level calibration apply unchanged; only the count is smaller.
+
+Mini-courses are usually shipped as a **series**: a set of minis that share one vocabulary and one set
+of metaphors. Exactly one member is the **Essentials** mini — a short primer whose job is to establish
+that shared vocabulary and the running metaphors for the series. The other minis are **standalone**
+(each readable on its own) but lean on the Essentials canon: they reuse its shared terms/metaphors and
+**call back** to its concepts rather than re-deriving them. The pipeline mechanism that keeps a series
+consistent (an Essentials-emitted series-canon every sibling authors against) is in the root
+`CONTEXT.md` ("When the request is a course series"); the shared contract lives in
+`shared/templates/series-canon.md`.
+
 ---
 
 ## 5. Exercise design

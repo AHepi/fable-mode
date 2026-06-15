@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { url, courseUrl } from '../../lib/url';
+
+export async function getStaticPaths() {
+  const courses = await getCollection('courses');
+  // Group members (courses with a series block) by series.slug.
+  const groups = new Map();
+  for (const course of courses) {
+    const series = course.data.series;
+    if (!series) continue;
+    if (!groups.has(series.slug)) groups.set(series.slug, []);
+    groups.get(series.slug).push(course);
+  }
+  return [...groups.entries()].map(([seriesSlug, members]) => {
+    members.sort((a, b) => a.data.series.order - b.data.series.order);
+    return { params: { series: seriesSlug }, props: { members } };
+  });
+}
+
+const { members } = Astro.props;
+// All members share the same title; the essentials member supplies the intro text.
+const seriesTitle = members[0].data.series.title;
+const essentials = members.find((m) => m.data.series.role === 'essentials');
+const intro =
+  essentials?.data.series.blurb ??
+  essentials?.data.description ??
+  members[0].data.series.blurb ??
+  members[0].data.description;
+---
+
+<Base title={seriesTitle} description={intro}>
+  <p class="crumbs"><a href={url()}>Catalog</a><span class="sep">/</span>{seriesTitle}</p>
+
+  <p class="eyebrow">Series</p>
+  <h1>{seriesTitle}</h1>
+  <p class="lead">{intro}</p>
+
+  <div class="catalog-grid">
+    {
+      members.map((course) => {
+        const slug = course.id.split('/')[0];
+        const isEssentials = course.data.series.role === 'essentials';
+        return (
+          <a class="card" href={courseUrl(slug)}>
+            <h3>{course.data.title}</h3>
+            <p class="desc">{course.data.description}</p>
+            <div class="badges">
+              {isEssentials && <span class="badge level">Essentials · start here</span>}
+              <span class="badge level">{course.data.level}</span>
+              <span class="badge">{course.data.moduleOrder.length} modules</span>
+              <span class="badge">~{course.data.estimatedHours}h</span>
+            </div>
+          </a>
+        );
+      })
+    }
+  </div>
+</Base>

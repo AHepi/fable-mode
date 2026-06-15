@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
-import { url, moduleUrl } from '../../../lib/url';
+import { url, moduleUrl, courseUrl, seriesUrl } from '../../../lib/url';
 
 export async function getStaticPaths() {
   const courses = await getCollection('courses');
@@ -11,11 +11,27 @@ export async function getStaticPaths() {
     const courseModules = modules
       .filter((m) => m.id.split('/')[0] === slug)
       .sort((a, b) => a.data.order - b.data.order);
-    return { params: { course: slug }, props: { course, courseModules } };
+    // If this course is a non-essentials series member, find the slug of its
+    // essentials sibling (same series.slug, role 'essentials') so we can point
+    // newcomers at the primer. Null when none exists.
+    let essentialsSlug = null;
+    const series = course.data.series;
+    if (series && series.role !== 'essentials') {
+      const sibling = courses.find(
+        (c) =>
+          c.data.series?.slug === series.slug &&
+          c.data.series?.role === 'essentials',
+      );
+      if (sibling) essentialsSlug = sibling.id.split('/')[0];
+    }
+    return {
+      params: { course: slug },
+      props: { course, courseModules, essentialsSlug },
+    };
   });
 }
 
-const { course, courseModules } = Astro.props;
+const { course, courseModules, essentialsSlug } = Astro.props;
 const { data } = course;
 const slug = course.id.split('/')[0];
 const { Content } = await render(course);
@@ -23,6 +39,23 @@ const { Content } = await render(course);
 
 <Base title={data.title} description={data.description}>
   <p class="crumbs"><a href={url()}>Catalog</a><span class="sep">/</span>{data.title}</p>
+
+  {
+    data.series && (
+      <p class="series-banner">
+        Part of the{' '}
+        <a href={seriesUrl(data.series.slug)}>{data.series.title}</a> series
+        {essentialsSlug && (
+          <>
+            {' · '}
+            <span class="series-hint">
+              New to this? <a href={courseUrl(essentialsSlug)}>Start with the Essentials course</a>
+            </span>
+          </>
+        )}
+      </p>
+    )
+  }
 
   <h1>{data.title}</h1>
   <p class="lead">{data.description}</p>
@@ -90,3 +123,13 @@ const { Content } = await render(course);
     }
   </section>
 </Base>
+
+<style>
+  .series-banner {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin: -0.6rem 0 1.4rem;
+  }
+  .series-banner a { color: var(--accent); }
+  .series-banner .series-hint { color: var(--muted); }
+</style>

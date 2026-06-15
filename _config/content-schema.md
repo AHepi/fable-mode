@@ -39,6 +39,36 @@ site/src/content/courses/<slug>/
 | `generatedDate` | string? | ISO date the pipeline produced the course. |
 | `reviewed` | boolean | `true` once a human subject-matter expert has signed off. Default `false`. |
 | `sources` | `{title, url?}[]` | Bibliography of real, resolvable references. May be empty. |
+| `series` | object? | Optional series membership — see below. Absent for a standalone course. |
+
+### `series` — grouping mini-courses (optional)
+
+A **series** is a set of *mini*-courses that share a common vocabulary and metaphors. **Exactly one**
+member is the **Essentials** course (`role: essentials`) — the primer that establishes the shared
+canon — and every other member is a standalone mini-course authored *against* that canon. Membership
+is **emergent**: courses that declare the same `series.slug` form a series, and the site derives the
+`/series/<slug>` landing page and the catalog grouping from them (no central manifest file — same
+spirit as `moduleOrder` being derived from the module files). The `series` object:
+
+| Field | Type | Notes |
+|-------|------|-------|
+| `slug` | string | Series id, shared verbatim by every member; also the `/series/<slug>` route. |
+| `title` | string | Series display title; **must be identical** across all members (`validate-series.mjs` checks this). |
+| `role` | enum | `essentials` \| `course`. **Exactly one** member per series is `essentials`. Default `course`. |
+| `order` | int > 0 | Display order within the series; the Essentials course should be `1`. |
+| `blurb` | string? | One-line series description for the series page; conventionally set on the Essentials course. |
+
+```yaml
+series:
+  slug: statistics-essentials
+  title: "Statistics, From the Ground Up"
+  role: essentials
+  order: 1
+  blurb: "A short primer that gives every other course in this series its shared language."
+```
+
+Series invariants (checked by `node shared/scripts/validate-series.mjs`): every series has **exactly
+one** `essentials` member; all members agree on `title`; `order` values are unique within a series.
 
 The **body** of `_course.md` (below the frontmatter) is the course introduction. It renders on the
 landing page and is prose — apply literary-maverick here.

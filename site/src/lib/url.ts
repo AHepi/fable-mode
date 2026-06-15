@@ -18,3 +18,4 @@ export function url(path = ''): string {
 export const courseUrl = (slug: string) => url(`courses/${slug}/`);
 export const moduleUrl = (slug: string, moduleId: string) =>
   url(`courses/${slug}/${moduleId}/`);
+export const seriesUrl = (slug: string) => url(`series/${slug}/`);

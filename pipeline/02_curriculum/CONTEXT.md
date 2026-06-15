@@ -36,6 +36,23 @@ here is the most expensive kind to make. It is the primary human review gate.
 - `runs/<run-id>/02_curriculum/output/canon.md` — the consistency contract above. Every authoring
   sub-agent and the editorial stage read it.
 
+## Series mode
+
+When this course is a member of a **series** (the run was set up via a series brief — see the
+"When the request is a course series" section of the root `CONTEXT.md`):
+
+- **If this is the Essentials course** (`role: essentials`): in addition to `curriculum.md` and the
+  course `canon.md`, **also write the shared series-canon** at `runs/<series-id>/series-canon.md`
+  (skeleton: `shared/templates/series-canon.md`) — the shared TERMS registry (one name per shared
+  concept), the shared METAPHOR map, the shared VOICE target, and the ledger of concepts **owned by
+  Essentials** that siblings must call back to rather than re-derive. The Essentials course is
+  authored first precisely so this file exists before any sibling plans.
+- **If this is a sibling course** (`role: course`): **add** `runs/<series-id>/series-canon.md` to this
+  stage's Inputs as a binding **L3** input. Align `curriculum.md` and the course `canon.md` to it —
+  reuse the shared names/metaphors verbatim, and plan **callbacks** to the Essentials course for any
+  concept the series-canon marks as Essentials-owned (re-grounded just enough to stand alone) instead
+  of re-deriving it. The course's own `canon.md` still governs its internal module consistency.
+
 ## Verify
 
 - The ordering respects the prerequisite graph; no module depends on a later one.
