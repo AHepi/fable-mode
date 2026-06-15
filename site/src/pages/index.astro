@@ -22,7 +22,11 @@ for (const course of courses) {
 const seriesGroups = [...seriesMap.entries()]
   .map(([slug, members]) => {
     members.sort((a, b) => a.data.series.order - b.data.series.order);
-    return { slug, title: members[0].data.series.title, members };
+    const essentials = members.find((c) => c.data.series.role === 'essentials');
+    const lead = essentials ?? members[0];
+    const blurb = lead.data.series.blurb ?? lead.data.description;
+    const totalModules = members.reduce((n, c) => n + c.data.moduleOrder.length, 0);
+    return { slug, title: members[0].data.series.title, blurb, count: members.length, totalModules };
   })
   .sort((a, b) => a.title.localeCompare(b.title));
 ---
@@ -62,32 +66,20 @@ const seriesGroups = [...seriesMap.entries()]
     seriesGroups.length > 0 && (
       <section class="series-section">
         <h2>Series</h2>
-        {seriesGroups.map((group) => (
-          <div class="series-group">
-            <h3 class="series-heading">
-              <a href={seriesUrl(group.slug)}>{group.title}</a>
-            </h3>
-            <div class="catalog-grid">
-              {group.members.map((course) => {
-                const slug = course.id.split('/')[0];
-                const isEssentials = course.data.series.role === 'essentials';
-                return (
-                  <a class="card" href={courseUrl(slug)}>
-                    <h3>{course.data.title}</h3>
-                    <p class="desc">{course.data.description}</p>
-                    <div class="badges">
-                      {isEssentials && <span class="badge level">Essentials</span>}
-                      <span class="badge kind">{course.data.kind}</span>
-                      <span class="badge level">{course.data.level}</span>
-                      <span class="badge">{course.data.moduleOrder.length} modules</span>
-                      <span class="badge">~{course.data.estimatedHours}h</span>
-                    </div>
-                  </a>
-                );
-              })}
-            </div>
-          </div>
-        ))}
+        <p class="series-note">A guided set of mini-courses sharing one vocabulary. Open one to see its courses.</p>
+        <div class="catalog-grid">
+          {seriesGroups.map((group) => (
+            <a class="card series-card" href={seriesUrl(group.slug)}>
+              <h3>{group.title}</h3>
+              <p class="desc">{group.blurb}</p>
+              <div class="badges">
+                <span class="badge kind">series</span>
+                <span class="badge">{group.count} courses</span>
+                <span class="badge">{group.totalModules} modules</span>
+              </div>
+            </a>
+          ))}
+        </div>
       </section>
     )
   }
@@ -95,8 +87,7 @@ const seriesGroups = [...seriesMap.entries()]
 
 <style>
   .series-section { margin-top: 2.6rem; }
-  .series-group { margin-bottom: 2rem; }
-  .series-heading { margin: 1.4rem 0 0.8rem; }
-  .series-heading a { color: var(--text); }
-  .series-heading a:hover { color: var(--accent); }
+  .series-note { color: var(--muted); margin: 0.2rem 0 1.1rem; }
+  .series-card { border-left: 3px solid var(--accent); }
+  .series-card .badge.kind { text-transform: uppercase; letter-spacing: 0.04em; }
 </style>
