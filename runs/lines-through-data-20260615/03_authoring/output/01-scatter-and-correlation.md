@@ -73,7 +73,7 @@ They are equally strong. Strength is the distance from zero, and +0.9 and −0.9
 
 <details><summary>Show solution</summary>
 
-The correlation describes the *picture* — bigger fires draw more firefighters *and* cause more damage, so the two rise together and the cloud leans up tightly. That's all a correlation reports: how the two measurements move together as you read across the plot. It does not say which, if either, drives the other; the size of the fire is plausibly behind both. A correlation reads a cloud's tilt and tightness; reading a *cause* into it is a separate, much harder question (and the subject of a later module). Don't let a tight cloud talk you into a cause.
+The correlation describes the *picture* — bigger fires draw more firefighters *and* cause more damage, so the two rise together and the cloud leans up tightly. That's all a correlation reports: how the two measurements track each other across the plot. It does not say which, if either, drives the other; the size of the fire is plausibly behind both. Reading a *cause* into a tilt is a separate, much harder question (the subject of a later module). Don't let a tight cloud talk you into a cause.
 
 </details>
 
@@ -81,7 +81,7 @@ The correlation describes the *picture* — bigger fires draw more firefighters 
 
 <details><summary>Show solution</summary>
 
-Correlation measures how *tightly* the dots hug a line, not how *big* the underlying effect is. A +0.5 means a real but loose upward cloud, with plenty of scatter; +0.95 means a snug one. Neither number says anything about *how much* the up-measurement changes as the across-measurement grows — a relationship can have a steep, important real-world effect and still show only a middling correlation if the cloud is fuzzy, or a gentle, trivial effect with a high correlation if the cloud is tidy. "High correlation = big effect" conflates two different things: tightness around a line and the steepness or real-world weight of the relationship. The +0.5 may matter enormously; the number alone can't tell you.
+Correlation measures how *tightly* the dots hug a line, not how *big* the underlying effect is. A +0.5 is a real but loose upward cloud with plenty of scatter; +0.95 is a snug one. Neither number says *how much* the up-measurement changes as the across-measurement grows — a relationship can have a steep, important real-world effect with only a middling correlation if the cloud is fuzzy, or a gentle, trivial effect with a high correlation if the cloud is tidy. "High correlation = big effect" conflates two different things: tightness around a line, and the steepness or real-world weight of the relationship. The +0.5 may matter enormously; the number alone can't tell you.
 
 </details>
 
@@ -97,7 +97,7 @@ Nothing failed. There is a strong, obvious relationship — the arch is unmistak
 
 <details><summary>Show solution</summary>
 
-A single far-flung point — an **outlier**, a value sitting well away from the rest (the term comes from *Statistics Essentials*) — can swing a correlation hard. Placed up and to the right, that one point creates an apparent upward lean across the whole plot, dragging the number from near zero to +0.6 even though the original fifteen points show no straight-line tendency. The correlation is now reporting one stray dot, not a real pattern in the bulk of the data. Trust it very little: one point can fake or inflate a correlation, so a number that depends on a single dot is a number to question. This is exactly why you read the cloud first and the number second — the picture would show that lone point standing apart, and the eye would refuse to be fooled.
+A single far-flung point — an **outlier**, a value sitting well away from the rest (the term comes from *Statistics Essentials*) — can swing a correlation hard. Placed up and to the right, that one point fakes an upward lean across the whole plot, dragging the number from near zero to +0.6 even though the original fifteen show no straight-line tendency. The correlation is now reporting one stray dot, not a pattern in the bulk of the data. Trust it very little: a number that hangs on a single point is a number to question. This is why you read the cloud first and the number second — the picture would show that lone point standing apart, and the eye would refuse to be fooled.
 
 </details>
 
