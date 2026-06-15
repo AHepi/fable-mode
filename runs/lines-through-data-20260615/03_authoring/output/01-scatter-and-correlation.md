@@ -29,9 +29,9 @@ One guard, and it matters: not every cloud has a line worth drawing. A round blo
 
 Two plain-words statements carry this module, and they bridge straight into each other.
 
-The first names the picture. A **scatter plot** plots each subject as a single point, placed by its two measurements; the cloud of those points shows whether the two measurements rise together, move oppositely, or show no pattern.
+The first names the picture. A **scatter plot** plots each subject as a single point, placed by its two measurements; the cloud of those points shows whether the measurements rise together, move oppositely, or show no pattern.
 
-The second puts a number on what your eye already sees. **Correlation** measures the strength *and* the direction of a *straight-line* relationship between two measurements, on a scale running from −1 to +1. The bridge between the two is direct: the cloud's lean is the *direction* correlation reports, and how tightly the dots hug that lean is the *strength* it reports. Correlation is your eye's verdict, written as a single number.
+The second puts a number on what your eye already sees. **Correlation** measures the strength *and* the direction of a *straight-line* relationship between two measurements, on a scale from −1 to +1. The bridge is direct: the cloud's lean is the *direction* correlation reports, and how tightly the dots hug that lean is the *strength*. Correlation is your eye's verdict, written as a single number.
 
 Read the scale piece by piece. A correlation of +1 is a cloud collapsed onto one perfect upward line — every dot on it, no fuzz, the two measurements locked in step. A correlation of −1 is the same perfection pointed downhill. Zero sits in the middle: no *straight-line* tendency either way. The sign tells you the lean's direction; the distance from zero tells you the tightness. Near +0.9 is a snug upward cloud crowding a rising line; near +0.2 is a loose upward drift you'd half-miss; near −0.7 is a fairly tight downhill slide. Closer to either end, the dots hug a line more tightly. (Statisticians write this number as r. We'll keep calling it the correlation, and you never need its formula to read it.)
 
@@ -55,7 +55,7 @@ A scatter plot of two measurements comes out as a round, even blob with no tilt.
 
 <details><summary>Show answer</summary>
 
-The correlation is near zero. A round blob has no lean for a straight line to follow, so there's no straight-line relationship between the two measurements: knowing one tells you nothing about the other. (Contrast this with the U-shaped cloud, where correlation is *also* near zero but a strong relationship genuinely exists — there, zero is hiding something. For a featureless blob, zero is the plain truth.)
+The correlation is near zero. A round blob has no lean for a straight line to follow, so there's no straight-line relationship: knowing one measurement tells you nothing about the other. (Contrast the U-shaped cloud, where correlation is *also* near zero yet a strong relationship genuinely exists — there, zero hides something. For a featureless blob, zero is the plain truth.)
 
 </details>
 
@@ -63,7 +63,7 @@ A friend reports two correlations: study time vs. exam score comes out at +0.9, 
 
 <details><summary>Show answer</summary>
 
-They are equally strong. Strength is the distance from zero, and +0.9 and −0.9 are the same distance out — both clouds hug a line equally tightly. The signs only set the lean: +0.9 climbs (more study, higher score), while −0.9 falls (in this odd dataset, more tutoring spend goes with lower scores). The minus sign is about direction, not weakness.
+They are equally strong. Strength is the distance from zero, and +0.9 and −0.9 are the same distance out — both clouds hug a line equally tightly. The signs only set the lean: +0.9 climbs (more study, higher score), −0.9 falls (more tutoring spend goes with lower scores, in this odd dataset). The minus sign is about direction, not weakness.
 
 </details>
 
@@ -89,7 +89,7 @@ Correlation measures how *tightly* the dots hug a line, not how *big* the underl
 
 <details><summary>Show solution</summary>
 
-Nothing failed. There is a strong, obvious relationship — the arch is unmistakable — but it is a *curve*, not a line. Correlation only measures the *straight-line* part of a relationship, and a symmetric arch has no overall straight-line lean: the rising half and the falling half cancel out, leaving a number near zero. This is the headline trap of the module: a correlation of zero means *no linear relationship*, not *no relationship at all*. Always look at the cloud, not just the number — a featureless blob and a strong arch can report the same zero while telling completely different stories.
+Nothing failed. There is a strong, obvious relationship — the arch is unmistakable — but it is a *curve*, not a line. Correlation only measures the *straight-line* part, and a symmetric arch has no overall straight-line lean: the rising and falling halves cancel, leaving a number near zero. This is the headline trap of the module: a correlation of zero means *no linear relationship*, not *no relationship at all*. Always look at the cloud, not just the number — a featureless blob and a strong arch can report the same zero while telling completely different stories.
 
 </details>
 
