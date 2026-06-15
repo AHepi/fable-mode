@@ -81,7 +81,7 @@ Six sold in a tight band; one — a mansion at the corner — went for far more.
 
    <details><summary>Show solution</summary>
 
-   The mean sitting well above the median is the fingerprint of a **right-skewed** distribution: a long high-end tail. A small number of very high incomes act as far-out weights on the seesaw, tilting the mean upward, while the median — the middle person in line — stays down near where most households actually are. So most people in the region earn closer to 52,000 than to 80,000. (This is Pitfall #4 in action: under skew, the mean is the misleading "typical" and the median is the honest one.)
+   The mean sitting well above the median is the fingerprint of a **right-skewed** distribution: a long high-end tail. A small number of very high incomes act as far-out weights on the seesaw, tilting the mean upward, while the median — the middle person in line — stays down near where most households actually are. So most people in the region earn closer to 52,000 than to 80,000. Under skew, the mean is the misleading "typical" and the median is the honest one.
 
    </details>
 
@@ -97,7 +97,7 @@ Six sold in a tight band; one — a mansion at the corner — went for far more.
 
    <details><summary>Show solution</summary>
 
-   An average is a summary of the whole pile, not a real individual. No buyer has 2.3 children — the figure is a balance point across many families, some with none and some with five. Treating it as "a typical buyer" invents a person who may not exist (Pitfall #12). The average tells you about the group's center; it does not hand you a real household to design a car around.
+   An average is a summary of the whole pile, not a real individual. No buyer has 2.3 children — the figure is a balance point across many families, some with none and some with five. Treating it as "a typical buyer" invents a person who may not exist. The average tells you about the group's center; it does not hand you a real household to design a car around.
 
    </details>
 
@@ -105,7 +105,7 @@ Six sold in a tight band; one — a mansion at the corner — went for far more.
 
    <details><summary>Show solution</summary>
 
-   "Bunches in the middle" is true of many shapes, not only the symmetric bell — a right-skewed pile (incomes, house prices, wait times) also has a thick body and thin edges, but one tail is stretched far longer than the other. Assuming bell-shaped by default (Pitfall #11) hides exactly that lopsidedness, and skew is what makes the mean and median diverge. Read the actual silhouette — is it even on both sides, or stretched on one? — before naming the shape.
+   "Bunches in the middle" is true of many shapes, not only the symmetric bell — a right-skewed pile (incomes, house prices, wait times) also has a thick body and thin edges, but one tail is stretched far longer than the other. Assuming bell-shaped by default hides exactly that lopsidedness, and skew is what makes the mean and median diverge. Read the actual silhouette — is it even on both sides, or stretched on one? — before naming the shape.
 
    </details>
 
@@ -119,4 +119,4 @@ Six sold in a tight band; one — a mansion at the corner — went for far more.
 
 ## Recap
 
-A pile of numbers has a silhouette — its distribution — and that shape, not any single summary, is what you're really reading: where the bulk sits, how long the tails run, which way it leans. Two numbers stand in for it, and they part ways under skew: the mean is the seesaw's balance point, tipped by far-out values; the median is the middle in line, steady against them. Add spread — how wide the pile fans out — because a center without a width is an address with the size left off. We've described one pile completely; next we ask the harder question of where the pile even came from, when we could only ever scoop up a handful of it.
+A pile of numbers has a silhouette — its distribution — and that shape, not any single summary, is what you're really reading: where the bulk sits, how long the tails run, which way it leans. Two numbers stand in for it, and they part ways under skew: the mean is the seesaw's balance point, tipped by far-out values; the median is the middle in line, steady against them. Add spread — how wide the pile fans out — because a center without a width is an address with the size left off. So far we have read a pile of numbers as if it simply arrived in front of us. But it never does. Every pile we will ever study is a handful scooped from something far larger we cannot see whole — and that quiet fact is the crack the next module pries open.

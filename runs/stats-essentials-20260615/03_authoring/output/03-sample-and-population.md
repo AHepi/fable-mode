@@ -13,7 +13,7 @@ prerequisites: [01-data-and-variation, 02-distributions-center-spread]
 
 "The poll said 52 percent." You have heard a line like that a thousand times, and you have probably read it as a fact about the world — fifty-two out of every hundred people, settled. But nobody asked every person. They asked a few thousand, out of millions, and reported back what those few thousand said. The 52 is not a fact about the millions. It is a guess about them, built from a small slice that someone happened to reach. This module is about what that slice can and cannot tell you — and why, even when everything is done right, the number is never the exact truth.
 
-So far we have learned to read one pile of numbers: its shape, its center, how wide it scatters. We left off with the harder question hanging — where does the pile even come from, when we could only ever scoop up a handful of it? Here is the handful.
+So far we have learned to read one pile of numbers: its shape, its center, how wide it scatters (M2). We left off on the crack that pile sat over — every pile we study is really a handful scooped from something far larger we cannot see whole. Here is the handful.
 
 ## The jar and the handful
 

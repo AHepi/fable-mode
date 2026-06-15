@@ -13,9 +13,9 @@ prerequisites: []
 
 "Coffee drinkers live longer," says the headline. Underneath sits a study: one group drank coffee, another didn't, and the coffee group lasted, on average, a little longer. So that settles it — pour another cup.
 
-Except it doesn't settle anything yet. Any two groups of people differ a little, even when nothing connects them to coffee at all. Pick two handfuls of strangers off the street and one handful will have lived a touch longer than the other — not because of anything you did, just because people vary and any sample you grab carries its own luck. Results wobble from one sample to the next; statisticians call that wobble *sampling variation*. So the real question behind the headline is sharper than "did the coffee group do better?" It's this: *could a gap this size show up by luck alone, even if coffee did nothing?*
+Except it doesn't settle anything yet. Any two groups of people differ a little, even when nothing connects them to coffee at all. Pick two handfuls of strangers off the street and one handful will have lived a touch longer than the other — not because of anything you did, just because people vary and any sample you grab carries its own luck. Results wobble from one fair sample to the next, even when nothing in the world has changed; that wobble is *sampling variation*. So the real question behind the headline is sharper than "did the coffee group do better?" It's this: *could a gap this size show up by luck alone, even if coffee did nothing?*
 
-That question — telling a real signal from random noise — is the spine of this whole course. Could this gap be just noise? This module gives you the first tool for answering it, and the careful words that keep the tool honest.
+That question — telling a real signal from random noise, the idea the Essentials course ends on — is the spine of this whole course. Could this gap be just noise? This module gives you the first tool for answering it, and the careful words that keep the tool honest.
 
 ## Starting from "nothing is going on"
 
@@ -25,7 +25,7 @@ That starting assumption has a name: the **null hypothesis**. It's the dull, ske
 
 Why start from the boring side? Because "nothing is going on" is a claim you can actually compute against. If coffee truly did nothing, you can work out how often pure luck would hand you a gap as big as the one you saw. You're holding the data up against a clear, specific story — the no-effect story — and checking whether they fit it.
 
-And notice what we are *not* doing. We are looking for evidence *against* the null. We never set out to prove the null is true. If the data turn out to fit the no-effect story comfortably, that doesn't mean coffee does nothing — it might do something small that this study was too thin to catch. Failing to find a signal is not the same as showing there's no signal to find. (Hold onto that thought; module 02 builds a whole idea on it.)
+And notice what we are *not* doing. We are looking for evidence *against* the null. We never set out to prove the null is true. If the data turn out to fit the no-effect story comfortably, that doesn't mean coffee does nothing — it might do something small that this study was too thin to catch. Failing to find a signal is not the same as showing there's no signal to find. (Hold onto that thought; the next module builds a whole idea on it.)
 
 ## The number that measures surprise
 
@@ -41,7 +41,7 @@ Read it twice. Every clause is load-bearing. "At least as extreme" — not exact
 
 In plain words: **a small p-value means data like this would be surprising if nothing were really going on.** If luck alone would almost never cough up a gap this large, then either you witnessed a rare fluke, or the no-effect story is wrong. A large p-value means the opposite — a gap this size is the kind of thing luck produces all the time, so the data give you no reason to doubt the null.
 
-You'll often see a line drawn at 0.05. A p-value below it gets called **statistically significant** — shorthand for "this would be a surprising result if the null were true." Treat that as a rough flag for now, not a verdict; it's a threshold someone chose, and module 02 takes apart what it does and doesn't earn you.
+You'll often see a line drawn at 0.05. A p-value below it gets called **statistically significant** — shorthand for "this would be a surprising result if the null were true." Treat that as a rough flag for now, not a verdict; it's a threshold someone chose, and the next module takes apart what it does and doesn't earn you.
 
 ## What a p-value is *not*
 
@@ -50,7 +50,7 @@ Here is where careful readers get fooled, so we'll be blunt about it. The p-valu
 - **It is not the probability that the null is true.** "p = 0.03" does not mean "there's a 3% chance coffee does nothing." The whole calculation *assumes* coffee does nothing and works forward from there; it cannot then turn around and tell you the odds of that assumption. It runs one direction only.
 - **It is not the probability that the effect is real.** A small p-value is not "a 97% chance coffee works." The p-value attaches no probability to any hypothesis — not the null, not its rival.
 - **It is not "the probability the result is just chance"** — at least not in the loose everyday sense people mean. The p-value is computed *taking chance as the whole story*. It's "how often chance alone would do this," not "the odds that chance is what happened."
-- **It is not a measure of how big or how important the effect is.** A microscopic, useless difference can earn a tiny p-value if the study is large enough. Small p-value, big effect — two different things. (Module 02 is about exactly this confusion.)
+- **It is not a measure of how big or how important the effect is.** A microscopic, useless difference can earn a tiny p-value if the study is large enough. Small p-value, big effect — two different things. (The next module is about exactly this confusion.)
 
 A tempting wrong answer: "p = 0.04, so there's a 96% chance the effect is real." It's everywhere, and it's backwards. The 0.04 is the chance of data like *this* under the *no-effect* story — it says nothing direct about whether the effect is real.
 
@@ -72,7 +72,7 @@ A study reports p = 0.6. In plain words, what does that tell you?
 
 <details><summary>Show answer</summary>
 
-A gap at least as big as the one observed would turn up about 60% of the time by luck alone, even if there were no real effect. That's not surprising at all under the null — so the data give you no reason to doubt "nothing is going on." Note what it does *not* say: it does not prove there's no effect. The study may simply be too small to catch one. (More on that in module 02.)
+A gap at least as big as the one observed would turn up about 60% of the time by luck alone, even if there were no real effect. That's not surprising at all under the null — so the data give you no reason to doubt "nothing is going on." Note what it does *not* say: it does not prove there's no effect. The study may simply be too small to catch one. (More on that in the next module.)
 
 </details>
 
@@ -98,7 +98,7 @@ A p-value is the probability of getting results at least as extreme as those obs
 
 <details><summary>Show solution</summary>
 
-A large p-value means a 3-point gap is the kind of thing sampling variation produces easily, so the poll gives no strong evidence of a real lead. But "no strong evidence of a difference" is not "evidence of no difference." One candidate may truly be ahead; this poll just wasn't sharp enough to show it. We look for evidence *against* the null — we never prove it true. (Absence of evidence is not evidence of absence; module 02 develops this.)
+A large p-value means a 3-point gap is the kind of thing sampling variation produces easily, so the poll gives no strong evidence of a real lead. But "no strong evidence of a difference" is not "evidence of no difference." One candidate may truly be ahead; this poll just wasn't sharp enough to show it. We look for evidence *against* the null — we never prove it true. (Absence of evidence is not evidence of absence; the next module develops this.)
 
 </details>
 
@@ -122,7 +122,7 @@ Because "no effect" is a specific, computable story: if nothing is going on, you
 
 <details><summary>Show solution</summary>
 
-No. A p-value is not a measure of effect size, so two equal p-values can sit on top of very different effects. A large study can reach p = 0.04 on a tiny effect — its sheer size lets it detect a faint signal — while a small study reaches the same p-value only on a larger one. Matching p-values say the two results are equally surprising *under the null*, not equally big. Pulling significance apart from size is exactly the job of module 02.
+No. A p-value is not a measure of effect size, so two equal p-values can sit on top of very different effects. A large study can reach p = 0.04 on a tiny effect — its sheer size lets it detect a faint signal — while a small study reaches the same p-value only on a larger one. Matching p-values say the two results are equally surprising *under the null*, not equally big. Pulling significance apart from size is exactly the job of the next module.
 
 </details>
 

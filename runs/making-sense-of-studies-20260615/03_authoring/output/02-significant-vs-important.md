@@ -13,11 +13,11 @@ prerequisites: [01-could-this-be-chance]
 
 A weight-loss pill clears a giant trial: forty thousand people, and the result comes back *statistically significant*. The press release leans on that word like it settles everything. Read past it, though, and the pill's average effect turns out to be a third of a pound over six months — less than the weight of a sandwich, less than you'd lose forgetting to eat lunch. The finding is real, in the narrow sense the statistics promise. It is also, for anyone hoping to fit into last year's jeans, completely useless.
 
-That gap — between a result that *registers* and a result that *matters* — is the one this module is about. We left it open at the end of module 01: the p-value can tell you a gap is hard to wave off as luck, but it never tells you the gap is big. Here we pull those two ideas all the way apart, and pick up two close cousins of the same confusion along the way.
+That gap — between a result that *registers* and a result that *matters* — is the one this module is about. We left it open in the previous module: the p-value can tell you a gap is hard to wave off as luck, but it never tells you the gap is big. Here we pull those two ideas all the way apart, and pick up two close cousins of the same confusion along the way.
 
 ## Detectable is not the same as large
 
-Recall the spine from module 01: every study is trying to hear a real signal through random noise. "Could this gap be just noise?" The p-value answers that, and **statistically significant** is the label we slap on a gap that clears the bar — a result unlikely under the null, the "assume nothing's going on" starting point from module 01.
+Recall the spine from the previous module: every study is trying to hear a real signal through random noise. "Could this gap be just noise?" The p-value answers that, and **statistically significant** is the label we slap on a gap that clears the bar — a result unlikely under the null, the "assume nothing's going on" starting point we met when we set up the p-value.
 
 But notice what that label is actually a claim about. It says the signal was *loud enough to pick out from the noise*. It says nothing about how loud. And whether you can pick a signal out of static depends on two things, not one: how strong the signal is, and how sharp your ears are.
 
@@ -51,7 +51,7 @@ The defense is just to ask how many questions were asked. One pre-planned test t
 
 ## Not finding it is not the same as it not being there
 
-The mirror-image mistake is just as common, and module 01 already pointed at it: we look for evidence *against* the null, and we never prove the null true.
+The mirror-image mistake is just as common, and the previous module already pointed at it: we look for evidence *against* the null, and we never prove the null true.
 
 So what does a *non-significant* result mean — the study that fails to clear the bar? It's tempting to read "no significant effect" as "no effect." Resist it. A study can come back empty for two completely different reasons:
 
@@ -62,7 +62,7 @@ A non-significant result cannot tell you which of these you're in. It's the sile
 
 > **Absence of evidence is not evidence of absence.** Failing to detect an effect is not the same as showing there is no effect; a non-significant result may mean no effect, or merely too little data to detect one.
 
-This is why a careful study that finds nothing says "we did not detect an effect," not "there is no effect." The first is honest about what a null result can and can't carry. The second claims to have established the null — which, as module 01 insisted, is something a study can never do.
+This is why a careful study that finds nothing says "we did not detect an effect," not "there is no effect." The first is honest about what a null result can and can't carry. The second claims to have established the null — which, as we insisted when we met the p-value, is something a study can never do.
 
 ## Worked example: same p-value, two different worlds
 
@@ -128,4 +128,4 @@ No. Significance depends on the sample as well as the effect: a small study has 
 
 ## Recap
 
-The word "significant" promises less than it sounds like it does. It says a result stood out from the noise — that it's detectable — and detectability rides on the sample size as much as on the effect, so a big enough study can flag a difference far too small to matter, while a small study can miss a real one. Hunting through many tests and reporting only the winner manufactures that same word out of pure luck. And a study that finds nothing has not shown there is nothing there; it may have been listening with ears too dull to hear it. Significant, big, and real are three different claims. Module 01 separated *surprising* from *real*; this module separated *significant* from *big*. The next takes up the honest way to report how big — a range, not a single number.
+The word "significant" promises less than it sounds like it does. It says a result stood out from the noise — that it's detectable — and detectability rides on the sample size as much as on the effect, so a big enough study can flag a difference far too small to matter, while a small study can miss a real one. Hunting through many tests and reporting only the winner manufactures that same word out of pure luck. And a study that finds nothing has not shown there is nothing there; it may have been listening with ears too dull to hear it. Significant, big, and real are three different claims. The first module pried *surprising* apart from *real*; this one pried *significant* apart from *big*. What's still missing is an honest way to say *how* big — and that turns out to be a range, not a single number.

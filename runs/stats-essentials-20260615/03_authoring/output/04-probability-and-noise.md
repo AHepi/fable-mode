@@ -90,7 +90,7 @@ Probability is a long-run fraction, not a fact about tomorrow alone. "70% chance
 
 <details><summary>Show solution</summary>
 
-This is the gambler's fallacy (Pitfall #6). A fair wheel has no memory: each spin is independent, so the next spin's odds are unchanged by the ten reds before it. The Law of Large Numbers does *not* say the colors must "even out" by the next spin — it says the long-run *fraction* of reds settles toward its true value over enormous numbers of spins, by drowning the streak in fresh data, not by the wheel owing anyone a black. The ten reds are already counted and don't reach forward. ("It has to even out" also imagines the *counts* equalize; they need not — only the fraction settles.)
+This is the gambler's fallacy. A fair wheel has no memory: each spin is independent, so the next spin's odds are unchanged by the ten reds before it. The Law of Large Numbers does *not* say the colors must "even out" by the next spin — it says the long-run *fraction* of reds settles toward its true value over enormous numbers of spins, by drowning the streak in fresh data, not by the wheel owing anyone a black. The ten reds are already counted and don't reach forward. ("It has to even out" also imagines the *counts* equalize; they need not — only the fraction settles.)
 
 </details>
 
