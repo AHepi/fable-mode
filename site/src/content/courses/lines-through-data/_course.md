@@ -3,6 +3,7 @@ title: Lines Through Data
 description: "How to read a relationship between two measurements: scatter plots, what correlation does and doesn't capture, the best-fit line as a summary, and the most important caution in statistics — correlation isn't causation."
 level: intro
 kind: stem
+subject: "Statistics & Data"
 prerequisites:
   - Reading a simple x–y plot and plotting a point
   - "The Statistics Essentials course is the ideal warm-up, but this course stands on its own"

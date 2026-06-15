@@ -24,4 +24,23 @@ const modules = defineCollection({
   schema: moduleSchema,
 });
 
-export const collections = { courses, modules };
+// One entry per path: paths/<slug>.md
+const paths = defineCollection({
+  loader: glob({ pattern: '*.md', base: './src/content/paths' }),
+  schema: z.object({
+    title: z.string(),
+    subject: z.string().optional(),
+    blurb: z.string(),
+    order: z.number().int().positive(),
+    steps: z.array(
+      z.object({
+        course: z.string().optional(),
+        series: z.string().optional(),
+        note: z.string().optional(),
+      }),
+    ),
+    outcomes: z.array(z.string()).default([]),
+  }),
+});
+
+export const collections = { courses, modules, paths };

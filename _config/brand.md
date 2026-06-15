@@ -11,10 +11,17 @@ content in `_config/math-style.md`.
 ## Identity
 
 - **Name**: Fable Academy.
-- **Tagline**: *Courses, written to be read.*
-- **Aesthetic**: dark, calm, reading-first. The site uses a dark theme with blue/purple
-  accents and generous space for text. Everything serves the act of reading — no
-  clutter, no carnival. The look is a quiet library at night, not a billboard.
+- **Tagline**: *Learn a subject the way it deserves to be taught.*
+- **Aesthetic**: **editorial dark, confident, subject-coded.** A cool near-black canvas
+  with an electric-indigo primary and a distinct accent **hue per subject** (Mathematics
+  violet, Statistics teal, Economics amber, …) that flows through cards, course headers,
+  and module accents so the catalog is navigable by colour at a glance. Big Fraunces
+  display type, generous structure, tasteful motion. **Drama lives on the wayfinding and
+  marketing surfaces** (home, browse, subjects, paths, course headers); the **reading
+  surface stays disciplined and legible** (Newsreader prose, calm measure). The principle
+  is *design that complements learning* — colour for orientation, type for hierarchy,
+  progress for momentum — never carnival, never hype. Not "a quiet library at night";
+  more a well-art-directed magazine that respects your attention.
 
 ---
 

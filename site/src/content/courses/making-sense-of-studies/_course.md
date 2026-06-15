@@ -3,6 +3,7 @@ title: Making Sense of Studies
 description: "How to read the statistics behind a headline: what a p-value and a confidence interval actually claim, why \"significant\" doesn't mean \"big,\" and the careful wording that keeps you from being fooled."
 level: intro
 kind: stem
+subject: "Statistics & Data"
 prerequisites:
   - Comfort with percentages and the idea that samples vary
   - "The Statistics Essentials course is the ideal warm-up, but this course stands on its own"

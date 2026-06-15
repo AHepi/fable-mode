@@ -1,0 +1,210 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { url, courseUrl } from '../lib/url';
+import {
+  SUBJECT_ORDER,
+  LEVELS_BY_DIFFICULTY,
+  subjectHue,
+  levelLabel,
+  slugOf,
+} from '../lib/taxonomy';
+
+const courses = await getCollection('courses');
+
+// Sort all courses by title for consistent display.
+const sorted = [...courses].sort((a, b) =>
+  a.data.title.localeCompare(b.data.title),
+);
+
+// Subjects present in at least one course, ordered by SUBJECT_ORDER.
+const subjectSet = new Set(courses.map((c) => c.data.subject).filter(Boolean) as string[]);
+const presentSubjects = SUBJECT_ORDER.filter((s) => subjectSet.has(s));
+
+// Levels present in at least one course, ordered by LEVELS_BY_DIFFICULTY.
+const levelSet = new Set(courses.map((c) => c.data.level).filter(Boolean) as string[]);
+const presentLevels = LEVELS_BY_DIFFICULTY.filter((l) => levelSet.has(l));
+
+const total = sorted.length;
+---
+
+<Base title="Browse" description="Every course, filterable by subject, difficulty, and format." wide>
+  <p class="crumbs">
+    <a href={url()}>Catalog</a>
+    <span class="sep">/</span>Browse
+  </p>
+  <h1>Browse courses</h1>
+  <p class="lead">Every course in the catalog — filter by subject, difficulty, or format.</p>
+
+  <div class="browse">
+    <!-- ── Facets sidebar ── -->
+    <aside class="facets">
+
+      <div class="facet">
+        <h4>Subject</h4>
+        <div class="opts">
+          {presentSubjects.map((s) => (
+            <button
+              class="chip subject"
+              aria-pressed="false"
+              data-facet="subject"
+              data-value={s}
+              style={`--subject:${subjectHue(s)}`}
+            >
+              <span class="dot"></span>
+              {s}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div class="facet">
+        <h4>Difficulty</h4>
+        <div class="opts">
+          {presentLevels.map((l) => (
+            <button
+              class="chip"
+              aria-pressed="false"
+              data-facet="level"
+              data-value={l}
+            >
+              {levelLabel(l)}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div class="facet">
+        <h4>Format</h4>
+        <div class="opts">
+          <button class="chip" aria-pressed="false" data-facet="format" data-value="standalone">
+            Standalone
+          </button>
+          <button class="chip" aria-pressed="false" data-facet="format" data-value="series">
+            Part of a series
+          </button>
+        </div>
+      </div>
+
+      <button class="facet-reset">Clear filters</button>
+    </aside>
+
+    <!-- ── Results column ── -->
+    <div>
+      <p class="result-count" id="result-count">{total} {total === 1 ? 'course' : 'courses'}</p>
+
+      <div class="catalog-grid" id="catalog-grid">
+        {sorted.map((course) => {
+          const slug = slugOf(course.id);
+          const format = course.data.series ? 'series' : 'standalone';
+          return (
+            <a
+              class="card"
+              href={courseUrl(slug)}
+              style={`--subject:${subjectHue(course.data.subject)}`}
+              data-subject={course.data.subject ?? ''}
+              data-level={course.data.level ?? ''}
+              data-format={format}
+            >
+              {course.data.subject && <p class="kicker">{course.data.subject}</p>}
+              <h3>{course.data.title}</h3>
+              <p class="desc">{course.data.description}</p>
+              <div class="badges">
+                <span class="badge level">{levelLabel(course.data.level)}</span>
+                <span class="badge">{course.data.moduleOrder.length} modules</span>
+                <span class="badge">~{course.data.estimatedHours}h</span>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</Base>
+
+<script>
+  // ── Client-side faceted filtering ──
+  // Tracks which values are active per facet group.
+  // A card is shown when, for every group that has ≥1 active value, the card
+  // matches at least one of those values (AND across groups, OR within a group).
+
+  const activeFilters: Record<string, Set<string>> = {
+    subject: new Set(),
+    level: new Set(),
+    format: new Set(),
+  };
+
+  const chips = document.querySelectorAll<HTMLButtonElement>('[data-facet]');
+  const cards = document.querySelectorAll<HTMLElement>('.card');
+  const countEl = document.getElementById('result-count');
+  const resetBtn = document.querySelector<HTMLButtonElement>('.facet-reset');
+
+  const total = cards.length;
+
+  function applyFilters(): void {
+    // Determine which groups have active filters.
+    const activeGroups = Object.entries(activeFilters).filter(([, s]) => s.size > 0);
+
+    let visible = 0;
+
+    cards.forEach((card) => {
+      let match = true;
+
+      for (const [facet, values] of activeGroups) {
+        const cardVal = card.dataset[facet] ?? '';
+        // OR within a group: card must match at least one active value.
+        let groupMatch = false;
+        for (const v of values) {
+          if (cardVal === v) { groupMatch = true; break; }
+        }
+        if (!groupMatch) { match = false; break; }
+      }
+
+      if (match) {
+        card.classList.remove('is-hidden');
+        visible++;
+      } else {
+        card.classList.add('is-hidden');
+      }
+    });
+
+    if (countEl) {
+      const unit = total === 1 ? 'course' : 'courses';
+      countEl.textContent =
+        activeGroups.length === 0
+          ? `${total} ${unit}`
+          : `${visible} of ${total} ${unit}`;
+    }
+  }
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const facet = chip.dataset.facet!;
+      const value = chip.dataset.value!;
+      const group = activeFilters[facet];
+
+      if (group.has(value)) {
+        group.delete(value);
+        chip.setAttribute('aria-pressed', 'false');
+        chip.classList.remove('is-active');
+      } else {
+        group.add(value);
+        chip.setAttribute('aria-pressed', 'true');
+        chip.classList.add('is-active');
+      }
+
+      applyFilters();
+    });
+  });
+
+  resetBtn?.addEventListener('click', () => {
+    for (const group of Object.values(activeFilters)) group.clear();
+
+    chips.forEach((chip) => {
+      chip.setAttribute('aria-pressed', 'false');
+      chip.classList.remove('is-active');
+    });
+
+    applyFilters();
+  });
+</script>

@@ -3,6 +3,7 @@ title: Homes, Energy and Oceans
 description: "The Opportunity Party's plan for a productive, green economy: how it would make housing affordable beyond the land tax, build abundant renewable energy, and protect a third of New Zealand's ocean while growing a blue economy — with the trade-offs in each."
 level: intro
 kind: humanities
+subject: "Economics & Policy"
 prerequisites:
   - "General awareness of NZ housing, power bills, and fishing/ocean issues"
   - "The Essentials course is the ideal warm-up, but this course stands on its own"

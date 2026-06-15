@@ -3,6 +3,7 @@ title: Democracy and Everyday Life
 description: "The Opportunity Party's plans for how New Zealand decides and lives: citizens' assemblies and cleaner politics to break gridlock, a Teal Card for under-30s, and changes to public transport and drug law — each with its rationale and its critics."
 level: intro
 kind: humanities
+subject: "Economics & Policy"
 prerequisites:
   - "General awareness of NZ politics and public services"
   - "The Essentials course is the ideal warm-up, but this course stands on its own"

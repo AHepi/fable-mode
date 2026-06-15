@@ -3,6 +3,7 @@ title: Abstract Algebra
 description: Discover the hidden rules behind symmetry, arithmetic, and structure — a first course in group theory built entirely from high-school math.
 level: highschool
 kind: stem
+subject: "Mathematics"
 prerequisites:
   - Comfortable manipulating algebraic expressions and solving equations
   - Familiarity with functions and basic geometry

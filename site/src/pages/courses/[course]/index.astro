@@ -1,135 +1,125 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
-import { url, moduleUrl, courseUrl, seriesUrl } from '../../../lib/url';
+import { url, moduleUrl, courseUrl, seriesUrl, pathUrl } from '../../../lib/url';
+import { subjectHue, levelLabel, slugOf } from '../../../lib/taxonomy';
 
 export async function getStaticPaths() {
   const courses = await getCollection('courses');
   const modules = await getCollection('modules');
+  const paths = await getCollection('paths');
+  const titleOf = (s: string) => courses.find((c) => slugOf(c.id) === s)?.data.title ?? s;
+
   return courses.map((course) => {
-    const slug = course.id.split('/')[0];
+    const slug = slugOf(course.id);
     const courseModules = modules
-      .filter((m) => m.id.split('/')[0] === slug)
+      .filter((m) => slugOf(m.id) === slug)
       .sort((a, b) => a.data.order - b.data.order);
-    // If this course is a non-essentials series member, find the slug of its
-    // essentials sibling (same series.slug, role 'essentials') so we can point
-    // newcomers at the primer. Null when none exists.
+
+    // Essentials sibling (for series newcomers).
     let essentialsSlug = null;
     const series = course.data.series;
     if (series && series.role !== 'essentials') {
       const sibling = courses.find(
-        (c) =>
-          c.data.series?.slug === series.slug &&
-          c.data.series?.role === 'essentials',
+        (c) => c.data.series?.slug === series.slug && c.data.series?.role === 'essentials',
       );
-      if (sibling) essentialsSlug = sibling.id.split('/')[0];
+      if (sibling) essentialsSlug = slugOf(sibling.id);
     }
-    return {
-      params: { course: slug },
-      props: { course, courseModules, essentialsSlug },
-    };
+
+    // Paths this course belongs to, and the next course to take within one.
+    const inPaths = paths
+      .filter((p) => p.data.steps.some((s) => s.course === slug))
+      .map((p) => ({ slug: p.id, title: p.data.title }));
+    let nextUp = null;
+    for (const p of paths) {
+      const i = p.data.steps.findIndex((s) => s.course === slug);
+      if (i < 0) continue;
+      const upcoming = p.data.steps.slice(i + 1).find((s) => s.course);
+      if (upcoming) { nextUp = { slug: upcoming.course, title: titleOf(upcoming.course!), path: p.data.title }; break; }
+    }
+
+    return { params: { course: slug }, props: { course, courseModules, essentialsSlug, inPaths, nextUp } };
   });
 }
 
-const { course, courseModules, essentialsSlug } = Astro.props;
+const { course, courseModules, essentialsSlug, inPaths, nextUp } = Astro.props;
 const { data } = course;
-const slug = course.id.split('/')[0];
+const slug = slugOf(course.id);
 const { Content } = await render(course);
+const hue = subjectHue(data.subject);
 ---
 
-<Base title={data.title} description={data.description}>
+<Base title={data.title} description={data.description} subjectHue={hue}>
   <p class="crumbs"><a href={url()}>Catalog</a><span class="sep">/</span>{data.title}</p>
 
-  {
-    data.series && (
-      <p class="series-banner">
-        Part of the{' '}
-        <a href={seriesUrl(data.series.slug)}>{data.series.title}</a> series
-        {essentialsSlug && (
-          <>
-            {' · '}
-            <span class="series-hint">
-              New to this? <a href={courseUrl(essentialsSlug)}>Start with the Essentials course</a>
-            </span>
-          </>
-        )}
-      </p>
-    )
-  }
+  {data.series && (
+    <p class="series-banner">
+      Part of the <a href={seriesUrl(data.series.slug)}>{data.series.title}</a> series
+      {essentialsSlug && (
+        <> · New to this? <a href={courseUrl(essentialsSlug)}>Start with the Essentials course</a></>
+      )}
+    </p>
+  )}
 
+  {data.subject && <p class="eyebrow">{data.subject}</p>}
   <h1>{data.title}</h1>
   <p class="lead">{data.description}</p>
 
   <div class="badges">
-    <span class="badge kind">{data.kind}</span>
-    <span class="badge level">{data.level}</span>
+    {data.subject && <span class="badge subject">{data.subject}</span>}
+    <span class="badge level">{levelLabel(data.level)}</span>
     <span class="badge">{data.moduleOrder.length} modules</span>
     <span class="badge">~{data.estimatedHours}h</span>
-    {data.tags.map((t) => <span class="badge">{t}</span>)}
+    {inPaths.map((p) => <a class="badge subject" href={pathUrl(p.slug)}>Path · {p.title}</a>)}
   </div>
 
-  {
-    data.prerequisites.length > 0 && (
-      <div class="objectives">
-        <strong>Before you start</strong>
-        <ul>{data.prerequisites.map((p) => <li>{p}</li>)}</ul>
-      </div>
-    )
-  }
+  {data.prerequisites.length > 0 && (
+    <div class="objectives">
+      <strong>Before you start</strong>
+      <ul>{data.prerequisites.map((p) => <li>{p}</li>)}</ul>
+    </div>
+  )}
 
   <div class="prose"><Content /></div>
 
   <h2>Modules</h2>
   <ol class="modules">
-    {
-      courseModules.map((m) => {
-        const moduleId = m.id.split('/').slice(1).join('/');
-        return (
-          <li>
-            <a href={moduleUrl(slug, moduleId)}>
-              <span class="num">{String(m.data.order).padStart(2, '0')}</span>
-              <span class="mbody">
-                <span class="mtitle">{m.data.title}</span>
-                <span class="msum">{m.data.summary}</span>
-              </span>
-              <span class="mtime">{m.data.estimatedMinutes} min</span>
-            </a>
-          </li>
-        );
-      })
-    }
+    {courseModules.map((m) => {
+      const moduleId = m.id.split('/').slice(1).join('/');
+      return (
+        <li>
+          <a href={moduleUrl(slug, moduleId)}>
+            <span class="num">{String(m.data.order).padStart(2, '0')}</span>
+            <span class="mbody">
+              <span class="mtitle">{m.data.title}</span>
+              <span class="msum">{m.data.summary}</span>
+            </span>
+            <span class="mtime">{m.data.estimatedMinutes} min</span>
+          </a>
+        </li>
+      );
+    })}
   </ol>
+
+  {nextUp && (
+    <div class="next-up">
+      <span class="dir">Next in the {nextUp.path} path</span>
+      <p><a href={courseUrl(nextUp.slug)}>{nextUp.title} →</a></p>
+    </div>
+  )}
 
   <section class="provenance">
     <h2>About this course</h2>
     <p>
-      {
-        data.aiGenerated
-          ? `Drafted by the Fable Academy production pipeline${data.generatedDate ? ` on ${data.generatedDate}` : ''}. ${data.reviewed ? 'Reviewed by a human subject-matter expert.' : 'Not yet reviewed by a human subject-matter expert — treat it as a careful draft and verify anything you rely on.'}`
-          : 'Written by a human author.'
-      }
+      {data.aiGenerated
+        ? `Drafted by the Fable Academy production pipeline${data.generatedDate ? ` on ${data.generatedDate}` : ''}. ${data.reviewed ? 'Reviewed by a human subject-matter expert.' : 'Not yet reviewed by a human subject-matter expert — treat it as a careful draft and verify anything you rely on.'}`
+        : 'Written by a human author.'}
     </p>
-    {
-      data.sources.length > 0 && (
-        <>
-          <h3>Sources</h3>
-          <ul>
-            {data.sources.map((s) => (
-              <li>{s.url ? <a href={s.url}>{s.title}</a> : s.title}</li>
-            ))}
-          </ul>
-        </>
-      )
-    }
+    {data.sources.length > 0 && (
+      <>
+        <h3>Sources</h3>
+        <ul>{data.sources.map((s) => <li>{s.url ? <a href={s.url}>{s.title}</a> : s.title}</li>)}</ul>
+      </>
+    )}
   </section>
 </Base>
-
-<style>
-  .series-banner {
-    font-size: 0.9rem;
-    color: var(--muted);
-    margin: -0.6rem 0 1.4rem;
-  }
-  .series-banner a { color: var(--accent); }
-  .series-banner .series-hint { color: var(--muted); }
-</style>

@@ -3,6 +3,7 @@ title: "How JEPA Works: Predicting the Gist, Not the Pixels"
 description: "How JEPA learns from images and video by predicting the gist of what's hidden instead of the raw pixels — built from scratch for readers new to machine learning, and how it differs from LLMs."
 level: intro
 kind: stem
+subject: "Computer Science"
 prerequisites:
   - Curiosity about AI — no machine-learning background needed
   - Comfort with everyday reasoning and very light arithmetic (a list of numbers; the idea of two things being close or far apart)

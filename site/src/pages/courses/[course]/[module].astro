@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import { url, courseUrl, moduleUrl } from '../../../lib/url';
+import { subjectHue } from '../../../lib/taxonomy';
 
 export async function getStaticPaths() {
   const courses = await getCollection('courses');
@@ -17,12 +18,18 @@ export async function getStaticPaths() {
     const idx = siblings.findIndex((m) => m.id === entry.id);
     return {
       params: { course: slug, module: moduleId },
-      props: { entry, courseTitle: course?.data.title ?? slug, siblings, idx },
+      props: {
+        entry,
+        courseTitle: course?.data.title ?? slug,
+        siblings,
+        idx,
+        hue: subjectHue(course?.data.subject),
+      },
     };
   });
 }
 
-const { entry, courseTitle, siblings, idx } = Astro.props;
+const { entry, courseTitle, siblings, idx, hue } = Astro.props;
 const slug = entry.id.split('/')[0];
 const { Content } = await render(entry);
 const { data } = entry;
@@ -31,7 +38,8 @@ const prev = idx > 0 ? siblings[idx - 1] : null;
 const next = idx < siblings.length - 1 ? siblings[idx + 1] : null;
 ---
 
-<Base title={data.title} description={data.summary} wide>
+<Base title={data.title} description={data.summary} wide subjectHue={hue}>
+  <div class="read-progress" id="read-progress"></div>
   <p class="crumbs">
     <a href={url()}>Catalog</a><span class="sep">/</span>
     <a href={courseUrl(slug)}>{courseTitle}</a><span class="sep">/</span>{data.title}
@@ -92,4 +100,16 @@ const next = idx < siblings.length - 1 ? siblings[idx + 1] : null;
       </nav>
     </article>
   </div>
+
+  <script>
+    // Reading-progress bar: fraction of the page scrolled.
+    const bar = document.getElementById('read-progress');
+    const update = () => {
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      if (bar) bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+    };
+    document.addEventListener('scroll', update, { passive: true });
+    update();
+  </script>
 </Base>

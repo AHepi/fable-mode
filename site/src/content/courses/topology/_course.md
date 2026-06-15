@@ -3,6 +3,7 @@ title: Topology, From the Coffee Mug
 description: "An intuition-first tour of topology, built from high-school math with no calculus: open sets, continuity, and the invariants that prove why a mug equals a doughnut but not a sphere."
 level: highschool
 kind: stem
+subject: "Mathematics"
 prerequisites:
   - Comfortable with high-school algebra and functions
   - Familiar with coordinates and basic set notation

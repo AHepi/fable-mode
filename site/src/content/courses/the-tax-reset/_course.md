@@ -3,6 +3,7 @@ title: The Tax Reset
 description: "The Opportunity Party's flagship package, taken apart: a Citizen's Income for almost every adult, a Land Value Tax to help pay for it, a simpler income tax — and an honest look at who gains, who pays, and what the critics say."
 level: intro
 kind: humanities
+subject: "Economics & Policy"
 prerequisites:
   - "Comfortable with percentages and everyday tax ideas (PAYE, GST, rates)"
   - "The Essentials course is the ideal warm-up, but this course stands on its own"

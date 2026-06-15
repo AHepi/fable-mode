@@ -1,0 +1,102 @@
+---
+import { getCollection } from 'astro:content';
+import type { GetStaticPathsResult } from 'astro';
+import Base from '../../layouts/Base.astro';
+import { url, courseUrl, subjectUrl } from '../../lib/url';
+import {
+  SUBJECT_ORDER,
+  LEVELS_BY_DIFFICULTY,
+  subjectHue,
+  subjectBlurb,
+  subjectSlug,
+  levelLabel,
+  slugOf,
+} from '../../lib/taxonomy';
+
+export async function getStaticPaths(): Promise<GetStaticPathsResult> {
+  const courses = await getCollection('courses');
+
+  // Group courses by subject.
+  const bySubject = new Map<string, typeof courses>();
+  for (const c of courses) {
+    const s = c.data.subject;
+    if (!s) continue;
+    if (!bySubject.has(s)) bySubject.set(s, []);
+    bySubject.get(s)!.push(c);
+  }
+
+  return SUBJECT_ORDER
+    .filter((subject) => bySubject.has(subject))
+    .map((subject) => ({
+      params: { subject: subjectSlug(subject) },
+      props: { subject, courses: bySubject.get(subject)! },
+    }));
+}
+
+const { subject, courses } = Astro.props;
+
+// Group courses by level.
+const byLevel = new Map<string, typeof courses>();
+for (const c of courses) {
+  const lv = c.data.level ?? 'intro';
+  if (!byLevel.has(lv)) byLevel.set(lv, []);
+  byLevel.get(lv)!.push(c);
+}
+
+// Sort courses within each level by title.
+for (const [, arr] of byLevel) {
+  arr.sort((a, b) => a.data.title.localeCompare(b.data.title));
+}
+---
+
+<Base
+  title={subject}
+  description={subjectBlurb(subject)}
+  subjectHue={subjectHue(subject)}
+  wide
+>
+  <nav class="crumbs">
+    <a href={url('browse')}>Catalog</a>
+    <span class="sep">›</span>
+    <a href={url('subjects')}>Subjects</a>
+    <span class="sep">›</span>
+    <span>{subject}</span>
+  </nav>
+
+  <p class="eyebrow">Subject</p>
+  <h1>{subject}</h1>
+  <p class="lead">{subjectBlurb(subject)}</p>
+
+  {LEVELS_BY_DIFFICULTY.map((level) => {
+    const levelCourses = byLevel.get(level);
+    if (!levelCourses || levelCourses.length === 0) return null;
+    return (
+      <>
+        <div class="section-head">
+          <h2>{levelLabel(level)}</h2>
+        </div>
+        <div class="catalog-grid">
+          {levelCourses.map((course) => {
+            const slug = slugOf(course.id);
+            return (
+              <a
+                class="card"
+                href={courseUrl(slug)}
+                style={`--subject:${subjectHue(subject)}`}
+              >
+                <p class="kicker">{subject}</p>
+                <h3>{course.data.title}</h3>
+                <p class="desc">{course.data.description}</p>
+                <div class="badges">
+                  <span class="badge level">{levelLabel(course.data.level)}</span>
+                  <span class="badge">{course.data.moduleOrder.length} modules</span>
+                  <span class="badge">~{course.data.estimatedHours}h</span>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </>
+    );
+  })}
+</Base>

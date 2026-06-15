@@ -1,0 +1,166 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { url, courseUrl, seriesUrl, pathUrl } from '../../lib/url';
+import { subjectHue, slugOf } from '../../lib/taxonomy';
+
+export async function getStaticPaths() {
+  const paths = await getCollection('paths');
+  return paths.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { data } = entry;
+
+// Build course slug -> title lookup
+const allCourses = await getCollection('courses');
+const courseMap = new Map<string, { title: string }>();
+for (const c of allCourses) {
+  const slug = slugOf(c.id);
+  if (!courseMap.has(slug)) {
+    courseMap.set(slug, { title: c.data.title });
+  }
+}
+
+// Build seriesSlug -> seriesTitle lookup
+const seriesMap = new Map<string, string>();
+for (const c of allCourses) {
+  const s = c.data.series;
+  if (s?.slug && s?.title && !seriesMap.has(s.slug)) {
+    seriesMap.set(s.slug, s.title);
+  }
+}
+
+const { Content } = await render(entry);
+
+const hue = subjectHue(data.subject);
+const steps = data.steps;
+
+// Resolve step titles and hrefs
+const resolvedSteps = steps.map((step) => {
+  if (step.course) {
+    return {
+      title: courseMap.get(step.course)?.title ?? step.course,
+      href: courseUrl(step.course),
+      note: step.note,
+      courseSlug: step.course,
+    };
+  } else if (step.series) {
+    return {
+      title: seriesMap.get(step.series) ?? step.series,
+      href: seriesUrl(step.series),
+      note: step.note,
+      courseSlug: null,
+    };
+  }
+  return { title: '', href: '#', note: step.note, courseSlug: null };
+});
+
+// CTA: only when first step is a course
+const firstStep = resolvedSteps[0];
+const showCta = firstStep && steps[0]?.course != null;
+---
+
+<Base
+  title={data.title}
+  description={data.blurb}
+  subjectHue={hue}
+  wide
+>
+  <p class="crumbs">
+    <a href={url()}>Catalog</a>
+    <span class="sep">/</span>
+    <a href={url('paths')}>Paths</a>
+    <span class="sep">/</span>
+    {data.title}
+  </p>
+
+  <p class="eyebrow">{data.subject ?? 'Path'} · Specialisation path</p>
+  <h1>{data.title}</h1>
+  <p class="lead">{data.blurb}</p>
+
+  <div class="prose"><Content /></div>
+
+  {data.outcomes.length > 0 && (
+    <div class="outcomes">
+      <strong>By the end you can</strong>
+      <ul>
+        {data.outcomes.map((o) => <li>{o}</li>)}
+      </ul>
+    </div>
+  )}
+
+  <h2>The path</h2>
+  <ol class="track">
+    {resolvedSteps.map((step, i) => (
+      <li>
+        <span class="node">{i + 1}</span>
+        <div class="step-title"><a href={step.href}>{step.title}</a></div>
+        {step.note && <div class="step-note">{step.note}</div>}
+      </li>
+    ))}
+  </ol>
+
+  {showCta && (
+    <a class="btn btn--primary" href={courseUrl(steps[0].course!)}>
+      Start: {firstStep.title} →
+    </a>
+  )}
+</Base>
+
+<style>
+  /* ---- outcomes box ---- */
+  .outcomes {
+    background: var(--accent-soft);
+    border: 1px solid color-mix(in srgb, var(--accent) 24%, var(--border));
+    border-radius: var(--radius);
+    padding: 1rem 1.3rem;
+    margin: 1.8rem 0;
+  }
+  .outcomes strong {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  .outcomes ul { margin: 0; padding-left: 1.1rem; }
+  .outcomes li { margin: 0.2rem 0; color: var(--text-dim); }
+
+  /* ---- track ---- */
+  .track { list-style: none; padding: 0; margin: 0.5rem 0 2rem; display: flex; flex-direction: column; gap: 0.7rem; }
+  .track li { display: grid; grid-template-columns: 2rem 1fr; grid-template-rows: auto auto; column-gap: 0.75rem; align-items: start; }
+  .node {
+    grid-row: 1 / 3;
+    display: flex; align-items: center; justify-content: center;
+    width: 1.8rem; height: 1.8rem; border-radius: 50%;
+    background: var(--accent-soft);
+    border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--border));
+    color: var(--accent);
+    font-size: 0.78rem; font-weight: 700; font-variant-numeric: tabular-nums;
+    flex-shrink: 0; margin-top: 0.15rem;
+  }
+  .step-title { font-weight: 600; font-size: 1rem; line-height: 1.3; color: var(--text); }
+  .step-title a { color: inherit; }
+  .step-title a:hover { color: var(--accent); }
+  .step-note { grid-column: 2; font-size: 0.88rem; color: var(--muted); line-height: 1.45; margin-top: 0.15rem; }
+
+  /* ---- CTA button ---- */
+  .btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.7rem 1.4rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.97rem;
+    text-decoration: none;
+    transition: opacity 120ms ease, transform 120ms ease;
+  }
+  .btn:hover { opacity: 0.88; transform: translateY(-1px); text-decoration: none; }
+  .btn--primary { background: var(--accent); color: var(--bg); }
+</style>

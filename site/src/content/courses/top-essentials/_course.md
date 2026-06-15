@@ -3,6 +3,7 @@ title: "TOP 2026: The Essentials"
 description: "The shared language for understanding The Opportunity Party's 2026 platform: the problem the party thinks New Zealand has, the handful of concepts its policies use (land value tax, a Citizen's Income, tax distortion), and the NZ facts every policy leans on."
 level: intro
 kind: humanities
+subject: "Economics & Policy"
 prerequisites:
   - "General awareness of NZ life — rates, rent, KiwiSaver, the cost of living"
   - "No economics or tax background needed"

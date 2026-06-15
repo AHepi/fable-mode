@@ -11,6 +11,19 @@ export const SCHEMA_VERSION = 1;
 // Background level the course is calibrated to (see _config/course-design.md).
 export const LEVELS = ['intro', 'highschool', 'undergrad', 'grad'];
 
+// Controlled subject vocabulary — mirrors SUBJECT_META keys in taxonomy.ts.
+// These drive the /subjects/* routes and the color-coding wayfinding system.
+export const SUBJECTS = [
+  'Mathematics',
+  'Statistics & Data',
+  'Economics & Policy',
+  'Computer Science',
+  'Natural Sciences',
+  'Humanities',
+  'Language',
+  'Skills & Craft',
+];
+
 // Course "kind" decides domain-specific behavior: which module template applies,
 // whether math (KaTeX) rules and validation are in force, etc. Default 'stem'
 // keeps existing math courses behaving exactly as before.
@@ -46,9 +59,13 @@ export function buildSchemas(z) {
   const courses = z.object({
     title: z.string(),
     description: z.string(),
+    subject: z.enum(SUBJECTS).optional(),
     level: z.enum(LEVELS),
     kind: z.enum(KINDS).default('stem'),
     prerequisites: z.array(z.string()).default([]),
+    // Machine-linkable prerequisites: slugs of courses to do first. Powers the
+    // prereq graph / path validation / "take this next". Optional, back-compat.
+    prerequisiteCourses: z.array(z.string()).default([]),
     tags: z.array(z.string()).default([]),
     estimatedHours: z.number().positive(),
     // Authoritative module ordering: filenames without the .md extension.

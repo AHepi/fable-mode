@@ -1,57 +1,84 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import { courseUrl, seriesUrl } from '../lib/url';
+import { url, courseUrl, pathUrl, subjectUrl } from '../lib/url';
+import {
+  SUBJECT_ORDER, subjectHue, subjectBlurb, subjectSlug,
+  levelLabel, slugOf,
+} from '../lib/taxonomy';
 
-// Auto-discovery: every courses/<slug>/_course.md becomes a catalog entry.
-const courses = (await getCollection('courses')).sort((a, b) =>
-  a.data.title.localeCompare(b.data.title),
-);
+const courses = await getCollection('courses');
+const paths = (await getCollection('paths')).sort((a, b) => a.data.order - b.data.order);
 
-// Standalone courses (no series block) keep the existing flat-grid behavior.
-const standalone = courses.filter((c) => !c.data.series);
-
-// Courses with a series block are grouped by series.slug; membership is emergent.
-const seriesMap = new Map();
-for (const course of courses) {
-  const series = course.data.series;
-  if (!series) continue;
-  if (!seriesMap.has(series.slug)) seriesMap.set(series.slug, []);
-  seriesMap.get(series.slug).push(course);
+// Subjects that actually have courses, with counts.
+const counts = new Map<string, number>();
+for (const c of courses) {
+  const s = c.data.subject;
+  if (s) counts.set(s, (counts.get(s) ?? 0) + 1);
 }
-const seriesGroups = [...seriesMap.entries()]
-  .map(([slug, members]) => {
-    members.sort((a, b) => a.data.series.order - b.data.series.order);
-    const essentials = members.find((c) => c.data.series.role === 'essentials');
-    const lead = essentials ?? members[0];
-    const blurb = lead.data.series.blurb ?? lead.data.description;
-    const totalModules = members.reduce((n, c) => n + c.data.moduleOrder.length, 0);
-    return { slug, title: members[0].data.series.title, blurb, count: members.length, totalModules };
-  })
-  .sort((a, b) => a.title.localeCompare(b.title));
+const subjects = SUBJECT_ORDER.filter((s) => counts.has(s));
+
+// "Start here" — essentials primers + standalone beginner courses, a curated few.
+const starters = courses
+  .filter((c) => c.data.series?.role === 'essentials' || (!c.data.series && c.data.level === 'intro'))
+  .sort((a, b) => a.data.title.localeCompare(b.data.title))
+  .slice(0, 6);
 ---
 
-<Base title="Catalog" description="Browse every course on Fable Academy.">
-  <p class="eyebrow">Fable Academy</p>
-  <h1>A library of courses, written to be read.</h1>
-  <p class="lead">
-    Each one is researched, written, and shipped by an automated pipeline. Pick one and start.
-  </p>
+<Base title="Catalog" description="A growing library of courses, researched and written by an automated pipeline." wide>
+  <section class="hero">
+    <p class="eyebrow">Fable Academy</p>
+    <h1>Learn a subject the way it deserves to be taught.</h1>
+    <p class="lead">
+      Courses built from research, not rehashed blog posts — organised by subject and difficulty,
+      strung into paths that take you somewhere. Pick a thread and pull.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn--primary" href={url('browse')}>Browse all courses →</a>
+      <a class="btn" href={url('paths')}>See the paths</a>
+    </div>
+  </section>
 
-  {courses.length === 0 && <p class="lead">No courses published yet.</p>}
-
-  {
-    standalone.length > 0 && (
+  {paths.length > 0 && (
+    <>
+      <div class="section-head"><h2>Specialisation paths</h2><a class="more" href={url('paths')}>All paths →</a></div>
       <div class="catalog-grid">
-        {standalone.map((course) => {
-          const slug = course.id.split('/')[0];
+        {paths.map((p) => (
+          <a class="card" href={pathUrl(p.id)} style={`--subject:${subjectHue(p.data.subject)}`}>
+            <p class="kicker">{p.data.subject ?? 'Path'}</p>
+            <h3>{p.data.title}</h3>
+            <p class="desc">{p.data.blurb}</p>
+            <div class="badges"><span class="badge subject">Path</span><span class="badge">{p.data.steps.length} courses</span></div>
+          </a>
+        ))}
+      </div>
+    </>
+  )}
+
+  <div class="section-head"><h2>Browse by subject</h2><a class="more" href={url('subjects')}>All subjects →</a></div>
+  <div class="subject-grid">
+    {subjects.map((s) => (
+      <a class="subject-tile" href={subjectUrl(subjectSlug(s))} style={`--subject:${subjectHue(s)}`}>
+        <h3>{s}</h3>
+        <p>{subjectBlurb(s)}</p>
+        <span class="count">{counts.get(s)} {counts.get(s) === 1 ? 'course' : 'courses'} →</span>
+      </a>
+    ))}
+  </div>
+
+  {starters.length > 0 && (
+    <>
+      <div class="section-head"><h2>Good places to start</h2><a class="more" href={url('browse')}>Browse all →</a></div>
+      <div class="catalog-grid">
+        {starters.map((course) => {
+          const slug = slugOf(course.id);
           return (
-            <a class="card" href={courseUrl(slug)}>
+            <a class="card" href={courseUrl(slug)} style={`--subject:${subjectHue(course.data.subject)}`}>
+              {course.data.subject && <p class="kicker">{course.data.subject}</p>}
               <h3>{course.data.title}</h3>
               <p class="desc">{course.data.description}</p>
               <div class="badges">
-                <span class="badge kind">{course.data.kind}</span>
-                <span class="badge level">{course.data.level}</span>
+                <span class="badge level">{levelLabel(course.data.level)}</span>
                 <span class="badge">{course.data.moduleOrder.length} modules</span>
                 <span class="badge">~{course.data.estimatedHours}h</span>
               </div>
@@ -59,35 +86,6 @@ const seriesGroups = [...seriesMap.entries()]
           );
         })}
       </div>
-    )
-  }
-
-  {
-    seriesGroups.length > 0 && (
-      <section class="series-section">
-        <h2>Series</h2>
-        <p class="series-note">A guided set of mini-courses sharing one vocabulary. Open one to see its courses.</p>
-        <div class="catalog-grid">
-          {seriesGroups.map((group) => (
-            <a class="card series-card" href={seriesUrl(group.slug)}>
-              <h3>{group.title}</h3>
-              <p class="desc">{group.blurb}</p>
-              <div class="badges">
-                <span class="badge kind">series</span>
-                <span class="badge">{group.count} courses</span>
-                <span class="badge">{group.totalModules} modules</span>
-              </div>
-            </a>
-          ))}
-        </div>
-      </section>
-    )
-  }
+    </>
+  )}
 </Base>
-
-<style>
-  .series-section { margin-top: 2.6rem; }
-  .series-note { color: var(--muted); margin: 0.2rem 0 1.1rem; }
-  .series-card { border-left: 3px solid var(--accent); }
-  .series-card .badge.kind { text-transform: uppercase; letter-spacing: 0.04em; }
-</style>

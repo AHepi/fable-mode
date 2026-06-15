@@ -3,6 +3,7 @@ title: Statistics Essentials
 description: "The shared language of statistics, built from scratch: how data varies, what an average and a distribution really say, why a sample is only a handful from the jar, and how to tell a real signal from random noise."
 level: intro
 kind: stem
+subject: "Statistics & Data"
 prerequisites:
   - Everyday arithmetic and percentages
   - Reading a simple chart (a bar chart, a number line, a dot plot)

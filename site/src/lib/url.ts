@@ -19,3 +19,6 @@ export const courseUrl = (slug: string) => url(`courses/${slug}/`);
 export const moduleUrl = (slug: string, moduleId: string) =>
   url(`courses/${slug}/${moduleId}/`);
 export const seriesUrl = (slug: string) => url(`series/${slug}/`);
+export const pathUrl = (slug: string) => url(`paths/${slug}/`);
+// Subjects route by a URL-safe slug of the subject name (see subjectSlug()).
+export const subjectUrl = (subjectSlug: string) => url(`subjects/${subjectSlug}/`);

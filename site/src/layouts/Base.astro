@@ -10,9 +10,20 @@ interface Props {
   title: string;
   description?: string;
   wide?: boolean;
+  /** HSL channel string, e.g. "172 66% 50%" — tints the page in a subject hue. */
+  subjectHue?: string;
 }
-const { title, description, wide = false } = Astro.props;
+const { title, description, wide = false, subjectHue } = Astro.props;
 const siteName = 'Fable Academy';
+
+const path = Astro.url.pathname;
+const is = (seg: string) => path.includes(`/${seg}`);
+const nav = [
+  { href: url('browse'), label: 'Browse', on: is('browse') },
+  { href: url('subjects'), label: 'Subjects', on: is('subjects') },
+  { href: url('paths'), label: 'Paths', on: is('paths') },
+];
+const bodyStyle = subjectHue ? `--subject:${subjectHue}` : undefined;
 ---
 
 <!doctype html>
@@ -24,18 +35,27 @@ const siteName = 'Fable Academy';
     {description && <meta name="description" content={description} />}
     <link rel="icon" href={url('favicon.svg')} type="image/svg+xml" />
   </head>
-  <body>
+  <body style={bodyStyle}>
     <header class="site-header">
       <div class="bar">
-        <a class="brand" href={url()}>{siteName}</a>
-        <span class="tagline">Courses, written to be read.</span>
+        <a class="brand" href={url()}><span class="spark"></span><span class="label">{siteName}</span></a>
+        <nav class="nav">
+          {nav.map((n) => <a href={n.href} aria-current={n.on ? 'page' : undefined}>{n.label}</a>)}
+        </nav>
       </div>
     </header>
     <main class:list={['page', wide && 'page--wide']}>
       <slot />
     </main>
     <footer class="footer">
-      <div class="bar">Every course here is plain Markdown, researched and written by an automated pipeline.</div>
+      <div class="bar">
+        <span>Fable Academy — courses researched and written by an automated pipeline.</span>
+        <nav>
+          <a href={url('browse')}>Browse</a>
+          <a href={url('subjects')}>Subjects</a>
+          <a href={url('paths')}>Paths</a>
+        </nav>
+      </div>
     </footer>
   </body>
 </html>
