@@ -1,0 +1,594 @@
+The Necessity of Creativity:
+A Substrate-Independent Calculus of Conjecture and Criticism
+June 2026 — working draft
+Abstract
+A companion note built a computable formalism for Deutsch’s epistemology and fixed it
+to ten fidelity constraints. This note answers a sharper demand: build the epistemology
+and creativity together, from primitives, in a form general enough to run on any physical
+substrate — brains, computers, or alien matter — and specific enough to violate none of the
+constraints. The central claim is that creativity is not a faculty added to error-correction
+but a property forced by it: a fallibilist system that aspires to solve every soluble problem
+in its domain must have an open-ended, computationally universal conjecture operator, and
+(by the physical Church–Turing–Deutsch principle) that operator is substrate-independent.
+We work in two strata. A constructor-theoretic Level 0 supplies the substrate-independence
+of information and knowledge, and — through the requirement of digital error-correctability
+for resilient knowledge — justifies a discrete content layer rather than stipulating one. An
+invented process calculus at Level 1 supplies the dynamics: epistemic states rewritten by
+explicit conjecture, criticism, adjudication, and problem-generation rules, with hard-to-vary
+and reach as measured quantities and fallibilism as two structural axioms. We then prove
+the necessity-of-creativity theorem, derive its substrate-independence corollary, and exhibit
+biological evolution and human explanation as the uncoupled and coupled instances of one
+knowledge-growth schema. The fidelity constraints are then derived where derivable; where
+one is not — fallibilism itself — we explain why it must be an axiom, and show it is the
+very premise the creativity theorem runs on. We close with an explicit verdict on what the
+constructor theories of information, knowledge, computation, and natural selection do and
+do not contribute.
+Contents
+1 What must be captured, and in what language 2
+1.1 The constraints . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2
+1.2 Choice of language . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+2 Level 0: the substrate-independent foundation 4
+2.1 Primitives and the universality axiom . . . . . . . . . . . . . . . . . . . . . . . . 4
+2.2 Information, knowledge, and why the substrate must be digital . . . . . . . . . . 4
+3 Level 1: the conjecture–criticism calculus 5
+3.1 Syntactic categories (primitives) . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+3.2 Formation rules . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+3.3 Inference rules (transitions) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+3.4 Measures and demarcation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
+1
+
+=====PAGE BREAK=====
+
+3.5 Fallibilism as two axioms . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
+4 Creativity , and why the epistemology forces it 8
+4.1 The creative faculty, characterized functionally . . . . . . . . . . . . . . . . . . . 8
+4.2 Two Deutschian principles . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+4.3 The main theorem . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8
+4.4 Blind versus explanatory creativity, and the unity with natural selection . . . . . 9
+5 Derivation of the fidelity constraints 11
+6 Constructor theory: what it contributes, and what it cannot 12
+7 Synthesis 13
+1 What must be captured, and in what language
+1.1 The constraints
+The target is Deutsch’s epistemology in The Fabric of Reality and The Beginning of Infinity , to-
+gether with its corollary account of creativity. A faithful formalism must satisfy ten constraints,
+stated and defended in the companion note and used here as a fixed criticism battery.
+D1 (Problems first). Problems — conflicts between ideas, or between ideas and observation
+— drive inquiry; Popper’s P1 → T T→ EE → P2 is the canonical cycle.
+D2 (Conjecture is unconstrained). There is no inductive road from data to theory; the
+formalism is generator-agnostic and must not equate stochastic variation with explanatory
+novelty.
+D3 (Criticism is universal and itself criticizable). Empirical testing is one species of crit-
+icism; criticisms are conjectures, and a refuted criticism reinstates its target.
+D4 (T entative acceptance). Prefer what has so far survived criticism where rivals have not;
+acceptance is time-indexed, never a certificate.
+D5 (Hard to vary). A good explanation is hard to vary while still accounting for what it
+accounts for ; graded, criticism-relative.
+D6 (Reach). Good explanations solve problems beyond those they were built for; reach is
+discovered, not designed.
+D7 (F allibilism; no final state). No terminal status, no foundation, no final theory; even the
+system’s own rules stay open to criticism.
+D8 (Refutation is demotion, not annihilation). Refuted theories persist as bounded ap-
+proximations and as candidates for reinstatement.
+D9 (Domain universality). Mathematics, philosophy, and the arts share the dynamic; aes-
+thetic problems are objective; proof is physical computation.
+2
+
+=====PAGE BREAK=====
+
+D10 (Rivalry is problem-indexed). Theories clash only as rivals for one problem; a persis-
+tent clash is itself a new problem.
+To these the present task adds two requirements that the constraints leave implicit, and that
+the construction must now make explicit.
+M1 (Creativity is constitutive). Creativity — the generation of new explanatory conjec-
+tures — is not an optional module bolted onto the loop. It is implicit in the epistemology,
+and the formalism should make the dependence derivable: the error-correcting structure
+should entail the open-endedness of the creative faculty, not merely leave room for it.
+M2 (Substrate independence / multiple realizability). The same epistemic process, and
+the same creative faculty, must be instantiable in any sufficiently capable physical medium:
+human brains, digital computers, and any alien substrate obeying the same physics. Sub-
+strate is contingent; the knowledge and the creativity are not.
+1.2 Choice of language
+The instruction was to choose a language — algebra, set theory, category theory — or invent
+one. None of the three off-the-shelf options suffices alone, and the reasons are instructive enough
+to fix the architecture.
+Category theory was the companion note’s diagnosed failure: the natural categorical home
+for the dialectic is a 2-category whose criticism-of-criticism tower climbs to ω, and the tractable
+content is recovered only by quotienting that tower down to argumentation dynamics. It pays
+no rent here that the quotient does not already pay.
+Set theory and algebra are static. They can describe a knowledge state but not its lawful suc-
+cession; the phenomena to be captured — conjecture, refutation, reinstatement, the trajectory
+of acceptance — are irreducibly processual, statements about how a state becomes its successor
+in time.
+Constructor theory is the right language for M2 and for the definition of knowledge, but —
+by its own design — it is a theory of which transformations are possible, counterfactual and
+atemporal. It cannot host a dynamics either ( § 6).
+The construction is therefore pluralist, with a clear division of labour:
+ a constructor-theoretic Level 0 (§ 2) for substrate independence, the definition of
+knowledge, and the digital-content justification;
+ an invented process calculus at Level 1(§ 3) — a labelled rewriting system on epistemic
+states, presented as primitives, formation rules, and inference (transition) rules — as the
+load-bearing spine;
+ two imported and clearly-marked tools used inside Level 1: Dung argumentation semantics
+for adjudication and algorithmic information theory for the hard-to-vary measure, neither
+claimed as original.
+The process calculus is the invention; everything else is borrowed and attributed.
+3
+
+=====PAGE BREAK=====
+
+2 Level 0: the substrate-independent foundation
+2.1 Primitives and the universality axiom
+We adopt the constructor-theoretic stance (Deutsch 2013; Deutsch & Marletto 2015) as the
+meta-language for “the same process on any substrate.”
+Definition 2.1 (Attributes, tasks, possibility) . An attribute is a specification of a class of
+physical states. A task T = {x1 → y1, . . . , xn → yn} is a finite set of ordered pairs of attributes:
+a specification of a transformation. A constructor for T is a physical system that can cause T to
+occur on a substrate and retain the ability to do so again. The task is possible, T ✓, if the laws
+of physics permit a constructor performing T to arbitrarily high accuracy; otherwise impossible,
+T ×. Possibility is a property of the laws, not of any particular object or moment.
+The methodological point of this stance is that epistemic operations will be specified as
+tasks, so that their possibility — and hence their realizability on a given substrate — is a
+substrate-independent, law-level fact rather than a contingent feature of one machine.
+Axiom 1 (Physical Church–Turing–Deutsch principle; Deutsch 1985). There exists a universal
+computer: a constructor U whose programs can perform, to arbitrary accuracy, every task that
+any physical constructor can perform; equivalently, every finitely realizable physical system can
+be simulated by U operating by finite means. Any two universal computers intersimulate via a
+possible task whose overhead is additive and independent of the simulated input.
+2.2 Information, knowledge, and why the substrate must be digital
+Definition 2.2 (Information medium). An information medium is a substrate carrying a set of
+attributes on which the copy task and the relevant permutation tasks are possible. (This is the
+constructor-theory-of-information characterization of an information variable: definable purely
+by which copying and distinguishing tasks are possible.)
+Definition 2.3 (Knowledge as resilient information; Deutsch–Marletto) . Information instanti-
+ated in a medium is knowledge if it is resilient: the task of keeping it instantiated is possible, and
+in the strong case is performed by a constructor that the information itself (partly) specifies —
+i.e. the information has the causal power to bring about the very tasks it is “about,” and thereby
+tends to remain instantiated. Knowledge is thus information with constructor-like efficacy.
+Two consequences are load-bearing below.
+Theorem 2.1 (Digitality of resilient knowledge; after Marletto 2015). A medium that can carry
+knowledge resiliently under perturbation must be digital: its information-bearing attributes must
+form a discrete set with disjoint stability basins, so that an error-correction task on them is
+possible. Continuous (analog) information cannot be resiliently maintained, because no error-
+correction task on a continuum of attributes is possible to arbitrary accuracy under generic
+noise.
+Remark 2.1. Theorem 2.1 is the constructor-theoretic core of Marletto’s account of why accu-
+rate self-reproduction with the appearance of design requires digital (discrete, error-correctable)
+genetic information. We use it for a different purpose: it derives, rather than stipulates, that
+the content layer of the dynamics (§ 3) must represent knowledge in a discrete alphabet Σ ∗. The
+4
+
+=====PAGE BREAK=====
+
+choice of strings is not a modelling convenience; resilient knowledge has no analog option. The
+same theorem explains why genes are digital and why any alien knowledge-bearer’s hereditary
+medium must be too.
+Theorem 2.2 (Substrate independence of knowledge) . Let K be knowledge (resilient informa-
+tion) instantiable in a medium M , and let M ′ be any universal medium (Axiom 1). Then the
+task “instantiate K in M ′” is possible, carrying the same K. Knowledge is multiply realizable;
+which physical medium bears it is contingent.
+Proof sketch. Knowledge is characterized at Definition 2.3 by the tasks it performs and the
+persistence task it survives — all attribute-level, hence law-level and medium-independent. By
+Axiom 1, M ′ can perform any task M can, to arbitrary accuracy, including instantiation and
+maintenance of K. The translation cost is the bounded intersimulation overhead. Hence K
+transfers without remainder.
+Theorem 2.2 discharges one half of M2 at the foundation: the knowledge is substrate-
+independent. The other half — the substrate-independence of the creative faculty — is Corol-
+lary 4.2, and depends on the Level 1 dynamics and the main theorem.
+3 Level 1: the conjecture–criticism calculus
+We now build the dynamics as a process calculus. Contents live in Σ∗ (justified by Theorem 2.1)
+and are interpreted on the universal machineU of Axiom 1. The development refines the content
+and dialectical layers of the companion note; the novelty here is the explicit rule presentation
+and the first-class status of the generator, which the creativity theorem requires.
+3.1 Syntactic categories (primitives)
+Definition 3.1 (Commitment, verdict). A commitment is a pair κ = (τκ, βκ) of a test program
+and a resource budget. Its verdict on content c is
+V (κ, c) = U ≤βκ(τκ, c) ∈ {pass, fail, overrun}.
+Verdicts are extensional, bounded, and decidable by construction; budgeting is what keeps Rice’s
+theorem at bay.
+Definition 3.2 (Artifact, problem, kernel). An artifact is a = (c(a), I(a)): content plus a finite
+commitment interface . A problem is π = ( dπ, Critπ, provπ): a description, a growing finite
+set of criteria (commitment schemas instantiable against candidates), and a provenance record.
+The variation kernel µ(· |a) is a samplable distribution over bounded edits of c(a). Artifacts are
+untyped beyond this: conjectures, criticisms, aesthetic standards, problem criteria, experimental
+reports, and the calculus’s own rules are all artifacts — the uniformity that makes “whatever
+can attack can be attacked” enforceable.
+Definition 3.3 (Epistemic state; system). An epistemic state is S = (A, Π, addr, att, W): finite
+sets of artifacts and problems, a declared addressing relation addr ⊆ A × Π, a warranted attack
+relation att ⊆ A × A, and a warrant map W . A system is Σsys = (S, γ,{µa}, adj), where γ is
+the conjecture operator (§ 4), {µa} the kernels, and adj the adjudicator. The generator γ is a
+distinguished, first-class component precisely so that the formalism can state requirements on it.
+5
+
+=====PAGE BREAK=====
+
+Definition 3.4 (Warrants). An attack edge (k, a) ∈ att must carry a warrant of one of two types.
+Demonstrative: k packages a failing verdict — a commitment κ, its trace, and V (κ, a) = fail —
+together with a dependence on a validity node ν(κ), an artifact asserting the test is sound and
+relevant; by a closure rule, any attacker of ν(κ) attacks k. Argumentative: k is an explanatory
+artifact whose commitments include a claim about a’s deficiency. Both kinds are themselves
+artifacts and hence attackable, so criticism is always contentful and never a bare verdict.
+3.2 Formation rules
+A state is well-formed iff every attack edge carries a registered warrant (Definition 3.4); ev-
+ery problem’s criteria are commitment schemas; every addr pair is declared by the addressing
+artifact; and the validity-node closure holds. All rules below preserve well-formedness.
+3.3 Inference rules (transitions)
+Each rule is a premise/conclusion pair rewriting S ⇝ S ′.
+(Conj) Conjecture introduction.
+π ∈ Π a = γ(π, S)
+addr += (a, π), A += a, I (a) attached
+A conjecture transition requires a problem premise. This is D1 made structural: in a state with
+Π = ∅ the rule is not enabled.
+(Crit) Criticism introduction.
+a ∈ A k an artifact w a valid warrant for ( k, a)
+A += k, att += (k, a), W (k, a) = w
+Criticisms enter as artifacts (D3); their warrants are artifacts too.
+(Adj) Adjudication. Given the directed graph ( A, att), let the grounded extension G be the
+least fixed point of F (S) = {a : every attacker of a is attacked by some member of S}. Relabel:
+status(a) =
+
+
+
+accepted a ∈ G
+refuted ∃b ∈ G : ( b, a) ∈ att
+suspended otherwise.
+Grounded semantics (Dung 1995) is unique, skeptical, and recomputed after every registration.
+This realizes D4.
+(Spawn) Problem generation. On any trigger, register a new problem with provenance:
+failed verdict ⇒ successor problem ( P2); ≥ 2 surviving rivals for π ⇒ discrimination prob-
+lem; accepted a with low HV ⇒ remove-arbitrariness problem; reach event ⇒ explanation-debt
+problem; critic-gaming signal ⇒ audit-the-critic problem.
+(Refl) Reflexive registration. The rules above, the demarcation criterion ( § 3.4), and the
+choice of adjudication semantics are themselves registered as artifacts in A and are attackable
+like any other. This is pancritical closure: the system’s constitution is inside the system.
+Nothing is ever deleted by any rule; “refuted” is a computed status, not an erasure. Rein-
+statement is therefore not a primitive but a derived consequence:
+6
+
+=====PAGE BREAK=====
+
+Lemma 3.1 (Reinstatement). If k attacks a, j attacks k, and j is unattacked, then {j, a} ⊆G.
+Refuting a criticism restores its target automatically.
+Proof. F (∅) contains all unattacked arguments, hence j; then a is acceptable w.r.t. {j}, so
+a ∈ F (F (∅)) ⊆ G.
+3.4 Measures and demarcation
+Definition 3.5 (Demarcation: criticizability and modifiability) . Let B(a) be a’s battery: its
+own commitments together with the instantiated criteria of all problems it addresses. Write
+a′ ≈B a ( battery equivalence) iff a′ and a receive identical verdicts across B(a). Then
+crit(a) ⇐ ⇒I(a) ̸= ∅ (nonempty attack surface ),
+mod(a) ⇐ ⇒ Pr
+a′∼µ(·|a)
+[ a′ ̸≈B a ] > 0 ( nontrivial variation surface ),
+and a is epistemically active iff both hold. Empirical falsifiability is the special case of crit in
+which some commitment is observation-valued.
+This is the demarcation that replaces falsifiability: criticizability plus modifiability, with
+empirical testing a special case — so mathematics, philosophy, and the arts are admitted (D9).
+Easy-to-vary and uncriticizable are kept distinct, as they must be.
+Definition 3.6 (Hard to vary). For active a with battery B and kernel µ,
+s(a) = Pr
+a′∼µ(·|a)
+
+a′ passes B ∧ a′ ̸≈B a
+
+, HVB(a) = 1 − s(a).
+HV counts only inequivalent survivors: a re-voicing or a renaming is the same explanation
+rewritten and does not count against rigidity, with ≈B the computable surrogate for “the same
+explanation.” HV is graded, battery-relative, re-estimated as the battery grows, and estimable
+to (ε, δ) by Hoeffding sampling. This is D5, and the corrected form of any “rigid limit”: certifying
+HV = 1 under all variation would be the final theory D7 forbids.
+Definition 3.7 (Reach). With Πlib
+t a growing problem library, Rt(a) is the set of problems in
+Πlib
+t beyond a’s origin that a meets at t. A reach event raises a’s standing and (by Spawn) opens
+an explanation-debt problem.
+3.5 Fallibilism as two axioms
+Axiom 2 (N1: no absorbing status) . Statuses are functions of S alone, and every status admits
+an exit: accepted → refuted by a new warranted attack; refuted → accepted by reinstatement
+(Lemma 3.1); a demonstrative refutation reopens by an attack on its validity node. No state is
+marked final, including the rule-artifacts of (Refl).
+Axiom 3 (N2: perpetual proposability) . The generator’s support is unbounded: for every ac-
+cepted a there exist proposable successors with strictly extended batteries. “Knowledge at t”
+denotes the trajectory (Gt, HV-profile, R-profile) — a position in an open process, not a fixed
+point of it.
+These encode D7 directly. We will see in § 4 that they are not idle bookkeeping: N1 is the
+premise the creativity theorem runs on.
+7
+
+=====PAGE BREAK=====
+
+4 Creativity, and why the epistemology forces it
+4.1 The creative faculty, characterized functionally
+Definition 4.1 (Conjecture operator; reachable set) . The creative faculty of a system is its
+conjecture operator γ, the map (π, S) 7→ a supplying the premise of (Conj). Its reachable set is
+Γ =
+
+c ∈ Σ∗ : c = c(a) for some artifact a the system can emit by
+finitely many (Conj) steps, each γ-call permitted to read the current S
+	
+.
+Γ is the closure of γ’s range under iteration with criticism-feedback.
+We characterize creativity by what its availability must satisfy, not by any internal mecha-
+nism. This is deliberate, and is D2: the provenance of a conjecture is epistemically inert, and —
+following the standing correction — computational nondeterminism is not logical novelty and
+stochastic mutation is not a theory of creativity. The claims below are about the reach of the
+operator, indifferent to whether the substrate realizing it is deterministic or stochastic.
+Definition 4.2 (Openness and coupling) . γ is open (or universal) if Γ = Σ ∗: with feedback,
+it can eventually emit any expressible content. γ is coupled if its output genuinely depends
+on the criticism graph: there are states S, S ′ differing only in att with γ(π, S) ̸= γ(π, S ′) as
+distributions. Blind variation is the negation: γ ignores what criticism has eliminated.
+4.2 Two Deutschian principles
+Axiom 4 (Solubility; Deutsch’s optimism) . Every problem whose solution is not forbidden by
+the laws of nature is soluble: lawfully, some constructor with the right knowledge can solve it.
+(“Problems are inevitable; problems are soluble.”) This is a statement about lawful possibility,
+not about any particular system.
+Definition 4.3 (Universal explainer; epistemic completeness) . A system is epistemically com-
+plete over a domain if for every soluble problem expressible in the system there is, in principle,
+a reachable solution. A universal explainer is a system epistemically complete over the domain
+of all expressible explanations — one with no class of creatable explanations forever beyond it.
+Deutsch’s thesis is that people are universal explainers; this is the “jump to universality.”
+4.3 The main theorem
+Theorem 4.1 (Necessity of open-ended creativity). Let a knowledge-growth system have content
+space Σ∗ and conjecture operator γ with reachable set Γ. If the system is fallibilist (Axiom 2)
+and epistemically complete over its domain (Definition 4.3), then Γ = Σ ∗: γ-with-feedback is
+open. Contrapositively, if Γ is a recursively-fixed proper subset of Σ∗, the system has a blind
+spot — a soluble problem it can never solve and whose open status it can never lawfully close.
+Proof. Suppose Γ ⊊ Σ∗. Any actually-implemented operator has a recursively enumerable
+reachable set; enumerate Γ = {g1, g2, . . .}. For epistemic purposes contents are individuated by
+verdict-profiles on budgeted commitments — that is the only way the system tells two contents
+apart ( § 3). Build a problem πdiag by diagonalization: choose an index-sensitive probe battery
+(ρ1, ρ2, . . .) of budgeted tests and letπdiag’s single criterion be satisfied by a contentc iff, for every
+8
+
+=====PAGE BREAK=====
+
+i, the verdict of ρi on c differs from the verdict of ρi on gi. This criterion is a finite-per-candidate
+boolean combination of budgeted verdicts, hence itself a legitimate budgeted commitment, so
+πdiag is expressible in the system’s domain.
+By the standard diagonal construction the content c∗ obtained by setting, at each coordinate
+i, the verdict opposite to gi’s, lies in Σ ∗ and satisfies πdiag, while no gi ∈ Γ satisfies it (each gi
+fails probe i). Thus c∗ ∈ Σ∗ \ Γ is a solution and the system can emit none, since everything it
+can emit lies in Γ.
+Now πdiag is soluble: c∗ is a finite content, and by Axiom 4 (with Axiom 1) the task “emit
+c∗” is possible for some constructor. So the system faces a soluble problem in its domain that
+it cannot solve. Two exhaustive cases:
+(i) It leaves πdiag permanently open. Then it is not epistemically complete — contradicting
+the hypothesis.
+(ii) It registers “ πdiag is unsolvable for us” as settled. That verdict is false at the level of law
+(the problem is soluble), and the system can never overturn it (it can never emit c∗). It is
+therefore an absorbing negative status — contradicting N1.
+Both cases contradict the hypotheses, so Γ = Σ ∗.
+This is M1 discharged: creativity, in the precise sense of an open-ended conjecture operator,
+is entailed by fallibilism together with the aspiration to solve every soluble problem. It is not
+added to the epistemology; it is a theorem of it. The theorem also draws the right boundary. A
+bacterium’s mutation operator or a thermostat fails the antecedent — they are not epistemically
+complete over any rich domain — and the theorem imposes nothing on them: they are knowledge-
+creators of bounded reach, which is exactly the biological case below. Open-ended creativity is
+forced precisely for systems that aim at universality.
+Corollary 4.1 (Universality of the generator) . Γ = Σ ∗ means γ-with-feedback enumerates all
+of Σ∗; an operator with this reachable set is computationally universal, since it can be steered to
+emit any program and hence to simulate any other generator.
+Corollary 4.2 (Substrate independence of creativity) . By Corollary 4.1 and Axiom 1, a uni-
+versal generator is realizable on any universal physical medium — brain, silicon, or alien matter
+— with bounded translation overhead. The creative faculty is substrate-independent: the same
+creativity, multiply realized.
+Corollaries 4.1–4.2 complete M2. Theorem 2.2 made the knowledge substrate-independent;
+Corollary 4.2 makes the faculty that creates it substrate-independent, and ties both to the one
+universality principle. Whatever an alien knowledge-creator is made of, if it is a universal
+explainer then its creativity is, up to bounded translation, ours.
+4.4 Blind versus explanatory creativity, and the unity with natural selection
+Openness alone does not distinguish a mind from a mutation stream: enough random edits reach
+any content in the limit. The distinction is coupling, and it is what produces reach.
+Proposition 4.1 (Reach requires coupling). Both the coupled and the blind regimes can satisfy
+Γ = Σ ∗ in the limit. They differ in expected reach. Under coupling, a conjecture is shaped
+by the accumulated criticism graph, so it tends to encode constraints that criticism has already
+9
+
+=====PAGE BREAK=====
+
+extracted from the problem; such a conjecture is then more likely to satisfy commitments beyond
+its origin problem, giving nonzero expected reach. Under blindness, conjectures are statistically
+independent of prior criticism, so expected reach beyond the origin problem is at chance. Reach
+is therefore the signature of coupled (explanatory) creativity.
+Remark 4.1. Proposition 4.1 is a structural claim about expected reach under the two coupling
+conditions, not a proof of a numerical bound; the dependence of reach on coupling is asserted
+as a modelling commitment, and is itself an attackable artifact in the system’s own ontology.
+What it captures is Deutsch’s distinction between knowledge that merely adapts and knowledge
+that explains.
+This licenses a single schema with two canonical instances.
+Definition 4.4 (Knowledge-growth schema). A knowledge-growth system is
+K = ⟨ content space, problem/niche, γ, σ, ρ⟩
+with a variation operator γ, a selection operator σ, and a resilience criterion ρ, iterated as a
+map.
+Biological evolution. Content is genomes — digital, and digital for a reason given at The-
+orem 2.1, not by coincidence. The variation operator is mutation and recombination, and it
+is uncoupled: variation is blind to the selection pressure, the central Darwinian commitment.
+Selection σ is differential reproduction — the environment is the critic, silently culling the unfit.
+Resilience ρ is the gene’s tendency to build organisms that re-instantiate the gene: resilient
+information, hence knowledge in the sense of Definition 2.3. Reach is limited — adaptation to
+a niche, with no explanatory content — exactly as Proposition 4.1 predicts for blind variation.
+Minds and explanatory knowledge. Content is explanations. The variation operator is
+conjecture — creativity — and it is coupled: the next conjecture is informed by the criticism
+graph and the problem. Selection σ is criticism, empirical and rational and aesthetic. Resilience
+ρ is being hard to vary while still accounting for the phenomena. Reach is potentially unbounded
+— the jump to universality — because the content space is Σ ∗ and γ is open and coupled
+(Theorem 4.1, Proposition 4.1).
+So natural selection and human creativity are one formal skeleton, differing in the coupling
+of γ and the character of σ. This is precisely Deutsch’s claim that knowledge grows by variation
+and selection in both biology and minds, with the distinctive thing about people being the
+reach of explanatory knowledge. The construction makes the unification exact and locates the
+difference in a single structural parameter.
+Remark 4.2 (The non-claim, located precisely) . The formalism guarantees that open-endedness
+is forced (Theorem 4.1) and that reach tracks coupling (Proposition 4.1). It does not claim that
+coupling is sufficient for good explanations, nor that any mechanism provably manufactures
+high-HV, high-reach conjectures on demand. The generative achievement — producing, non-
+randomly, conjectures that turn out hard to vary and far-reaching — is characterized by its
+products, not reduced to an algorithm. This is the honest residue: the epistemology forces the
+creative faculty to be open, universal, and (for explanation) coupled, but a constructive theory
+of why a given coupled generator lands on deep explanations is exactly what remains open.
+Identifying creativity with randomness, or with the nondeterministic step of a computation, is
+the error the construction is built to avoid.
+10
+
+=====PAGE BREAK=====
+
+5 Derivation of the fidelity constraints
+We now discharge D1–D10, marking each as a theorem (derived), definitional (built into a
+primitive), or axiom (a constitutive choice, shown consistent and load-bearing). The honest
+headline: nine of the ten are derivable from the primitives and rules; the tenth, fallibilism,
+cannot be a theorem, and we explain why — and show it is the premise the creativity theorem
+consumes.
+D1 (Problems first) — definitional, with a transition lemma.
+Problems are primitive nodes (Definition 3.2); the (Conj) rule takes a problem as premise,
+so no conjecture transition is enabled in a state with Π = ∅, and (Spawn) keeps Π replen-
+ished. The motor is structural, not decorative.
+D2 (Conjecture unconstrained) — derived structural property .
+γ enters the calculus only as the first-class parameter of Definition 3.3, constrained solely
+by openness (Theorem 4.1); no rule inspects its internals and provenance is never a warrant
+type (Definition 3.4), so no generator is privileged. Theorem 4.1 shows the only structural
+requirement is universality, not any mechanism, and Remark in § 4 forbids identifying
+novelty with randomness.
+D3 (Criticism universal, criticizable) — definitional; reinstatement a theorem.
+Criticisms are artifacts with attackable warrants (Definitions 3.2, 3.4); “a refuted criticism
+reinstates its target” is Lemma 3.1, derived, not posited.
+D4 (T entative acceptance) — theorem.
+(Adj) defines acceptance as membership in the grounded extension — unique, skeptical,
+polynomial-time, recomputed after each registration — and N1 makes it revisable; the
+best-so-far is available at every t.
+D5 (Hard to vary , graded, relative) — definitional, with a non-degeneracy lemma.
+HVB is a real-valued, battery-relative, time-indexed measure (Definition 3.6); it is non-
+degenerate only when the variation surface is nonempty, i.e. when modifiability mod( a)
+holds (Definition 3.5).
+D6 (Reach) — definitional, with Proposition 4.1.
+Reach is the measure Rt, and Proposition 4.1 explains why it is a symptom of explanatory
+(coupled) creativity; (Spawn) converts reach into new problems.
+D7 (F allibilism, no final state) — axiom; not derivable, and that is the point.
+N1 and N2 (§ 3.5), with (Refl) extending them to the system’s own rules. One cannot derive
+that there is no final theory: a system can be built with absorbing states, and no internal
+argument rules this out — to demand a proof of fallibilism would be to seek a foundation,
+which fallibilism denies. What can be shown is that N1/N2 are consistent (the grounded
+labelling is always revisable; the state space has no absorbing point) and that they areload-
+bearing: N1 is exactly the premise Theorem 4.1 consumes to force creativity. Fallibilism
+is thus the single irreducible commitment of the system, and open-ended creativity is its
+consequence.
+11
+
+=====PAGE BREAK=====
+
+D8 (Refutation ̸= annihilation) — theorem.
+No rule deletes a node; “refuted” is a computed status (Adj); Lemma 3.1 reverses it; and
+succession (a restricted-commitment successor accepted while the original stands refuted)
+gives the Newton-after-Einstein configuration.
+D9 (Domain + substrate universality) — theorem / definitional.
+The demarcation is criticizability plus modifiability, not falsifiability (Definition 3.5), ad-
+mitting mathematics, philosophy, and the arts; substrate-universality is Theorem 2.2 and
+Corollary 4.2, covering brains, computers, and alien media. The arts instantiation of the
+companion note (work-plus-poetics artifacts, evolving standard-artifacts, the parallel-fifths
+reinstatement) carries over unchanged.
+D10 (Rivalry problem-indexed) — theorem from the warrant discipline.
+No rule creates an attack edge from mere distinctness; an edge requires a warrant tied
+to a shared problem’s criteria (Definition 3.4). When ≥ 2 rivals survive for one problem,
+(Spawn) opens a discrimination problem. This repairs the categorical draft’s equation (5).
+Constraint Status F ormal locus
+D1 Problems first definitional primitive π; (Conj) needs a prob-
+lem; (Spawn)
+D2 Conjecture unconstrained derived γ free parameter; provenance no
+warrant; Thm. 4.1
+D3 Criticism universal definitional artifact uniformity; Lemma 3.1
+D4 Tentative acceptance theorem grounded extension; N1 revisabil-
+ity
+D5 Hard to vary definitional HVB, battery-relative; modifia-
+bility
+D6 Reach definitional Rt; Prop. 4.1
+D7 Fallibilism axiom N1, N2, (Refl); consumed by
+Thm. 4.1
+D8 Refutation ̸= annihilation theorem no deletion; Lemma 3.1; succes-
+sion
+D9 Domain + substrate universality theorem/def. Def. 3.5; Thm. 2.2; Cor. 4.2
+D10 Rivalry problem-indexed theorem warrant discipline; discrimination
+problems
+M1 Creativity constitutive theorem Theorem 4.1
+M2 Substrate independence theorem Thm. 2.2; Cor. 4.1–4.2
+6 Constructor theory: what it contributes, and what it cannot
+The instruction asked whether the constructor theories of knowledge, information, computation,
+and natural selection are instructive here, and to include them if so. The verdict is a qualified
+yes, with a sharp boundary.
+Included, and load-bearing, as Level 0.
+ Substrate independence. The task/possibility framing is exactly what makes “the same
+process on any substrate” rigorous rather than hand-waved. Theorem 2.2 (knowledge) and
+12
+
+=====PAGE BREAK=====
+
+Corollary 4.2 (creativity) are constructor-theoretic in spirit: they turn “brains, computers,
+aliens” from a slogan into a consequence of attribute-level possibility plus the universality
+axiom.
+ The definition of knowledge. Knowledge as resilient information (Definition 2.3, Deutsch–
+Marletto) gives a substrate-neutral criterion for “the knowledge persists,” which the dy-
+namics needs and which neither set theory nor argumentation theory supplies.
+ The digitality of the content layer. Theorem 2.1 (Marletto’s constructor theory of life)
+derives that resilient-knowledge media must be discrete and error-correctable. This is why
+the content layer is Σ ∗ — a theorem, not a modelling convenience — and the same result
+explains why genes are digital and why any alien hereditary medium must be.
+ Natural selection. Marletto’s account shows that the appearance of design is constructor-
+theoretically possible: no-design laws permit knowledge-creation, with the genetic sub-
+strate forced digital. In § 4 this becomes the uncoupled instance of the knowledge-growth
+schema, and constructor theory supplies the explanation of its digital substrate.
+Not load-bearing for the dynamics, and why this is principled. Constructor theory is,
+by design, a theory of which transformations are possible — counterfactual, atemporal, stated
+at the level of physical law. It deliberately abstracts away from “what actually happens” and
+from the unfolding of a process in time. But epistemology-as-creativity is irreducibly processual:
+the conjecture–criticism loop, adjudication, reinstatement, and the trajectory ( Gt, HV, R) are
+statements about dynamics over time , not about task possibility, and they cannot be phrased as
+possible/impossible verdicts without losing exactly their content. So constructor theory governs
+the statics — the substrate, the definition of knowledge, the digitality constraint — while the
+invented calculus governs the dynamics of knowledge growth. Neither subsumes the other; the
+architecture of §§ 2–3 reflects the division.
+The complementary punchline. There is a clean complementarity between the two strata
+on the question of creativity itself. Constructor theory establishes that creativity is possible:
+a universal constructor exists (Axiom 1), knowledge can be resilient (Definition 2.3), and the
+appearance of design can arise from no-design laws. What it does not and cannot establish is that
+creativity is necessary or open-ended, because that is a dynamical claim about a process under
+fallibilist pressure. Theorem 4.1 supplies exactly the dynamical necessity that the constructor-
+theoretic possibility result leaves open. Constructor theory says creativity can happen and
+that its substrate must be digital and universal; the calculus says that, given fallibilism and
+the solubility of problems, creativity must happen and must be open-ended and substrate-
+independent. The earlier instinct to drop constructor theory as the load-bearing language for
+the dialectic is thereby vindicated and made precise: it is the right theory of the substrate and
+the wrong theory of the process.
+7 Synthesis
+The picture is one schema over one kind of substrate. At Level 0, a digital, universal medium
+can carry resilient knowledge, substrate-independently; that knowledge can be created from
+no-design laws. At Level 1, knowledge grows by a fallibilist conjecture–criticism process whose
+13
+
+=====PAGE BREAK=====
+
+acceptance is tentative, whose refutations are demotions and generate problems, and whose
+standards and rules are themselves inside the process. The knowledge-growth schema K has
+biological evolution as its blind, limited-reach instance and explanatory thought as its coupled,
+potentially-unbounded-reach instance; engineered systems running the calculus are a third in-
+stance, and any alien universal explainer is the content of the substrate-independence corollary.
+The single sentence the construction defends is this: a fallibilist error-correcting process over a
+digital, universal substrate must possess an open-ended, substrate-independent creative faculty,
+and that faculty together with criticism is what the growth of knowledge is — whether the
+substrate is carbon, silicon, or something we have not met. Creativity is not the part of the
+story that had to be added; it is the part that could not have been left out.
+References
+[1] D. Deutsch, The Beginning of Infinity: Explanations that Transform the World , Allen Lane,
+2011.
+[2] D. Deutsch, The Fabric of Reality , Penguin, 1997.
+[3] D. Deutsch, “Quantum theory, the Church–Turing principle and the universal quantum
+computer,” Proc. R. Soc. Lond. A 400, 1985, 97–117.
+[4] D. Deutsch, “Constructor theory,” Synthese 190(18), 2013, 4331–4359.
+[5] D. Deutsch and C. Marletto, “Constructor theory of information,” Proc. R. Soc. A 471,
+2015, 20140540.
+[6] C. Marletto, “Constructor theory of life,” J. R. Soc. Interface 12(104), 2015, 20141226.
+[7] K. Popper, Conjectures and Refutations, Routledge, 1963.
+[8] K. Popper, Objective Knowledge: An Evolutionary Approach , Oxford University Press, 1972.
+[9] P. M. Dung, “On the acceptability of arguments and its fundamental role in nonmonotonic
+reasoning, logic programming and n-person games,” Artificial Intelligence 77(2), 1995, 321–
+357.
+[10] M. Li and P. Vit´ anyi,An Introduction to Kolmogorov Complexity and Its Applications , 3rd
+ed., Springer, 2008.
+[11] W. W. Bartley III, The Retreat to Commitment , 2nd ed., Open Court, 1984.
+14
