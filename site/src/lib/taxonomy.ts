@@ -11,15 +11,18 @@ export interface SubjectMeta {
   blurb: string;
 }
 
+// Hues tuned for a light editorial canvas: saturation < 80%, mid lightness so each reads
+// as a small bold label on white and mixes into a calm pastel tint. (Dark mode lightens
+// them via the color-mix toward --text-strong in global.css.)
 export const SUBJECT_META: Record<string, SubjectMeta> = {
-  'Mathematics': { hue: '258 90% 70%', blurb: 'Proof, structure, and the shapes behind the symbols.' },
-  'Statistics & Data': { hue: '172 66% 50%', blurb: 'Reading the world through variation, evidence, and uncertainty.' },
-  'Economics & Policy': { hue: '38 92% 58%', blurb: 'How money, incentives, and public choices actually work.' },
-  'Computer Science': { hue: '142 64% 58%', blurb: 'Machines, models, and the ideas that make them tick.' },
-  'Natural Sciences': { hue: '199 90% 60%', blurb: 'The physical and living world, from first principles.' },
-  'Humanities': { hue: '347 90% 67%', blurb: 'Texts, history, and the long argument about being human.' },
-  'Language': { hue: '24 92% 60%', blurb: 'Learning to mean things in another tongue.' },
-  'Skills & Craft': { hue: '84 62% 55%', blurb: 'Practical capabilities, built deliberately.' },
+  'Mathematics': { hue: '262 50% 52%', blurb: 'Proof, structure, and the shapes behind the symbols.' },
+  'Statistics & Data': { hue: '174 55% 36%', blurb: 'Reading the world through variation, evidence, and uncertainty.' },
+  'Economics & Policy': { hue: '32 68% 44%', blurb: 'How money, incentives, and public choices actually work.' },
+  'Computer Science': { hue: '150 46% 38%', blurb: 'Machines, models, and the ideas that make them tick.' },
+  'Natural Sciences': { hue: '202 62% 44%', blurb: 'The physical and living world, from first principles.' },
+  'Humanities': { hue: '344 58% 52%', blurb: 'Texts, history, and the long argument about being human.' },
+  'Language': { hue: '18 66% 50%', blurb: 'Learning to mean things in another tongue.' },
+  'Skills & Craft': { hue: '96 38% 38%', blurb: 'Practical capabilities, built deliberately.' },
 };
 
 // Derive the ordered subject list from SUBJECT_META (the canonical definition
@@ -29,7 +32,7 @@ export const SUBJECT_ORDER = SUBJECTS;
 
 export type Subject = (typeof SUBJECTS)[number];
 export type Level = string;
-export const DEFAULT_HUE = '231 100% 71%'; // primary indigo — used when subject is absent
+export const DEFAULT_HUE = '222 24% 42%'; // muted slate, used when a subject is absent
 
 export function subjectHue(subject?: string | null): string {
   return (subject && SUBJECT_META[subject]?.hue) || DEFAULT_HUE;

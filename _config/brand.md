@@ -12,16 +12,16 @@ content in `_config/math-style.md`.
 
 - **Name**: Fable Academy.
 - **Tagline**: *Learn a subject the way it deserves to be taught.*
-- **Aesthetic**: **editorial dark, confident, subject-coded.** A cool near-black canvas
-  with an electric-indigo primary and a distinct accent **hue per subject** (Mathematics
-  violet, Statistics teal, Economics amber, …) that flows through cards, course headers,
-  and module accents so the catalog is navigable by colour at a glance. Big Fraunces
-  display type, generous structure, tasteful motion. **Drama lives on the wayfinding and
-  marketing surfaces** (home, browse, subjects, paths, course headers); the **reading
-  surface stays disciplined and legible** (Newsreader prose, calm measure). The principle
-  is *design that complements learning* — colour for orientation, type for hierarchy,
-  progress for momentum — never carnival, never hype. Not "a quiet library at night";
-  more a well-art-directed magazine that respects your attention.
+- **Aesthetic**: **premium utilitarian minimalism, editorial, subject-coded.** A document-style
+  system in the Linear/Notion lineage: a warm off-white canvas (with a true dark mode that follows
+  the reader's `prefers-color-scheme`), off-black ink, crisp 1px rules instead of glow or gradients,
+  and one quiet shadow. Type is a system sans for the interface and an editorial serif (Newsreader)
+  for headings and reading. Each subject carries a distinct, **muted** accent hue (saturation under
+  80%) that appears only as small pastel tints, dots, and labels, so the catalog stays navigable by
+  colour without shouting. Motion is restrained and motivated: short fade-and-rise reveals on a
+  calm easing curve, reduced-motion honoured. The principle is *design that complements learning*:
+  type for hierarchy, whitespace for calm, one accent for orientation. No AI tells. We avoid the
+  purple/blue glow, gratuitous gradients, Inter and Fraunces as defaults, and the em-dash in chrome.
 
 ---
 

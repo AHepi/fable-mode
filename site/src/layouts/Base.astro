@@ -1,6 +1,4 @@
 ---
-import '@fontsource-variable/fraunces';
-import '@fontsource-variable/inter';
 import '@fontsource-variable/newsreader';
 import 'katex/dist/katex.min.css';
 import '../styles/global.css';
@@ -10,7 +8,7 @@ interface Props {
   title: string;
   description?: string;
   wide?: boolean;
-  /** HSL channel string, e.g. "172 66% 50%" — tints the page in a subject hue. */
+  /** HSL channel string, e.g. "172 60% 48%" — tints the page in a subject accent. */
   subjectHue?: string;
 }
 const { title, description, wide = false, subjectHue } = Astro.props;
@@ -49,7 +47,7 @@ const bodyStyle = subjectHue ? `--subject:${subjectHue}` : undefined;
     </main>
     <footer class="footer">
       <div class="bar">
-        <span>Fable Academy — courses researched and written by an automated pipeline.</span>
+        <span>Fable Academy. Courses researched and written by an automated pipeline.</span>
         <nav>
           <a href={url('browse')}>Browse</a>
           <a href={url('subjects')}>Subjects</a>
@@ -57,5 +55,33 @@ const bodyStyle = subjectHue ? `--subject:${subjectHue}` : undefined;
         </nav>
       </div>
     </footer>
+
+    <script>
+      // Tasteful, motivated reveal: fade blocks in as they enter view.
+      // IntersectionObserver only (no scroll listener); fully skipped under reduced-motion.
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduce && 'IntersectionObserver' in window) {
+        const sel = '.card, .subject-tile, .path-card, .section-head';
+        const els = Array.from(document.querySelectorAll(sel));
+        els.forEach((el) => el.classList.add('reveal'));
+        document.querySelectorAll('.catalog-grid, .subject-grid').forEach((grid) => {
+          Array.from(grid.children).forEach((c, i) =>
+            (c as HTMLElement).style.setProperty('--rev-i', String(i % 6)),
+          );
+        });
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) {
+                e.target.classList.add('in');
+                io.unobserve(e.target);
+              }
+            }
+          },
+          { rootMargin: '0px 0px -6% 0px', threshold: 0.05 },
+        );
+        els.forEach((el) => io.observe(el));
+      }
+    </script>
   </body>
 </html>
