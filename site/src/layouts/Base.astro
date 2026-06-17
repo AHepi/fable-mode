@@ -1,5 +1,4 @@
 ---
-import '@fontsource-variable/newsreader';
 import 'katex/dist/katex.min.css';
 import '../styles/global.css';
 import { url } from '../lib/url';
@@ -21,7 +20,7 @@ const nav = [
   { href: url('subjects'), label: 'Subjects', on: is('subjects') },
   { href: url('paths'), label: 'Paths', on: is('paths') },
 ];
-const bodyStyle = subjectHue ? `--subject:${subjectHue}` : undefined;
+void subjectHue; // accent is unified to hazard red; per-subject hue intentionally ignored
 ---
 
 <!doctype html>
@@ -33,7 +32,7 @@ const bodyStyle = subjectHue ? `--subject:${subjectHue}` : undefined;
     {description && <meta name="description" content={description} />}
     <link rel="icon" href={url('favicon.svg')} type="image/svg+xml" />
   </head>
-  <body style={bodyStyle}>
+  <body>
     <header class="site-header">
       <div class="bar">
         <a class="brand" href={url()}><span class="spark"></span><span class="label">{siteName}</span></a>
