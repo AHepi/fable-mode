@@ -9,6 +9,10 @@ course-facing copy.
 The guiding principle: **a course is written to be read, in order, by one learner at a
 time.** Design for the person reading, not for coverage.
 
+The **evidence base** behind these rules — strength ratings, techniques this file does not spell
+out, and a list of popular approaches we refuse — lives in `_config/pedagogy/evidence-base.md`.
+Read it alongside this file on every curriculum and authoring run.
+
 ---
 
 ## 0. Course kind and module template

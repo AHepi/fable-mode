@@ -9,6 +9,8 @@ here is the most expensive kind to make. It is the primary human review gate.
 - **L4** `runs/<run-id>/run-brief.md` — read first.
 - **L4** `runs/<run-id>/01_research/output/research.md` — the dossier to plan from.
 - **L3** `_config/course-design.md` — module anatomy, level calibration, sequencing, scope, exercises.
+- **L3** `_config/pedagogy/evidence-base.md` — the evidence backing (backward design, constructive
+  alignment, sequencing) and the **Exclusions** table (what to refuse when interpreting the brief).
 - **L3** `_config/brand.md` — for the course title and one-sentence description voice.
 
 ## Process

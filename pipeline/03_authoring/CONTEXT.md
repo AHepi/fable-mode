@@ -16,6 +16,9 @@ and the place the two voices meet — bold prose for explanation, precise formal
   for `stem`/quantitative `kind`**. Read its prose/formal boundary: formal blocks are precise and are
   **never** run through the prose rewrite loop.
 - **L3** `_config/course-design.md` — pedagogy, the per-kind section shape (§0), and exercise design.
+- **L3** `_config/pedagogy/evidence-base.md` — the techniques to apply per module (distributed
+  retrieval, worked examples + faded guidance, elaborated feedback, dual coding, UDL/accessibility,
+  the bias screen), each with an evidence rating, plus the approaches to refuse.
 - **L3** the module template for the course `kind` (§0): `shared/templates/module.md` (stem) or
   `module.humanities.md` / `module.language.md` / `module.skill.md`.
 
