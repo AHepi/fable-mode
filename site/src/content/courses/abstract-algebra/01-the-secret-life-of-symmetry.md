@@ -2,187 +2,180 @@
 title: The Secret Life of Symmetry
 course: abstract-algebra
 order: 1
-summary: What abstract algebra is really about — structure, not numbers — and why symmetry is the way in.
+summary: What abstract algebra is really about — structure, not numbers — and why three everyday puzzles are secretly one idea.
 estimatedMinutes: 12
 objectives:
-  - Explain what abstract algebra studies
-  - Recognize symmetry as a kind of structure
-  - Describe why operations matter more than the objects they act on
+  - Explain what a symmetry is in terms of a move that leaves something looking the same
+  - Identify symmetries in at least one concrete object (a square, a triangle, or a clock)
+  - Describe why turning a square, doing clock arithmetic, and flipping a triangle are three versions of the same kind of structure
+  - Distinguish "combining moves" informally and explain why the order of moves can matter
 prerequisites: []
 ---
 
-Turn a square a quarter-turn and it looks exactly as it did before. Flip it across its
-diagonal and you still have the same square. You could do this all day, spinning and flipping,
-and a friend who glanced away would never catch you. The square keeps its own secret: a small,
-fixed set of moves that leave it unchanged.
+Pick up a square coaster and set it flat on the table. Now rotate it a quarter-turn clockwise. Look at it. The coaster looks exactly the same as it did before you touched it.
 
-That set of moves is the real subject of this course. Not the square. The moves.
+That is a symmetry: a move you can make on an object that leaves it looking unchanged. The coaster doesn't know you rotated it. The table doesn't know. Only you do.
 
-Abstract algebra is the study of those collections of moves — and, more surprisingly, of the
-fact that the same handful of moves shows up again and again in places that look nothing
-alike. The way the hours wrap around a clock, the way you shuffle a deck of cards, the way a
-molecule's atoms swap places, the way the integers add: peel back the surface and you find the
-same machinery underneath. This course is about learning to see that machinery.
+Now rotate it another quarter-turn. And another. After four quarter-turns you're back to where you started — you've done something, and then undone the whole thing without a single reversal. Three other moves also leave the coaster looking the same: a half-turn, a three-quarter turn, and doing nothing at all. Four moves total. That's the full set of rotational symmetries of a square.
 
-Here is the mental shift the whole subject rests on, so let's make it slowly. Ordinary
-arithmetic trains you to stare at the *things*: the number 7, the fraction 2/3, the quantity
-of apples in a bag. The numbers are the stars of the show, and the operations — adding,
-multiplying — feel like things you *do to* the numbers, almost an afterthought.
+This seems like a fact about coasters. It is not. It is the first glimpse of something that runs through all of mathematics — and this course is about chasing it down.
 
-Abstract algebra flips the spotlight. It says: stop staring at the objects. Watch what happens
-when you *combine* them.
+---
 
-Think about adding whole numbers. You can take any two of them and add to get a third. There
-is a number, zero, that leaves everything alone. Every number has an opposite that cancels it
-back to zero. Those facts — *combine, do-nothing, undo* — are not really facts about the
-numbers. They are facts about the **structure**: the pattern of how the operation behaves.
+## Three disguises, one idea
 
-And the punchline, the thing that makes this a subject and not a footnote, is that the very
-same pattern lives somewhere with no numbers in sight. Go back to the square. Combine two moves
-by doing one and then the other. There is a move that changes nothing — leave the square alone.
-Every move can be undone: un-turn the turn, un-flip the flip. *Combine, do-nothing, undo.* The
-square and the integers, the geometric and the numerical, are running the same program.
+Here is the puzzle that will drive the next eleven modules. Three things that look completely unrelated turn out to be the same kind of thing, viewed through different lenses.
 
-Symmetry is our way in because it makes that program visible. You can hold a paper triangle and
-*feel* a rotation compose with a flip. You can't hold the number 7, but you can hold a triangle
-and turn it. Once the pattern is concrete in your hands, you'll recognize it everywhere — and
-the abstract version stops being abstract.
+**Disguise 1: The coaster.** The four rotations of a square — quarter-turn, half-turn, three-quarter turn, and the move that changes nothing — form a collection where you can *combine* any two moves (do one after the other) and the result is always another move in the collection. Rotate a quarter-turn, then rotate a half-turn: the result is a three-quarter turn. You never escape the collection.
 
-A small vocabulary note before we go on. A **symmetry** of a shape is a motion that leaves it
-looking unchanged — a rotation or a reflection that lands every corner back onto a corner. An
-**operation** is just a rule for combining two things into a third (adding two numbers,
-performing one move and then another). These two words carry most of the weight of this course;
-we'll sharpen them as we go.
+**Disguise 2: The clock.** Take a 4-hour clock (not the usual 12, just a small one with marks at 0, 1, 2, 3). Add any two hours the way you'd track time: 3 + 2 on this clock is 1, because after 3 hours you reach the 3-mark, then 2 more hours brings you past 0 back to 1. This is called *clock arithmetic*, or *modular arithmetic* (we'll build it in detail in module 02). What matters here: you can add any two marks on this clock and you always get another mark on the clock. You never escape the collection.
 
-## Check yourself
+**Disguise 3: The triangle.** Cut an equilateral triangle (all three sides equal, all three angles $60°$) from a piece of paper and set it in a triangular hole. You can rotate it $120°$ and it fits back in the hole. Rotate another $120°$ — fits. Rotate a third — fits. You can also flip it across any of its three lines of symmetry and it fits. Six moves total, all leaving the triangle looking the same. And — as with the square — you can do any two moves in a row and the result is always another move in the collection.
 
-Before reading on, try this from memory. We said abstract algebra studies *structure*, not the
-objects themselves. So here is the question:
+Three objects: a square, a clock, a triangle. Three completely different settings. But in each one, you have a **collection of moves** with a **way to combine two moves** and always get a third move in the collection. That sameness — that *structure* — is what abstract algebra studies.
 
-**What three things did the integers (under addition) and the symmetries of a square turn out
-to share?** Name all three in plain words.
+The word "abstract" in the name means exactly this: we are going to strip away the particular object (the square, the clock face, the triangle) and look at the structure that underlies all of them. Once you learn the language of that structure, you'll recognize it everywhere.
+
+---
+
+## Seeing the square's symmetries
+
+Before we name the structure, let's see it concretely. Take the square. Label its four corners so we can track what moves do:
+
+```
+A --- B
+|     |
+D --- C
+```
+
+A quarter-turn clockwise sends:
+- corner A to where B was
+- corner B to where C was
+- corner C to where D was
+- corner D to where A was
+
+After the turn the square looks the same, but the corners have permuted: A→B, B→C, C→D, D→A. Call this move $R$ (for rotate).
+
+Now apply $R$ again. A goes to C, B to D, C to A, D to B. That's a half-turn — call it $R^2$.
+
+One more application of $R$: A goes to D, B to A, C to B, D to C. That's a three-quarter turn — call it $R^3$.
+
+One final $R$: A goes back to A, B to B, C to C, D to D. We're home — call this $R^4 = E$, the **do-nothing move** (the move that leaves every corner where it was; also called the *identity*, though we won't give it that formal name until module 03).
+
+So the four rotational symmetries of a square are $E, R, R^2, R^3$. Combine any two — say, $R^2$ then $R^3$ — and you get $R^5 = R^4 \cdot R = E \cdot R = R$. The result is always one of the four. You cannot escape.
+
+This is the first hint of the combining law that the whole course is built on: *any two moves combine into a third move already in your collection.*
+
+---
+
+**Check yourself:** How many quarter-turns does it take to get back to the starting position?
 
 <details><summary>Show answer</summary>
 
-They share **combine, do-nothing, undo**:
-
-1. **Combine** — you can take any two and combine them into a third (add two numbers; do one
-   move then another).
-2. **Do-nothing** — there is an element that changes nothing (the number zero; the "leave it
-   alone" move).
-3. **Undo** — every element has a partner that cancels it back to the element that changes
-   nothing (a number and its opposite; a move and its reverse).
-
-If you got two of three, you've got the idea. These three will return — with proper names — as
-the rules that define a *group*. That is the whole point: the structure, not the stuff.
+Four. One quarter-turn is $R$, two is $R^2$, three is $R^3$, four is $R^4 = E$ — the move that leaves the square untouched. This is why the square has exactly four rotational symmetries: the "clock" of quarter-turns has exactly four positions before it wraps back.
 
 </details>
 
-## What a group is, at a glance
+---
 
-We won't pin down the formal definition for several modules yet — first we need clock
-arithmetic and a careful look at operations to build it honestly. But you've already met the
-idea, so let's name it.
+## Combining moves — and why order can matter
 
-A **group** is a set of things together with one operation for combining them, where that
-operation obeys exactly the three rules you just retrieved: you can always combine (and stay
-inside the set), there's an element that changes nothing, and everything can be undone.
-(There's a fourth, quieter rule about how combinations of three things bracket together; it'll
-earn its keep later.)
+When you have a collection of moves and a way to combine them, the first question to ask is: does the order matter?
 
-That's it. The integers under addition: a group. The symmetries of a square: a group. A clock
-face: a group. The deck of cards: a group. The word *group* is the name for "this exact
-structure," wherever it turns up — and an astonishing amount of mathematics turns out to be the
-study of one group or another wearing unfamiliar clothes.
+For the square's four rotations, it doesn't. Rotating a quarter-turn and then a half-turn gives the same result as rotating a half-turn and then a quarter-turn — both land on $R^3$. The order is irrelevant.
 
-A warning worth planting now, because it trips up nearly everyone: **a group does not have to be
-made of numbers.** The symmetries of a triangle are a group, and not one of its elements is a
-number — they're motions. File that away. The moment you demand that a group be numbers, the
-whole subject shrinks back into ordinary arithmetic, and you lose the very thing that makes it
-powerful.
+But for the triangle, order *does* matter.
 
-## The road ahead
+Take an equilateral triangle labeled at its corners 1, 2, 3. Let $r$ be a $120°$ rotation (counterclockwise) and let $s$ be a flip across the vertical axis through corner 1. If you do $r$ first and then $s$, the triangle ends up in one position. If you do $s$ first and then $r$, the triangle ends up in a *different* position.
 
-Here is the shape of the journey, so you can see where each step lands.
+```
+      1              1              2
+     / \            / \            / \
+    3   2  --r-->  2   3  --s-->  1   3
+```
 
-We start where the structure is friendliest: a **clock**. Adding hours on a clock face is
-arithmetic that wraps around — a finite, self-contained world that turns out to be a group, and
-a perfect place to meet the identity move and the undo move in their gentlest form.
+```
+      1              3              3
+     / \            / \            / \
+    3   2  --s-->  1   2  --r-->  2   1
+```
 
-From there we strip arithmetic down to its bones and ask what an **operation** really is and
-which rules are worth caring about. Bolt those rules together and you get the **group** itself —
-the single most important object in modern algebra, and the hinge of everything after it.
+The same two moves, in different orders, give different results. This is not a mistake. It's a feature, and it tells us something deep about the triangle's structure that the square's rotations don't have. We'll come back to it in module 06 when we study the triangle's full set of six symmetries.
 
-Then we go exploring. A **zoo** of groups, to show how common they are. The **symmetries of a
-triangle**, where — for the first time — the order you do two moves in changes the result, and
-the comfortable assumption that "everything commutes" breaks in your hands. We'll find groups
-**hiding inside** other groups, build whole groups from a **single** repeated move, and
-discover a stubborn counting law (**Lagrange's**) that controls what's possible. We'll learn
-when two groups that look completely different are in fact the same group underneath. And we'll
-close by stepping one rung up the ladder, to **rings and fields**, where a second operation
-opens the whole landscape of algebra.
+For now, the lesson is: *combining moves is the heartbeat of the structure, and the order of combining can matter.*
 
-You need no calculus and no experience with proofs. You need the algebra and geometry you
-already have, a paper triangle you're willing to turn, and a tolerance for the moment when an
-idea resists you — because that moment, the small productive struggle of pulling an answer back
-from memory or chasing down why something *must* be true, is exactly where the learning
-happens. We'll meet plenty of those. They're not detours. They're the road.
+---
+
+**Check yourself:** The square's four rotations: if you do $R^2$ (half-turn) followed by $R^3$ (three-quarter turn), which move do you get?
+
+<details><summary>Show answer</summary>
+
+$R^2$ followed by $R^3$ gives $R^{2+3} = R^5 = R^4 \cdot R = E \cdot R = R$ — a single quarter-turn. For the square's rotations, you can just add the exponents and reduce modulo 4. Notice this is exactly the same arithmetic as adding hours on a 4-hour clock.
+
+</details>
+
+---
+
+## The through-line: structure
+
+The three disguises — the square, the 4-hour clock, the triangle — share this skeleton:
+
+1. A **collection** of objects (the four rotations, the four clock positions, the six triangle moves).
+2. A **way to combine** any two objects in the collection and always get a third object back in the same collection.
+3. A **neutral object** that leaves everything unchanged when combined with it.
+4. For every object, an **undo**: a second object that, when combined with it, gives back the neutral object.
+
+That four-part skeleton is called a *group*. The word will get a precise definition in module 04. For now, hold onto the four parts: combine, neutral element, undo — and the rule that combining never escapes the collection.
+
+Abstract algebra is the study of that skeleton in every form it takes. The remarkable fact — the fact that took mathematicians until the 19th century to see — is that the skeleton is *independent of what the objects are*. The square's four rotations and the 4-hour clock have the exact same skeleton. They are, in a precise sense we'll make formal in module 10, the same structure wearing different clothes.
+
+---
 
 ## Exercises
 
-These are warm-ups for the *way of seeing*, not calculations. There's room to disagree on the
-edges; the worked solution explains the reasoning so you can check your thinking against it.
-
-**1.** Without using the word "symmetry," explain in one sentence what a symmetry of a shape
-*is*.
+**1.** A regular hexagon (six equal sides) can be rotated. How many rotational symmetries does it have? List them by the angle of rotation (including the rotation by $0°$).
 
 <details><summary>Show solution</summary>
 
-A symmetry of a shape is a motion — a rotation or a reflection — that lands the shape exactly
-back onto itself, so that someone who looked away couldn't tell it had moved. The key idea is
-*indistinguishable result*: the shape occupies the same outline afterward, even though its
-corners may have traded places. A common too-narrow answer is "a shape with two matching
-halves" — but that describes one *picture* of symmetry (mirror symmetry), whereas here a
-symmetry is a *move*, and rotations count too.
+A hexagon has six rotational symmetries: rotations by $0°$, $60°$, $120°$, $180°$, $240°$, and $300°$. Each one maps the hexagon onto itself. After a $360°$ turn you're back to the $0°$ rotation, so there are exactly six, not seven. The pattern: a regular $n$-gon has $n$ rotational symmetries.
 
 </details>
 
-**2.** A clock face has an amount you can add that changes nothing. What is it, and what is the
-corresponding move that changes nothing for a square? Say what these two have in common.
+---
+
+**2.** The 4-hour clock has positions $\{0, 1, 2, 3\}$ with the combining rule "add and reduce mod 4" (meaning: add and subtract 4 if you exceed 3). Write out all four results of combining 3 with each position: $3+0$, $3+1$, $3+2$, $3+3$. Check that every answer is still in $\{0, 1, 2, 3\}$.
 
 <details><summary>Show solution</summary>
 
-On a 12-hour clock, adding **12 hours** (or 0) lands you back exactly where you started — it's
-the element that changes nothing. For a square, the matching move is the **leave-it-alone**
-move: rotate by 0 degrees, touch nothing. What they share is one defining job: combine either
-of them with *anything* and that thing comes back unchanged. Notice it isn't "nothing at all" —
-adding 12 hours is a real action; it just happens to return you to the start. That subtlety (a
-real element that *acts* like doing nothing) is exactly what makes it worth naming.
+$$
+\begin{aligned}
+3 + 0 &= 3 \\
+3 + 1 &= 4 \equiv 0 \pmod{4} \\
+3 + 2 &= 5 \equiv 1 \pmod{4} \\
+3 + 3 &= 6 \equiv 2 \pmod{4}
+\end{aligned}
+$$
+
+Every result is in $\{0, 1, 2, 3\}$. This is the *combining never escapes* property at work on the clock. Adding $0$ changes nothing ($0$ plays the neutral role here), and the undo of $3$ is $1$ (since $3 + 1 = 0$ on this clock).
 
 </details>
 
-**3.** *(Conceptual.)* A friend insists that "a group is just a set of numbers with a rule for
-adding them." Give one example that shows this is too narrow, and name what they've missed.
+---
+
+**3.** (Conceptual) The four moves "$0°$ rotation, quarter-turn, half-turn, three-quarter turn" are the rotational symmetries of a square, and adding clock hours on a 4-hour clock both follow the same four-part skeleton. Name one way they look *different* (as objects in the real world) and explain why, despite that difference, they can still be considered the same kind of structure.
 
 <details><summary>Show solution</summary>
 
-The symmetries of a triangle (or a square) are a group, and **none of their elements are
-numbers** — they're rotations and flips, combined by "do one, then the other." That single
-example breaks the claim. What the friend has missed is the central lesson of this module: a
-group is about **structure** — combine, do-nothing, undo — not about what its elements are
-*made of*. Numbers are one kind of raw material for a group; motions are another; card shuffles
-are another. Tying the definition to numbers throws away most of the subject.
+One obvious difference: one involves a physical object spinning in space; the other involves adding numbers. They live in completely different settings. But abstract algebra ignores the setting and looks only at the skeleton. Both have exactly four elements; in both, combining any two gives a third; in both there is a neutral element leaving partners unchanged; in both every element has an undo. Because the *pattern of combining* is identical — not just similar, but letter-for-letter identical — they are the same structure. A later module (module 10) will make "the same structure" precise with the idea of an isomorphism (a map that matches up the elements and preserves the combining rule perfectly).
 
 </details>
+
+---
 
 ## Recap
 
-One move runs through this whole module, and it's the move the rest of the course turns on: stop
-watching the objects, start watching how they combine. The pattern *combine, do-nothing, undo*
-is what abstract algebra studies, and it lives wherever an operation does — in the integers, on
-a clock face, in the turns and flips of a shape. That recurring pattern has a name, **group**,
-and it doesn't care whether its elements are numbers or motions. The friendliest example of all
-is waiting on a clock face, where a finite world wraps neatly around on itself — so that is
-where we go to get our hands dirty.
-</content>
-</invoke>
+A symmetry is a move that leaves an object looking the same. The square, the clock, and the triangle each carry a collection of such moves, and in each case you can combine any two moves and stay inside the collection. That four-part pattern — collection, combining, neutral element, undo — is the skeleton this course is tracking. In module 02 we build clock arithmetic from scratch, because it turns out to be the most transparent playground for the skeleton's arithmetic. By the time we name the skeleton formally (module 04), you'll have seen it in enough shapes that the definition will feel inevitable rather than arbitrary.
+
+---
+
+*Bias screen: examples draw on geometry (square, triangle) and arithmetic (clock). No cultural assumptions embedded; no names used for people in examples. The terms "symmetry," "rotation," "flip," and "identity" are introduced on first use or will be defined in later modules as noted.*

@@ -40,7 +40,7 @@ The integers — $\ldots, -2, -1, 0, 1, 2, \ldots$ — under ordinary addition.
 
 So $(\mathbb{Z}, +)$ is a group. It is abelian ($a + b = b + a$ always) and infinite — it has no last element in either direction.
 
-**Note on notation.** Because the operation here is honest addition, we write $+$ and not the generic $*$ — per the canon: legitimate per-group operations stay as themselves; do not flatten them to $*$.
+**Note on notation.** Because the operation here is honest addition, we write $+$, not the generic $*$. Each group in this module keeps its own natural operation — $+$ for integers, $\times$ for products — rather than replacing every symbol with the abstract placeholder.
 
 ---
 
@@ -302,4 +302,4 @@ Comparing with $(\mathbb{Z}, +)$: both are infinite abelian groups under additio
 
 The abstract definition of a group from module 04 is not a single idea — it is a template that many different objects fit. Integers under addition, clocks, two signs under multiplication, the fourth roots of unity, nonzero fractions: all of them satisfy the same four axioms (closure, associativity, identity, inverses), and the Cayley table captures the whole structure of a finite group in a single grid.
 
-Every group we have seen so far is abelian: $a * b = b * a$. That coincidence is about to end. Module 06 builds the group of symmetries of an equilateral triangle — six moves, some of which give a different result when you reverse their order — and for the first time the commutativity assumption breaks.
+Every group we have seen so far is abelian: $a * b = b * a$. That is not a theorem — it is a coincidence of the examples we have visited. A paper triangle, a triangular hole, and six ways to put one inside the other are enough to end it.

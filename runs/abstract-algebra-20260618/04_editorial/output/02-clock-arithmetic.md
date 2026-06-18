@@ -87,7 +87,7 @@ So $\mathbb{Z}_4 = \{0, 1, 2, 3\}$ with addition mod $4$, and $\mathbb{Z}_{12} =
 
 The operation is always $+$, and the rule is always: add, then wrap.
 
-Two things are worth noticing right away — call them **the do-nothing element** and **the undo element**, because we will meet them formally in module 03.
+Two things are worth noticing right away — call them the **identity element** and the **undo element**, because we will meet them formally in module 03.
 
 - **The do-nothing element** in $\mathbb{Z}_n$ is $0$. Adding $0$ to any number leaves it unchanged: $a + 0 = a$ for every $a$ in $\{0, 1, \ldots, n-1\}$.
 - **The undo element** for any $a$ in $\mathbb{Z}_n$ is $n - a$. Adding them gives $a + (n - a) = n \equiv 0 \pmod{n}$ — back to $0$, the identity. On the 4-clock, the undo element of $3$ is $4 - 3 = 1$, because $3 + 1 = 4 \equiv 0 \pmod{4}$.

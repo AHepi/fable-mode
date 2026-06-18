@@ -13,7 +13,7 @@ prerequisites:
   - clock-arithmetic
 ---
 
-You have spent two modules watching arithmetic wrap around a clock face. In module 01, three rotations of a square turned out to be the same kind of thing as three clock steps — structure hiding behind different faces. In module 02, you built $\mathbb{Z}_n$ (the $n$-hour clock), added numbers mod $n$, and discovered that a do-nothing step and an undo step live in every such clock. Both modules were doing something specific: they were using a *particular* way of combining two elements — clock addition — to reveal patterns that ordinary addition shares.
+You have spent two modules watching arithmetic wrap around a clock face. In module 01, three rotations of a square turned out to be the same kind of thing as three clock steps — structure hiding behind different faces. In module 02, you built $\mathbb{Z}_n$ (the $n$-hour clock), added numbers mod $n$, and discovered that an identity element and an undo element live in every such clock. Both modules were doing something specific: they were using a *particular* way of combining two elements — clock addition — to reveal patterns that ordinary addition shares.
 
 This module strips that operation down to its skeleton. What is a "way of combining two elements," exactly? What rules can it follow or break? The answers are the raw material from which every group in this course is built.
 
@@ -120,7 +120,7 @@ Yes. Addition on the integers is associative, and reducing mod 5 preserves that:
 
 ### Identity
 
-In ordinary addition, $0$ is special: adding $0$ to anything leaves it alone. $7 + 0 = 7$, $0 + 7 = 7$. The number 0 is the **identity element** for addition — the do-nothing element (module 01 coined that nickname; here we pin down exactly what "do-nothing" means).
+In ordinary addition, $0$ is special: adding $0$ to anything leaves it alone. $7 + 0 = 7$, $0 + 7 = 7$. The number $0$ is the **identity element** for addition — the element that leaves every partner unchanged (module 01 introduced this idea informally; here we pin down exactly what it means).
 
 ## Definition (Identity Element)
 
@@ -204,7 +204,7 @@ $$
 5 - (3 - 1) = 5 - 2 = 3
 $$
 
-$1 \neq 3$, so $(a * b) * c \neq a * (b * c)$. Subtraction is **not** associative. One counterexample is enough to sink the property.
+$1 \neq 3$, so $(a * b) * c \neq a * (b * c)$. Subtraction is **not** associative. One counterexample disqualifies the property.
 
 **Identity.** If an identity $e$ exists, then $e - a = a$ for every $a$, giving $e = 2a$ — different for different $a$, so no single $e$ works. There is no identity element.
 
@@ -323,7 +323,7 @@ All four properties hold. $(\{1,-1\}, \times)$ is small — only two elements �
 
 **Inverses:** the inverse of $a$ would need $\max(a, a^{-1}) = 1$. But $\max(a, a^{-1}) \geq a$, which equals $1$ only if $a = 1$. For $a = 3$, no element of $S$ satisfies $\max(3, a^{-1}) = 1$. So $3$ has no inverse. ✗
 
-The operation $\max$ on $\{1,2,3,4,5\}$ has closure, associativity, and an identity, but **inverses fail** for every element except $1$. A single missing inverse is enough to say the inverse property fails.
+The operation $\max$ on $\{1,2,3,4,5\}$ has closure, associativity, and an identity, but **inverses fail** for every element except $1$. A single missing inverse disqualifies the inverse property.
 
 </details>
 
@@ -349,6 +349,6 @@ In all four cases an identity exists. Every binary operation on a two-element se
 
 ## Recap
 
-A **binary operation** $* : S \times S \to S$ is a rule that takes any two elements of a set and returns a third element of that same set. Four properties — **closure** (the output stays in $S$), **associativity** (brackets can be regrouped freely), **identity** (a do-nothing element $e$ exists), and **inverse** (every element can be undone) — determine how well-behaved an operation is. A fifth property, **commutativity**, says order does not matter; it is a bonus, not a requirement.
+A **binary operation** $* : S \times S \to S$ is a rule that takes any two elements of a set and returns a third element of that same set. Four properties — **closure** (the output stays in $S$), **associativity** (brackets can be regrouped freely), **identity** (an element $e$ that leaves every partner unchanged), and **inverse** (every element can be undone) — determine how well-behaved an operation is. A fifth property, **commutativity**, says order does not matter; it is a bonus, not a requirement.
 
 Module 04 takes these four properties and asks: what happens when an operation has *all four at once*? The answer is a group — the central object of this entire course.

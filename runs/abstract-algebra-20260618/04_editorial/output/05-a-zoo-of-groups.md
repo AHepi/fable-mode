@@ -22,7 +22,7 @@ Recall the four axioms from module 04. A **group** is a set $G$ together with an
 
 1. **Closure:** $a * b$ is always in $G$.
 2. **Associativity:** $(a * b) * c = a * (b * c)$ for all $a, b, c$ in $G$.
-3. **Identity:** there is a special element $e$ in $G$ — the *identity* (the do-nothing element, from module 01) — with $a * e = e * a = a$ for every $a$.
+3. **Identity:** there is a special element $e$ in $G$ — the *identity*, the element that leaves every partner unchanged — with $a * e = e * a = a$ for every $a$.
 4. **Inverses:** every element $a$ in $G$ has an inverse $a^{-1}$ in $G$ with $a * a^{-1} = a^{-1} * a = e$.
 
 A group where $a * b = b * a$ for *every* pair is called **abelian** (after Niels Henrik Abel, the Norwegian mathematician who used this symmetry to prove that the quintic equation has no formula). We say the operation is *commutative*.
@@ -241,7 +241,7 @@ $$
 (5 - 3) - 2 = 2 - 2 = 0, \quad \text{but} \quad 5 - (3 - 2) = 5 - 1 = 4.
 $$
 
-$0 \neq 4$, so the grouping matters. A single failure is enough to disqualify it.
+$0 \neq 4$, so the grouping matters. A single failure disqualifies it.
 
 A tempting wrong answer: "subtraction has no identity." Actually $0$ works from the right: $a - 0 = a$. But $0 - a = -a \neq a$ in general, so $0$ is only a right-identity, not a two-sided identity. The associativity failure is the cleaner disqualifier.
 
@@ -302,4 +302,4 @@ Comparing with $(\mathbb{Z}, +)$: both are infinite abelian groups under additio
 
 The abstract definition of a group from module 04 is not a single idea — it is a template that many different objects fit. Integers under addition, clocks, two signs under multiplication, the fourth roots of unity, nonzero fractions: all of them satisfy the same four axioms (closure, associativity, identity, inverses), and the Cayley table captures the whole structure of a finite group in a single grid.
 
-Every group we have seen so far is abelian: $a * b = b * a$. That is not a theorem — it is a coincidence of the examples we have visited. A paper triangle, a triangular hole, and six ways to put one inside the other are enough to end it.
+Every group we have seen so far is abelian: $a * b = b * a$. That is not a theorem — it is a coincidence of the examples we have visited. A paper triangle, a triangular hole, and six ways to put one inside the other will end it.

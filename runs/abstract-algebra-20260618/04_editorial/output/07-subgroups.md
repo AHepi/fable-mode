@@ -51,7 +51,7 @@ This three-condition list is the **subgroup test**.
 
 ### The bridge from definition to picture
 
-Read each condition against the group-inside-a-group picture. "Closed" means: combining two elements from $H$ keeps you inside $H$ — the operation never pushes you out into the larger group. "Identity present" means: $H$ has its own do-nothing element — without $e$, the subset can't be a group at all. "Inverses present" means: every move in $H$ has an undo inside $H$ — you don't have to reach outside to reverse a step.
+Read each condition against the group-inside-a-group picture. "Closed" means: combining two elements from $H$ keeps you inside $H$ — the operation never pushes you out into the larger group. "Identity present" means: $H$ contains the identity $e$ — without it, the subset can't be a group at all. "Inverses present" means: every move in $H$ has an undo inside $H$ — you don't have to reach outside to reverse a step.
 
 If any condition fails, the subset is not a group on its own; it borrows something essential from the larger group and cannot stand alone.
 

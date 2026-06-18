@@ -2,200 +2,353 @@
 title: Operations and Their Rules
 course: abstract-algebra
 order: 3
-summary: "Strip arithmetic down to its bones: a set, a way to combine two things, and four rules worth caring about."
+summary: Strip arithmetic down to its bones — a set, a rule for combining two elements, and four properties that turn out to matter more than the specific numbers involved.
 estimatedMinutes: 20
 objectives:
-  - Define a binary operation
-  - State closure, associativity, identity, and inverse
-  - Test whether a given operation has each property
-prerequisites: [01-the-secret-life-of-symmetry, 02-clock-arithmetic]
+  - Define a binary operation on a set and write it in function notation
+  - State the four properties closure, associativity, identity, and inverse, and explain each in plain words
+  - Read an operation table and use it to check whether a given property holds
+  - Give an example of an operation that fails one of the four properties and name which property fails
+prerequisites:
+  - clock-arithmetic
 ---
 
-You have spent your whole life adding. Two numbers go in, one comes out, and you never once asked how the adding works. On the clock you saw the same move with a twist, the numbers wrapping around: $9 + 5$ landed on $2$ instead of $14$.
+You have spent two modules watching arithmetic wrap around a clock face. In module 01, three rotations of a square turned out to be the same kind of thing as three clock steps — structure hiding behind different faces. In module 02, you built $\mathbb{Z}_n$ (the $n$-hour clock), added numbers mod $n$, and discovered that an identity element and an undo element live in every such clock. Both modules were doing something specific: they were using a *particular* way of combining two elements — clock addition — to reveal patterns that ordinary addition shares.
 
-Both are the same kind of thing, and that kind has a shape: take **two** things from some collection, combine them, and get back **one** thing — and the thing you get back belongs to the same collection. Addition has this shape. So does clock arithmetic, which takes two hours from $\{0, 1, \dots, 11\}$ and hands back another hour. So do "multiply two numbers" and "keep the larger of the two." This module is about the shape itself, not the numbers that happen to wear it.
+This module strips that operation down to its skeleton. What is a "way of combining two elements," exactly? What rules can it follow or break? The answers are the raw material from which every group in this course is built.
 
-The shape has a name — a **binary operation** — and a one-line piece of notation we will read together: $* : S \times S \to S$. Don't let the symbols put you off; each part is just a piece of "two things in, one of the same kind out," and the definition below translates them straight back into that.
+---
 
-First, the four questions worth asking of any operation — the same four the next module bolts together into the definition of a group:
+## What an operation actually is
 
-- **Does the result stay in the collection?** Combine two hours on the clock; does the answer come back as an hour, or escape to something that is not an hour at all?
-- **Does grouping matter?** If you combine three things, does it matter which two you combine first?
-- **Is there a do-nothing element?** A special element that, combined with any other, leaves the other unchanged.
-- **Can every move be undone?** For each element, is there a partner that combines with it to bring you back to the do-nothing element?
+Pick any two integers and add them: $3 + 5 = 8$. You started with two numbers from the integers and got back one number, also an integer. The operation $+$ on the integers has a shape: **two inputs from a set, one output that lands back in the same set.**
 
-Those four are closure, associativity, identity, and inverse. We will make each one precise and test it against the two operations you already trust: $+$ on ordinary numbers, and $+$ on the clock.
+That shape is the whole story. An operation is not tied to addition, or to numbers at all. It is just a rule that takes any two elements of a set and produces a third element of that same set.
 
-## Definition (Binary operation)
+Here is the same shape drawn differently. Call the set $S$ and the operation $*$ (a star — a placeholder symbol we use when we do not yet know which specific operation we are talking about). Then $*$ is a function: it takes an ordered pair $(a, b)$ with $a \in S$ and $b \in S$, and returns one element of $S$, written $a * b$.
 
-Let $S$ be a set. A **binary operation** on $S$ is a function
+**A note on the symbol $*$.** The star stands for *any* rule of combination — $+$ when we are on a clock, ordinary multiplication when we are working with nonzero rationals, composition of symmetries when we get to the triangle in module 06. We use $*$ here so the four properties we are about to state hold for any of those rules at once. When a specific operation is in play, that operation's own symbol replaces $*$.
+
+## Definition (Binary Operation)
+
+Let $S$ be a **set** — a collection of objects. (For now: the integers $\mathbb{Z}$, or a clock $\mathbb{Z}_n$, or any finite collection.) A **binary operation** on $S$ is a function
 
 $$
 * : S \times S \to S
 $$
 
-that assigns to every ordered pair $(a, b)$ of elements of $S$ a single element of $S$, written $a * b$.
+that assigns to each ordered pair $(a, b)$ with $a, b \in S$ exactly one element $a * b$ in $S$.
 
-Read that line back into the shape. The domain $S \times S$ is *the two things you take in* — every ordered pair $(a, b)$ of elements of $S$, and *every* such pair must get an answer. The codomain $S$ is *the one thing of the same kind that comes out* — the result always lands back inside $S$. So $* : S \times S \to S$ says exactly "two from $S$ in, one from $S$ out," made precise. Ordinary addition is this line with $S = \mathbb{Z}$ and $*$ being $+$; clock addition is it with $S = \mathbb{Z}_{12} = \{0, 1, 2, \dots, 11\}$, the hours on the face.
+The notation decodes like this. "$S \times S$" means "pick one element of $S$, then another" — so the input is a pair $(a, b)$, with order mattering ($a$ first, $b$ second). The arrow "$\to S$" means the output lands back in $S$. Writing $* : S \times S \to S$ is the shorthand for: *two elements of $S$ go in, one element of $S$ comes out, every time.*
 
-## Check yourself
+---
 
-Is subtraction, $- : \mathbb{N} \times \mathbb{N} \to \mathbb{N}$, a binary operation on the natural numbers $\mathbb{N} = \{0, 1, 2, \dots\}$? Decide before you reveal.
+**Check yourself.** Is the rule "$a * b = a - b$" a binary operation on the integers $\mathbb{Z}$?
 
 <details><summary>Show answer</summary>
 
-No. A binary operation must return an element of the same set for *every* pair. But $3 - 5 = -2$, and $-2$ is not a natural number, so the answer escapes $\mathbb{N}$. Subtraction *is* a binary operation on the integers $\mathbb{Z}$, where negatives are allowed; the set you choose is part of the question.
+Yes. For any two integers $a$ and $b$, their difference $a - b$ is also an integer. Two integers go in, one integer comes out. The shape $* : \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}$ is satisfied.
 
 </details>
 
+---
+
+## Reading an operation table
+
+When the set $S$ is small, the entire operation can be displayed in a table. The row label is the first input $a$, the column label is the second input $b$, and the entry in that cell is $a * b$.
+
+Here is a set $S = \{0, 1, 2, 3, 4\}$ — the 5-hour clock $\mathbb{Z}_5$ (from module 02, where you built clock arithmetic with $\mathbb{Z}_n$) — under addition mod 5:
+
+$$
+\begin{array}{c|ccccc}
++ & 0 & 1 & 2 & 3 & 4 \\
+\hline
+0 & 0 & 1 & 2 & 3 & 4 \\
+1 & 1 & 2 & 3 & 4 & 0 \\
+2 & 2 & 3 & 4 & 0 & 1 \\
+3 & 3 & 4 & 0 & 1 & 2 \\
+4 & 4 & 0 & 1 & 2 & 3
+\end{array}
+$$
+
+*Read this as: row $a$, column $b$, entry $a + b$ (mod 5).* The entry in row 3, column 4 is $3 + 4 = 7 = 2 \pmod 5$, so the table shows $2$. Every entry is in $\{0,1,2,3,4\}$.
+
+---
+
+## The four rules an operation can have
+
+An operation's shape tells us what kind of object it is. But not every operation behaves the same way, and four particular properties separate "well-behaved" operations from the rest. These are the four questions the rest of this course keeps asking.
+
+### Closure
+
+**Closure** is the basic demand built into the definition itself: when you apply $*$ to two elements of $S$, the result stays in $S$. You do not drift outside.
+
+Clock addition on $\mathbb{Z}_5$ is closed: $3 + 4 = 2$, still in $\{0,1,2,3,4\}$. Look at the table above — every entry is in $\{0,1,2,3,4\}$. Closure holds when the table has no outsiders.
+
+Compare: the operation $a * b = a / b$ on the integers is *not* closed, because $1 / 2 = \tfrac{1}{2}$ is not an integer. One pair breaks closure, and that is enough.
+
 ## Definition (Closure)
 
-Let $*$ be defined on a set $S$. We say $S$ is **closed** under $*$ if for all $a, b \in S$,
+An operation $*$ on a set $S$ is **closed** (or has the **closure property**) if for every $a, b \in S$, the result $a * b$ is also in $S$.
 
-$$
-a * b \in S.
-$$
+### Associativity
 
-A subtle point: the definition of a binary operation *already* bakes closure in — its codomain is $S$. So why name closure separately? Because in practice you often have a single operation, like $+$, and you point it at a *subset* and ask whether that subset is closed on its own. The even integers are closed under $+$ (even plus even is even); the odd integers are not (odd plus odd is even, which escapes the set). Closure is the question you ask when you carve out a piece of a larger world.
+Ordinary addition obeys $(1 + 2) + 3 = 1 + (2 + 3)$: the grouping of brackets does not matter. That is **associativity**.
 
 ## Definition (Associativity)
 
-An operation $*$ on $S$ is **associative** if for all $a, b, c \in S$,
-
+An operation $*$ on $S$ is **associative** if for every $a, b, c \in S$,
 $$
 (a * b) * c = a * (b * c).
 $$
 
-Associativity says the *grouping* of three elements does not change the result, so $a * b * c$ can be written without parentheses and read without confusion. Ordinary addition is associative: $(2 + 3) + 4 = 9 = 2 + (3 + 4)$. Clock addition inherits this from ordinary addition. Notice what associativity does *not* say: it says nothing about *order*. Swapping $a$ and $b$ is a different property (commutativity), and it can fail even when associativity holds.
+Associativity says: when combining three elements in a fixed left-to-right order, you can parenthesize however you like and get the same answer. It does *not* say $a * b = b * a$ (that is a different property, handled at the end of this module).
 
-## Worked example
+Subtraction is the standard non-example. Check: $(5 - 3) - 1 = 1$, but $5 - (3 - 1) = 3$. The brackets matter, so subtraction on $\mathbb{Z}$ is **not** associative. One triple is enough to disqualify it.
 
-**Problem.** Decide whether subtraction on $\mathbb{Z}$ is associative.
+---
 
-**Solution.** Test the definition against the elements $a = 1$, $b = 2$, $c = 3$. Compute each grouping:
-
-$$
-\begin{aligned}
-(a - b) - c &= (1 - 2) - 3 = -1 - 3 = -4, \\
-a - (b - c) &= 1 - (2 - 3) = 1 - (-1) = 2.
-\end{aligned}
-$$
-
-Since $-4 \neq 2$, the two groupings disagree, so subtraction is **not** associative. One counterexample is enough to sink a "for all" claim: we did not need to check every triple, only to exhibit one that breaks.
-
-## Check yourself
-
-On the $12$-hour clock, is there an hour you can add to any other and leave it unchanged? Which one? Decide before you reveal.
+**Check yourself.** Is clock addition on $\mathbb{Z}_5$ associative?
 
 <details><summary>Show answer</summary>
 
-It is $0$ (which on a real clock face you might read as $12$). Adding $0$ hours to any hour $a$ leaves you at $a$: $a + 0 = a$ and $0 + a = a$. That do-nothing element is exactly what the next definition calls an identity.
+Yes. Addition on the integers is associative, and reducing mod 5 preserves that: $(a + b) + c$ and $a + (b + c)$ give the same integer sum before the reduction, so they give the same result after it. You could also check a triple directly: $(3 + 4) + 2 = 2 + 2 = 4$ and $3 + (4 + 2) = 3 + 1 = 4$ (both mod 5). ✓
 
 </details>
 
-## Definition (Identity)
+---
 
-Let $*$ be an operation on $S$. An element $e \in S$ is an **identity** for $*$ if for all $a \in S$,
+### Identity
 
+In ordinary addition, $0$ is special: adding $0$ to anything leaves it alone. $7 + 0 = 7$, $0 + 7 = 7$. The number $0$ is the **identity element** for addition — the element that leaves every partner unchanged (module 01 introduced this idea informally; here we pin down exactly what it means).
+
+## Definition (Identity Element)
+
+An element $e \in S$ is an **identity element** for $*$ if for every $a \in S$,
 $$
-a * e = a \quad \text{and} \quad e * a = a.
-$$
-
-The identity is the do-nothing element. For ordinary addition the identity is $0$, since $a + 0 = a$. For clock addition the identity is also $0$. Both equations are required because an operation need not be commutative: in general you must check that $e$ does nothing whether it sits on the left or the right.
-
-## Definition (Inverse)
-
-Let $*$ be an operation on $S$ with identity $e$. An element $b \in S$ is an **inverse** of $a \in S$ if
-
-$$
-a * b = e \quad \text{and} \quad b * a = e.
+e * a = a \quad \text{and} \quad a * e = a.
 $$
 
-An inverse is the *undo* element: combine $a$ with its inverse and you land back on the identity $e$. Under ordinary addition the inverse of $a$ is $-a$, since $a + (-a) = 0$. On the $12$-hour clock the inverse of $5$ is $7$: $5 + 7 = 12 = 0$. Wind forward five hours, then seven more, and you have gone all the way around to where you started. Identity and inverse are easy to confuse, so keep them straight: the identity changes *nothing*; an inverse *cancels a specific element* back to that nothing.
+The identity must do nothing on *both* sides: $e * a = a$ (when $e$ goes first) and $a * e = a$ (when $e$ goes second).
 
-## Check yourself
+In $\mathbb{Z}_5$ under clock addition, $0$ is the identity: every row labeled $0$ reads $0, 1, 2, 3, 4$ (so $0 + a = a$), and every column labeled $0$ reads the same (so $a + 0 = a$). Find the row and column for $0$ in the table above and check.
 
-On the $12$-hour clock, what is the inverse of $3$ under clock addition? And does $0$ have an inverse? Decide before you reveal.
+Not every operation has an identity. The operation $a * b = a + b + 1$ on $\mathbb{Z}$ has no identity: the equation $e + a + 1 = a$ would require $e = -1$, but also $a + e + 1 = a$ requires $e = -1$, so $e = -1$ *is* the identity — but only if we have checked both sides, which we just did. (In this case it works; the point is that you must check.)
+
+### Inverse
+
+Given an identity $e$, the question "can I undo $a$?" becomes precise: is there an element $a^{-1} \in S$ such that combining $a$ and $a^{-1}$ gives back $e$?
+
+## Definition (Inverse Element)
+
+Given an identity $e$ for $*$ on $S$, the **inverse** of an element $a \in S$ is an element $a^{-1} \in S$ such that
+$$
+a * a^{-1} = e \quad \text{and} \quad a^{-1} * a = e.
+$$
+
+We say $a$ is **invertible** if such an $a^{-1}$ exists.
+
+On $\mathbb{Z}_5$ (the 5-hour clock) under addition, the inverse of $3$ is $2$, because $3 + 2 = 5 = 0$ (mod 5) $= e$. Generally, the inverse of $a$ in $\mathbb{Z}_5$ is $5 - a$ (this is the inverse rule from module 02, now named formally). In the table above, locate row 3 and find which column gives $0$: it is column 2. That is the inverse check.
+
+---
+
+## Worked example: checking all four properties on $\mathbb{Z}_5$
+
+**Problem.** The set is $S = \{0,1,2,3,4\}$ with operation $+$ (addition mod 5). The table is above. Check each of the four properties.
+
+**Solution.**
+
+**Closure.** Every entry in the table is in $\{0,1,2,3,4\}$. ✓
+
+**Associativity.** Addition on the integers is associative; adding and then reducing mod 5 preserves this. As a spot-check: $(2 + 4) + 3 = 1 + 3 = 4$ and $2 + (4 + 3) = 2 + 2 = 4$. ✓
+
+**Identity.** The element $0$ satisfies $0 + a = a$ and $a + 0 = a$ for every $a$. (The row and column labeled $0$ both read $0,1,2,3,4$ in order.) ✓
+
+**Inverses.** Check each element:
+- $0 + 0 = 0 = e$, so $0^{-1} = 0$.
+- $1 + 4 = 5 = 0 = e$, so $1^{-1} = 4$ (and $4^{-1} = 1$).
+- $2 + 3 = 5 = 0 = e$, so $2^{-1} = 3$ (and $3^{-1} = 2$).
+
+Every element has an inverse in $\{0,1,2,3,4\}$. ✓
+
+All four properties hold for $(\mathbb{Z}_5, +)$. This set with this operation will matter a great deal in module 04.
+
+---
+
+**Check yourself.** The set is $S = \{1, 2, 3, 4\}$ with operation $\times$ (multiplication mod 5). Does every element of $S$ have an inverse?
 
 <details><summary>Show answer</summary>
 
-The inverse of $3$ is $9$, since $3 + 9 = 12 = 0$. And yes, $0$ has an inverse — itself: $0 + 0 = 0$. The identity is always its own inverse, because combining it with itself does nothing, which is exactly landing on the identity.
+Yes. Under multiplication mod 5:
+- $1 \times 1 = 1$, so $1^{-1} = 1$.
+- $2 \times 3 = 6 = 1 \pmod 5$, so $2^{-1} = 3$ and $3^{-1} = 2$.
+- $4 \times 4 = 16 = 1 \pmod 5$, so $4^{-1} = 4$.
+
+Every element has an inverse. (This works because $5$ is prime — a fact module 11 will revisit when it discusses fields.)
 
 </details>
+
+---
+
+## A non-example: subtraction breaks associativity
+
+Let $S = \mathbb{Z}$ (the integers) with operation $a * b = a - b$.
+
+**Closure.** For any integers $a, b$, the difference $a - b$ is an integer. ✓
+
+**Associativity.** Check the triple $a = 5, b = 3, c = 1$:
+$$
+(5 - 3) - 1 = 2 - 1 = 1
+$$
+$$
+5 - (3 - 1) = 5 - 2 = 3
+$$
+
+$1 \neq 3$, so $(a * b) * c \neq a * (b * c)$. Subtraction is **not** associative. One counterexample disqualifies the property.
+
+**Identity.** If an identity $e$ exists, then $e - a = a$ for every $a$, giving $e = 2a$ — different for different $a$, so no single $e$ works. There is no identity element.
+
+Because subtraction already fails associativity and has no identity, it cannot have inverses in the relevant sense either. This operation fails three of the four properties.
+
+---
+
+## Commutativity — a fifth question
+
+There is one more property worth naming here, though it is not one of the four required for a group (module 04 will assemble the four).
+
+## Definition (Commutativity)
+
+An operation $*$ on $S$ is **commutative** if for every $a, b \in S$,
+$$
+a * b = b * a.
+$$
+
+Clock addition is commutative: $3 + 4 = 4 + 3$ in $\mathbb{Z}_5$. Subtraction is not: $5 - 3 \neq 3 - 5$. In the table, commutativity shows up as symmetry across the main diagonal: the entry in row $a$, column $b$ equals the entry in row $b$, column $a$.
+
+Commutativity is a *bonus* property, not a guarantee. One of the most important operations in this course — combining symmetries of a triangle (module 06) — will not be commutative. That is exactly what makes it interesting.
+
+---
 
 ## Exercises
 
-**1 (mechanical).** Let $*$ be multiplication on the set $\{1, -1\}$. Verify that this set is closed under $*$ by computing all four products.
+**1.** The set is $S = \{0, 1, 2\}$ with operation $+$ (addition mod 3). Write the $3 \times 3$ operation table and verify closure, identity, and the inverse of each element.
 
 <details><summary>Show solution</summary>
 
-Compute every pair:
+The table:
 
 $$
-1 \cdot 1 = 1, \quad 1 \cdot (-1) = -1, \quad (-1) \cdot 1 = -1, \quad (-1) \cdot (-1) = 1.
-$$
-
-Each product is again $1$ or $-1$, so the result never escapes the set $\{1, -1\}$. The set is closed under multiplication. (Closure means checking that *no* pair escapes — for a two-element set that is exactly these four products.)
-
-</details>
-
-**2 (mechanical).** On the $12$-hour clock, find the inverse of $8$ under clock addition.
-
-<details><summary>Show solution</summary>
-
-We want the hour $b$ with $8 + b = 0$ on the clock. Since $8 + 4 = 12 = 0$, the inverse is $4$. A tempting wrong answer is $-8$: that is the inverse under *ordinary* addition, but $-8$ is not an hour on the face. On the clock you must wrap around, and $-8$ wraps to $4$ (because $-8 + 12 = 4$). The two agree once you wrap the answer back into the set $\{0, 1, \dots, 11\}$.
-
-</details>
-
-**3 (conceptual).** Is division a binary operation on the nonzero rational numbers $\mathbb{Q} \setminus \{0\}$? Explain.
-
-<details><summary>Show solution</summary>
-
-Yes. For any two nonzero rationals $a$ and $b$, the quotient $a / b$ is again a nonzero rational, so the result never escapes the set. (Contrast this with division on *all* of $\mathbb{Q}$, which is not a binary operation: $a / 0$ has no answer, so the function is undefined on pairs with a zero divisor. Removing $0$ is exactly what rescues it.)
-
-</details>
-
-**4 (conceptual).** Subtraction on $\mathbb{Z}$ has $0$ as a candidate identity, since $a - 0 = a$. Show that $0$ nonetheless *fails* to be an identity for subtraction.
-
-<details><summary>Show solution</summary>
-
-An identity must satisfy *both* $a * e = a$ and $e * a = a$. Here $a - 0 = a$ holds, but the other side fails: $0 - a = -a$, which equals $a$ only when $a = 0$. For example $0 - 3 = -3 \neq 3$. So $0$ works on the right but not on the left, and the definition demands both. This is precisely why the identity definition lists two equations rather than one — an element that does nothing on only one side is not an identity.
-
-</details>
-
-**5 (conceptual).** Give an operation, on a set of your choice, that is *closed* and has an *identity* but in which at least one element has *no inverse*. (Hint: think about ordinary multiplication on the whole numbers.)
-
-<details><summary>Show solution</summary>
-
-Take multiplication on $\mathbb{N} = \{0, 1, 2, \dots\}$. It is closed (a whole number times a whole number is a whole number) and has identity $1$ (since $a \cdot 1 = a$). But $2$ has no inverse: we would need a whole number $b$ with $2 \cdot b = 1$, and no whole number does that — the only candidate, $\tfrac{1}{2}$, is not in $\mathbb{N}$. So three of the four properties can hold while inverses fail. This is the gap the group axioms will insist on closing.
-
-</details>
-
-**6 (stretch).** On the set $S = \{a, b\}$, define an operation $*$ by the table below (read row $*$ column). Is $*$ associative? Does it have an identity? Does every element have an inverse?
-
-$$
-\begin{array}{c|cc}
-* & a & b \\
+\begin{array}{c|ccc}
++ & 0 & 1 & 2 \\
 \hline
-a & a & b \\
-b & b & a
+0 & 0 & 1 & 2 \\
+1 & 1 & 2 & 0 \\
+2 & 2 & 0 & 1
 \end{array}
 $$
 
-<details><summary>Show solution</summary>
+**Closure:** every entry is in $\{0,1,2\}$. ✓
 
-Read the table: $a * a = a$, $a * b = b$, $b * a = b$, $b * b = a$.
+**Identity:** $0 + a = a + 0 = a$ for every $a$ — the row and column for $0$ read $0, 1, 2$. ✓
 
-**Identity:** $a$ is the identity. The row and column for $a$ reproduce the inputs unchanged — $a * a = a$, $a * b = b$, $b * a = b$ — so $a$ does nothing.
+**Inverses:**
+- $0 + 0 = 0$, so $0^{-1} = 0$.
+- $1 + 2 = 3 = 0 \pmod 3$, so $1^{-1} = 2$.
+- $2 + 1 = 0 \pmod 3$, so $2^{-1} = 1$.
 
-**Inverses:** $a$ is its own inverse ($a * a = a$, the identity). And $b$ is its own inverse, since $b * b = a$, the identity. So every element has an inverse.
-
-**Associativity:** with the identity $a$, the only triple that could misbehave is $b * b * b$. Group it both ways: $(b * b) * b = a * b = b$ and $b * (b * b) = b * a = b$. They agree, and every other triple involves the identity $a$ and so is automatic. The operation is associative.
-
-This little operation has all four properties at once: the complete checklist, in one small table.
+Every element has an inverse. ✓
 
 </details>
 
+---
+
+**2.** Is the operation $a * b = a \cdot b$ (ordinary multiplication) on the set $\mathbb{Z}$ (all integers) closed? Is it associative? Does it have an identity? Does every element have an inverse? Identify which properties hold and which fail.
+
+<details><summary>Show solution</summary>
+
+**Closure:** the product of two integers is an integer. ✓
+
+**Associativity:** $(a \cdot b) \cdot c = a \cdot (b \cdot c)$ for all integers — this is a standard fact. ✓
+
+**Identity:** the integer $1$ satisfies $1 \cdot a = a \cdot 1 = a$ for every integer $a$. ✓
+
+**Inverses:** the inverse of $a$ would need to be an integer $a^{-1}$ with $a \cdot a^{-1} = 1$. For $a = 2$, that requires $a^{-1} = \tfrac{1}{2}$, which is not an integer. So $2$ has no inverse in $\mathbb{Z}$ under multiplication. ✗
+
+Multiplication on $\mathbb{Z}$ has closure, associativity, and an identity — but **inverses fail**. This is why $(\mathbb{Z}, \times)$ is not a group (module 04 will make that precise).
+
+</details>
+
+---
+
+**3.** The set is $S = \{1, -1\}$ with operation $\times$ (ordinary multiplication). Write the operation table and check all four properties.
+
+<details><summary>Show solution</summary>
+
+The table:
+
+$$
+\begin{array}{c|cc}
+\times & 1 & -1 \\
+\hline
+1 & 1 & -1 \\
+-1 & -1 & 1
+\end{array}
+$$
+
+**Closure:** $1 \times 1 = 1$, $1 \times (-1) = -1$, $(-1) \times (-1) = 1$. All results are in $\{1,-1\}$. ✓
+
+**Associativity:** multiplication of real numbers is associative; restricting to $\{1,-1\}$ does not break that. ✓
+
+**Identity:** $1 \times a = a \times 1 = a$ for both $a = 1$ and $a = -1$. So $e = 1$. ✓
+
+**Inverses:**
+- $1 \times 1 = 1 = e$, so $1^{-1} = 1$.
+- $(-1) \times (-1) = 1 = e$, so $(-1)^{-1} = -1$.
+
+Every element has an inverse. ✓
+
+All four properties hold. $(\{1,-1\}, \times)$ is small — only two elements — but it is a genuine group. Module 04 will say so explicitly.
+
+</details>
+
+---
+
+**4.** (Non-example.) The set is $S = \{1, 2, 3, 4, 5\}$ with operation $a * b = \max(a, b)$ (the larger of the two). Is this operation associative? Does it have an identity? Does every element have an inverse?
+
+<details><summary>Show solution</summary>
+
+**Associativity:** $\max(\max(a,b), c) = \max(a,b,c) = \max(a, \max(b,c))$. Yes, associative. ✓
+
+**Identity:** an identity $e$ would need $\max(e, a) = a$ for every $a \in S$. That means $e \leq a$ for all $a$, so $e = 1$. Check the other direction: $\max(a, 1) = a$ as long as $a \geq 1$, which is true for every element of $S$. So $e = 1$ is an identity. ✓
+
+**Inverses:** the inverse of $a$ would need $\max(a, a^{-1}) = 1$. But $\max(a, a^{-1}) \geq a$, which equals $1$ only if $a = 1$. For $a = 3$, no element of $S$ satisfies $\max(3, a^{-1}) = 1$. So $3$ has no inverse. ✗
+
+The operation $\max$ on $\{1,2,3,4,5\}$ has closure, associativity, and an identity, but **inverses fail** for every element except $1$. A single missing inverse disqualifies the inverse property.
+
+</details>
+
+---
+
+**5.** (Stretch.) Let $S = \{a, b\}$ be a two-element set. There are exactly four possible binary operations on $S$ (the table has four entries, each of which can be $a$ or $b$). How many of those four operations have an identity element? List them.
+
+<details><summary>Show solution</summary>
+
+Label the elements $0$ and $1$ (to keep the notation clean — these are just names). A binary operation on $\{0,1\}$ is determined by four values: $0*0$, $0*1$, $1*0$, $1*1$.
+
+For an identity $e$: we need $e * x = x * e = x$ for both $x = 0$ and $x = 1$.
+
+**Case $e = 0$:** need $0*0=0$, $0*1=1$, $1*0=1$. The value of $1*1$ is free ($0$ or $1$). This gives two operations with identity $0$.
+
+**Case $e = 1$:** need $1*0=0$, $1*1=1$, $0*1=0$. The value of $0*0$ is free. This gives two operations with identity $1$.
+
+In all four cases an identity exists. Every binary operation on a two-element set has an identity. (Whether it also has inverses and associativity depends on the specific table — that narrows the four down to fewer as you add requirements.)
+
+</details>
+
+---
+
 ## Recap
 
-An operation is the shape we started with — two from $S$ in, one from $S$ out — written $* : S \times S \to S$. That definition already guarantees closure: the result lands back in $S$. The other three properties are not free: an operation may or may not be associative, may or may not have an identity, may or may not give every element an inverse. Ordinary addition and clock addition have all three; subtraction loses associativity, and whole-number multiplication loses inverses, and those failures are the instructive part. Demand all four at once — closure, associativity, identity, inverse — and you have the central object of this course: a group.
+A **binary operation** $* : S \times S \to S$ is a rule that takes any two elements of a set and returns a third element of that same set. Four properties — **closure** (the output stays in $S$), **associativity** (brackets can be regrouped freely), **identity** (an element $e$ that leaves every partner unchanged), and **inverse** (every element can be undone) — determine how well-behaved an operation is. A fifth property, **commutativity**, says order does not matter; it is a bonus, not a requirement.
+
+Module 04 takes these four properties and asks: what happens when an operation has *all four at once*? The answer is a group — the central object of this entire course.

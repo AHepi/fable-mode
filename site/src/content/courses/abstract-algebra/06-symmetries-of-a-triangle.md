@@ -2,192 +2,209 @@
 title: Symmetries of a Triangle
 course: abstract-algebra
 order: 6
-summary: The symmetries of a triangle form a group where order matters — our first taste of non-commutative structure.
+summary: The symmetries of an equilateral triangle form a group where order suddenly matters — the first time flip-then-spin and spin-then-flip part ways.
 estimatedMinutes: 22
 objectives:
-  - List the six symmetries of an equilateral triangle
-  - Compose two symmetries
-  - Show by example that the operation is not commutative
-prerequisites: [04-what-is-a-group, 05-a-zoo-of-groups]
+  - List the six symmetries of an equilateral triangle.
+  - Compose two symmetries by performing one move and then another.
+  - Show by a worked example that the operation is not commutative.
+prerequisites:
+  - 05-a-zoo-of-groups
 ---
 
-Cut a triangle out of cardboard, mark its corners $1$, $2$, $3$, and drop it into a triangular hole. Now pick it up, move it however you like, and drop it back so it fits. Some moves leave the hole looking untouched; others spin the corners to new seats. The moves that leave the *outline* unchanged are the triangle's **symmetries** — and there are exactly six of them.
+Cut an equilateral triangle out of stiff paper and drop it into a triangular hole that fits it exactly. Now lift it out, turn it however you like, and set it back. If it drops in clean — every corner in a corner, no overhang — you have performed a *symmetry*: a way of moving the triangle that leaves the hole looking untouched.
 
-Here is the surprise waiting at the end of this module. Take two of those moves and perform them in one order, then perform the very same two moves in the other order. You will not always land in the same place. Spin-then-flip and flip-then-spin are different triangles. Every group you have met so far — clocks, integers, the powers of $i$ — quietly obeyed $a \cdot b = b \cdot a$. This one breaks that habit.
+Every group you have met so far has been **abelian** — the order of combining two things never mattered. On a clock (module 02), `$3 + 5$` and `$5 + 3$` land on the same hour. Multiply `$i$` by `$-1$` or `$-1$` by `$i$`, same answer either way. That has felt like a law of nature. It is not. The paper triangle is about to break it.
 
-An equilateral triangle has two flavors of symmetry, and you can act them both out with the cardboard.
+## Picking up the triangle
 
-**Rotations.** Spin the triangle about its center. Turn it a third of the way around ($120^\circ$) and it fits again, with the corners shifted one seat over. Turn it two-thirds ($240^\circ$) and it fits again. Turn it all the way around and you are back where you started — that "do nothing" move counts too. Three rotations in all.
+Number the three corners of the paper triangle `$1$`, `$2$`, `$3$`, and number the three *seats* of the hole the same way, with seat `$1$` at the top, seat `$2$` at the lower left, seat `$3$` at the lower right. At the start, corner `$1$` sits in seat `$1$`, corner `$2$` in seat `$2$`, corner `$3$` in seat `$3$`. A symmetry is anything you can do to the paper that lands every corner back in *some* seat.
 
-**Reflections.** Each corner has a line running from it to the midpoint of the opposite side. Flip the triangle over across any one of those three lines and it fits again, with two corners swapping places and one staying put. Three reflections.
+There are exactly six. Three of them are **rotations** — turns about the center:
 
-Three rotations plus three reflections makes **six symmetries**. The "operation" that combines them is **composition**: do one move, then do another, and ask which single move had the same overall effect. That combined move is always one of the same six — the triangle never escapes its own outline. We will write the symmetries with a tiny alphabet:
+- `$e$`: leave it alone (turn by `$0^\circ$`). This is the **identity** (module 04) — the element that leaves every partner unchanged: combine it with anything and nothing changes.
+- `$r$`: turn by `$120^\circ$`.
+- `$r^2$`: turn by `$240^\circ$` — the same as turning by `$120^\circ$` twice, which is why we write it `$r^2$`. A third turn, `$r^3$`, brings every corner home, so `$r^3 = e$`.
 
-- $e$ — the identity (rotate by $0^\circ$).
-- $r$ — rotate by $120^\circ$.
-- $s$ — one chosen reflection (a flip).
+The other three are **reflections** — flips that turn the paper over, each one across a line through one corner and the midpoint of the opposite edge:
 
-Everything else is built from these two. Rotating twice is $r$ then $r$, written $r^2$ (a $240^\circ$ turn). A third rotation brings you home, so $r^3 = e$. A flip undone by the same flip leaves you home, so $s^2 = e$. The remaining symmetries are *combinations* — a flip after a rotation — written $rs$ and $r^2s$. That gives the full cast of six:
+- `$s$`: flip across the line through seat `$1$`, holding the top corner fixed and swapping the bottom two.
+- `$rs$`: a flip that holds the lower-right corner fixed.
+- `$r^2s$`: a flip that holds the lower-left corner fixed.
 
-$$
-D_3 = \{\, e,\ r,\ r^2,\ s,\ rs,\ r^2s \,\}.
-$$
-
-The name $D_3$ stands for the **dihedral group** of the triangle — "dihedral" just means "symmetries of a regular shape, rotations and flips together."
-
-![An equilateral triangle with corners labelled 1, 2, and 3, a curved arrow showing a 120-degree rotation about the center, and a dashed line through one corner and the midpoint of the opposite side marking a reflection axis.](./assets/triangle-symmetries.svg)
-
-A word on how we read $rs$. Throughout this module, **the move written on the right happens first.** So $rs$ means "flip with $s$, then rotate with $r$" — exactly the order you read a composed function $f(g(x))$, innermost first. Pick a reading order and hold it; switching halfway is how mistakes are born.
-
-## Definition (Composition of symmetries)
-
-A **symmetry** of the triangle is a way of moving it that leaves its outline occupying the same place. The **composition** of two symmetries $g$ and $h$, written $g \cdot h$ (or just $gh$), is the single symmetry with the same net effect as performing $h$ first and then $g$. The set $D_3$ of the six symmetries, under composition, is the **dihedral group of the triangle**.
-
-To pin down which symmetry a composition equals, track where the corners go. Number the seats and follow corner $1$, corner $2$, corner $3$ through each move; the final arrangement names the result.
-
-## Worked example
-
-**Problem.** A $120^\circ$ rotation $r$ sends the corner in seat $1$ to seat $2$, seat $2$ to seat $3$, and seat $3$ to seat $1$. The reflection $s$ fixes seat $1$ and swaps seats $2$ and $3$. Compute $rs$ and $sr$, and decide whether they are equal.
-
-**Solution.** Start with corners reading $1,2,3$ in seats $1,2,3$. Remember: the right-hand move goes first.
-
-Compute $rs$ — flip with $s$, then rotate with $r$:
+We will see in a moment why the last two earn those compound names. The six together are the cast of this module:
 
 $$
-\begin{aligned}
-123 \;&\xrightarrow{\ s\ }\; 132 \quad(\text{$s$ fixes seat 1, swaps 2 and 3})\\
-    \;&\xrightarrow{\ r\ }\; 213 \quad(\text{$r$ moves each corner one seat onward}).
-\end{aligned}
+D_3 = \{\, e,\; r,\; r^2,\; s,\; rs,\; r^2s \,\}.
 $$
 
-Now compute $sr$ — rotate with $r$, then flip with $s$:
+![The six symmetries of an equilateral triangle: three rotations and three reflections](./assets/triangle-symmetries.svg)
+
+## Naming the operation: do one move, then another
+
+A group is a set together with an **operation** — a rule that combines two elements to get a third — obeying four rules (module 04): the operation is closed, associative, has an identity, and gives every element an inverse. The set here is `$D_3$`, the six symmetries. The operation is **composition**: do one symmetry, then do another, and ask which single symmetry has the same overall effect.
+
+We write composition by **juxtaposition** — just putting the two symbols side by side — and we read it **right to left**, the way function composition runs. So
 
 $$
-\begin{aligned}
-123 \;&\xrightarrow{\ r\ }\; 312\\
-    \;&\xrightarrow{\ s\ }\; 321.
-\end{aligned}
+rs \quad\text{means: first do } s, \text{ then do } r.
 $$
 
-The outcomes are $213$ and $321$. They are different arrangements, so
+The reflection on the right goes first; the rotation on the left goes second. (Right-to-left feels backward at first. It is the same convention you use without noticing when you write `$f(g(x))$`: `$g$` touches `$x$` first.)
+
+The operation is closed because a symmetry followed by a symmetry is still a symmetry — the paper still drops in clean. The identity is `$e$`, the turn by `$0^\circ$`. Every move has an inverse that undoes it: a `$120^\circ$` turn is undone by a `$240^\circ$` turn (`$r$` and `$r^2$`), and a flip undoes itself (`$s$` followed by `$s$` is `$e$`, so `$s^2 = e$`). Composition is associative for the plain reason that doing moves in a fixed sequence does not care how you bracket them. Run the four-axiom check from module 04 and `$D_3$` passes: it is a group.
+
+But it is a group with a twist no earlier one had.
+
+## Flip-then-spin is not spin-then-flip
+
+Take the triangle in its home position, corners reading `$1, 2, 3$` in seats `$1, 2, 3$`. We will compute `$rs$` and `$sr$` by tracking where each numbered corner ends up. Watch only the seats.
+
+**Compute `$rs$` (first `$s$`, then `$r$`).**
+
+Start: seats `$(1, 2, 3)$`.
+
+First apply `$s$` — hold the top, swap the bottom two:
+
+$$
+(1,2,3) \;\xrightarrow{\,s\,}\; (1,3,2).
+$$
+
+Now apply `$r$` — turn `$120^\circ$`, so each corner moves one seat around:
+
+$$
+(1,3,2) \;\xrightarrow{\,r\,}\; (2,1,3).
+$$
+
+So `$rs$` sends the home triangle to `$(2,1,3)$`.
+
+**Compute `$sr$` (first `$r$`, then `$s$`).**
+
+Start again: seats `$(1, 2, 3)$`.
+
+First apply `$r$`:
+
+$$
+(1,2,3) \;\xrightarrow{\,r\,}\; (3,1,2).
+$$
+
+Now apply `$s$` — hold the top, swap the bottom two:
+
+$$
+(3,1,2) \;\xrightarrow{\,s\,}\; (3,2,1).
+$$
+
+So `$sr$` sends the home triangle to `$(3,2,1)$`.
+
+Set the two results side by side:
+
+$$
+rs:\ (2,1,3) \qquad\qquad sr:\ (3,2,1).
+$$
+
+They are different arrangements. Therefore
 
 $$
 rs \neq sr.
 $$
 
-Order matters. The two moves are the same; performing them in the opposite sequence lands the triangle in a different place. This single inequality is the headline of the module.
+The order in which you compose the two moves changes the outcome. Flip-then-spin lands the corners one way; spin-then-flip lands them another. A single worked example settles it: `$D_3$` is **non-commutative** — a group where, for at least one pair of elements, `$a b \neq b a$`. (A group where order *never* matters, like all the ones before this, is called **abelian**, after Niels Abel; `$D_3$` is the first group in this course that is not abelian.)
 
-## Check yourself
-
-Using the same rule that the right-hand move happens first, compute $r^2 \cdot r$. (Remember $r^3 = e$.) Which of the six symmetries is it?
-
-<details><summary>Show answer</summary>
-
-$r^2 \cdot r = r^3 = e$, the identity. Three $120^\circ$ turns make a full $360^\circ$ turn, which returns every corner to its own seat. Rotations alone behave like clock arithmetic on three hours — they *do* commute with each other; it is only when flips enter that order starts to matter.
-
-</details>
-
-## The relation that runs the table
-
-We found $rs \neq sr$ by tracking corners. But $sr$ must still equal *one* of the six symmetries — composition never leaves $D_3$. From the worked example, $sr$ sent $123$ to $321$. Check the other candidate: $r^2 s$ flips with $s$ ($123 \to 132$) then rotates twice with $r^2$ ($132 \to 321$). Same arrangement. So
+Notice what each result actually is. The arrangement `$(2,1,3)$` holds seat `$3$` fixed and swaps the other two — that is a reflection, the one we named `$rs$`. The arrangement `$(3,2,1)$` holds seat `$2$` fixed — the reflection we named `$r^2s$`. So the two computations also prove a clean relation:
 
 $$
 sr = r^2 s.
 $$
 
-This little equation is the engine of the whole group. It is a rule for **moving a flip past a rotation**: whenever an $s$ sits to the left of an $r$, you may slide the $s$ rightward at the cost of turning that $r$ into $r^2$. Apply it repeatedly and you can rewrite any string of $r$'s and $s$'s into one of the six standard names $r^a s^b$. That is exactly what lets us fill in the table below without ever picking the cardboard back up.
-
-## The Cayley table
-
-A **Cayley table** is a combination grid: read the **row** label as the left move and the **column** label as the right move (so the row entry is performed *second*), and the cell holds their composition. Here is the full $6 \times 6$ table for $D_3$, built using $r^3 = e$, $s^2 = e$, and $sr = r^2s$.
-
-| $\cdot$ | $e$ | $r$ | $r^2$ | $s$ | $rs$ | $r^2s$ |
-|---------|-----|-----|-------|-----|------|--------|
-| **$e$**     | $e$    | $r$    | $r^2$  | $s$    | $rs$   | $r^2s$ |
-| **$r$**     | $r$    | $r^2$  | $e$    | $rs$   | $r^2s$ | $s$    |
-| **$r^2$**   | $r^2$  | $e$    | $r$    | $r^2s$ | $s$    | $rs$   |
-| **$s$**     | $s$    | $r^2s$ | $rs$   | $e$    | $r^2$  | $r$    |
-| **$rs$**    | $rs$   | $s$    | $r^2s$ | $r$    | $e$    | $r^2$  |
-| **$r^2s$**  | $r^2s$ | $rs$   | $s$    | $r^2$  | $r$    | $e$    |
-
-Two things to notice. First, **every symmetry appears exactly once in each row and once in each column** — a fingerprint of every group's Cayley table (no move is ever doubled or skipped). Second, the table is **not symmetric across its main diagonal**: the entry in the $s$-row, $r$-column is $r^2s$, while the entry in the $r$-row, $s$-column is $rs$. Those two cells disagree, and that asymmetry *is* non-commutativity, drawn as a picture. A commutative group's table is a mirror across the diagonal; $D_3$'s is not.
+That single equation — "a flip after a turn equals a different flip" — is the engine of the whole group. Every product in `$D_3$` can be untangled with `$r^3 = e$`, `$s^2 = e$`, and `$sr = r^2s$`.
 
 ## Check yourself
 
-Read $rs \cdot rs$ off the table (the $rs$-row, $rs$-column). What does it equal, and does that make sense?
+Using `$sr = r^2s$`, what is `$sr^2$`? (Hint: `$r^2 = rr$`, and you can slide an `$s$` past one `$r$` at a time.)
 
 <details><summary>Show answer</summary>
 
-The cell is $e$. So $rs$ is its own inverse — doing the move $rs$ twice returns the triangle home. That fits the geometry: $rs$ turns out to be one of the three reflections, and any single flip undoes itself, just as $s^2 = e$.
+`$sr^2 = rs$`. Slide the `$s$` past the first `$r$`: `$s r^2 = (sr) r = (r^2 s) r = r^2 (sr) = r^2 (r^2 s) = r^4 s$`. Since `$r^3 = e$`, `$r^4 = r$`, so `$sr^2 = rs$`. The rule is that pushing `$s$` to the right of `$r^k$` flips the power: `$s r^k = r^{-k} s$`.
 
 </details>
 
-## Verifying the group axioms
+## The Cayley table
 
-We claimed $D_3$ is a group. Let us walk the four axioms gently, in prose, and check each against the table.
+A **Cayley table** (first named in module 05) lays out every product at once: read the row label first... no — read the row element as the move done *second* and the column element as the move done *first*, matching `$rs$` = "first `$s$`, then `$r$`." Each entry is the single symmetry equal to (row) after (column).
 
-**Closure.** Combining any two symmetries gives another symmetry. Every cell of the table holds one of the six names $e, r, r^2, s, rs, r^2s$ — nothing new ever appears. Geometrically this is obvious: move the triangle so it fits, then move it again so it fits, and the net result still fits. Closed.
+|        | `$e$`   | `$r$`   | `$r^2$` | `$s$`   | `$rs$`  | `$r^2s$` |
+|--------|---------|---------|---------|---------|---------|----------|
+| `$e$`    | `$e$`   | `$r$`   | `$r^2$` | `$s$`   | `$rs$`  | `$r^2s$` |
+| `$r$`    | `$r$`   | `$r^2$` | `$e$`   | `$rs$`  | `$r^2s$`| `$s$`    |
+| `$r^2$`  | `$r^2$` | `$e$`   | `$r$`   | `$r^2s$`| `$s$`   | `$rs$`   |
+| `$s$`    | `$s$`   | `$r^2s$`| `$rs$`  | `$e$`   | `$r^2$` | `$r$`    |
+| `$rs$`   | `$rs$`  | `$s$`   | `$r^2s$`| `$r$`   | `$e$`   | `$r^2$`  |
+| `$r^2s$` | `$r^2s$`| `$rs$`  | `$s$`   | `$r^2$` | `$r$`   | `$e$`    |
 
-**Associativity.** When we compose three symmetries, $g \cdot (h \cdot k)$ equals $(g \cdot h) \cdot k$ — the grouping does not change the outcome. We get this for free: each symmetry is a function from the triangle to itself, and *composition of functions is always associative* (doing $k$, then $h$, then $g$ means the same thing however you bracket the planning). No table-checking needed.
+The table makes the non-commutativity visible: it is not symmetric across its diagonal. Look at the `$s$` row against the `$s$` column. The `$r$`-column of the `$s$`-row reads `$r^2s$` (that is `$sr$`); the `$s$`-column of the `$r$`-row reads `$rs$`. Two different boxes, two different answers — exactly `$sr \neq rs$` caught in a grid.
 
-**Identity.** The element $e$ leaves every symmetry alone: $e \cdot g = g$ and $g \cdot e = g$ for all six. Read the top row and the left column of the table — each simply copies the labels. So $e$ is the identity.
+What the table still respects is the fingerprint of every group's Cayley table, the one from module 05: every element shows up exactly once in each row and exactly once in each column. Non-commutativity bends the table; it does not break that law.
 
-**Inverses.** Every symmetry has an undo. Scan each row for the entry $e$: it appears once, and its column names the inverse. The rotations undo each other ($r$ and $r^2$ are a pair, since $r \cdot r^2 = e$), while each of $s$, $rs$, $r^2s$ — the three reflections — is its own inverse, sitting on its own diagonal $e$. Every move is reversible.
+## Check yourself
 
-All four axioms hold, so $D_3$ is a genuine group. What it is *not* is **abelian**: from §"The relation," $sr = r^2s \neq rs$. $D_3$ is the smallest non-abelian group there is — six elements, and order already matters.
+From the table, what is `$(rs)(rs)$`? What does that tell you about the element `$rs$`?
+
+<details><summary>Show answer</summary>
+
+Find the `$rs$` row and the `$rs$` column: the entry is `$e$`. So `$(rs)(rs) = e$`, meaning `$rs$` is its own inverse. That fits — `$rs$` is a reflection, and flipping the same way twice returns the triangle home. All three reflections are their own inverses.
+
+</details>
 
 ## Exercises
 
-**1 (mechanical).** Using the rule that the right-hand move happens first, simplify $r \cdot r^2$ and $s \cdot s$ to one of the six standard names.
+**1.** List all six elements of `$D_3$` and say, for each, whether it is a rotation or a reflection.
 
 <details><summary>Show solution</summary>
 
-$r \cdot r^2 = r^3 = e$: three $120^\circ$ turns complete a full circle. $s \cdot s = s^2 = e$: a flip undoes itself. Both equal the identity. These are the two "engine" relations $r^3 = e$ and $s^2 = e$ that, together with $sr = r^2s$, generate the entire table.
+Rotations: `$e$` (`$0^\circ$`), `$r$` (`$120^\circ$`), `$r^2$` (`$240^\circ$`). Reflections: `$s$`, `$rs$`, `$r^2s$`. Three of each, six in total. The rotations turn the paper in place; the reflections flip it over.
 
 </details>
 
-**2 (mechanical).** Read $r \cdot s$ and $r^2 \cdot s$ off the Cayley table. Confirm each matches its standard name $rs$ and $r^2s$.
+**2.** Compute `$r \cdot s$` and `$s \cdot r$` directly by tracking the seats `$(1,2,3)$`, and confirm they disagree.
 
 <details><summary>Show solution</summary>
 
-The $r$-row, $s$-column cell is $rs$; the $r^2$-row, $s$-column cell is $r^2s$. They match by construction — $rs$ and $r^2s$ are *defined* as those compositions. The point of the exercise is to get fluent reading the grid: row = left move (performed second), column = right move (performed first).
+`$rs$` is first `$s$` then `$r$`: `$(1,2,3) \to (1,3,2) \to (2,1,3)$`. `$sr$` is first `$r$` then `$s$`: `$(1,2,3) \to (3,1,2) \to (3,2,1)$`. The results `$(2,1,3)$` and `$(3,2,1)$` differ, so `$rs \neq sr$`. This is the same computation as the worked example — running it yourself is the point.
 
 </details>
 
-**3 (conceptual — the headline).** Show that $sr \neq rs$, and find which standard name $sr$ equals. Then explain, in one sentence, why this means $D_3$ is not abelian.
+**3.** Use the relations `$r^3 = e$`, `$s^2 = e$`, and `$sr = r^2 s$` to simplify `$r^2 s r$`.
 
 <details><summary>Show solution</summary>
 
-Track corners with $s$ fixing seat $1$ and swapping $2,3$, and $r$ moving each corner one seat onward. For $sr$, do $r$ first: $123 \to 312$, then $s$: $312 \to 321$. For $rs$, do $s$ first: $123 \to 132$, then $r$: $132 \to 213$. The arrangements $321$ and $213$ differ, so $sr \neq rs$; comparing $321$ with the effect of $r^2s$ shows $sr = r^2s$.
-
-**The common wrong intuition:** every group you had met before — clocks, integers under $+$, the powers of $i$ — was abelian, so it *feels* like $sr$ and $rs$ "should" be the same flip-and-spin and must agree. They do not, because composition cares about sequence: a flip changes which way "forward" points for the rotation that follows. A single counterexample like $sr \neq rs$ is all it takes to prove a group non-abelian — you never need to check every pair.
+Work from the inside: `$sr = r^2 s$`, so `$r^2 s r = r^2 (sr) = r^2 (r^2 s) = r^4 s$`. Since `$r^3 = e$`, `$r^4 = r^3 r = r$`. Thus `$r^2 s r = rs$`. (Check against the Cayley table: the `$r^2s$` row, `$r$` column reads `$rs$`. It matches.)
 
 </details>
 
-**4 (conceptual).** A friend writes down a Cayley table for a six-element group and you notice the letter $r$ appears twice in one row. Without computing anything, explain how you know they made an error.
+**4.** A tempting wrong answer: a student says "`$D_3$` is non-commutative, so `$ab \neq ba$` for *every* pair of elements." Find two elements of `$D_3$` that *do* commute, and explain why one example of disagreement does not mean total disagreement.
 
 <details><summary>Show solution</summary>
 
-In any group's Cayley table, each element appears exactly once per row (and once per column). Reason: if $g \cdot x = g \cdot y$ within a row, multiply both sides on the left by $g^{-1}$ — which exists, by the inverse axiom — to get $x = y$, so two different columns cannot share an entry. A repeated $r$ in one row would force two columns to be equal, contradicting that the column labels are distinct. The error is real; no arithmetic required.
+`$r$` and `$r^2$` commute: `$r \cdot r^2 = r^3 = e$` and `$r^2 \cdot r = r^3 = e$`, so `$r r^2 = r^2 r$`. (Any two rotations commute, since they all just add up turns.) Also `$e$` commutes with everything. "Non-commutative" means there *exists* at least one pair that disagrees — not that all pairs do. One pair, `$r$` and `$s$`, disqualifies the group from being abelian; it says nothing about the rest.
 
 </details>
 
-**5 (stretch).** Use only the relations $r^3 = e$, $s^2 = e$, and $sr = r^2s$ to simplify the string $s \cdot r \cdot s$ to a single standard name $r^a s^b$. (Hint: slide the leftmost $s$ past the $r$ first.)
+**5.** Find the inverse of each reflection and of each non-identity rotation in `$D_3$`.
 
 <details><summary>Show solution</summary>
 
-Read left to right and apply the slide rule $sr = r^2s$ to the first two factors:
+The inverse of `$a$` is the element `$a^{-1}$` with `$a \cdot a^{-1} = e$` (module 04). Each reflection is its own inverse: `$s^2 = (rs)^2 = (r^2s)^2 = e$`, because flipping the same way twice undoes itself. For the rotations, `$r$` and `$r^2$` undo each other: `$r \cdot r^2 = r^3 = e$`, so `$r^{-1} = r^2$` and `$(r^2)^{-1} = r$`. Read off the Cayley table, this is just where each row meets `$e$`.
 
-$$
-s\,r\,s = (sr)\,s = (r^2 s)\,s = r^2 (s s) = r^2 s^2 = r^2 e = r^2.
-$$
+</details>
 
-So $srs = r^2$. The flip-rotate-flip sandwich collapses to a pure rotation — and notice it is the *reverse* rotation $r^2 = r^{-1}$, not $r$. Conjugating a rotation by a reflection reverses its direction, which is the algebra's way of saying a flipped-over triangle spins the other way.
+**6.** (Stretch.) The square has eight symmetries — four rotations (by `$0^\circ, 90^\circ, 180^\circ, 270^\circ$`) and four reflections. Without building the full table, argue that this group is also non-commutative. (Hint: pick a rotation and a reflection and track one corner.)
+
+<details><summary>Show solution</summary>
+
+Label the square's corners `$1,2,3,4$`. Let `$\rho$` be the `$90^\circ$` turn and `$\sigma$` a flip across a diagonal. Track where corner `$1$` lands. Doing `$\sigma$` then `$\rho$` sends `$1$` to one corner; doing `$\rho$` then `$\sigma$` sends it to a different corner — the same flip-then-turn versus turn-then-flip split that broke `$D_3$`. So the square's symmetry group is non-commutative too. Mixing a rotation with a reflection is what creates the disagreement; this is a general feature of symmetry groups of shapes, not a quirk of the triangle.
 
 </details>
 
 ## Recap
 
-Six symmetries — three rotations $e, r, r^2$ and three reflections $s, rs, r^2s$ — form the group $D_3$ under composition, and the whole of it runs on three relations: $r^3 = e$, $s^2 = e$, and the slide rule $sr = r^2s$. Filling in its Cayley table, we found the table is not a mirror across its diagonal, because $rs \neq sr$: this is the first group we have met where **order matters**, the smallest non-abelian group of all. Carry that lesson forward — "commutative" was a convenience of our early examples, not a law of groups. Next we go hunting *inside* groups like this one, asking which subsets are secretly groups in their own right: subgroups.
-</content>
-</invoke>
+The six symmetries of an equilateral triangle — three rotations and three reflections — form a group, `$D_3$`, under composition: do one move, then another. We named the moves, composed them by juxtaposition reading right to left, and built the full Cayley table. The headline is the relation `$sr = r^2s$`, which means `$rs \neq sr$`: order matters now, and it will not stop mattering. Every group from here on must answer the commutativity question fresh — the clock's easy symmetry was the exception, not the rule.

@@ -38,8 +38,10 @@ const MAX_PHRASE_TOTAL = 4; // appears >4 times total => hard flag
 // Within-module word overuse. Generic content words capped at MAX_WORD; the
 // vivid "image" words (the cute concrete nouns the voice leans on) capped lower.
 const MAX_WORD = 8; // a content word used >8 times in one module => hard flag
+// 'clock' is deliberately NOT here: for a clock-arithmetic course it is a topic word,
+// not a decorative image. This set tracks the cute nouns a voice over-leans on, not subject matter.
 const IMAGE_WORDS = new Set([
-  'machine', 'clock', 'coaster', 'costume', 'gadget',
+  'machine', 'coaster', 'costume', 'gadget',
   'zoo', 'menagerie', 'room', 'dance',
 ]);
 const MAX_IMAGE_WORD = 5; // an image word used >5 times in one module => hard flag

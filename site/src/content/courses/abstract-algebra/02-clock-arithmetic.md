@@ -2,229 +2,246 @@
 title: Clock Arithmetic
 course: abstract-algebra
 order: 2
-summary: Adding on a clock face introduces a finite world of arithmetic that wraps around — our first playground.
+summary: Adding on a clock face introduces a finite world of arithmetic that wraps around — our first concrete playground.
 estimatedMinutes: 18
 objectives:
-  - Compute sums in modular arithmetic
-  - Explain what "mod n" means
-  - Identify the wrap-around (identity) and how to undo a step
-prerequisites: [01-the-secret-life-of-symmetry]
+  - Compute sums in modular arithmetic using the wrap-around rule
+  - State what "a mod n" means in plain words and with a formula
+  - Read an addition table for a clock group and use it to find sums and "undo" elements
+prerequisites:
+  - 01-the-secret-life-of-symmetry
 ---
 
-It is nine in the morning and you have a meeting in five hours. What time does it start? Two in
-the afternoon — and you knew that without ever thinking $9 + 5 = 14$, because no clock has a
-fourteen. The hand swept past twelve and kept going, and the answer came out the other side as
-a 2.
+Here is an arithmetic question with a wrong answer: what is $9 + 5$?
 
-You have been doing strange arithmetic your whole life and calling it telling time. The last
-module promised that arithmetic and symmetry are two faces of one structure, and this is where
-the first half of that promise comes due: a number system that fits on a clock face, where the
-line of integers has been bent into a circle and the loose ends fused together.
+On a standard clock face, the hands read $2$. Not $14$. The clock runs from $1$ to $12$, and when you go past $12$ it doesn't keep counting — it starts over. That starting-over is not a quirk or a rounding error. It is a rule, and arithmetic built on that rule has all the structure we are chasing through this course.
 
-Ordinary counting marches off in a straight line forever — $0, 1, 2, 3, \dots$, no last stop. A
-clock refuses to play along. It has exactly twelve hour-marks, and once the hand reaches the top
-it does not find a thirteen; it lands back on twelve and starts the lap again. The number line
-has been rolled up into a loop.
+Module 01 found one idea — structure — hiding in turning shapes, clock arithmetic, and triangle flips, and the idea of combining moves. This module is where we make the clock version precise.
 
-So "what is $9 + 5$?" splits into two questions. There is the honest count — $14$ — and there
-is *where the hand ends up*, which is what we actually care about. To get the second from the
-first, subtract a full lap of $12$: $14 - 12 = 2$. If you had overshot by two laps, you would
-subtract $24$. The rule never changes: walk around as many full laps as you can, and report only
-the leftover.
+## The clock as a number system
 
-That leftover is the **remainder** after dividing by the number of marks on the clock. On a
-$12$-hour clock, $14$ leaves a remainder of $2$, because $14 = 1 \times 12 + 2$. That word
-*remainder* — the scrap left over from a division you stop early — is the heart of everything
-here. Modular arithmetic is the arithmetic of remainders.
+Picture a clock face. Not a 12-hour clock yet — start smaller. Draw a circle, mark four equally-spaced positions, and label them $0, 1, 2, 3$ going clockwise. (Starting from $0$ instead of $1$ will keep the arithmetic cleaner.)
 
-Nothing forces us to use twelve. A clock with five marks works just as well, and it is small
-enough to take in at a glance, so we will build our first world there.
+```
+        0
+      /   \
+    3       1
+      \   /
+        2
+```
 
-## Definition (Reduction mod $n$)
+This is the **4-clock**. Its only numbers are $\{0, 1, 2, 3\}$.
 
-Fix a whole number $n \geq 1$, the number of marks on the clock. For any integer $a$, the value
-$a \bmod n$ is the **remainder when $a$ is divided by $n$**: the unique integer $r$ with
+Addition on the 4-clock works like turning the hand. Start at a position, move clockwise by a number of steps. When the hand sweeps past $3$ it wraps back to $0$, then $1$, and so on.
 
-$$
-a = qn + r, \qquad 0 \leq r < n,
-$$
+Try it: start at $2$, move $3$ steps. You land on $2 \to 3 \to 0 \to 1$. So on the 4-clock, $2 + 3 = 1$.
 
-where $q$ is a whole number of complete laps. We call $r$ the **reduction of $a$ mod $n$**, and
-we collect all the possible remainders into one set,
+Or: start at $3$, move $2$ steps. $3 \to 0 \to 1$. So $3 + 2 = 1$ as well.
 
-$$
-\mathbb{Z}_n = \{\, 0, 1, 2, \dots, n-1 \,\},
-$$
+The wrap-around is the whole idea. On the 4-clock, four steps is zero steps — you end exactly where you began.
 
-$\mathbb{Z}_n$ (the $n$-hour clock) — the integers **mod $n$**.
+## The rule: mod n
 
-To **add in $\mathbb{Z}_n$**, add the two numbers as usual and then reduce mod $n$: the result
-of $a$ plus $b$ is $(a + b) \bmod n$.
+The term for this wrap-around is **modular arithmetic**, and the rule has a precise form.
 
-## Worked example
+**Definition (modular arithmetic).** Let $n$ be a positive integer. For any integer $a$, the expression **$a \bmod n$** (read "$a$ mod $n$") is the remainder when $a$ is divided by $n$.
 
-**Problem.** Working on a $5$-mark clock — that is, in $\mathbb{Z}_5$ — compute $3 + 4$.
+In other words: divide $a$ by $n$, throw away the whole number part, keep what's left. The result is always one of $\{0, 1, 2, \ldots, n-1\}$.
 
-**Solution.** First add honestly: $3 + 4 = 7$. Now reduce mod $5$ by peeling off complete laps
-of $5$:
+A few examples to anchor this:
+
+- $14 \bmod 12 = 2$, because $14 = 1 \times 12 + 2$.
+- $7 \bmod 4 = 3$, because $7 = 1 \times 4 + 3$.
+- $8 \bmod 4 = 0$, because $8 = 2 \times 4 + 0$.
+- $3 \bmod 5 = 3$, because $3 = 0 \times 5 + 3$.
+
+The **bridge** from the clock picture to this rule: "divide by $n$ and keep the remainder" is exactly what the clock's hand does when it sweeps past $n-1$ back to $0$. Moving $14$ steps on a 12-clock lands on $2$ because $14 = 1 \times 12 + 2$ — you did one full lap, then $2$ extra steps.
+
+**Addition mod $n$** works by computing the ordinary integer sum and then applying mod:
 
 $$
-7 = 1 \times 5 + 2, \qquad \text{so} \qquad 7 \bmod 5 = 2.
+a + b \pmod{n} \;=\; (a + b) \bmod n
 $$
 
-The hand started at $3$, stepped forward $4$, passed the top once, and came to rest on $2$. In
-the notation of $\mathbb{Z}_5$, then, $3 + 4 = 2$. The honest sum $7$ never appears on this
-clock; only its leftover does.
+The parenthetical "(mod $n$)" signals that we are working inside the $n$-clock. The sum is taken ordinarily, then wrapped back into $\{0, 1, \ldots, n-1\}$.
 
-## Check yourself
+---
 
-On the same $5$-mark clock, what is $4 + 4$ in $\mathbb{Z}_5$? Work it out before you look.
+**Check yourself.** On the 12-clock — the numbers $\{0, 1, 2, \ldots, 11\}$ — what is $9 + 5$?
 
 <details><summary>Show answer</summary>
 
-$4 + 4 = 8$, and $8 = 1 \times 5 + 3$, so $8 \bmod 5 = 3$. Thus $4 + 4 = 3$ in $\mathbb{Z}_5$.
-The hand crossed the top once and landed on $3$.
+$9 + 5 = 14$ as ordinary integers. Now wrap: $14 \bmod 12 = 2$, since $14 = 1 \times 12 + 2$. The answer is $2$.
+
+This matches the clock story at the top of the module: "9 hours plus 5 more hours lands on 2."
 
 </details>
 
-## The whole world at once: the $\mathbb{Z}_5$ addition table
+---
 
-Because $\mathbb{Z}_5$ has only five elements, we can write down *every* sum it contains. Read
-the table as: pick a row $a$, pick a column $b$, and the cell holds $(a + b) \bmod 5$.
+## The group $\mathbb{Z}_n$
 
-| $+$ | 0 | 1 | 2 | 3 | 4 |
-|---|---|---|---|---|---|
-| **0** | 0 | 1 | 2 | 3 | 4 |
-| **1** | 1 | 2 | 3 | 4 | 0 |
-| **2** | 2 | 3 | 4 | 0 | 1 |
-| **3** | 3 | 4 | 0 | 1 | 2 |
-| **4** | 4 | 0 | 1 | 2 | 3 |
+The set $\{0, 1, 2, \ldots, n-1\}$ together with addition mod $n$ is written **$\mathbb{Z}_n$** (pronounced "Z mod n" or "the integers mod n"). $\mathbb{Z}$ is the letter mathematicians use for the ordinary integers; the subscript $n$ signals that we are working inside the $n$-clock.
 
-Stare at it for a moment, because it is quietly telling you things.
+So $\mathbb{Z}_4 = \{0, 1, 2, 3\}$ with addition mod $4$, and $\mathbb{Z}_{12} = \{0, 1, 2, \ldots, 11\}$ with addition mod $12$.
 
-First, every entry is one of $0, 1, 2, 3, 4$ — no sum ever escapes the clock. Add any two marks
-and you land on a mark. The world does not *run out* and it does not spill over; it folds back
-on itself. (A common worry is that $\mathbb{Z}_n$ "ends" at $n-1$ and breaks when you push past
-it. It doesn't — there is no edge to fall off, only the loop.)
+The operation is always $+$, and the rule is always: add, then wrap.
 
-Second, look at the top row and the leftmost column. Adding $0$ changes nothing: $0 + b = b$ and
-$a + 0 = a$, every time. There is a number here that does *nothing* — it leaves whatever it
-touches exactly as it found it. Hold that thought.
+Two things are worth noticing right away — call them the **identity element** and the **undo element**, because we will meet them formally in module 03.
 
-Third, hunt for the $0$s scattered through the body of the table. Each row has exactly one. In
-row $2$ the $0$ sits under column $3$, because $2 + 3 = 5 = 0$ in $\mathbb{Z}_5$. So $3$ is the
-step that *undoes* $2$: take two steps forward, then three more, and you are back where you
-started. Every mark has a partner that cancels it. Hold that thought too.
+- **The do-nothing element** in $\mathbb{Z}_n$ is $0$. Adding $0$ to any number leaves it unchanged: $a + 0 = a$ for every $a$ in $\{0, 1, \ldots, n-1\}$.
+- **The undo element** for any $a$ in $\mathbb{Z}_n$ is $n - a$. Adding them gives $a + (n - a) = n \equiv 0 \pmod{n}$ — back to $0$, the identity. On the 4-clock, the undo element of $3$ is $4 - 3 = 1$, because $3 + 1 = 4 \equiv 0 \pmod{4}$.
 
-## Check yourself
+---
 
-In $\mathbb{Z}_5$, which number do you add to $1$ to get back to $0$? (Find the partner that
-undoes a single step.)
+**Check yourself.** What is the undo element of $7$ in $\mathbb{Z}_{12}$?
 
 <details><summary>Show answer</summary>
 
-You need $1 + ? = 0$ in $\mathbb{Z}_5$. Since $1 + 4 = 5$ and $5 \bmod 5 = 0$, the answer is
-$4$. Stepping forward once and then four more times carries the hand around a full lap, back to
-the start. So $4$ undoes $1$.
+The undo element of $7$ is $12 - 7 = 5$, because $7 + 5 = 12 \equiv 0 \pmod{12}$.
+
+You can check: if you are 7 hours ahead of midnight and you "undo" 7 hours, you land back at midnight (0). Adding 5 does exactly that on the 12-clock.
 
 </details>
 
-We have not given these two patterns their proper names yet — that is the next module's job. But
-you have already met them: a special element that does nothing, and, for each element, a partner
-that undoes it. Keep an eye out. They are about to become the load-bearing beams of everything
-that follows.
+---
+
+## The addition table for $\mathbb{Z}_4$
+
+The clearest way to see a clock group is to write out all its sums in a single table. The entry in row $a$, column $b$ is $a + b \pmod{4}$.
+
+$$
+\begin{array}{c|cccc}
++ & 0 & 1 & 2 & 3 \\ \hline
+0 & 0 & 1 & 2 & 3 \\
+1 & 1 & 2 & 3 & 0 \\
+2 & 2 & 3 & 0 & 1 \\
+3 & 3 & 0 & 1 & 2
+\end{array}
+$$
+
+Three things to notice:
+
+1. **Every entry is in $\{0, 1, 2, 3\}$.** The sum never escapes the clock. A set that stays inside itself under the operation is called **closed** — that word will become official in module 03.
+2. **The row for $0$ is the same as the column header, and vice versa.** Adding $0$ changes nothing — $0$ is the identity.
+3. **Every number appears exactly once in each row and each column.** This means every element has a unique undo partner. For example, the entry $0$ in row $3$ is in column $1$, confirming $3 + 1 = 0$.
+
+---
+
+**Check yourself.** Use the table to find: (a) $3 + 3$ in $\mathbb{Z}_4$. (b) The entry in row $2$, column $3$.
+
+<details><summary>Show answer</summary>
+
+(a) Row $3$, column $3$: the entry is $2$. So $3 + 3 = 2$ in $\mathbb{Z}_4$ (since $6 \bmod 4 = 2$).
+
+(b) Row $2$, column $3$: the entry is $1$. So $2 + 3 = 1$ in $\mathbb{Z}_4$ (since $5 \bmod 4 = 1$).
+
+</details>
+
+---
+
+## Worked example: three sums on the 12-clock
+
+Let's work through several sums in $\mathbb{Z}_{12}$ — the numbers $\{0, 1, \ldots, 11\}$ with addition mod $12$ — to build fluency with the method.
+
+**Problem.** Compute: (a) $9 + 5$, (b) $8 + 7$, (c) $11 + 11$ in $\mathbb{Z}_{12}$.
+
+**Solution.**
+
+(a) $9 + 5 = 14$. Now $14 \bmod 12$: $14 = 1 \times 12 + 2$, so the remainder is $2$.
+$$9 + 5 \equiv 2 \pmod{12}$$
+
+(b) $8 + 7 = 15$. Now $15 \bmod 12$: $15 = 1 \times 12 + 3$, so the remainder is $3$.
+$$8 + 7 \equiv 3 \pmod{12}$$
+
+(c) $11 + 11 = 22$. Now $22 \bmod 12$: $22 = 1 \times 12 + 10$, so the remainder is $10$.
+$$11 + 11 \equiv 10 \pmod{12}$$
+
+**Method to remember:** add as usual, then ask "how far past a full lap is this?" The answer is the remainder. One quick shortcut: if the sum is between $n$ and $2n-2$, subtract $n$ once. For example, $14 - 12 = 2$ and $15 - 12 = 3$, matching the work above.
 
 ## Exercises
 
-**1.** Compute $8 + 9$ in $\mathbb{Z}_{12}$ (a standard clock face).
+**Exercise 1.** Compute each sum in $\mathbb{Z}_5 = \{0, 1, 2, 3, 4\}$.
+
+(a) $3 + 4$ (b) $4 + 4$ (c) $2 + 3$
 
 <details><summary>Show solution</summary>
 
-Add honestly: $8 + 9 = 17$. Reduce mod $12$: $17 = 1 \times 12 + 5$, so $17 \bmod 12 = 5$. Thus
-$8 + 9 = 5$ in $\mathbb{Z}_{12}$.
+(a) $3 + 4 = 7$. Since $7 = 1 \times 5 + 2$, we get $3 + 4 \equiv 2 \pmod{5}$.
 
-A tempting wrong answer is $17$ — but $17$ is not a mark on a $12$-hour clock. Forgetting to
-reduce is the single most common slip in modular arithmetic. Always finish by peeling off whole
-laps of $n$; the answer must land in $\{0, 1, \dots, n-1\}$.
+(b) $4 + 4 = 8$. Since $8 = 1 \times 5 + 3$, we get $4 + 4 \equiv 3 \pmod{5}$.
+
+(c) $2 + 3 = 5$. Since $5 = 1 \times 5 + 0$, we get $2 + 3 \equiv 0 \pmod{5}$. Five steps lands exactly back at $0$.
 
 </details>
 
-**2.** Compute $11 + 4$ in $\mathbb{Z}_{12}$.
+---
+
+**Exercise 2.** In $\mathbb{Z}_7 = \{0, 1, 2, 3, 4, 5, 6\}$, find the undo element for each of these:
+
+(a) $3$ (b) $6$ (c) $0$
 
 <details><summary>Show solution</summary>
 
-$11 + 4 = 15$, and $15 = 1 \times 12 + 3$, so $15 \bmod 12 = 3$. On the clock: eleven o'clock
-plus four hours is three o'clock. The answer is $3$.
+The undo element of $a$ in $\mathbb{Z}_n$ is $n - a$ (for $a \neq 0$), because $a + (n-a) = n \equiv 0 \pmod{n}$.
+
+(a) Undo element of $3$: $7 - 3 = 4$. Check: $3 + 4 = 7 \equiv 0 \pmod{7}$. ✓
+
+(b) Undo element of $6$: $7 - 6 = 1$. Check: $6 + 1 = 7 \equiv 0 \pmod{7}$. ✓
+
+(c) Undo element of $0$: $0$ itself, because $0 + 0 = 0$. The identity is always its own inverse.
+
+A tempting wrong answer for (b): some readers instinctively write $7$. But $7$ is not in $\mathbb{Z}_7$ — the numbers stop at $6$, and $7 \bmod 7 = 0$, which is already in the set.
 
 </details>
 
-**3.** Using the $\mathbb{Z}_5$ table above (or by computing directly), find every $x$ in
-$\mathbb{Z}_5$ with $x + 3 = 1$.
+---
+
+**Exercise 3.** Build the full addition table for $\mathbb{Z}_3 = \{0, 1, 2\}$ with addition mod $3$. Then use your table to answer: does every row contain a $0$? What does that tell you?
 
 <details><summary>Show solution</summary>
 
-You want a mark $x$ that, after stepping forward $3$, lands on $1$. Honest arithmetic says
-$x = 1 - 3 = -2$; reduce $-2$ mod $5$ by adding a lap: $-2 + 5 = 3$. Check: $3 + 3 = 6 = 1$ in
-$\mathbb{Z}_5$. So $x = 3$.
+$$
+\begin{array}{c|ccc}
++ & 0 & 1 & 2 \\ \hline
+0 & 0 & 1 & 2 \\
+1 & 1 & 2 & 0 \\
+2 & 2 & 0 & 1
+\end{array}
+$$
 
-If subtracting felt uncomfortable, you can also just scan the table: in column $3$, the entry
-equal to $1$ sits in row $3$. Same answer, no negatives. (Notice there is exactly one solution —
-undoing a step lands you somewhere definite.)
+Yes, every row contains a $0$: it appears in column $2$ of row $1$, column $1$ of row $2$, and column $0$ of row $0$. That $0$ in each row is the undo sum — it marks the column of the undo partner. So every element has an undo element in $\mathbb{Z}_3$.
 
 </details>
 
-**4.** In $\mathbb{Z}_6$, which number does nothing when you add it — that is, which $e$
-satisfies $a + e = a$ for every $a$? And what number must you add to $4$ to get back to that
-number?
+---
+
+**Exercise 4.** (Conceptual.) Suppose someone claims that $\mathbb{Z}_6$ with addition mod $6$ has an element with no undo partner. Without computing the whole table, explain why that is impossible.
 
 <details><summary>Show solution</summary>
 
-The number that does nothing is $0$: adding $0$ never moves the hand, so $a + 0 = a$ for every
-$a$. To undo $4$, solve $4 + ? = 0$ in $\mathbb{Z}_6$. Since $4 + 2 = 6$ and $6 \bmod 6 = 0$,
-the answer is $2$.
+For any $a$ in $\mathbb{Z}_6 = \{0, 1, 2, 3, 4, 5\}$, the number $6 - a$ is also in $\mathbb{Z}_6$ (or equals $6 \bmod 6 = 0$ when $a = 0$). And $a + (6 - a) = 6 \equiv 0 \pmod{6}$.
 
-This is the identity/inverse distinction again. The number that does nothing ($0$) is one
-special, *shared* element. The undo number ($2$) depends on what you are undoing — it is the
-partner of $4$ specifically, not a universal eraser. Confusing "the thing that does nothing"
-with "the thing that undoes you" is a tempting wrong answer; they are different jobs.
+So $6 - a$ is always available as the undo partner. No element is left without one.
+
+The general rule: in $\mathbb{Z}_n$, the undo element of $a$ is $n - a$ (and $0$ is its own undo element). This works for every $n \geq 1$.
 
 </details>
 
-**5.** (Conceptual.) Explain in a sentence or two why a sum in $\mathbb{Z}_5$ can never produce
-a number outside $\{0, 1, 2, 3, 4\}$, no matter how large the two numbers you started with.
+---
+
+**Exercise 5.** (Stretch.) Consider $\mathbb{Z}_4$. Start at $1$ and keep adding $1$ repeatedly: $1, 1+1=2, 2+1=3, 3+1=0, 0+1=1, \ldots$. List the sequence of positions you visit. What do you notice?
 
 <details><summary>Show solution</summary>
 
-Reducing mod $5$ is the *last* step of every addition, and a remainder after dividing by $5$ is
-always one of $0, 1, 2, 3, 4$ by definition — that is what "remainder less than $5$" means. So
-however big the honest sum gets, peeling off whole laps of $5$ drags it back inside the clock.
-The world is closed: combining two marks always yields a mark.
+Starting at $1$: $1, 2, 3, 0, 1, 2, 3, 0, \ldots$. You cycle through all four elements $\{0, 1, 2, 3\}$ and then repeat.
+
+Starting from $1$ and adding $1$ repeatedly visits every element of $\mathbb{Z}_4$ before looping back. This means $1$ can **generate** the entire group by repeated addition — a hint at a concept called a **cyclic group** and a **generator** that we'll explore in module 08. Not every element can do this: starting at $2$ gives $2, 0, 2, 0, \ldots$ — it only visits two elements. The difference turns out to matter a great deal.
 
 </details>
 
-**6.** (Stretch.) On the $\mathbb{Z}_5$ clock, start at $0$ and repeatedly add $3$:
-$0, 0+3, \dots$ Write out the marks you visit until you return to $0$. Do you hit every mark
-before returning?
-
-<details><summary>Show solution</summary>
-
-Stepping by $3$ from $0$: $0 \to 3 \to (3+3=6=1) \to (1+3=4) \to (4+3=7=2) \to (2+3=5=0)$. The
-path is $0, 3, 1, 4, 2, 0$ — you visit all five marks exactly once before landing home.
-
-That every mark gets hit is not a coincidence of the number $3$; it is a feature of
-$\mathbb{Z}_5$ that we will explain properly when we meet generators and cyclic groups. For now,
-just notice: one repeated step can tour the entire world.
-
-</details>
+---
 
 ## Recap
 
-We bent the number line into a loop and built our first finite arithmetic: $\mathbb{Z}_n$, where
-adding means "add, then keep only the remainder." We computed sums on the $5$-mark clock and
-laid out its entire addition table, and two patterns surfaced unbidden — a number that does
-nothing ($0$), and, for each mark, a partner that undoes it. Unnamed for now, they are the seeds
-of everything ahead. What comes next is the workshop where arithmetic gets stripped to its bare
-machinery — a set, an operation, and the handful of rules worth caring about — and there, at
-last, those two patterns earn their true names.
-</content>
-</invoke>
+Addition mod $n$ takes any two elements of $\{0, 1, \ldots, n-1\}$ and wraps their ordinary sum back around the clock. The set with this operation is written $\mathbb{Z}_n$ (the $n$-hour clock), and it has an identity ($0$) and an inverse for every position ($n - a$ undoes $a$). The addition table for $\mathbb{Z}_4$ shows all of this at once: the entries stay inside the set, adding $0$ leaves every row unchanged, and a $0$ entry sits in every row marking each inverse pair. That pattern — a closed set, a wrap-around rule, an identity, and an inverse for every element — is the skeleton module 03 will name.

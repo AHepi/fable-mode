@@ -253,13 +253,11 @@ Notice $H \leq K \leq \mathbb{Z}_8$ — subgroups can nest. The sizes are $2$, $
 
 <details><summary>Show solution</summary>
 
-Test closure: compute $r * s$ using the $D_3$ multiplication rule. From module 06, $r * s = sr^{-1} = sr^2 = r^2 s$ — wait, let's be careful. In $D_3$ the key relation is $sr = r^{-1}s = r^2 s$. So $r * s$ is... actually let's read it from the full Cayley table:
-
-In $D_3$: $r \cdot s = rs$ (this is the element $rs$, a different reflection), and $rs \notin \{e, r, s\}$.
+Test closure. In $D_3$, composing $r$ and $s$ (reading right to left: first $s$, then $r$) gives the element $rs$ — a reflection distinct from $s$. Reading off the Cayley table from module 06: the $r$-row, $s$-column entry is $rs$. Since $rs \notin \{e, r, s\}$, the set escapes immediately.
 
 Closure fails. $\{e, r, s\}$ is not a subgroup.
 
-The tempting wrong answer is to assume that any three elements including $e$ form a subgroup. They don't — you must check that composing any two elements stays inside the set.
+A tempting wrong answer is to assume that any three elements including $e$ form a subgroup. They don't — you must check that composing any two elements stays inside the set.
 
 </details>
 
@@ -306,6 +304,4 @@ Verifying each with the subgroup test is a good exercise — pick one (say $\{0,
 
 A **subgroup** is a subset of a group that forms a group on its own under the same operation. To check: three conditions — the set is closed (combining two elements stays inside), the identity belongs to the set, and every element's inverse belongs to the set. Associativity is free, because it already holds for the whole group.
 
-Inside $D_3$ live the rotation subgroup $\{e, r, r^2\}$ and three single-reflection subgroups $\{e, s\}$, $\{e, rs\}$, $\{e, r^2s\}$. Inside $\mathbb{Z}_6$ lives $\{0, 2, 4\}$. Every example's subgroup size divides the group's size — a pattern you've now seen in enough cases that it demands an explanation.
-
-Module 08 pivots from *finding* subgroups by inspection to *building* them: starting from a single element and applying it repeatedly generates a cyclic subgroup. That construction hands module 09 the tool it needs to turn the size-divides-size pattern into a theorem.
+Inside $D_3$ live the rotation subgroup $\{e, r, r^2\}$ and three single-reflection subgroups $\{e, s\}$, $\{e, rs\}$, $\{e, r^2s\}$. Inside $\mathbb{Z}_6$ lives $\{0, 2, 4\}$. Every subgroup size divides the group size: $3 \mid 6$, $2 \mid 6$, $1 \mid 6$. That pattern has held in every example — the house is always a whole fraction of the city, never a fractional room. The question is why it cannot fail. The answer requires knowing not just that subgroups exist, but how they are built.

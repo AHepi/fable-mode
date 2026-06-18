@@ -5,169 +5,301 @@ order: 5
 summary: Groups are everywhere once you know the shape — numbers, fractions, roots of unity, and more.
 estimatedMinutes: 16
 objectives:
-  - Identify groups among varied examples
-  - Distinguish finite from infinite groups
-  - Recognize when an operation is commutative (abelian)
-prerequisites: [04-what-is-a-group]
+  - List at least four distinct examples of groups and identify the set and operation for each
+  - Verify that a given example meets all four group axioms (closure, associativity, identity, inverses)
+  - Distinguish finite groups from infinite groups by counting elements
+  - Recognize when a group is abelian (commutative) and when it is not
+  - Read and build a small Cayley table for a finite group
+prerequisites:
+  - 04-what-is-a-group
 ---
 
-Learn the four rules that make a group and you start spotting them everywhere — the way a naturalist who knows one skeleton sees the same bones under fur, feathers, and scales. That is what just happened to you. You spent the last module bolting four rules together — closure, associativity, identity, inverses — into a single object called a group. Now turn around and look at the math you already knew. The integers were a group the whole time. So were the hours on a clock. So, it turns out, are four little numbers spinning around the unit circle. This module is a walk through the menagerie: same skeleton, wildly different animals.
+Once you have a key, you start seeing locks everywhere. The definition of a group — a set equipped with an operation that satisfies four rules — looked abstract in module 04, a list of conditions without a face. But definitions are lenses: the moment one clicks into focus, the world fills up with examples you had walked past without recognizing.
 
-Here is how you spot a group in the wild. Don't ask "is this made of numbers?" — that question leads you astray, because plenty of groups aren't, and plenty of number systems aren't groups. Ask instead: **what is the set, and what is the operation?** Then run the four-axiom check from module 04.
+This module is the gallery. We will visit six specimens: some made of ordinary numbers, one made of the square root of $-1$, and a few familiar objects that fail the test. For each we ask the same four questions from module 04, and the answers come back differently every time — same skeleton, different flesh.
 
-Two of those animals will feel different from the rest, and the difference is worth a name. When you add $3 + 5$ you get the same answer as $5 + 3$. When you multiply $2 \times 7$ you get the same answer as $7 \times 2$. The order of the two inputs doesn't matter. That property — *swapping the two inputs never changes the result* — is so common in the arithmetic you grew up with that it feels like a law of nature. It isn't. Some groups have it, some don't, and the ones that do get a special label. We'll meet the well-behaved, order-doesn't-matter groups here; the rebels wait for the next module.
+Recall the four axioms from module 04. A **group** is a set $G$ together with an operation $*$ (a rule that combines any two elements of $G$ to get another element of $G$) satisfying:
 
-The other split worth watching is plain *size*. Some of these groups have infinitely many elements — you could never write the whole addition table. Others have just a handful, few enough that you can draw the entire operation as a grid. Both kinds are groups. Counting the elements is the first thing a mathematician does on meeting a new one, and the count gets a name and a symbol: the **order** of a group $G$, written $|G|$, is just how many elements $G$ has. So $|G|$ is a number when the group is finite and "infinite" when it isn't — that is the whole content of the definition below.
+1. **Closure:** $a * b$ is always in $G$.
+2. **Associativity:** $(a * b) * c = a * (b * c)$ for all $a, b, c$ in $G$.
+3. **Identity:** there is a special element $e$ in $G$ — the *identity*, the element that leaves every partner unchanged — with $a * e = e * a = a$ for every $a$.
+4. **Inverses:** every element $a$ in $G$ has an inverse $a^{-1}$ in $G$ with $a * a^{-1} = a^{-1} * a = e$.
 
-## Definition (Abelian group)
+A group where $a * b = b * a$ for *every* pair is called **abelian** (after Niels Henrik Abel, the Norwegian mathematician who used this symmetry to prove that the quintic equation has no formula). We say the operation is *commutative*.
 
-A group $(G, *)$ is **abelian** if its operation is **commutative**: for all elements $a, b \in G$,
+---
 
-$$
-a * b = b * a.
-$$
+## The integer line: $(\mathbb{Z}, +)$
 
-A group that fails this — where some pair satisfies $a * b \neq b * a$ — is called **non-abelian**.
+The integers — $\ldots, -2, -1, 0, 1, 2, \ldots$ — under ordinary addition.
 
-(The name honors Niels Henrik Abel; it is conventionally written lowercase, *abelian*.)
+- **Closure:** add two integers and you get an integer. $\checkmark$
+- **Associativity:** $(1 + 2) + 3 = 1 + (2 + 3)$. Integer addition has been associative since you learned it. $\checkmark$
+- **Identity:** $0$. Adding zero to anything leaves it unchanged: $a + 0 = a$. $\checkmark$
+- **Inverses:** the inverse of $a$ is $-a$. Indeed $a + (-a) = 0$. $\checkmark$
 
-## Definition (Order of a group)
+So $(\mathbb{Z}, +)$ is a group. It is abelian ($a + b = b + a$ always) and infinite — it has no last element in either direction.
 
-The **order** of a group $G$, written $|G|$, is the number of elements in $G$. If that number is finite, $G$ is a **finite group**; otherwise $G$ is an **infinite group**.
+**Note on notation.** Because the operation here is honest addition, we write $+$, not the generic $*$. Each group in this module keeps its own natural operation — $+$ for integers, $\times$ for products — rather than replacing every symbol with the abstract placeholder.
 
-## Worked example
+---
 
-Let's run the menagerie one cage at a time. For each, name the set, name the operation, and read off the two features we now care about: is it abelian, and is it finite?
+## The clock group: $(\mathbb{Z}_n, +)$
 
-**The integers under addition, $(\mathbb{Z}, +)$.** The set is $\dots, -2, -1, 0, 1, 2, \dots$ and the operation is ordinary addition. You verified in the last module that this is a group: the identity is $0$, and the inverse of $n$ is $-n$. Is it abelian? Yes — $a + b = b + a$ for any integers. Is it finite? No: the integers run on forever, so $\mathbb{Z}$ is an **infinite abelian group**.
+From module 02 we know **$\mathbb{Z}_n$ (the $n$-hour clock)**: the set $\{0, 1, 2, \ldots, n-1\}$ where addition wraps around at $n$. For instance, on the 5-hour clock ($\mathbb{Z}_5$), we have $3 + 4 = 2$ (not $7$, since $7 - 5 = 2$).
 
-**The nonzero rationals under multiplication, $(\mathbb{Q}^{\times}, \times)$.** Here $\mathbb{Q}^{\times}$ means every fraction $\tfrac{p}{q}$ *except* zero, and the operation is multiplication. Why throw zero out? For the same reason $2$ had no inverse in $(\mathbb{Z}, \times)$ back in module 04 — only now the troublemaker is zero: there is no rational you can multiply by $0$ to get $1$, so keeping it would break the inverse axiom. With zero gone, every element $\tfrac{p}{q}$ has the inverse $\tfrac{q}{p}$, the identity is $1$, and multiplication is associative and commutative. So $\mathbb{Q}^{\times}$ is another **infinite abelian group**.
+- **Closure:** adding two numbers from $\{0, 1, \ldots, n-1\}$ and wrapping at $n$ always lands back in $\{0, 1, \ldots, n-1\}$. $\checkmark$
+- **Associativity:** inherited from ordinary integer addition. $\checkmark$
+- **Identity:** $0$. Zero added to anything on the clock leaves it where it is. $\checkmark$
+- **Inverses:** the inverse of $a$ is $n - a$ (from module 04: $a + (n - a) = n \equiv 0$). In $\mathbb{Z}_5$, the inverse of $3$ is $2$, since $3 + 2 = 5 \equiv 0$. $\checkmark$
 
-**The fourth roots of unity, $(\{1, i, -1, -i\}, \times)$.** Here $i$ is the imaginary unit, the number with $i^2 = -1$. The set has exactly four elements and the operation is multiplication. Watch what happens as you multiply by $i$ again and again:
+So $(\mathbb{Z}_n, +)$ is a group for every $n \geq 1$. It is abelian and **finite** — it has exactly $n$ elements. We write the size of a group as $|G|$, so $|\mathbb{Z}_n| = n$.
 
-$$
-i^1 = i, \quad i^2 = -1, \quad i^3 = -i, \quad i^4 = 1.
-$$
+<details><summary>Check yourself — inverse in $\mathbb{Z}_7$</summary>
 
-It cycles. The whole operation fits in a small grid — a **Cayley table**, where the entry in row $a$, column $b$ is the product $a \times b$:
+What is the inverse of $5$ in $\mathbb{Z}_7$ (the 7-hour clock)?
 
-| $\times$ | $1$  | $i$  | $-1$ | $-i$ |
-|----------|------|------|------|------|
-| $1$      | $1$  | $i$  | $-1$ | $-i$ |
-| $i$      | $i$  | $-1$ | $-i$ | $1$  |
-| $-1$     | $-1$ | $-i$ | $1$  | $i$  |
-| $-i$     | $-i$ | $1$  | $i$  | $-1$ |
-
-Read it like a multiplication chart. Every entry is back inside the set (closure), the row and column for $1$ just copy the headers (so $1$ is the identity), and each row contains a $1$ somewhere (so every element has an inverse — for instance $i \times -i = 1$). It is a group of order $4$, a **finite abelian group**. The giveaway for "abelian" in a Cayley table: it's symmetric across the main diagonal, top-left to bottom-right.
-
-**The clock groups $(\mathbb{Z}_n, +)$.** These are the wrap-around worlds from Module 02: the set $\{0, 1, 2, \dots, n-1\}$ with addition that loops back to $0$ after $n-1$. Each is a finite abelian group of order $n$. Here is $\mathbb{Z}_4$:
-
-| $+$ | $0$ | $1$ | $2$ | $3$ |
-|-----|-----|-----|-----|-----|
-| $0$ | $0$ | $1$ | $2$ | $3$ |
-| $1$ | $1$ | $2$ | $3$ | $0$ |
-| $2$ | $2$ | $3$ | $0$ | $1$ |
-| $3$ | $3$ | $0$ | $1$ | $2$ |
-
-Symmetric across the diagonal again — abelian — and notice it has the same *shape* as the roots-of-unity table above. That is no accident. We'll come back and prove these two are really one group when we reach module 10; for now, just file away that the shapes matched.
-
-## Check yourself
-
-You're told a group's Cayley table is **not** symmetric across its main diagonal. What can you conclude about the group, and which axiom is *not* in question?
-
-<details><summary>Show answer</summary>
-
-The group is **non-abelian**: an unsymmetric table means there is some pair with $a * b \neq b * a$, which is exactly the failure of commutativity. The axiom *not* in question is commutativity's status as an axiom — because it isn't one. Closure, associativity, identity, and inverses are the four group axioms; being abelian is an *extra* property a group may or may not have. A non-abelian table is still a perfectly good group.
+**Answer.** The inverse of $5$ is $7 - 5 = 2$, because $5 + 2 = 7 \equiv 0$ in $\mathbb{Z}_7$.
 
 </details>
 
-## Check yourself
+---
 
-Is $(\mathbb{Z}_5, +)$ finite or infinite, and what is its order? Then: is it abelian?
+## Two signs: $(\{1, -1\}, \times)$
 
-<details><summary>Show answer</summary>
+The set with just two elements, $\{1, -1\}$, under ordinary multiplication.
 
-It is **finite** with order $|\mathbb{Z}_5| = 5$ — its elements are exactly $\{0, 1, 2, 3, 4\}$. And it is **abelian**, because addition mod $n$ inherits commutativity from ordinary addition: $a + b$ and $b + a$ leave the same remainder when you divide by $5$. Every $\mathbb{Z}_n$ is a finite abelian group.
+- **Closure:** $1 \times 1 = 1$, $1 \times (-1) = -1$, $(-1) \times 1 = -1$, $(-1) \times (-1) = 1$. Every product stays in $\{1, -1\}$. $\checkmark$
+- **Associativity:** multiplication of real numbers is associative. $\checkmark$
+- **Identity:** $1$. Multiplying anything by $1$ leaves it unchanged. $\checkmark$
+- **Inverses:** $1^{-1} = 1$ (since $1 \times 1 = 1$); $(-1)^{-1} = -1$ (since $(-1) \times (-1) = 1$). Both elements are their own inverse. $\checkmark$
+
+This is a finite abelian group with $|\{1,-1\}| = 2$.
+
+### Cayley table for $(\{1,-1\}, \times)$
+
+A **Cayley table** (first named here, in module 05) is the multiplication table for a group: rows are the left element, columns are the right element, and the entry at row $a$, column $b$ is $a * b$.
+
+$$
+\begin{array}{c|cc}
+\times & 1 & -1 \\
+\hline
+1 & 1 & -1 \\
+-1 & -1 & 1
+\end{array}
+$$
+
+Read it as: "row $-1$, column $1$: $(-1) \times 1 = -1$." Notice that every row and every column contains each element exactly once — a pattern that holds for every group's Cayley table (we will use this in exercise 5).
+
+---
+
+## The fourth roots of unity: $(\{1, i, -1, -i\}, \times)$
+
+You may know that $i$ is defined by $i^2 = -1$. The four numbers $1, i, -1, -i$ are called the **fourth roots of unity** because each satisfies $z^4 = 1$:
+
+$$
+i^4 = (i^2)^2 = (-1)^2 = 1, \quad (-1)^4 = 1, \quad (-i)^4 = 1.
+$$
+
+Under ordinary multiplication of complex numbers:
+
+- **Closure:** the powers of $i$ cycle: $i^1 = i$, $i^2 = -1$, $i^3 = -i$, $i^4 = 1$, then back to $i$. Any product of two elements is again one of the four. $\checkmark$
+- **Associativity:** multiplication of complex numbers is associative. $\checkmark$
+- **Identity:** $1$. $\checkmark$
+- **Inverses:** $1^{-1} = 1$; $(-1)^{-1} = -1$; $i^{-1} = -i$ (since $i \times (-i) = -i^2 = 1$); $(-i)^{-1} = i$. $\checkmark$
+
+This is a finite abelian group with order $4$.
+
+### Cayley table for $(\{1, i, -1, -i\}, \times)$
+
+$$
+\begin{array}{c|cccc}
+\times & 1 & i & -1 & -i \\
+\hline
+1 & 1 & i & -1 & -i \\
+i & i & -1 & -i & 1 \\
+-1 & -1 & -i & 1 & i \\
+-i & -i & 1 & i & -1
+\end{array}
+$$
+
+Look at the row for $i$: starting from $1$, multiplying by $i$ rotates the cycle one step. That rotating pattern is the whole structure.
+
+There is something to notice about these two Cayley tables — $(\{1,-1\},\times)$ and $(\{1,i,-1,-i\},\times)$ — and how their shapes compare to the clock-arithmetic tables for $\mathbb{Z}_2$ and $\mathbb{Z}_4$. That is not an accident, and it is a hint of something we will chase down in module 10.
+
+<details><summary>Check yourself — reading the Cayley table</summary>
+
+Using the table above, what is $(-i) \times i$?
+
+**Answer.** Find row $-i$, column $i$: the entry is $1$. You can verify directly: $(-i) \times i = -i^2 = -(-1) = 1$.
 
 </details>
 
-## Check yourself
+---
 
-Why did we have to delete $0$ to make the rationals into a group under multiplication, when we did *not* have to delete anything to make the rationals a group under addition?
+## The nonzero rationals: $(\mathbb{Q}^\times, \times)$
 
-<details><summary>Show answer</summary>
+Let $\mathbb{Q}^\times$ denote the set of all nonzero rational numbers (fractions $\frac{p}{q}$ with $p, q$ integers and $q \neq 0$, and the fraction itself nonzero).
 
-Under multiplication the identity is $1$, and the inverse of $x$ must satisfy $x \times (\text{inverse}) = 1$. There is no number you can multiply by $0$ to get $1$ — every product with $0$ is $0$ — so $0$ has no multiplicative inverse and must be thrown out. Under addition the identity is $0$ itself, and *every* rational (including $0$) has an additive inverse, namely its negative. Different operation, different identity, different troublemaker.
+- **Closure:** the product of two nonzero fractions is a nonzero fraction. $\checkmark$
+- **Associativity:** multiplication of numbers is associative. $\checkmark$
+- **Identity:** $1$. $\checkmark$
+- **Inverses:** the inverse of $\frac{p}{q}$ is $\frac{q}{p}$, which is a nonzero rational so long as $p \neq 0$. $\checkmark$
+
+This is an infinite abelian group.
+
+**Why exclude zero?** If $0$ were in the set, it would have no inverse: there is no rational $x$ with $0 \times x = 1$. One missing inverse is enough to disqualify the whole set. So we throw out $0$ to make the axioms work.
+
+---
+
+## Two things that are NOT groups
+
+Not every set with an operation earns the title.
+
+**The integers under multiplication, $(\mathbb{Z}, \times)$.** Multiplication on $\mathbb{Z}$ has closure, associativity, and identity ($1$). But inverses fail: the inverse of $2$ under multiplication would need to be $\frac{1}{2}$, which is not an integer. A single missing inverse sinks the whole structure.
+
+**The natural numbers under addition, $(\mathbb{N}, +)$, where $\mathbb{N} = \{0, 1, 2, 3, \ldots\}$.** Here identity exists ($0$) and closure holds. But there is no inverse for $1$: the inverse would need to be $-1$, which is not a natural number. The natural numbers do not reach back far enough.
+
+These non-examples sharpen what the axioms protect. The group axioms are a checklist for a reason: each one excludes something that would otherwise cause the structure to misbehave.
+
+---
+
+## Comparison table
+
+| Group | Set | Operation | Identity | Inverse of $a$ | Order $\|G\|$ | Abelian? |
+|---|---|---|---|---|---|---|
+| $(\mathbb{Z}, +)$ | all integers | $+$ | $0$ | $-a$ | $\infty$ | Yes |
+| $(\mathbb{Z}_n, +)$ | $\{0,1,\ldots,n-1\}$ | $+$ mod $n$ | $0$ | $n-a$ | $n$ | Yes |
+| $(\{1,-1\}, \times)$ | $\{1,-1\}$ | $\times$ | $1$ | itself | $2$ | Yes |
+| $(\{1,i,-1,-i\}, \times)$ | $\{1,i,-1,-i\}$ | $\times$ | $1$ | $i \leftrightarrow -i$; $\pm1 \leftrightarrow$ itself | $4$ | Yes |
+| $(\mathbb{Q}^\times, \times)$ | nonzero rationals | $\times$ | $1$ | $1/a$ | $\infty$ | Yes |
+
+All five examples here happen to be abelian. That will not last — module 06 introduces the symmetries of a triangle, where the order of two moves changes the outcome, and the abelian property breaks for the first time.
+
+<details><summary>Check yourself — applying the axioms</summary>
+
+Is $(\{0, 1, 2, 3, 4\}, \times)$ — the set $\mathbb{Z}_5$ under multiplication mod $5$ — a group?
+
+**Answer.** No. The element $0$ has no multiplicative inverse: there is no $x$ in the set with $0 \times x \equiv 1 \pmod{5}$. So the inverse axiom fails for $0$. (If you remove $0$ and look at $\{1, 2, 3, 4\}$ under multiplication mod $5$, that *is* a group — but that belongs to a later exploration.)
 
 </details>
+
+---
 
 ## Exercises
 
-**1 (mechanical).** Build the Cayley table for $(\mathbb{Z}_3, +)$, the integers mod $3$ under addition. Then state its order and say whether it is abelian.
+**1.** List the elements of $\mathbb{Z}_6$ (the 6-hour clock), state its identity, and find the inverse of each element.
 
 <details><summary>Show solution</summary>
 
-The elements are $\{0, 1, 2\}$ and addition wraps at $3$ (so $2 + 2 = 4 = 1$):
+$\mathbb{Z}_6 = \{0, 1, 2, 3, 4, 5\}$. The identity is $0$.
 
-| $+$ | $0$ | $1$ | $2$ |
-|-----|-----|-----|-----|
-| $0$ | $0$ | $1$ | $2$ |
-| $1$ | $1$ | $2$ | $0$ |
-| $2$ | $2$ | $0$ | $1$ |
+Inverses (using the rule $a^{-1} = 6 - a$ from module 04, with $0^{-1} = 0$):
 
-The order is $|\mathbb{Z}_3| = 3$. The table is symmetric across the main diagonal, so the group is **abelian**.
+| $a$ | $a^{-1}$ | Check |
+|---|---|---|
+| $0$ | $0$ | $0 + 0 = 0$ |
+| $1$ | $5$ | $1 + 5 = 6 \equiv 0$ |
+| $2$ | $4$ | $2 + 4 = 6 \equiv 0$ |
+| $3$ | $3$ | $3 + 3 = 6 \equiv 0$ |
+| $4$ | $2$ | $4 + 2 = 6 \equiv 0$ |
+| $5$ | $1$ | $5 + 1 = 6 \equiv 0$ |
+
+Note that $3$ is its own inverse.
 
 </details>
 
-**2 (mechanical).** In the group $(\{1, i, -1, -i\}, \times)$, find the inverse of each element — that is, for each $x$ find the $y$ with $x \times y = 1$.
+---
+
+**2.** Build the Cayley table for $\mathbb{Z}_3 = \{0, 1, 2\}$ under addition mod $3$.
 
 <details><summary>Show solution</summary>
 
-Read off the row containing $1$ from the Cayley table in the worked example:
+$$
+\begin{array}{c|ccc}
++ & 0 & 1 & 2 \\
+\hline
+0 & 0 & 1 & 2 \\
+1 & 1 & 2 & 0 \\
+2 & 2 & 0 & 1
+\end{array}
+$$
 
-- $1 \times 1 = 1$, so $1$ is its own inverse.
-- $i \times (-i) = 1$, so the inverse of $i$ is $-i$.
-- $(-1) \times (-1) = 1$, so $-1$ is its own inverse.
-- $(-i) \times i = 1$, so the inverse of $-i$ is $i$.
-
-Every element has exactly one inverse — as the inverse axiom guarantees — and each row of the table contains exactly one $1$.
+Row $1$, column $2$: $1 + 2 = 3 \equiv 0 \pmod{3}$. Check that every row and every column contains $0$, $1$, and $2$ exactly once.
 
 </details>
 
-**3 (conceptual).** The set of *positive* integers $\{1, 2, 3, \dots\}$ under ordinary addition is **not** a group. Which axiom fails, and why? (Be specific.)
+---
+
+**3.** Is $(\mathbb{Z}, -)$ — the integers under subtraction — a group? If not, name the axiom that fails.
 
 <details><summary>Show solution</summary>
 
-The **identity** axiom fails first: addition's identity is $0$, and $0$ is not a positive integer, so the set has no identity element inside it. The **inverse** axiom fails too — even if we let $0$ in, the inverse of $3$ under addition is $-3$, which is not positive. Closure and associativity *do* hold (a positive plus a positive is positive, and addition is associative), which is the trap: passing two axioms is not enough. A group must pass all four.
+No. Subtraction on $\mathbb{Z}$ fails **associativity**. A counterexample:
 
-A tempting wrong answer is "closure fails." It doesn't — you never leave the positive integers by adding two of them. The break is the missing identity and missing inverses.
+$$
+(5 - 3) - 2 = 2 - 2 = 0, \quad \text{but} \quad 5 - (3 - 2) = 5 - 1 = 4.
+$$
+
+$0 \neq 4$, so the grouping matters. A single failure disqualifies it.
+
+A tempting wrong answer: "subtraction has no identity." Actually $0$ works from the right: $a - 0 = a$. But $0 - a = -a \neq a$ in general, so $0$ is only a right-identity, not a two-sided identity. The associativity failure is the cleaner disqualifier.
 
 </details>
 
-**4 (conceptual).** Two students disagree. Ana says, "$\mathbb{Z}$ under addition and $\mathbb{Q}^{\times}$ under multiplication are both infinite abelian groups, so they're basically the same group." Ben says, "No they aren't." Without any new machinery, point to one concrete difference between the two groups.
+---
+
+**4.** In $(\{1, i, -1, -i\}, \times)$, compute $i \times (-i)$ and $(-i) \times i$. Are they equal? What does this tell you about whether this group is abelian?
 
 <details><summary>Show solution</summary>
 
-Ben is right that they differ; "same shape" is a strong claim we haven't earned yet. One clean concrete difference: in $(\mathbb{Z}, +)$ the only element that is its own inverse is the identity $0$ (since $n + n = 0$ forces $n = 0$). In $(\mathbb{Q}^{\times}, \times)$ there are **two** elements that are their own inverse: $1$ (the identity) and also $-1$, because $(-1) \times (-1) = 1$. A property that one group has and the other lacks shows they cannot be relabelings of each other.
+$i \times (-i) = -i^2 = -(-1) = 1$.
 
-(Sharing two features — infinite and abelian — does not make two groups "the same." Pinning down exactly when two groups *are* the same is a later module; for now, finding one honest difference is enough to refute the claim.)
+$(-i) \times i = -i^2 = 1$.
+
+They are equal. In fact, every pair of elements commutes in this group (check the Cayley table: it is symmetric about its diagonal), so $(\{1,i,-1,-i\}, \times)$ is abelian.
 
 </details>
 
-**5 (conceptual).** Is the table below the Cayley table of an abelian group? You do not need to check every axiom — find the fastest tell.
+---
 
-| $*$ | $e$ | $a$ | $b$ |
-|-----|-----|-----|-----|
-| $e$ | $e$ | $a$ | $b$ |
-| $a$ | $a$ | $b$ | $e$ |
-| $b$ | $b$ | $a$ | $e$ |
+**5.** In any Cayley table of a group, every element appears exactly once in each row and exactly once in each column. Explain, in words, why a row cannot have a repeated element.
 
 <details><summary>Show solution</summary>
 
-The fastest tell for *abelian* is diagonal symmetry — but here something is wrong before we even get there. Look at the column under $a$: the entries are $a, b, a$. The element $a$ appears **twice** and $e$ never appears in that column. In a real group's Cayley table, every element must appear exactly once in each row and once in each column (this is how the table guarantees inverses and cancellation). So this table is **not a group at all** — the question of "abelian" doesn't even arise. Compare with the valid $\mathbb{Z}_3$ table in Exercise 1, where each symbol appears exactly once per row and column.
+Suppose row $a$ has a repeated entry: that means $a * b = a * c$ for two different elements $b \neq c$. But every element has an inverse $a^{-1}$ in the group. Apply it on the left of both sides:
+
+$$
+a^{-1} * (a * b) = a^{-1} * (a * c).
+$$
+
+By associativity, $(a^{-1} * a) * b = (a^{-1} * a) * c$, which gives $e * b = e * c$, so $b = c$. That contradicts $b \neq c$. So no row can have a repeated entry. The same argument (using right-inverses) handles columns.
+
+This is why Cayley tables look like Latin squares — the "every element once" pattern is forced by the group axioms, not chosen by hand.
 
 </details>
+
+---
+
+**6.** *(Stretch.)* Is $(\mathbb{Q}, +)$ — all rational numbers under addition — a group? Compare it with $(\mathbb{Z}, +)$ and say precisely what changes.
+
+<details><summary>Show solution</summary>
+
+Yes, $(\mathbb{Q}, +)$ is a group.
+
+- **Closure:** the sum of two rationals is rational. $\checkmark$
+- **Associativity:** inherited from real-number addition. $\checkmark$
+- **Identity:** $0$. $\checkmark$
+- **Inverses:** the inverse of $\frac{p}{q}$ is $-\frac{p}{q}$, which is rational. $\checkmark$
+
+Comparing with $(\mathbb{Z}, +)$: both are infinite abelian groups under addition. The only structural difference is the *size* of the set — $\mathbb{Z}$ sits inside $\mathbb{Q}$ as a subset. Whether these two groups are "really the same" in a structural sense is precisely the question module 10 (homomorphisms and isomorphisms) is built to answer.
+
+</details>
+
+---
 
 ## Recap
 
-The skeleton you learned last module turned out to be everywhere: the integers, the nonzero rationals, the four roots of unity, and every clock world $\mathbb{Z}_n$ are all the same four bones wearing different skins. Along the way we picked up two ways to sort the zoo — by *size* (finite versus infinite) and by *behavior* (abelian, where order never matters, versus the non-abelian groups we've yet to meet). Every animal in here has been abelian, which might tempt you to think commutativity comes free with the axioms. It doesn't. Hand a paper triangle to your next self: turn it, then flip it, and the answer depends on which you did first.
+The abstract definition of a group from module 04 is not a single idea — it is a template that many different objects fit. Integers under addition, clocks, two signs under multiplication, the fourth roots of unity, nonzero fractions: all of them satisfy the same four axioms (closure, associativity, identity, inverses), and the Cayley table captures the whole structure of a finite group in a single grid.
+
+Every group we have seen so far is abelian: $a * b = b * a$. That is not a theorem — it is a coincidence of the examples we have visited. A paper triangle, a triangular hole, and six ways to put one inside the other will end it.

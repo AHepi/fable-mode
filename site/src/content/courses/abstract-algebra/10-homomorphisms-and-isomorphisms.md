@@ -5,168 +5,201 @@ order: 10
 summary: Maps that respect the operation reveal when two different-looking groups are really the same group in disguise.
 estimatedMinutes: 20
 objectives:
-  - Define a homomorphism and an isomorphism
-  - Check whether a map preserves the operation
-  - Recognize two small groups as isomorphic (or not)
-prerequisites: [05-a-zoo-of-groups, 08-cyclic-groups-and-generators]
+  - Define a homomorphism as a map between groups that preserves the operation.
+  - Define an isomorphism and explain what it means for two groups to be isomorphic.
+  - Check whether a given map preserves the operation.
+  - Recognize two small groups as isomorphic by matching their Cayley tables.
+prerequisites:
+  - 09-lagranges-theorem
 ---
 
-Back in the zoo, you met the four numbers $1, i, -1, -i$ spinning under multiplication, and you met the clock $\mathbb{Z}_4$ ticking $0, 1, 2, 3$ under addition. They look nothing alike. One is built from imaginary numbers; the other is just a tiny clock. Yet lay their two Cayley tables side by side and a strange thing happens: relabel the rows and columns, and the two tables become the *same table*. Same pattern of entries, same shape, different paint.
+Here are two groups. The first is $\{1, -1\}$ — just the numbers one and minus one — with ordinary multiplication as its operation. Multiply any two of them and you stay inside the set: $1 \times 1 = 1$, $(-1) \times (-1) = 1$, $1 \times (-1) = -1$. The second is $\mathbb{Z}_2$ (the 2-hour clock, from module 02): the marks $\{0, 1\}$ with addition that wraps, so $1 + 1 = 0$ and the hand is back where it started.
 
-That is not a coincidence, and it is not a curiosity. It is the deepest idea in this whole course. Two groups can wear different costumes and be, underneath, the very same group. The job of this module is to give you the tool that sees through the costume.
+One group is built from numbers you multiply. The other is built from clock marks you add. Different elements, different operation, different story. And yet — write out how each one behaves, and you will find you have written the same thing twice. They are not merely similar. They are, underneath the labels, one single group wearing two costumes.
 
-Picture each group as a machine: a set of objects, plus one rule for combining any two of them. What makes the machine *what it is* is not the names of the objects but how they combine — the wiring, not the labels.
+This module is about that "underneath." When are two groups, dressed up differently, actually the same group? The answer turns on a particular kind of map: one that carries not just the elements of one group over to another, but the *behavior* — the way the operation knits them together.
 
-So suppose you have two machines and you suspect they are secretly identical. How would you check? You would look for a translation dictionary: a way to rename every object of the first machine as an object of the second. But a dictionary that just matches up objects is not enough. The translation has to *respect the wiring*. If combining $a$ and $b$ in the first machine gives $c$, then translating $a$, translating $b$, and combining them in the second machine had better give the translation of $c$. Otherwise the dictionary lies — it matches objects but scrambles the structure.
+## A faithful relabelling
 
-A map that respects the wiring is called a **homomorphism**. A homomorphism that is also a perfect, no-leftovers dictionary — every object matched exactly once, nothing in either machine left unpaired — is an **isomorphism**. When an isomorphism exists, the two groups are the same group wearing different paint. We will make all of this precise now, and then catch a pair of groups in the act.
+Start with the costume idea and make it sharp. Take $\{1, -1\}$ and lay it beside $\mathbb{Z}_2$, and pair them off:
 
-A note on notation before the formal part. Our two groups may use different operation symbols — one might write $\cdot$, the other $+$. To keep the rule readable, we write the operation of the *first* group as $\ast$ and the operation of the *second* group as $\star$. (Elsewhere in the course a single generic operation is written $*$; here we need two symbols at once, one per group.) A map from the first group to the second we write $\varphi$ (the Greek letter phi).
+$$
+1 \;\leftrightarrow\; 0, \qquad -1 \;\leftrightarrow\; 1.
+$$
+
+This pairing is a *dictionary*: read "$1$" in the first group, look it up, and it translates to "$0$" in the second. Read "$-1$", and it translates to "$1$". So far this is just a relabelling — any two-element sets can be paired up like this, and most such pairings tell you nothing.
+
+What makes *this* one special is that the dictionary also translates the operation correctly. In the first group, $(-1) \times (-1) = 1$. Translate each piece through the dictionary: $-1$ becomes $1$, and the result $1$ becomes $0$. So the translated sentence reads $1 + 1 = 0$ — and that is exactly true in $\mathbb{Z}_2$. The dictionary did not just rename the elements; it preserved the grammar. Combine-then-translate gives the same answer as translate-then-combine.
+
+A relabelling that respects the operation like this is *faithful*. A faithful relabelling is the whole content of "secretly the same group." Everything you could ever say about how $\{1,-1\}$ combines, you can say about $\mathbb{Z}_2$ by running it through the dictionary, and you never get caught in a lie. That is a strong claim, and it deserves a precise definition. We build it in two steps: first a map that respects the operation at all, then the special case where the map pairs the two groups up perfectly.
+
+Because we now have *two* groups in play at once, we need two operation symbols so we can tell them apart. (Elsewhere in this course a single generic operation is written $*$; here we need both at once, one per group.) Let the first group be $G$ with operation $*$ — combining two elements to get a third, the operation from module 03 — and the second group be $H$ with operation $\diamond$.
 
 ## Definition (Homomorphism)
 
-Let $G$ be a group with operation $\ast$ and let $H$ be a group with operation $\star$. A function $\varphi : G \to H$ is a **homomorphism** if it preserves the operation: for all $a, b \in G$,
+Let $G$ be a group with operation $*$ and $H$ a group with operation $\diamond$. A **homomorphism** from $G$ to $H$ is a function $f$ that assigns to each element of $G$ an element of $H$ and satisfies, for every pair of elements $a$ and $b$ in $G$,
 
 $$
-\varphi(a \ast b) = \varphi(a) \star \varphi(b).
+f(a * b) = f(a) \diamond f(b).
 $$
 
-In words: combine first and then translate, or translate first and then combine — a homomorphism gives the same answer either way.
+Read the equation as the faithful-relabelling rule, piece by piece. The left side, $f(a * b)$, says: combine $a$ and $b$ first using $G$'s operation, *then* translate the result into $H$. The right side, $f(a) \diamond f(b)$, says: translate $a$ and $b$ into $H$ first, *then* combine them using $H$'s operation. A homomorphism is a function for which these two routes always land on the same element. The word means "same shape" (from the Greek *homos*, same, and *morphe*, shape): the map carries the shape of $G$'s operation over into $H$.
+
+Note what a homomorphism does *not* have to do. It need not pair the groups up one-for-one — it may send many elements of $G$ to the same element of $H$, or miss parts of $H$ entirely. It only has to respect the operation. That weaker requirement still buys a lot, as the first worked example shows.
+
+## A worked homomorphism: the remainder map
+
+**Problem.** Let $G = \mathbb{Z}$, the integers under addition ($*$ is ordinary $+$). Let $H = \mathbb{Z}_3$ (the 3-hour clock), the marks $\{0, 1, 2\}$ under addition that wraps ($\diamond$ is $+$ on the clock). Define $f$ by sending each integer to its remainder after division by $3$:
+
+$$
+f(n) = (n \bmod 3).
+$$
+
+So $f(0)=0$, $f(1)=1$, $f(2)=2$, $f(3)=0$, $f(4)=1$, $f(5)=2$, and so on — the integers march along the number line while their images cycle $0,1,2,0,1,2,\dots$ around the clock. Show that $f$ is a homomorphism.
+
+**Solution.** We must check that $f(a + b) = f(a) \diamond f(b)$ for every pair of integers $a$ and $b$ — that taking the remainder respects addition.
+
+Test it on a case first. Take $a = 4$ and $b = 5$. Combine in $G$, then translate: $4 + 5 = 9$, and $9 \bmod 3 = 0$, so $f(a+b) = 0$. Now translate, then combine in $H$: $f(4) = 1$ and $f(5) = 2$, and on the 3-hour clock $1 + 2 = 0$ (the hand sweeps to $3$, which is $0$). Both routes give $0$. They agree.
+
+They agree for the same reason every time. Adding $3$ to an integer does not change its remainder — it sends the clock hand one full loop and back to where it sat. So the remainder of a sum depends only on the remainders of the parts, which is precisely the statement $f(a+b) = f(a) \diamond f(b)$. The map preserves the operation, so $f$ is a homomorphism.
+
+Notice it is *not* a faithful relabelling: infinitely many integers ($\dots, 0, 3, 6, 9, \dots$) all land on the single mark $0$. The remainder map respects the operation while folding a big group down onto a small one. That is the homomorphism doing its honest, lossy work — and it is exactly the kind of map an isomorphism rules out.
+
+## Check yourself
+
+For the remainder map $f(n) = (n \bmod 3)$ from $\mathbb{Z}$ to $\mathbb{Z}_3$, what is $f(7)$, and which other integers share that image?
+
+<details><summary>Show answer</summary>
+
+$7 = 6 + 1$, and $6$ is two full loops of the clock, so $7 \bmod 3 = 1$. Thus $f(7) = 1$. Every integer of the form $1, 4, 7, 10, \dots$ (and $-2, -5, \dots$) — every integer leaving remainder $1$ after division by $3$ — also maps to $1$. A whole infinite family collapses onto each of the three marks.
+
+</details>
 
 ## Definition (Isomorphism)
 
-A homomorphism $\varphi : G \to H$ is an **isomorphism** if it is also a one-to-one correspondence: every element of $H$ is $\varphi(a)$ for exactly one $a \in G$. (Equivalently, $\varphi$ is one-to-one and onto.) When such a $\varphi$ exists, $G$ and $H$ are **isomorphic**, written $G \cong H$.
+Let $G$ and $H$ be groups. An **isomorphism** from $G$ to $H$ is a homomorphism $f$ that is also a **perfect pairing** of the two groups: every element of $H$ is hit exactly once, so $f$ pairs each element of $G$ with exactly one element of $H$ and leaves nothing in $H$ unpaired. When such an $f$ exists, we say $G$ and $H$ are **isomorphic**, written
 
-Two isomorphic groups are, for every purpose in this course, the same group — relabelled.
+$$
+G \cong H.
+$$
+
+An isomorphism is the faithful-relabelling dictionary made exact. "Homomorphism" already secured that the operation is respected; "perfect pairing" adds that nothing is lost in translation — no two elements of $G$ collapse together, and no element of $H$ is left out. The word again means "same shape" (Greek *isos*, equal): an isomorphism says the two groups have *equal* shape, not merely that one casts a shadow of the other. When $G \cong H$, anything true of one group's structure is true of the other's; they are the same group, relabelled. (The remainder map above fails this: it collapsed many integers onto one mark, so it is a homomorphism but no isomorphism.)
+
+## A worked isomorphism: matching two Cayley tables
+
+How do you *prove* two small groups are isomorphic? Write down each group's Cayley table — the grid from module 05 that records, in the cell for row $x$ and column $y$, the result of combining $x$ with $y$ — and show that one table becomes the other under a relabelling. If the grids match cell for cell after you swap the labels, the dictionary is faithful, and the groups are isomorphic.
+
+**Problem.** Show that $G = \{1, -1\}$ under multiplication is isomorphic to $H = \mathbb{Z}_2$ (the marks $\{0, 1\}$) under wrap-around addition.
+
+**Solution.** Here are the two Cayley tables. On the left, $G$ with $\times$; on the right, $H$ with $+$.
+
+$$
+\begin{array}{c|cc}
+\times & 1 & -1 \\
+\hline
+1 & 1 & -1 \\
+-1 & -1 & 1
+\end{array}
+\qquad\qquad
+\begin{array}{c|cc}
++ & 0 & 1 \\
+\hline
+0 & 0 & 1 \\
+1 & 1 & 0
+\end{array}
+$$
+
+Now apply the dictionary $f(1) = 0$ and $f(-1) = 1$ to the left table. Replace every "$1$" with "$0$" and every "$-1$" with "$1$", including the row and column headers:
+
+$$
+\begin{array}{c|cc}
+f(\times) & 0 & 1 \\
+\hline
+0 & 0 & 1 \\
+1 & 1 & 0
+\end{array}
+$$
+
+This relabelled grid is identical to the table for $H$ — same headers, same body, cell for cell. So combining in $G$ and then translating gives the same result as translating and then combining in $H$, for every pair of elements: that is $f(a * b) = f(a) \diamond f(b)$ checked across the whole table at once. The map $f$ pairs the two elements one-for-one with nothing left over, so it is a perfect pairing. A homomorphism that is a perfect pairing is an isomorphism, and therefore
+
+$$
+\{1, -1\} \cong \mathbb{Z}_2.
+$$
+
+The two groups from the opening were never two groups. They were one group — the only group with two elements there is — printed in two alphabets. Back in the zoo (module 05) we noticed that the fourth roots of unity $\{1, i, -1, -i\}$ had a Cayley table the same *shape* as $\mathbb{Z}_4$'s, and called it a hint of something to chase down. This is what we were chasing: that matching shape is an isomorphism, and $\{1, i, -1, -i\} \cong \mathbb{Z}_4$ for exactly the reason above. The same shape is not a coincidence, and it is not a curiosity — it is two names for one structure.
 
 ## Check yourself
 
-Suppose $\varphi : G \to H$ is a homomorphism, and in $G$ you have $a \ast b = c$. You are told $\varphi(a) = x$ and $\varphi(b) = y$. What must $\varphi(c)$ equal, and why?
+Two groups are isomorphic only if they have the same number of elements — the same order, $|G|$ (the count of elements, from module 05). Why must that be true?
 
 <details><summary>Show answer</summary>
 
-$\varphi(c) = x \star y$. Since $c = a \ast b$, the defining property gives $\varphi(c) = \varphi(a \ast b) = \varphi(a) \star \varphi(b) = x \star y$. A homomorphism lets you read this off the structure without knowing anything else about $c$.
+An isomorphism is a perfect pairing: each element of $G$ is matched with exactly one element of $H$, nothing doubled up and nothing left out. A perfect pairing between two finite sets forces them to have the same size — you cannot pair up a $4$-element group with a $6$-element group without something being left unmatched. So $|G| = |H|$ is a requirement. (It is necessary, not sufficient: same size is the price of admission, not a guarantee, as the exercises show.)
 
 </details>
 
-## Worked example
+## When same size is not enough
 
-### Example (The fourth roots of unity are $\mathbb{Z}_4$ in disguise)
+Equal order lets two groups be isomorphic; it does not make them so. Two groups can have the same number of elements and still be built differently inside.
 
-**Problem.** Let $G = \{1, i, -1, -i\}$ under multiplication and let $H = \mathbb{Z}_4 = \{0, 1, 2, 3\}$ under addition mod $4$. Show that $G \cong H$.
-
-**Solution.** Back in the zoo (module 05) we noticed these two tables had the same shape and promised to chase down why; here is the payoff. Recall from the module on cyclic groups that $G$ is generated by $i$: its elements are the powers $i^0 = 1$, $i^1 = i$, $i^2 = -1$, $i^3 = -i$. And $\mathbb{Z}_4$ is generated by $1$: its elements are $0, 1, 2, 3$, each the result of adding $1$ to itself that many times. Both groups are "one element, applied over and over," which is exactly why we expect them to match. Define $\varphi : G \to H$ by sending $i^k$ to $k$:
-
-$$
-\varphi(1) = 0, \quad \varphi(i) = 1, \quad \varphi(-1) = 2, \quad \varphi(-i) = 3.
-$$
-
-This pairs each element of $G$ with exactly one element of $H$ and uses up all of $H$, so it is a one-to-one correspondence. It remains to check that it preserves the operation: that $\varphi(i^a \cdot i^b) = \varphi(i^a) + \varphi(i^b) \pmod 4$ for all $a, b$. The left side is $\varphi(i^{a+b}) = (a+b) \bmod 4$, because multiplying powers adds exponents. The right side is $a + b \pmod 4$. They agree:
-
-$$
-\varphi(i^a \cdot i^b) = (a + b) \bmod 4 = \varphi(i^a) + \varphi(i^b).
-$$
-
-Concretely, take $a = 2, b = 3$: on the left, $i^2 \cdot i^3 = (-1)(-i) = i$, and $\varphi(i) = 1$; on the right, $\varphi(-1) + \varphi(-i) = 2 + 3 = 5 \equiv 1 \pmod 4$. Same answer. So $\varphi$ is an isomorphism, and $G \cong \mathbb{Z}_4$. The "multiply two roots of unity" machine and the "add two numbers on a 4-clock" machine are the same machine. $\square$
-
-## Check yourself
-
-Multiplication in $G = \{1, i, -1, -i\}$ turned into *addition* in $\mathbb{Z}_4$. Doesn't a homomorphism have to send the operation to "the same" operation? Why is it fine that one side multiplies and the other adds?
-
-<details><summary>Show answer</summary>
-
-It is exactly fine — and it is what the definition is built to allow. A homomorphism preserves *structure*, not *symbols*. The rule $\varphi(a \ast b) = \varphi(a) \star \varphi(b)$ uses each group's own operation: $\ast$ on the left inside $G$, $\star$ on the right inside $H$. Here $\ast$ is "multiply" and $\star$ is "add mod 4." What is preserved is the *pattern* of combining, not the name of the operation. A common misconception is that isomorphic groups must look superficially similar; the power of the idea is precisely that they need not.
-
-</details>
-
-## Worked example
-
-### Example (Two groups of order 4 that are *not* the same)
-
-**Problem.** Both $\mathbb{Z}_4$ and $\mathbb{Z}_2 \times \mathbb{Z}_2$ have exactly four elements. Are they isomorphic?
-
-**Solution.** First, meet $\mathbb{Z}_2 \times \mathbb{Z}_2$. Its elements are *pairs* $(a, b)$ where each of $a, b$ is $0$ or $1$, and you add a pair by adding each slot separately, mod $2$. So the four elements are $(0,0), (1,0), (0,1), (1,1)$, and for instance $(1,0) + (0,1) = (1,1)$ while $(1,0) + (1,0) = (0,0)$. Think of it as two independent light switches: combining two states flips each switch on its own.
-
-Both groups have four elements, so a perfect dictionary would have to pair them up four-for-four. But a dictionary is useless if it scrambles the structure, so we look for a structural feature one group has and the other lacks. Here is one. In $\mathbb{Z}_4$, the element $1$ has order $4$: you must add it to itself four times to return to $0$ ($1, 2, 3, 0$). So $\mathbb{Z}_4$ contains an element of order $4$.
-
-Now look at $\mathbb{Z}_2 \times \mathbb{Z}_2$. Combine *any* non-identity element with itself and you land on the identity $(0,0)$, because every slot is mod $2$:
-
-$$
-(1,0)+(1,0) = (0,0), \quad (0,1)+(0,1) = (0,0), \quad (1,1)+(1,1) = (0,0).
-$$
-
-Every non-identity element has order $2$. There is no element of order $4$ anywhere in $\mathbb{Z}_2 \times \mathbb{Z}_2$.
-
-An isomorphism would have to match $\mathbb{Z}_4$'s element of order $4$ with some element of $\mathbb{Z}_2 \times \mathbb{Z}_2$ of the same order — because a structure-preserving map preserves how many times you apply an element before returning home. But no such element exists. So no isomorphism can exist, and
+Take the order-$4$ groups. One is $\mathbb{Z}_4$ (the 4-hour clock): $\{0,1,2,3\}$, where adding $1$ over and over cycles through every element — $1, 2, 3, 0$ — before returning home. The other is $\mathbb{Z}_2 \times \mathbb{Z}_2$, which you can picture as **two light switches**, each independently up or down: the four states are $(\text{off},\text{off})$, $(\text{on},\text{off})$, $(\text{off},\text{on})$, $(\text{on},\text{on})$, and "combining" two states means flipping the switches together, where flipping any one switch twice returns it to where it was. Both groups have four elements, but no faithful dictionary can connect them. In $\mathbb{Z}_4$ there is an element (the mark $1$) you can combine with itself to reach all four; in the two-switch group, combining *any* state with itself returns you to $(\text{off},\text{off})$ — no single element generates the whole group. A dictionary would have to translate "an element that generates everything" into "an element that generates everything," and the second group has none to offer. So
 
 $$
 \mathbb{Z}_4 \not\cong \mathbb{Z}_2 \times \mathbb{Z}_2.
 $$
 
-Two groups can have the same size and still be genuinely different machines. Counting elements is not enough; you have to count the wiring. $\square$
-
-## Check yourself
-
-To show two groups are *not* isomorphic, why is it enough to find one structural feature (like "has an element of order 4") that one group has and the other doesn't?
-
-<details><summary>Show answer</summary>
-
-Because an isomorphism preserves every structural feature. If $\varphi : G \to H$ were an isomorphism, it would have to carry an element of order $4$ in $G$ to an element of order $4$ in $H$ — combining translates exactly into combining, so applying an element $4$ times to reach the identity translates into the same count on the other side. If $H$ simply has no element of order $4$, the required match is impossible, so no isomorphism exists. A single preserved property that fails to match is a complete proof of non-isomorphism. (Matching just the *sizes* proves nothing — that's the trap.)
-
-</details>
+Two genuinely different groups of order $4$. Same size, different shape — and shape is what isomorphism measures.
 
 ## Exercises
 
-**1. (Mechanical.)** Using the isomorphism $\varphi$ from the worked example, with $\varphi(1)=0$, $\varphi(i)=1$, $\varphi(-1)=2$, $\varphi(-i)=3$, compute $\varphi(i \cdot -i)$ two ways: first by multiplying $i \cdot -i$ in $G$ and then translating, and second by translating each factor and adding in $\mathbb{Z}_4$. Confirm the two answers agree.
+**1.** Define $f$ from $\mathbb{Z}$ (integers under $+$) to $\mathbb{Z}_2$ (marks $\{0,1\}$ under wrap-around $+$) by $f(n) = (n \bmod 2)$: send each integer to $0$ if it is even, $1$ if it is odd. Verify the operation-preserving equation on the pair $a = 3$, $b = 5$.
 
 <details><summary>Show solution</summary>
 
-Multiply first: $i \cdot (-i) = -i^2 = -(-1) = 1$, and $\varphi(1) = 0$. Translate first: $\varphi(i) + \varphi(-i) = 1 + 3 = 4 \equiv 0 \pmod 4$. Both give $0$. This is the homomorphism property in action: $\varphi(i \cdot -i) = \varphi(i) + \varphi(-i)$, "combine then translate" equals "translate then combine."
+Combine in $\mathbb{Z}$, then translate: $3 + 5 = 8$, and $8$ is even, so $f(8) = 0$. Translate, then combine in $\mathbb{Z}_2$: $f(3) = 1$ (odd) and $f(5) = 1$ (odd), and $1 + 1 = 0$ on the 2-hour clock. Both routes give $0$, so $f(3+5) = f(3) \diamond f(5)$. (In words: odd plus odd is even — the parity of a sum depends only on the parities of the parts, which is exactly what it means for $f$ to preserve addition.)
 
 </details>
 
-**2. (Mechanical.)** Define $\varphi : \mathbb{Z}_4 \to \mathbb{Z}_4$ by $\varphi(x) = 2x \bmod 4$. Is $\varphi$ a homomorphism? Is it an isomorphism?
+**2.** Is the function $g$ from $\mathbb{Z}_2$ to $\mathbb{Z}_2$ defined by $g(0) = 1$ and $g(1) = 0$ a homomorphism? Check the operation-preserving equation.
 
 <details><summary>Show solution</summary>
 
-It *is* a homomorphism: $\varphi(x + y) = 2(x+y) = 2x + 2y = \varphi(x) + \varphi(y) \pmod 4$, so it preserves the operation. But it is *not* an isomorphism. Compute the outputs: $\varphi(0)=0$, $\varphi(1)=2$, $\varphi(2)=0$, $\varphi(3)=2$. The only outputs are $0$ and $2$, so $\varphi$ misses $1$ and $3$ entirely and sends two different inputs to the same output. It is not a one-to-one correspondence. Lesson: "homomorphism" and "isomorphism" are not the same word — preserving the operation is necessary but not sufficient.
+No. Test $a = b = 0$. Left side: $0 + 0 = 0$ in $\mathbb{Z}_2$, and $g(0) = 1$, so $g(a+b) = 1$. Right side: $g(0) \diamond g(0) = 1 + 1 = 0$ on the clock. The two sides are $1$ and $0$ — they disagree, so $g$ is not a homomorphism. (The tempting wrong answer is "yes, because it pairs the elements one-for-one." A perfect pairing is necessary for an *isomorphism* but means nothing on its own: the map still has to respect the operation, and this one sends the identity $0$ off to $1$, which already breaks the structure.)
 
 </details>
 
-**3. (Conceptual.)** A friend claims that the nonzero rationals $\mathbb{Q}^\times$ under multiplication and the integers $\mathbb{Z}$ under addition are isomorphic because "both are infinite." Without finding any specific map, explain why their argument is no good. (You need not settle whether the groups *are* isomorphic — only why "both infinite" proves nothing.)
+**3.** The groups $\{1, -1\}$ under $\times$ and $\mathbb{Z}_2$ under $+$ are isomorphic. In the isomorphism $f(1) = 0$, $f(-1) = 1$, which element of $\mathbb{Z}_2$ does the identity of $\{1, -1\}$ map to? State the general rule you notice.
 
 <details><summary>Show solution</summary>
 
-"Both infinite" is the infinite version of the trap in the second worked example: matching one crude feature (here, size) does not match the structure. Two groups being the same size — even infinite — says nothing about whether their *wirings* line up. We already saw two groups of size $4$ that fail to be isomorphic; sharing a size is necessary for an isomorphism (a perfect dictionary needs equal-sized vocabularies) but nowhere near sufficient. To prove an isomorphism you must exhibit an operation-preserving one-to-one correspondence; to disprove one you find a structural feature they don't share. "Both infinite" does neither.
+The identity of $\{1, -1\}$ under multiplication is $1$ (the identity: multiplying by $1$ changes nothing), and $f(1) = 0$. The mark $0$ is the identity of $\mathbb{Z}_2$ under addition. So the isomorphism sends identity to identity. This is a general rule: any homomorphism must send the identity of $G$ to the identity of $H$, because the identity is defined by how it behaves under the operation, and a homomorphism preserves that behavior.
 
 </details>
 
-**4. (Conceptual.)** The group $\{1, -1\}$ under multiplication has two elements. So does $\mathbb{Z}_2 = \{0, 1\}$ under addition mod $2$. Build an explicit isomorphism between them and check the operation is preserved.
+**4.** Both $\mathbb{Z}_4$ and the two-light-switch group $\mathbb{Z}_2 \times \mathbb{Z}_2$ have order $4$. Explain in your own words why they are *not* isomorphic, using the idea of an element combined with itself.
 
 <details><summary>Show solution</summary>
 
-Define $\varphi : \{1, -1\} \to \mathbb{Z}_2$ by $\varphi(1) = 0$ and $\varphi(-1) = 1$. This pairs the two elements one-for-one with nothing left over, so it is a one-to-one correspondence. Check it preserves the operation on all four input pairs: $\varphi(1 \cdot 1) = \varphi(1) = 0 = 0+0$; $\varphi(1 \cdot -1) = \varphi(-1) = 1 = 0+1$; $\varphi(-1 \cdot 1) = \varphi(-1) = 1 = 1+0$; $\varphi(-1 \cdot -1) = \varphi(1) = 0 = 1+1 \equiv 0 \pmod 2$. Every case agrees, so $\varphi$ is an isomorphism: "multiply two signs" and "add two bits mod 2" are the same machine. (The identity must map to the identity — $\varphi(1)=0$ — which is a good sanity check on any candidate map.)
+In $\mathbb{Z}_4$, start at the mark $1$ and keep adding it: $1, 2, 3, 0$ — you reach all four elements before returning to the start. There is a single element that generates the whole group. In the two-switch group, combine any state with itself and every switch flips twice, landing you back at $(\text{off},\text{off})$; no single element reaches more than two states by repetition. A faithful dictionary would have to translate "an element that generates everything" into one of the same kind, and the switch group has none. The structures differ, so $\mathbb{Z}_4 \not\cong \mathbb{Z}_2 \times \mathbb{Z}_2$. (Same order is the price of admission to being isomorphic, not a guarantee of it.)
 
 </details>
 
-**5. (Conceptual.)** In the second worked example we distinguished $\mathbb{Z}_4$ from $\mathbb{Z}_2 \times \mathbb{Z}_2$ by counting elements of each order. Make a small table: for each group, how many elements have order $1$, order $2$, and order $4$? Explain how the table alone shows the groups are not isomorphic.
+**5.** *(Conceptual.)* The remainder map $f(n) = (n \bmod 3)$ from $\mathbb{Z}$ to $\mathbb{Z}_3$ is a homomorphism. Is it an isomorphism? Justify your answer.
 
 <details><summary>Show solution</summary>
 
-For $\mathbb{Z}_4$: order $1$ — just $0$ (one element); order $2$ — just $2$, since $2+2=0$ (one element); order $4$ — $1$ and $3$ (two elements). For $\mathbb{Z}_2 \times \mathbb{Z}_2$: order $1$ — just $(0,0)$ (one element); order $2$ — $(1,0), (0,1), (1,1)$ (three elements); order $4$ — none (zero elements). The "order profiles" differ: $(1,1,2)$ versus $(1,3,0)$. An isomorphism preserves the order of every element, so it would force these profiles to match. They don't, so the groups are not isomorphic — the same conclusion as before, now read straight off a count.
+No. An isomorphism must be a perfect pairing — each element of the target hit exactly once. But $f$ sends infinitely many integers to the same mark: $0, 3, 6, 9, \dots$ all land on $0$. Many elements collapse together, so the pairing is far from one-for-one. It respects the operation (that is why it is a homomorphism) but loses information in translation, which an isomorphism never does. ($\mathbb{Z}$ is infinite and $\mathbb{Z}_3$ has three elements, so they cannot have equal order anyway — and equal order is required for an isomorphism.)
 
 </details>
 
-**6. (Stretch.)** Suppose $\varphi : G \to H$ is any homomorphism, $e_G$ is the identity of $G$, and $e_H$ is the identity of $H$. Argue that $\varphi(e_G) = e_H$ — the identity must map to the identity. (Hint: start from $e_G \ast e_G = e_G$ and apply $\varphi$.)
+**6.** *(Stretch.)* Consider $\{1, i, -1, -i\}$ under multiplication (with $i^2 = -1$) and $\mathbb{Z}_4$ (marks $\{0,1,2,3\}$) under wrap-around addition. Propose a dictionary $f$ pairing the two, and check that it respects the operation on one nontrivial pair.
 
 <details><summary>Show solution</summary>
 
-Since $e_G$ is the identity, $e_G \ast e_G = e_G$. Apply $\varphi$ to both sides and use the homomorphism property on the left: $\varphi(e_G) \star \varphi(e_G) = \varphi(e_G)$. Now $\varphi(e_G)$ is some element of $H$; call it $h$. We have $h \star h = h$. In a group every element has an inverse, so combine both sides with $h^{-1}$: $h \star h \star h^{-1} = h \star h^{-1}$, which simplifies to $h = e_H$. Therefore $\varphi(e_G) = e_H$. This is why "does the identity go to the identity?" is always a quick sanity check on a proposed homomorphism: if it fails, the map cannot be a homomorphism at all.
+Match powers of $i$ to clock marks: $f(1) = 0$, $f(i) = 1$, $f(-1) = 2$, $f(-i) = 3$ — that is, $f(i^k) = k$. Check the pair $a = i$, $b = -1$. Combine in the first group, then translate: $i \times (-1) = -i$, and $f(-i) = 3$. Translate, then combine in $\mathbb{Z}_4$: $f(i) = 1$, $f(-1) = 2$, and $1 + 2 = 3$ on the 4-hour clock. Both routes give $3$. The dictionary pairs all four elements one-for-one and respects the operation, so $\{1, i, -1, -i\} \cong \mathbb{Z}_4$. (Multiplying powers of $i$ adds their exponents, and exponents add on the clock — same arithmetic, two alphabets.)
 
 </details>
 
 ## Recap
 
-We built the tool that sees through costumes. A **homomorphism** is a map that preserves the operation, $\varphi(a \ast b) = \varphi(a) \star \varphi(b)$; an **isomorphism** is a homomorphism that is also a perfect dictionary, and when one exists the two groups are the same group relabelled, written $G \cong H$. We caught the fourth roots of unity behaving exactly like $\mathbb{Z}_4$, and we watched two groups of order $4$ refuse to match because one had an element of order $4$ and the other did not — proof that size alone never settles sameness. With "same group in disguise" in hand, the course has one move left: add a second operation, and step from groups into the wider world of rings and fields.
-</content>
-</invoke>
+A homomorphism is a function between groups that preserves the operation: combine-then-translate equals translate-then-combine, written $f(a * b) = f(a) \diamond f(b)$. An isomorphism is a homomorphism that pairs the two groups perfectly, one element for one with nothing lost — and when one exists, the groups are isomorphic, $G \cong H$: the same structure in different clothes, as the matching Cayley tables of $\{1,-1\}$ and $\mathbb{Z}_2$ showed. Equal order is required but never sufficient, which is why $\mathbb{Z}_4$ and the two-switch group stay apart despite both having four elements. The costume can be removed. What remains when it is — the bare operation structure, unchanged by any relabelling — is what these ten modules have been reaching toward.

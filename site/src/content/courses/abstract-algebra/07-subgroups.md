@@ -5,159 +5,303 @@ order: 7
 summary: Sometimes a group hides smaller groups inside it — and finding them reveals its structure.
 estimatedMinutes: 18
 objectives:
-  - Define a subgroup
-  - Test whether a subset is a subgroup
-  - Find the subgroups of a small group
-prerequisites: [04-what-is-a-group, 06-symmetries-of-a-triangle]
+  - Define a subgroup and state the three-condition subgroup test
+  - Apply the subgroup test to decide whether a given subset is a subgroup
+  - Identify the subgroups of $D_3$ and of $\mathbb{Z}_6$
+  - Give an example of a subset that fails the test and name which condition it breaks
+prerequisites: [06-symmetries-of-a-triangle]
 ---
 
-Set a clock to even hours only — 0, 2, 4, 6, 8, 10 — and add as usual. Two evens make an even; you never once land on an odd number. The little world of even hours sits *inside* the full twelve-hour clock, closed up and self-contained, running its own arithmetic without ever needing the odd numbers at all.
+There is a house inside a city — a smaller, self-contained thing living inside a larger one. You can describe the city without ever mentioning the house, but the house is real, it has its own rooms, and once you notice it you can't unsee it.
 
-That little world of even hours is the whole idea in miniature: a group can shelter smaller groups inside itself, each one complete and self-sufficient, running the same operation on fewer elements. Finding them is how you read a group's hidden structure — the thing that makes one group different from another. We have a name for such an inner group: a **subgroup**.
+Groups are like that. The triangle's six symmetries — the group $D_3$ you met in module 06 — form a group under composition (set + operation + four rules; module 04). But inside $D_3$, three of those six symmetries close up on themselves, keep the identity, include their own inverses, and form a group all on their own. A group living inside a group. That is the idea this module owns: the **subgroup**.
 
-You already met $\mathbb{Z}_6$ — the integers $\{0,1,2,3,4,5\}$ added mod $6$ — and you met $D_3$, the six symmetries of an equilateral triangle. Each is a group: it has an identity, every element has an inverse, and combining two elements always lands you back inside the set.
+## Intuition: a group-inside-a-group
 
-Now grab a handful of elements from one of them — say $\{0,2,4\}$ from $\mathbb{Z}_6$ — and ask a simple question: *does this handful form a group all on its own, using the same operation?* If it does, it is a subgroup. If it doesn't, it's just a random subset with no structure of its own.
+Take $D_3 = \{e, r, r^2, s, rs, r^2s\}$, the six symmetries of the equilateral triangle from module 06. Recall: $e$ is the identity (do nothing); $r$ is a $120^\circ$ rotation; $r^2$ is a $240^\circ$ rotation; $s$, $rs$, $r^2s$ are the three reflections. The operation is composition — do one move, then the other.
 
-For the handful to stand on its own as a group, it must pass the four-axiom check from module 04 — closure, associativity, identity, inverses — but two of those four take care of themselves here, leaving only three things to verify:
+Now zoom in on just the three rotations: $\{e, r, r^2\}$. Ask: can these three form a group on their own, using the same composition operation?
 
-- The identity has to be present.
-- Combining two elements of the handful must keep you *inside* the handful. (Step outside and the handful isn't self-contained.) This is **closure**.
-- Every element's inverse — its "undo" — must also be in the handful.
+- **Closure:** $r * r = r^2$, $r * r^2 = r^3 = e$, $r^2 * r^2 = r^4 = r$. Every combination of rotations lands back in $\{e, r, r^2\}$. The set doesn't escape.
+- **Associativity:** Composition of symmetries is always associative (established in module 06), so it stays associative on this smaller set too.
+- **Identity:** $e$ is in the set, and $e * r = r * e = r$. Check.
+- **Inverses:** $r^{-1} = r^2$ (because $r * r^2 = e$), and $r^2$ is in the set. $(r^2)^{-1} = r$, also in the set. $e^{-1} = e$. Every element has its inverse inside the set. Check.
 
-Associativity comes for free: if the operation was associative on the whole group, it stays associative on any piece of it. So we never have to recheck that one. The three bullets above are the entire test.
+All four axioms hold. The three rotations form a group — a smaller group sitting inside $D_3$.
+
+That is a subgroup.
+
+Now consider the three reflections alone: $\{s, rs, r^2s\}$. Closure already fails: $s * rs = r^2$ (you can read this off the $D_3$ Cayley table from module 06), and $r^2$ is not in $\{s, rs, r^2s\}$. The reflections escape the set the moment you compose two of them. They do not form a subgroup.
+
+One set passes, one fails. The difference is closure — and two other conditions that pin down what "living inside" really means.
 
 ## Definition (Subgroup)
 
-Let $G$ be a group with operation $*$, and let $H$ be a subset of $G$, written $H \subseteq G$. Then $H$ is a **subgroup** of $G$ if $H$ is itself a group under the same operation $*$. We write $H \leq G$.
+Let $(G, *)$ be a group — a set $G$ with an operation $*$ satisfying the four axioms (closure, associativity, identity, inverses; module 04). A subset $H \subseteq G$ is a **subgroup** of $G$, written $H \leq G$, if $H$ is itself a group under the same operation $*$.
 
-Concretely, $H \leq G$ exactly when all three hold:
+Equivalently, $H \leq G$ if and only if:
 
-1. **Identity.** The identity element $e$ of $G$ lies in $H$.
-2. **Closure.** For all $a, b \in H$, the combination $a * b$ lies in $H$.
-3. **Inverses.** For every $a \in H$, its inverse $a^{-1}$ lies in $H$.
+1. **Closed:** for every $a, b \in H$, the result $a * b$ is also in $H$.
+2. **Identity:** the identity element $e$ of $G$ is in $H$.
+3. **Inverses:** for every $a \in H$, the inverse $a^{-1}$ is also in $H$.
 
-These three conditions together are called the **subgroup test**. (Associativity is inherited from $G$ and need not be checked.)
+*(Associativity is automatic: if $*$ is associative on all of $G$, it stays associative on any subset. So you never need to check it separately.)*
 
-Every group $G$ has two subgroups you get for free: the whole group $G$ itself, and the one-element set $\{e\}$ containing only the identity. These are the **trivial subgroups**. The interesting question is always whether there's anything *between* them.
+This three-condition list is the **subgroup test**.
 
-## Worked example
+### The bridge from definition to picture
 
-**Problem.** Show that $H = \{0, 2, 4\}$ is a subgroup of $\mathbb{Z}_6$ (addition mod $6$).
+Read each condition against the group-inside-a-group picture. "Closed" means: combining two elements from $H$ keeps you inside $H$ — the operation never pushes you out into the larger group. "Identity present" means: $H$ contains the identity $e$ — without it, the subset can't be a group at all. "Inverses present" means: every move in $H$ has an undo inside $H$ — you don't have to reach outside to reverse a step.
 
-**Solution.** The identity of $\mathbb{Z}_6$ is $0$, and $0 \in H$, so condition 1 holds.
+If any condition fails, the subset is not a group on its own; it borrows something essential from the larger group and cannot stand alone.
 
-For closure, add every pair within $H$ and reduce mod $6$:
+---
 
-$$
-\begin{aligned}
-2 + 2 &= 4, & 2 + 4 &= 6 \equiv 0, & 4 + 4 &= 8 \equiv 2.
-\end{aligned}
-$$
+**Check yourself**
 
-Each sum — $4$, $0$, $2$ — lands back in $H$, so condition 2 holds.
-
-For inverses, each element must have an "undo" inside $H$: the inverse of $a$ is the element you add to reach $0$. Here $0$ is its own inverse, $2 + 4 = 0$ so $2$ and $4$ undo each other, and both $2$ and $4$ are in $H$. Condition 3 holds.
-
-All three conditions pass, so $H = \{0,2,4\} \leq \mathbb{Z}_6$. (This same set turns up again in module 08, where we *grow* it from the single element $2$ rather than testing it whole.) Notice its size: $|H| = 3$, while $|\mathbb{Z}_6| = 6$. Keep that pair of numbers in view — $3$ and $6$ — we'll come back to it.
-
-## Check yourself
-
-Is $\{0, 3\}$ a subgroup of $\mathbb{Z}_6$?
+Is $\{e\}$ — the set containing just the identity — a subgroup of any group $G$?
 
 <details><summary>Show answer</summary>
 
-Yes. The identity $0$ is present. For closure: $0+3=3$, $3+3=6 \equiv 0$, and both results ($3$ and $0$) are in the set. For inverses: $0$ is its own inverse, and $3+3=0$ so $3$ is its own inverse too. All three conditions hold, so $\{0,3\} \leq \mathbb{Z}_6$. Its size is $|\{0,3\}| = 2$.
+Yes. Run the test: $e * e = e$, so it's closed. The identity $e$ is present. $e^{-1} = e$, which is in the set. All three conditions hold. $\{e\}$ is always a subgroup of any group — called the **trivial subgroup**. (The whole group $G$ is also always a subgroup of itself: run the test and all three conditions hold trivially. These two — $\{e\}$ and $G$ itself — are the trivial subgroups every group contains.)
 
 </details>
 
-## A subset that fails the test
+---
 
-Not every subset is a subgroup, and seeing one break is as instructive as seeing one work. Take $\{0, 2, 3\} \subseteq \mathbb{Z}_6$. The identity $0$ is there, so condition 1 is fine. But check closure: $2 + 3 = 5$, and $5 \notin \{0,2,3\}$. The sum escaped the set. Closure fails, so $\{0,2,3\}$ is **not** a subgroup — no matter that it contained the identity. One escape is enough to disqualify it.
+## Worked examples
 
-The lesson: the identity being present is necessary, not sufficient. You must actually check that nothing leaks out.
+### Example 1: Even integers inside $(\mathbb{Z}, +)$
 
-## A subgroup inside the triangle
+The integers $\mathbb{Z}$ under addition form an infinite group (module 04). The operation is ordinary addition; the identity is $0$; the inverse of $n$ is $-n$.
 
-Subgroups aren't a numbers-only phenomenon. Recall $D_3$ from module 06, the six symmetries of an equilateral triangle: the identity $e$, two rotations $r$ (by $120^\circ$) and $r^2$ (by $240^\circ$), and three reflections (flips). Composition of symmetries is the operation.
+Let $H = \{\ldots, -4, -2, 0, 2, 4, \ldots\}$ — the even integers.
 
-Look at just the rotations: $R = \{e, r, r^2\}$. Do them in succession and you only ever get another rotation — spinning then spinning again is still a spin. Concretely, $r * r = r^2$, and $r^2 * r = r^3 = e$ (three turns of $120^\circ$ bring the triangle home). The identity $e$ is present; composing any two rotations gives a rotation in $R$; and each rotation's inverse is a rotation ($r$ and $r^2$ undo each other, $e$ undoes itself). All three conditions hold, so
+**Test:**
+
+1. **Closed?** The sum of two even integers is even. (If $a = 2m$ and $b = 2n$, then $a + b = 2(m+n)$.) Yes.
+2. **Identity?** $0$ is even; $0 \in H$. Yes.
+3. **Inverses?** The inverse of $2m$ under addition is $-2m = 2(-m)$, which is also even. Yes.
+
+**Verdict:** $H \leq \mathbb{Z}$. The even integers are a subgroup.
+
+Now ask about the **odd integers**: $\{\ldots, -3, -1, 1, 3, \ldots\}$.
+
+1. **Closed?** $1 + 1 = 2$, which is even — not in the set of odd integers. Fails immediately.
+
+One failure is enough. The odd integers are not a subgroup of $(\mathbb{Z}, +)$.
+
+### Example 2: The rotations inside $D_3$
+
+We worked this out in the intuition section, but let's write it up cleanly with the test in hand.
+
+Let $H = \{e, r, r^2\} \subseteq D_3$, using composition $*$.
+
+Here is the Cayley table restricted to $H$:
 
 $$
-R = \{e, r, r^2\} \leq D_3.
+\begin{array}{c|ccc}
+* & e & r & r^2 \\
+\hline
+e & e & r & r^2 \\
+r & r & r^2 & e \\
+r^2 & r^2 & e & r \\
+\end{array}
 $$
 
-Here $|R| = 3$ and $|D_3| = 6$. There's that $3$-and-$6$ pattern again.
+Every entry in the table belongs to $\{e, r, r^2\}$ — the set is closed. The identity $e$ appears. And you can read off inverses: $r * r^2 = e$, so $r^{-1} = r^2$ and $(r^2)^{-1} = r$; $e^{-1} = e$.
 
-## Check yourself
+**Verdict:** $H = \{e, r, r^2\} \leq D_3$.
 
-In $D_3$, is $\{e, s\}$ a subgroup, where $s$ is a single reflection (a flip)?
+This is the "rotation subgroup" of $D_3$. It has three elements; the full group has six. Notice that $3$ divides $6$ — that relationship between subgroup size and group size is not an accident. You'll see exactly why in module 09 (Lagrange's theorem).
+
+### Example 3: A single reflection fails
+
+Consider $K = \{e, s\} \subseteq D_3$.
+
+1. **Closed?** $s * s = e$ (reflecting twice returns to the start). $e * s = s$. $s * e = s$. $e * e = e$. Every result lands in $K$. Yes.
+2. **Identity?** $e \in K$. Yes.
+3. **Inverses?** $s^{-1} = s$ (because $s * s = e$), and $s \in K$. $e^{-1} = e$. Yes.
+
+**Verdict:** $K = \{e, s\} \leq D_3$. Each of the three reflections, paired with the identity, forms a subgroup of size 2.
+
+What about $\{s, rs\}$ — two reflections, no identity?
+
+1. **Identity?** $e \notin \{s, rs\}$. Fails at condition 2.
+
+No need to check further. A subset without the identity cannot be a group.
+
+---
+
+**Check yourself**
+
+In $\mathbb{Z}_6$ (the 6-hour clock, where the operation is addition mod 6 and the identity is $0$), is $H = \{0, 2, 4\}$ a subgroup?
 
 <details><summary>Show answer</summary>
 
-Yes. A flip done twice returns the triangle to its starting position, so $s * s = e$. The identity $e$ is present; composing the two elements stays inside ($e * s = s$, $s * s = e$, both in the set); and $s$ is its own inverse while $e$ is its own inverse. All three conditions hold, so $\{e, s\} \leq D_3$, with size $|\{e,s\}| = 2$.
+Run the test.
 
-(A single reflection always pairs with the identity to make a subgroup of size $2$, because doing any flip twice undoes it.)
+**Closed?** Check all sums mod 6: $0+2=2$, $0+4=4$, $2+2=4$, $2+4=6=0$, $4+4=8=2$, and $0+0=0$. Every result is in $\{0, 2, 4\}$. Yes.
+
+**Identity?** $0 \in \{0,2,4\}$. Yes.
+
+**Inverses?** The inverse of $a$ in $\mathbb{Z}_6$ is $6-a$ (recall from module 04: the inverse of $a$ in $\mathbb{Z}_n$ is $n - a$). So: $-0 = 0$, $-2 = 4$, $-4 = 2$. All inverses land in $\{0, 2, 4\}$. Yes.
+
+**Verdict:** $\{0, 2, 4\} \leq \mathbb{Z}_6$. This is the "even" subgroup inside the 6-clock — the same idea as the even integers, now wrapped onto a finite circle.
 
 </details>
 
-## The sizes are trying to tell us something
+---
 
-Line up every subgroup we've found and write down its size next to the size of the group it lives in:
+## A nested picture
 
-| Subgroup | Group | $\lvert H\rvert$ | $\lvert G\rvert$ |
-|---|---|---|---|
-| $\{0,2,4\}$ | $\mathbb{Z}_6$ | $3$ | $6$ |
-| $\{0,3\}$ | $\mathbb{Z}_6$ | $2$ | $6$ |
-| $\{e,r,r^2\}$ | $D_3$ | $3$ | $6$ |
-| $\{e,s\}$ | $D_3$ | $2$ | $6$ |
+Here is a nesting diagram for $D_3$. Each oval is a subgroup; smaller ovals sit inside larger ones.
 
-The subgroup sizes are $3, 2, 3, 2$. The group sizes are all $6$. Every subgroup size — $2$ and $3$ — divides $6$ evenly. We never once found a subgroup of size $4$ or $5$ sitting inside a group of size $6$, and that is not an accident you got lucky with. There's a theorem coming (module 09, Lagrange) that says the size of a subgroup *must* divide the size of the group. For now, just notice the pattern and let it sit: subgroup sizes seem to be sharply constrained, not free for the taking.
+```
+┌─────────────────────────────────────┐
+│              D₃                     │
+│  { e, r, r², s, rs, r²s }           │
+│                                     │
+│  ┌───────────────┐  ┌───┐  ┌───┐   │
+│  │  { e, r, r² } │  │{e,│  │{e,│   │
+│  │  (rotations)  │  │s} │  │rs}│   │
+│  └───────────────┘  └───┘  └───┘   │
+│                                     │
+│         ┌───┐                       │
+│         │{e}│  (trivial)            │
+│         └───┘                       │
+└─────────────────────────────────────┘
+```
+
+Every group contains two trivial subgroups: the single-element set $\{e\}$ at the bottom, and the whole group at the top. The interesting subgroups live in between. For $D_3$: the rotation subgroup $\{e, r, r^2\}$ (size 3), and the three "flip-plus-identity" subgroups $\{e, s\}$, $\{e, rs\}$, $\{e, r^2s\}$ (each size 2). Every subgroup's size divides 6 — that pattern waits for its explanation in module 09.
+
+---
+
+**Check yourself**
+
+In $\mathbb{Z}_4$ (the 4-clock), the elements are $\{0, 1, 2, 3\}$ with addition mod 4. Is $H = \{0, 2\}$ a subgroup? Is $K = \{1, 3\}$?
+
+<details><summary>Show answer</summary>
+
+**$H = \{0, 2\}$:**
+- Closed? $2 + 2 = 4 = 0 \in H$. $0 + 2 = 2$. $0 + 0 = 0$. Yes.
+- Identity? $0 \in H$. Yes.
+- Inverses? $-0 = 0$, $-2 = 2$ (since $2 + 2 = 4 = 0$). Yes.
+$H \leq \mathbb{Z}_4$. ✓
+
+**$K = \{1, 3\}$:**
+- Identity? $0 \notin K$. Fails immediately.
+$K$ is not a subgroup.
+
+Notice the asymmetry: you can drop the identity from a set and it instantly disqualifies. The identity is not optional equipment for a group.
+
+</details>
+
+---
 
 ## Exercises
 
-**1. (mechanical)** Is $\{0, 4\}$ a subgroup of $\mathbb{Z}_8$ (addition mod $8$)?
+**1.** Let $G = (\mathbb{Z}, +)$ (integers under addition). Which of the following subsets are subgroups? For each, either verify all three conditions or name the first one that fails.
+
+(a) $H = \{0\}$ &nbsp;&nbsp;&nbsp; (b) $H = \{n \in \mathbb{Z} : n \text{ is a multiple of } 3\}$ &nbsp;&nbsp;&nbsp; (c) $H = \{1, 2, 3\}$
 
 <details><summary>Show solution</summary>
 
-No. The identity $0$ is present, and $4 + 4 = 8 \equiv 0$, so closure and inverses look fine *among these two elements*. But wait — let's confirm carefully. $0+0=0$, $0+4=4$, $4+4=0$: every result lands in $\{0,4\}$, and each element is its own inverse ($4+4=0$). So in fact all three conditions **do** hold, and $\{0,4\} \leq \mathbb{Z}_8$, with size $2$. (The tempting trap is to assume "only two elements" must fail; size $2$ subgroups are perfectly legitimate whenever the non-identity element is its own inverse.)
+**(a) $H = \{0\}$:**
+- Closed? $0 + 0 = 0 \in H$. Yes.
+- Identity? $0 \in H$. Yes.
+- Inverses? $-0 = 0 \in H$. Yes.
+$H \leq \mathbb{Z}$. (The trivial subgroup.)
+
+**(b) $H = \{\ldots, -6, -3, 0, 3, 6, \ldots\}$ (multiples of 3):**
+- Closed? The sum of two multiples of 3 is a multiple of 3: $(3m) + (3n) = 3(m+n)$. Yes.
+- Identity? $0 = 3 \cdot 0$ is a multiple of 3. Yes.
+- Inverses? The inverse of $3m$ is $-3m = 3(-m)$, a multiple of 3. Yes.
+$H \leq \mathbb{Z}$. The multiples of any integer form a subgroup of $(\mathbb{Z}, +)$.
+
+**(c) $H = \{1, 2, 3\}$:**
+- Identity? $0 \notin H$. Fails.
+Not a subgroup. (Also fails closure: $2 + 3 = 5 \notin H$.)
 
 </details>
 
-**2. (mechanical)** Show that $\{0, 3, 6\}$ is a subgroup of $\mathbb{Z}_9$ (addition mod $9$), and state its size.
+---
+
+**2.** In $\mathbb{Z}_8$ (the 8-clock, operation $+$ mod 8), is $H = \{0, 4\}$ a subgroup? Is $K = \{0, 2, 4, 6\}$?
 
 <details><summary>Show solution</summary>
 
-Identity: $0 \in \{0,3,6\}$. Closure: $3+3=6$, $3+6=9\equiv 0$, $6+6=12\equiv 3$ — all results land in the set. Inverses: $0$ undoes itself, $3+6=0$ so $3$ and $6$ undo each other, both present. All three conditions hold, so $\{0,3,6\} \leq \mathbb{Z}_9$, with size $3$. (Note $3$ divides $9$ — the size pattern again.)
+**$H = \{0, 4\}$:**
+- Closed? $4 + 4 = 8 = 0$; $0 + 4 = 4$; $0 + 0 = 0$. All results in $H$. Yes.
+- Identity? $0 \in H$. Yes.
+- Inverses? $-0 = 0$; $-4 = 4$ (since $4 + 4 = 8 \equiv 0$). Yes.
+$H \leq \mathbb{Z}_8$.
+
+**$K = \{0, 2, 4, 6\}$:**
+- Closed? Adding any two even numbers mod 8 gives an even number. $2+2=4$, $2+4=6$, $2+6=8=0$, $4+4=0$, $4+6=10=2$, $6+6=12=4$. All results in $K$. Yes.
+- Identity? $0 \in K$. Yes.
+- Inverses? $-2 = 6$, $-4 = 4$, $-6 = 2$, $-0 = 0$. All inverses in $K$. Yes.
+$K \leq \mathbb{Z}_8$.
+
+Notice $H \leq K \leq \mathbb{Z}_8$ — subgroups can nest. The sizes are $2$, $4$, $8$: each divides the next.
 
 </details>
 
-**3. (conceptual)** The subset $\{0, 2, 4, 5\} \subseteq \mathbb{Z}_6$ contains the identity. Explain why it is nonetheless not a subgroup.
+---
+
+**3.** Consider $D_3$ with its six elements $\{e, r, r^2, s, rs, r^2s\}$. Is $\{e, r, s\}$ a subgroup?
 
 <details><summary>Show solution</summary>
 
-Containing the identity is necessary but not sufficient — you must also check closure. Here $2 + 5 = 7 \equiv 1$, and $1 \notin \{0,2,4,5\}$. The sum escaped the set, so closure fails and the subset is not a subgroup. (You could stop at the first escape; that one failure disqualifies it.) This is the same trap as $\{0,2,3\}$ earlier: the identity is present, but the set leaks.
+Test closure. In $D_3$, composing $r$ and $s$ (reading right to left: first $s$, then $r$) gives the element $rs$ — a reflection distinct from $s$. Reading off the Cayley table from module 06: the $r$-row, $s$-column entry is $rs$. Since $rs \notin \{e, r, s\}$, the set escapes immediately.
+
+Closure fails. $\{e, r, s\}$ is not a subgroup.
+
+A tempting wrong answer is to assume that any three elements including $e$ form a subgroup. They don't — you must check that composing any two elements stays inside the set.
 
 </details>
 
-**4. (conceptual)** A friend claims that $\{1, 2\}$ is a subgroup of $\mathbb{Z}_6$ because it's "small and simple." What is the first condition you should check, and does it pass?
+---
+
+**4.** True or false: if $H$ is a subgroup of $G$ and $K$ is a subgroup of $H$, then $K$ is a subgroup of $G$.
 
 <details><summary>Show solution</summary>
 
-Check for the identity first — it's the quickest condition to test. The identity of $\mathbb{Z}_6$ is $0$, and $0 \notin \{1,2\}$. Condition 1 fails immediately, so $\{1,2\}$ is not a subgroup, and there's no need to check closure or inverses. "Small and simple" has nothing to do with it; a subgroup must contain the group's identity, full stop.
+True. Think about it: $K \subseteq H \subseteq G$, so $K$ is a subset of $G$. The operation on $G$ restricts to the same operation on $H$ and on $K$. Since $K$ satisfies the three conditions inside $H$ (closure, identity, inverses), it satisfies them inside $G$ too — nothing about the conditions depends on the *ambient* group, only on what happens within $K$.
+
+This means subgroups can nest arbitrarily deep: $K \leq H \leq G$.
 
 </details>
 
-**5. (conceptual)** Using only the sizes, explain why a group of size $5$ can have no subgroup of size $2$, $3$, or $4$ — only the trivial subgroups of size $1$ and $5$.
+---
+
+**5. (Stretch)** Let $G = (\mathbb{Z}_{12}, +)$, the 12-clock. List all subgroups of $G$.
+
+*(Hint: try $\{0\}$, $\{0,6\}$, $\{0,4,8\}$, $\{0,3,6,9\}$, $\{0,2,4,6,8,10\}$, and $\mathbb{Z}_{12}$ itself. For each, what is the size? What does each size divide?)*
 
 <details><summary>Show solution</summary>
 
-Notice from the table in this module that every subgroup size divided the group size. A group of size $5$ would therefore only admit subgroups whose sizes divide $5$. The only divisors of $5$ are $1$ and $5$, since $5$ is prime — so the only possible subgroup sizes are $1$ (the trivial subgroup $\{e\}$) and $5$ (the whole group). Sizes $2$, $3$, $4$ don't divide $5$, so no subgroup can have them. (This is exactly the kind of conclusion Lagrange's theorem will make airtight in module 09 — here you're reading it off the pattern.)
+The subgroups of $\mathbb{Z}_{12}$ are exactly the sets of multiples of a divisor of $12$.
+
+| Divisor $d$ of 12 | Subgroup | Size |
+|---|---|---|
+| 12 | $\{0\}$ | 1 |
+| 6 | $\{0, 6\}$ | 2 |
+| 4 | $\{0, 4, 8\}$ | 3 |
+| 3 | $\{0, 3, 6, 9\}$ | 4 |
+| 2 | $\{0, 2, 4, 6, 8, 10\}$ | 6 |
+| 1 | $\mathbb{Z}_{12}$ | 12 |
+
+Notice: the sizes are $1, 2, 3, 4, 6, 12$ — precisely the divisors of $12$. Every subgroup's size divides the group's size. That is Lagrange's theorem (module 09), and it tells you exactly which subgroup sizes are possible without constructing each one by hand.
+
+Verifying each with the subgroup test is a good exercise — pick one (say $\{0, 3, 6, 9\}$) and check all three conditions. Closure: $3+3=6$, $3+6=9$, $3+9=12=0$, $6+6=0$, $6+9=15=3$, $9+9=18=6$. All stay in the set. Identity: $0$ is there. Inverses: $-3=9$, $-6=6$, $-9=3$, $-0=0$. All present.
 
 </details>
+
+---
 
 ## Recap
 
-A subgroup is a group hiding inside a group: a subset closed under the operation, containing the identity, and holding every element's inverse — the three-part subgroup test, with associativity inherited for free. We found real subgroups in $\mathbb{Z}_6$ (like $\{0,2,4\}$) and in $D_3$ (the rotations $\{e,r,r^2\}$), and we watched a leaky subset fail closure. Most of all, we noticed that subgroup sizes never wandered freely — they always divided the size of the whole group. That pattern is the door into the next two modules: cyclic groups, which build subgroups from a single element, and Lagrange's theorem, which explains exactly why the sizes line up.
-</content>
-</invoke>
+A **subgroup** is a subset of a group that forms a group on its own under the same operation. To check: three conditions — the set is closed (combining two elements stays inside), the identity belongs to the set, and every element's inverse belongs to the set. Associativity is free, because it already holds for the whole group.
+
+Inside $D_3$ live the rotation subgroup $\{e, r, r^2\}$ and three single-reflection subgroups $\{e, s\}$, $\{e, rs\}$, $\{e, r^2s\}$. Inside $\mathbb{Z}_6$ lives $\{0, 2, 4\}$. Every subgroup size divides the group size: $3 \mid 6$, $2 \mid 6$, $1 \mid 6$. That pattern has held in every example — the house is always a whole fraction of the city, never a fractional room. The question is why it cannot fail. The answer requires knowing not just that subgroups exist, but how they are built.

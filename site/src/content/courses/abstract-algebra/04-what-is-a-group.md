@@ -2,180 +2,161 @@
 title: What Is a Group?
 course: abstract-algebra
 order: 4
-summary: Put the four rules together and you get the single most important object in modern algebra.
+summary: Bolt the four rules together and you get the single most-studied object in modern algebra — a group.
 estimatedMinutes: 18
 objectives:
-  - State the group axioms
-  - Verify that a given set-with-operation is a group
-  - Give an example of something that is not a group and say which axiom fails
-prerequisites: [02-clock-arithmetic, 03-operations-and-their-rules]
+  - State the four group axioms (closure, associativity, identity, inverse).
+  - Verify that a given set with an operation is a group by checking all four axioms.
+  - Give an example of a set with an operation that is not a group and name the axiom that fails.
+prerequisites:
+  - 03-operations-and-their-rules
 ---
 
-For three modules you have been collecting parts. A set. A way to combine two of its elements. Closure, so the combining never throws you out of the set. Associativity, so it does not matter how you group a chain of combinations. An identity that does nothing. An inverse that undoes. Four rules, each one small, each one met on a clock face or in plain integer addition.
+For three modules you have been collecting parts. A set — a collection of things. An operation `$*$` — a rule that takes two things from the set and hands back a third (module 03). And four rules worth caring about, which that operation may or may not obey: closure, associativity, an identity, and inverses. You have been told, more than once, that these four would matter. Here is where they cash in.
 
-Now we bolt them together. What you get is not just another definition to memorize — it is the object that the rest of this course, and a great deal of modern mathematics, is built on. Mathematicians gave it the plainest possible name, as if to dare you to underestimate it. They called it a **group**.
+Put all four together on one set with one operation and you get a **group**. That word carries more weight than any other in this course. The integers under addition are a group. The hours on a clock are a group. The ways you can turn a triangle are a group, and so are the rotations of a Rubik's cube and the symmetries of a snowflake. They look nothing alike. The four rules are exactly what they have in common — and from those four rules alone, mathematicians prove things true of every group at once, the clock and the cube and the snowflake in a single stroke.
 
-Strip away the clock, strip away the integers, strip away anything you can picture, and ask what is actually doing the work in all those examples. It is never the numbers themselves. It is the *pattern of rules* the numbers happen to obey.
+So the four rules are not a checklist for its own sake. Each one buys you something concrete. Closure says you never fall out of the set: combine two members, land on a member, always. Associativity says that when you chain three things, you can group the work however you like — `$(a * b) * c$` and `$a * (b * c)$` agree — so a long combination has one unambiguous answer and you need no parentheses. An identity gives you a fixed point, an element that leaves every partner unchanged when you combine with it. And an inverse gives every element an undo: a partner that combines with it to return you to the identity. Closure keeps you inside the world; associativity lets you compute without fuss; identity and inverses let you *solve* — they are what makes `$a * x = b$` always have an answer. A set with an operation that has all four is a structure rich enough for real algebra.
 
-A group is what is left when you keep only that pattern. It is a world with exactly one way to combine things, where the combining never escapes the world (closure), never depends on how you bracket it (associativity), always leaves room for a "do nothing" move (identity), and always lets you walk any move back (inverse). Any set and operation that play by those four rules is a group, whether the elements are numbers, clock positions, or — as you will see two modules from now — flips of a paper triangle.
-
-The four axioms are not a wish list. They are the smallest set of rules that still lets you do algebra: solve $a * x = b$ for $x$, cancel, undo. Drop any one of them and that machinery breaks. Keep all four and it runs no matter what the elements are.
+Now state it exactly.
 
 ## Definition (Group)
 
-A **group** is a set $G$ together with a binary operation $*$ on $G$ satisfying the following four axioms.
+A **group** is a set `$G$` together with an operation `$*$` that takes any two elements of `$G$` and returns an element, written `$a * b$`, satisfying all four of the following.
 
-1. **Closure.** For all $a, b \in G$, the element $a * b$ is in $G$.
-2. **Associativity.** For all $a, b, c \in G$, $\;(a * b) * c = a * (b * c)$.
-3. **Identity.** There exists an element $e \in G$ such that $a * e = e * a = a$ for every $a \in G$. This $e$ is the **identity element**.
-4. **Inverses.** For each $a \in G$ there exists an element $a^{-1} \in G$ such that $a * a^{-1} = a^{-1} * a = e$. This $a^{-1}$ is the **inverse** of $a$.
+1. **Closure.** For every `$a$` and `$b$` in `$G$`, the result `$a * b$` is again in `$G$`.
+2. **Associativity.** For every `$a$`, `$b$`, `$c$` in `$G$`, `$(a * b) * c = a * (b * c)$`.
+3. **Identity.** There is an element `$e$` in `$G$`, the **identity**, such that `$a * e = a$` and `$e * a = a$` for every `$a$` in `$G$`.
+4. **Inverse.** For every `$a$` in `$G$` there is an element `$a^{-1}$` in `$G$`, the **inverse** of `$a$`, such that `$a * a^{-1} = e$` and `$a^{-1} * a = e$`.
 
-When the operation is clear from context we write the group as just $G$. A group whose underlying set is finite is called a **finite group**; otherwise it is **infinite**.
+We write the group as `$(G, *)$` when we want to name its operation, or just `$G$` when the operation is understood.
 
-A short note on reading axiom 1. Strictly, demanding that $*$ be an operation *on* $G$ already forces closure — an operation on $G$ has to return a value in $G$. We list closure separately anyway, because when you build a group from a subset of some larger set, "does the result land back inside?" is exactly the question that can fail. Keeping it on the list keeps it in view.
+Read each line back into the picture from module 03. Closure (line 1) is the promise that `$*$` never throws you outside `$G$` — two inputs from `$G$`, one output in `$G$`. Associativity (line 2) is the promise that parentheses do not matter, so `$a * b * c$` means one definite thing. The identity (line 3) is the element that changes nobody — `$e$`, the element that leaves every partner unchanged. The inverse (line 4) is each element's personal undo: `$a^{-1}$` is whatever you combine with `$a$` to get all the way back to `$e$`. Four promises, one object. Notice the symbol `$e$` and the notation `$a^{-1}$` are introduced *by* the definition — `$e$` is the name for the identity, `$a^{-1}$` the name for the inverse of `$a$`. They are not assumed; they are what lines 3 and 4 give you.
 
-## Worked example
+One more word, because half the groups you meet obey one extra rule and half do not.
 
-## Example (The integers under addition)
+## Definition (Commutative / abelian)
 
-**Problem.** Show that $\mathbb{Z}$, the set of all integers, together with ordinary addition $+$, is a group.
+A group `$(G, *)$` is **commutative**, also called **abelian**, if `$a * b = b * a$` for every `$a$` and `$b$` in `$G$` — the order in which you combine two elements never changes the result.
 
-**Solution.** Check the four axioms in turn. Checking axioms *is* the work; this is the pattern you will repeat for every candidate group, so go slowly the first time.
+Commutativity is *not* one of the four axioms. A group is still a group when the order matters; it is just not abelian. (The triangle in module 06 will be your first group where `$a * b$` and `$b * a$` genuinely differ. For now, every example here is abelian.) The name "abelian" honors Niels Henrik Abel, a Norwegian mathematician who died at twenty-six and whose work on which equations can be solved was built, underneath, on exactly this kind of structure.
 
-- **Closure.** The sum of two integers is an integer: for all $a, b \in \mathbb{Z}$, $a + b \in \mathbb{Z}$. ✓
-- **Associativity.** For all $a, b, c \in \mathbb{Z}$, $(a + b) + c = a + (b + c)$ — this is the ordinary associative law of addition. ✓
-- **Identity.** The integer $0$ satisfies $a + 0 = 0 + a = a$ for every $a \in \mathbb{Z}$, so $e = 0$. ✓
-- **Inverses.** For each $a \in \mathbb{Z}$, the integer $-a$ is also in $\mathbb{Z}$, and $a + (-a) = (-a) + a = 0$. So $a^{-1} = -a$. ✓
+## Worked example (Checking $\mathbb{Z}_4$ under addition)
 
-All four axioms hold, so $\mathbb{Z}$ under $+$ is a group. It is an infinite group, since $\mathbb{Z}$ has infinitely many elements.
+Take `$\mathbb{Z}_4$` — the 4-hour clock, the numbers `$\{0, 1, 2, 3\}$` from module 02, where you add and then wrap around past `$3$` back to `$0$`. The operation is `$+$` (clock addition): combine two of these numbers by adding, then take the remainder after dividing by `$4$`. So `$2 + 3 = 5$`, and `$5$` wraps to `$1$`. Here is the full addition table, the artifact you can read every axiom off of.
 
-Notice the shape of that argument: four bullets, one per axiom, each naming the witness ($0$ for the identity, $-a$ for the inverse). That four-line ritual *is* a proof — your first one. It is not a flourish or a leap of insight; it is a checklist, honestly completed. That is what most of "proving something is a group" amounts to.
+$$
+\begin{array}{c|cccc}
++ & 0 & 1 & 2 & 3 \\
+\hline
+0 & 0 & 1 & 2 & 3 \\
+1 & 1 & 2 & 3 & 0 \\
+2 & 2 & 3 & 0 & 1 \\
+3 & 3 & 0 & 1 & 2 \\
+\end{array}
+$$
+
+Now run the four-axiom check.
+
+- **Closure.** Every entry inside the table is one of `$0, 1, 2, 3$` — there is no `$4$`, no `$7$`, nothing from outside. Adding two clock numbers and wrapping always lands you back on the clock. Closed.
+- **Associativity.** Clock addition is ordinary addition followed by a wrap, and ordinary addition is associative — `$(1 + 2) + 3$` and `$1 + (2 + 3)$` both come to `$6$`, which wraps to `$2$`. The wrap does not disturb this. Associative.
+- **Identity.** Look at the row for `$0$`: it reads `$0, 1, 2, 3$` — adding `$0$` returns every number unchanged. So `$e = 0$`. The identity is $0$, exactly as you would hope on a clock.
+- **Inverse.** Each element needs a partner that sums to `$0$`. Scan each row for the `$0$`: `$1 + 3 = 0$`, `$2 + 2 = 0$`, `$3 + 1 = 0$`, and `$0 + 0 = 0$`. Every element has an inverse. (This is the `$\mathbb{Z}_n$` inverse rule: the inverse of `$a$` is `$n - a$`. Here `$n = 4$`, so `$1^{-1} = 3$`, `$2^{-1} = 2$`, `$3^{-1} = 1$`.)
+
+All four hold, so `$\mathbb{Z}_4$` under `$+$` is a group. And the table is symmetric across its diagonal — `$a + b = b + a$` everywhere — so it is an **abelian** group.
 
 ## Check yourself
 
-Before reading on, decide from memory: what plays the role of the identity element in $\mathbb{Z}_n$ under addition (clock arithmetic from module 02), and what is the inverse of an element $a$ there?
+In `$\mathbb{Z}_4$`, what is the inverse of `$3$`, and why?
 
 <details><summary>Show answer</summary>
 
-The identity is $0$, since $a + 0 = a$ on the clock just as on the number line. The inverse of $a$ is $n - a$ (for $a \neq 0$), because $a + (n - a) = n = 0$ in $\mathbb{Z}_n$ — adding $n$ takes you all the way around the clock and back to where you started. The inverse of $0$ is $0$ itself. Every element has one, which is exactly axiom 4.
+The inverse of `$3$` is `$1$`, because `$3 + 1 = 4$`, which wraps to `$0 = e$`. (By the `$n - a$` rule: `$4 - 3 = 1$`.) The inverse is the partner that combines with `$3$` to return the identity `$0$`.
 
 </details>
 
-## A second example, done faster
+## Worked example (When it fails: the integers under multiplication)
 
-## Example (The integers mod $n$ under addition)
+Now watch a structure miss. Take `$\mathbb{Z}$`, all the whole numbers `$\dots, -2, -1, 0, 1, 2, \dots$`, with the operation `$\times$` (ordinary multiplication). Three of the four axioms hold without trouble:
 
-**Problem.** Show that $\mathbb{Z}_n = \{0, 1, 2, \dots, n-1\}$, with addition mod $n$, is a group.
+- **Closure.** A whole number times a whole number is a whole number. Closed.
+- **Associativity.** `$(a \times b) \times c = a \times (b \times c)$` for ordinary multiplication. Associative.
+- **Identity.** `$a \times 1 = a$` for every `$a$`, so `$e = 1$`. There is an identity.
 
-**Solution.** Run the same four checks.
+Then the fourth axiom breaks. An inverse of `$2$` would have to be a whole number you multiply by `$2$` to get the identity `$1$` — that is, a solution of `$2 \times x = 1$`. The only number that works is `$\tfrac{1}{2}$`, and `$\tfrac{1}{2}$` is not a whole number; it is not in `$\mathbb{Z}$`. So `$2$` has no inverse inside the set. One missing inverse is enough: `$(\mathbb{Z}, \times)$` is **not** a group.
 
-- **Closure.** Adding two elements and reducing mod $n$ always lands in $\{0, 1, \dots, n-1\}$. ✓
-- **Associativity.** Addition mod $n$ inherits associativity from ordinary addition: reducing mod $n$ before or after grouping gives the same answer. ✓
-- **Identity.** $0$ satisfies $a + 0 = a$ in $\mathbb{Z}_n$, so $e = 0$. ✓
-- **Inverses.** For $a \neq 0$, the element $n - a$ lies in $\mathbb{Z}_n$ and $a + (n - a) = n \equiv 0 \pmod{n}$; and $0$ is its own inverse. ✓
-
-So $\mathbb{Z}_n$ under addition mod $n$ is a group — a *finite* one, with $n$ elements. This is the engine behind the clock arithmetic of module 02: a clock is just $\mathbb{Z}_{12}$ wearing a face.
-
-## When it fails: the integers under multiplication
-
-Here is the trap. Swap the operation on $\mathbb{Z}$ from $+$ to $\times$ and ask the same question: is $\mathbb{Z}$ under multiplication a group? Three of the four axioms survive the swap, which is exactly what makes the failure instructive.
-
-- **Closure.** The product of two integers is an integer. ✓
-- **Associativity.** $(a \times b) \times c = a \times (b \times c)$. ✓
-- **Identity.** The integer $1$ satisfies $a \times 1 = 1 \times a = a$, so $e = 1$. ✓
-- **Inverses.** Here it breaks. The inverse of $a$ would have to be an integer $a^{-1}$ with $a \times a^{-1} = 1$. For $a = 2$ that means $2 \times a^{-1} = 1$, so $a^{-1} = \tfrac{1}{2}$ — which is **not an integer**, so it is not in $\mathbb{Z}$. ✗
-
-The inverse axiom fails: $2$ has no inverse inside $\mathbb{Z}$ under $\times$. (In fact only $1$ and $-1$ have integer multiplicative inverses.) One missing inverse is enough. **$\mathbb{Z}$ under multiplication is not a group**, and the axiom that fails is the inverse axiom.
-
-This is worth sitting with. "Not a group" is never a vague verdict. To say it, you point at one specific axiom and one specific element that violates it — here, $2$ and axiom 4. A counterexample is a finger pointed at the exact place the rules break.
+This is the whole point of having axioms. "Almost a group" is not a group. To disqualify a candidate you do not have to check everything — you name one axiom it fails and you are done. To *certify* a group, though, all four must hold.
 
 ## Check yourself
 
-Consider the set of natural numbers $\mathbb{N} = \{0, 1, 2, 3, \dots\}$ under ordinary addition. Three axioms hold easily. Which axiom fails, and what is a witness to the failure?
+Is `$(\mathbb{Z}, +)$` — the whole numbers under addition — a group? Run the four checks.
 
 <details><summary>Show answer</summary>
 
-The **inverse** axiom fails. The identity is $0$ (fine), and closure and associativity hold. But take $a = 3$: its inverse would have to satisfy $3 + a^{-1} = 0$, forcing $a^{-1} = -3$, which is not in $\mathbb{N}$. No positive natural number has an inverse in $\mathbb{N}$ under addition. So $\mathbb{N}$ under $+$ is *not* a group — and this is precisely why we needed the full set $\mathbb{Z}$ in the first worked example.
+Yes. Closure: a sum of whole numbers is a whole number. Associativity: ordinary addition is associative. Identity: `$e = 0$`, since `$a + 0 = a$`. Inverse: the inverse of `$a$` is `$-a$`, a whole number, and `$a + (-a) = 0$`. All four hold, so `$(\mathbb{Z}, +)$` is a group (and an abelian one). The difference from `$(\mathbb{Z}, \times)$` is the operation: under `$+$` every element has an inverse; under `$\times$` almost none do.
+
+</details>
+
+## Exercises
+
+**1.** Write down the identity element and the inverse of each element in `$\mathbb{Z}_4$` under `$+$`.
+
+<details><summary>Show solution</summary>
+
+Identity: `$e = 0$` (adding `$0$` changes nothing). Inverses, using `$a^{-1} = 4 - a$`: `$0^{-1} = 0$`, `$1^{-1} = 3$`, `$2^{-1} = 2$`, `$3^{-1} = 1$`. Check each against the table: `$1 + 3 = 0$`, `$2 + 2 = 0$`, `$3 + 1 = 0$`, `$0 + 0 = 0$`. Note `$2$` is its own inverse — that is allowed; nothing in the definition forbids `$a^{-1} = a$`.
+
+</details>
+
+**2.** Is `$(\mathbb{N}, +)$` a group, where `$\mathbb{N} = \{0, 1, 2, 3, \dots\}$` is the counting numbers (no negatives) under addition? If not, which axiom fails?
+
+<details><summary>Show solution</summary>
+
+No. Closure, associativity, and identity (`$e = 0$`) all hold. But inverses fail: the inverse of `$2$` would have to satisfy `$2 + x = 0$`, which needs `$x = -2$`, and `$-2$` is not in `$\mathbb{N}$`. One missing inverse disqualifies it. (Throwing the negatives back in repairs it — that is exactly `$(\mathbb{Z}, +)$` from the check above.)
+
+</details>
+
+**3.** Build the addition table for `$\mathbb{Z}_3$` (the 3-hour clock, `$\{0, 1, 2\}$`) and use it to confirm `$\mathbb{Z}_3$` under `$+$` is a group.
+
+<details><summary>Show solution</summary>
+
+$$
+\begin{array}{c|ccc}
++ & 0 & 1 & 2 \\
+\hline
+0 & 0 & 1 & 2 \\
+1 & 1 & 2 & 0 \\
+2 & 2 & 0 & 1 \\
+\end{array}
+$$
+
+Closure: every entry is `$0$`, `$1$`, or `$2$`. Associativity: inherited from ordinary addition. Identity: the `$0$` row is unchanged, so `$e = 0$`. Inverse: `$1 + 2 = 0$` and `$2 + 1 = 0$`, so `$1^{-1} = 2$` and `$2^{-1} = 1$`; and `$0^{-1} = 0$`. All four hold, so it is a group.
+
+</details>
+
+**4.** Is `$(\mathbb{Z}_4, +)$` abelian? How can you tell from the table without checking every pair separately?
+
+<details><summary>Show solution</summary>
+
+Yes, it is abelian. The table is symmetric across the main diagonal (top-left to bottom-right): the entry in row `$a$`, column `$b$` equals the entry in row `$b$`, column `$a$`. That symmetry *is* the statement `$a + b = b + a$` for every pair. One glance at the mirror line confirms commutativity for all pairs at once.
+
+</details>
+
+**5.** *(conceptual)* Someone claims that the set `$\{1, 2, 3\}$` under ordinary multiplication `$\times$` is a group. Find the single axiom they have already broken before you even reach inverses.
+
+<details><summary>Show solution</summary>
+
+Closure. `$2 \times 3 = 6$`, and `$6$` is not in `$\{1, 2, 3\}$`. The operation throws you out of the set, so the structure is not closed — and an operation that leaves the set is not even a valid group operation, let alone one with inverses. One escape is enough.
+
+</details>
+
+**6.** *(conceptual)* Using only the four axioms — not a specific example — explain why a group can never be empty. (Hint: which axiom forces an element to exist?)
+
+<details><summary>Show solution</summary>
+
+The identity axiom. It states that *there is* an element `$e$` in `$G$`. An empty set has no elements at all, so it has no identity, and the third axiom fails immediately. Therefore every group contains at least one element — its identity. (In fact `$\{e\}$`, the set with only the identity, *is* a group: `$e * e = e$` handles closure, associativity, identity, and `$e$` is its own inverse. It is the smallest group there is.)
 
 </details>
 
 ## Recap
 
-A group is a set with one operation obeying four rules — closure, associativity, identity, inverses — and nothing more. The integers under addition and the integers mod $n$ under addition both clear all four; the integers under multiplication do not, because $2$ has no inverse there, and naming that single broken axiom is what a "not a group" verdict actually means. You have also turned in your first proofs: each was a four-line check against the definition, which is most of what verifying a group ever requires. So far every group has been a number system. The question now is how much further the idea reaches — far enough, it turns out, to fill a zoo.
-
-## Exercises
-
-**Exercise 1 (mechanical).** Verify that $\mathbb{Z}_5 = \{0,1,2,3,4\}$ under addition mod $5$ has an identity, and find the inverse of each of its five elements.
-
-<details><summary>Show solution</summary>
-
-The identity is $0$, since $a + 0 = a$ in $\mathbb{Z}_5$. For inverses, find for each $a$ the element that adds to $0 \pmod 5$:
-
-- $0$: inverse is $0$ ($0 + 0 = 0$).
-- $1$: inverse is $4$ ($1 + 4 = 5 \equiv 0$).
-- $2$: inverse is $3$ ($2 + 3 = 5 \equiv 0$).
-- $3$: inverse is $2$.
-- $4$: inverse is $1$.
-
-The rule is the general one from the Check-yourself: the inverse of $a$ is $5 - a$ for $a \neq 0$, and $0$ is its own inverse. Every element has an inverse, so axiom 4 holds.
-
-</details>
-
-**Exercise 2 (mechanical).** In the group $\mathbb{Z}$ under $+$, the identity is $0$. Using only the inverse axiom, solve the equation $x + 7 = 0$ for $x$, and state which axiom guarantees a solution exists.
-
-<details><summary>Show solution</summary>
-
-A solution is $x = -7$, since $-7 + 7 = 0$. What guarantees it exists is the **inverse axiom**: it promises that $7$ has an inverse $7^{-1} = -7$ in $\mathbb{Z}$, and that inverse is exactly the $x$ that sends $7$ back to the identity. This is the payoff of the whole structure — inverses are what let you solve equations by "undoing."
-
-</details>
-
-**Exercise 3 (conceptual).** Consider the set $\{1, -1\}$ under ordinary multiplication. Check all four group axioms and decide whether it is a group.
-
-<details><summary>Show solution</summary>
-
-- **Closure:** $1 \times 1 = 1$, $1 \times (-1) = -1$, $(-1) \times (-1) = 1$. Every product is back in $\{1, -1\}$. ✓
-- **Associativity:** inherited from ordinary multiplication. ✓
-- **Identity:** $1$, since $a \times 1 = a$. ✓
-- **Inverses:** $1 \times 1 = 1$ so $1$ is its own inverse; $(-1) \times (-1) = 1$ so $-1$ is its own inverse. ✓
-
-All four hold, so $\{1, -1\}$ under $\times$ **is** a group — a finite group with two elements. (Contrast this with $\mathbb{Z}$ under $\times$: shrinking the set to just $\{1, -1\}$ throws out exactly the elements that lacked inverses.)
-
-</details>
-
-**Exercise 4 (conceptual).** Is the set of odd integers $\{\dots, -3, -1, 1, 3, \dots\}$ under addition a group? If not, name the first axiom that fails and give a witness.
-
-<details><summary>Show solution</summary>
-
-It is **not** a group, and the first axiom to fail is **closure**. Take two odd integers, say $1$ and $3$: their sum $1 + 3 = 4$ is even, so it is not in the set of odd integers. The operation has thrown us out of the set, which is exactly what closure forbids.
-
-A tempting wrong answer is to blame the identity axiom, reasoning "there's no $0$ in the set, so there's no identity." That is true, but closure already fails on the very first pair you add, so it is the cleaner and more fundamental witness — and once closure fails, the set with this operation cannot be a group regardless of anything else. (Naming *any* failing axiom disqualifies it; closure is just the one that breaks first and most visibly.)
-
-</details>
-
-**Exercise 5 (conceptual).** The set of positive rational numbers $\mathbb{Q}^{+}$ (fractions $\tfrac{p}{q}$ with $p, q$ positive integers) under multiplication has identity $1$. Show that, unlike $\mathbb{Z}$ under $\times$, every element here *does* have an inverse — so the axiom that doomed $\mathbb{Z}$ under $\times$ is repaired.
-
-<details><summary>Show solution</summary>
-
-Take any element $\tfrac{p}{q} \in \mathbb{Q}^{+}$ with $p, q$ positive integers. Its inverse is $\tfrac{q}{p}$, which is again a positive rational, and
-
-$$
-\frac{p}{q} \times \frac{q}{p} = \frac{pq}{qp} = 1 = e.
-$$
-
-So every element has an inverse *inside the set*, and axiom 4 holds. The reason $\mathbb{Z}$ under $\times$ failed was that $\tfrac{1}{2}$ was missing; enlarging the set to all positive rationals supplies exactly those missing inverses. (Together with closure, associativity, and identity — which also hold — this makes $\mathbb{Q}^{+}$ under $\times$ a group, a fact we will revisit in the next module.)
-
-</details>
-
-**Exercise 6 (stretch).** Suppose $G$ is a group with identity $e$, and let $a \in G$. Argue, in plain sentences, why $a$ cannot have two different inverses — that is, why the inverse promised by axiom 4 is unique. *(Hint: suppose $b$ and $c$ both satisfy the inverse condition for $a$, and combine $b * a * c$ two ways using associativity.)*
-
-<details><summary>Show solution</summary>
-
-Suppose both $b$ and $c$ are inverses of $a$, so $b * a = e$ and $a * c = e$. Consider the combination $b * a * c$, which associativity (axiom 2) lets us bracket either way without changing the result.
-
-Grouping to the left: $(b * a) * c = e * c = c$, using $b * a = e$ and the identity axiom.
-
-Grouping to the right: $b * (a * c) = b * e = b$, using $a * c = e$ and the identity axiom.
-
-The two groupings compute the same element, so $b = c$. Any two inverses of $a$ are equal, which is why we are entitled to speak of *the* inverse $a^{-1}$ and to write it with a single symbol. Notice that this argument used three of the four axioms together — associativity, identity, and inverses — which is a first hint of how the axioms cooperate rather than just sit side by side.
-
-</details>
+A group is a set with one operation obeying four rules — closure, associativity, an identity `$e$`, and an inverse `$a^{-1}$` for each element — and an abelian group is one where order does not matter. You verified `$\mathbb{Z}_4$` is a group by reading all four axioms straight off its addition table, and you watched `$(\mathbb{Z}, \times)$` fall short on the inverse axiom alone. The four-axiom check is the lens the next module turns on a whole zoo of examples: numbers, fractions, roots, and stranger things — all of them either passing or failing on exactly the grounds you just practiced.

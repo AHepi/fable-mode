@@ -1,5 +1,5 @@
 ---
-title: Beyond Groups: Rings and Fields
+title: "Beyond Groups: Rings and Fields"
 course: abstract-algebra
 order: 11
 summary: Add a second operation and the landscape opens up — the integers, the rationals, and the structures that organize all of algebra.
@@ -28,7 +28,7 @@ A group — one set with one operation satisfying the four rules (closure, assoc
 
 Think of it this way. You can buy 3 packs of (4 apples and 5 oranges), or you can buy 3 packs of apples and 3 packs of oranges separately. Either way, $3 \times 9 = 27$. The two operations cooperate.
 
-A structure that formalizes this cooperation is called a **ring**. A structure where cooperation runs deep enough to let you divide is called a **field**. The integers are a ring. The rationals are a field. The difference turns out to matter enormously.
+A structure that formalizes this cooperation is called a **ring**. A structure where cooperation runs deep enough that you can divide is called a **field**. The integers are a ring. The rationals are a field. The difference turns out to matter enormously.
 
 ## Definition (Ring)
 

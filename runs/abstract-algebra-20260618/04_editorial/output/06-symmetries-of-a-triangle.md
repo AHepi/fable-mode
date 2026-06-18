@@ -22,7 +22,7 @@ Number the three corners of the paper triangle `$1$`, `$2$`, `$3$`, and number t
 
 There are exactly six. Three of them are **rotations** — turns about the center:
 
-- `$e$`: leave it alone (turn by `$0^\circ$`). This is the do-nothing move, the **identity** (module 04): combine it with anything and nothing changes.
+- `$e$`: leave it alone (turn by `$0^\circ$`). This is the **identity** (module 04) — the element that leaves every partner unchanged: combine it with anything and nothing changes.
 - `$r$`: turn by `$120^\circ$`.
 - `$r^2$`: turn by `$240^\circ$` — the same as turning by `$120^\circ$` twice, which is why we write it `$r^2$`. A third turn, `$r^3$`, brings every corner home, so `$r^3 = e$`.
 
@@ -52,7 +52,7 @@ $$
 
 The reflection on the right goes first; the rotation on the left goes second. (Right-to-left feels backward at first. It is the same convention you use without noticing when you write `$f(g(x))$`: `$g$` touches `$x$` first.)
 
-The operation is closed because a symmetry followed by a symmetry is still a symmetry — the paper still drops in clean. The identity is `$e$`, the do-nothing turn. Every move has an inverse that undoes it: a `$120^\circ$` turn is undone by a `$240^\circ$` turn (`$r$` and `$r^2$`), and a flip undoes itself (`$s$` followed by `$s$` is `$e$`, so `$s^2 = e$`). Composition is associative for the plain reason that doing moves in a fixed sequence does not care how you bracket them. Run the four-axiom check from module 04 and `$D_3$` passes: it is a group.
+The operation is closed because a symmetry followed by a symmetry is still a symmetry — the paper still drops in clean. The identity is `$e$`, the turn by `$0^\circ$`. Every move has an inverse that undoes it: a `$120^\circ$` turn is undone by a `$240^\circ$` turn (`$r$` and `$r^2$`), and a flip undoes itself (`$s$` followed by `$s$` is `$e$`, so `$s^2 = e$`). Composition is associative for the plain reason that doing moves in a fixed sequence does not care how you bracket them. Run the four-axiom check from module 04 and `$D_3$` passes: it is a group.
 
 But it is a group with a twist no earlier one had.
 
@@ -185,7 +185,7 @@ Work from the inside: `$sr = r^2 s$`, so `$r^2 s r = r^2 (sr) = r^2 (r^2 s) = r^
 
 <details><summary>Show solution</summary>
 
-`$r$` and `$r^2$` commute: `$r \cdot r^2 = r^3 = e$` and `$r^2 \cdot r = r^3 = e$`, so `$r r^2 = r^2 r$`. (Any two rotations commute, since they all just add up turns.) Also `$e$` commutes with everything. "Non-commutative" means there *exists* at least one pair that disagrees — not that all pairs do. One pair, `$r$` and `$s$`, is enough to disqualify the group from being abelian; it says nothing about the rest.
+`$r$` and `$r^2$` commute: `$r \cdot r^2 = r^3 = e$` and `$r^2 \cdot r = r^3 = e$`, so `$r r^2 = r^2 r$`. (Any two rotations commute, since they all just add up turns.) Also `$e$` commutes with everything. "Non-commutative" means there *exists* at least one pair that disagrees — not that all pairs do. One pair, `$r$` and `$s$`, disqualifies the group from being abelian; it says nothing about the rest.
 
 </details>
 

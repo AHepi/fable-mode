@@ -172,7 +172,7 @@ No. Test $a = b = 0$. Left side: $0 + 0 = 0$ in $\mathbb{Z}_2$, and $g(0) = 1$, 
 
 <details><summary>Show solution</summary>
 
-The identity of $\{1, -1\}$ under multiplication is $1$ (the do-nothing element: multiplying by $1$ changes nothing), and $f(1) = 0$. The mark $0$ is the identity of $\mathbb{Z}_2$ under addition. So the isomorphism sends identity to identity. This is a general rule: any homomorphism must send the identity of $G$ to the identity of $H$, because the identity is defined by how it behaves under the operation, and a homomorphism preserves that behavior.
+The identity of $\{1, -1\}$ under multiplication is $1$ (the identity: multiplying by $1$ changes nothing), and $f(1) = 0$. The mark $0$ is the identity of $\mathbb{Z}_2$ under addition. So the isomorphism sends identity to identity. This is a general rule: any homomorphism must send the identity of $G$ to the identity of $H$, because the identity is defined by how it behaves under the operation, and a homomorphism preserves that behavior.
 
 </details>
 

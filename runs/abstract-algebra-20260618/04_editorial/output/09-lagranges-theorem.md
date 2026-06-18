@@ -36,7 +36,7 @@ The point of the chocolate bar is what happens next. These shifted blocks — th
 
 ## Worked cosets in a real group
 
-Let's compute the cosets in a group small enough to see all at once: `$\mathbb{Z}_6$` (the 6-hour clock), with elements `$\{0,1,2,3,4,5\}$` and the operation `$+$` (add and wrap around at 6). Its order is `$|\mathbb{Z}_6| = 6$`.
+Let's compute the cosets in a group we can see all at once: `$\mathbb{Z}_6$` (the 6-hour clock), with elements `$\{0,1,2,3,4,5\}$` and the operation `$+$` (add and wrap around at 6). Its order is `$|\mathbb{Z}_6| = 6$`.
 
 Inside it sits a subgroup we already know. From module 08, starting at `$2$` and adding it to itself gives `$2, 4, 0$` and then loops — so `$H = \{0, 2, 4\}$`, the even numbers, is a subgroup. Its order is `$|H| = 3$`. (You can confirm it's closed: any two evens add to an even, mod 6.)
 
@@ -111,7 +111,7 @@ Before the argument, a word about what comes next, because you may never have re
 
 *Proof.* We sort the elements of `$G$` into cosets of `$H$` and count.
 
-**Step 1 — the cosets cover everything.** Every element `$g$` of `$G$` lands in the coset `$gH$`, because `$gH$` contains `$g * e = g$` (where `$e$` is the do-nothing element, which `$H$` always contains). So no element is left out: every element of `$G$` sits in at least one coset. *(This is "full cover.")*
+**Step 1 — the cosets cover everything.** Every element `$g$` of `$G$` lands in the coset `$gH$`, because `$gH$` contains `$g * e = g$` (where `$e$` is the identity, which `$H$` always contains). So no element is left out: every element of `$G$` sits in at least one coset. *(This is "full cover.")*
 
 **Step 2 — each coset is the same size as `$H$`.** A coset `$gH$` is formed by combining `$g$` with each element of `$H$`. Could two different members of `$H$`, say `$h_1$` and `$h_2$`, give the same result — could `$g * h_1 = g * h_2$`? If they did, combine both sides with `$g^{-1}$` (the undo of `$g$`, which exists because `$G$` is a group) and you get `$h_1 = h_2$`. So different members of `$H$` give different results: sliding `$H$` over by `$g$` never collapses two squares into one. The coset `$gH$` therefore has exactly as many elements as `$H$` does — `$|H|$` of them. *(This is "equal size.")*
 
@@ -209,4 +209,4 @@ A subgroup cannot be any size it pleases. Sliding the subgroup `$H$` across the 
 
 ---
 
-*Bias screen: examples use clock arithmetic (`$\mathbb{Z}_6$`) and the chocolate-bar image for cosets; no names, cultures, or group identities referenced. Terms group, subgroup, order, operation, do-nothing/identity, inverse/undo, and coset are each glossed or called back at first use. The proof is the only formal block and ends with `$\square$`; all other reasoning is walked in plain words per the highschool level dial.*
+*Bias screen: examples use clock arithmetic (`$\mathbb{Z}_6$`) and the chocolate-bar image for cosets; no names, cultures, or group identities referenced. Terms group, subgroup, order, operation, identity, inverse/undo, and coset are each glossed or called back at first use. The proof is the only formal block and ends with `$\square$`; all other reasoning is walked in plain words per the highschool level dial.*

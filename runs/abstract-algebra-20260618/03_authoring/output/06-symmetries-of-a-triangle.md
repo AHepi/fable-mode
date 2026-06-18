@@ -207,4 +207,4 @@ Label the square's corners `$1,2,3,4$`. Let `$\rho$` be the `$90^\circ$` turn an
 
 ## Recap
 
-The six symmetries of an equilateral triangle — three rotations and three reflections — form a group, `$D_3$`, under composition: do one move, then another. We named the moves, composed them by juxtaposition reading right to left, and built the full Cayley table. The headline is the relation `$sr = r^2s$`, which means `$rs \neq sr$`: for the first time, order matters, and a group can be non-commutative. Next we look *inside* a group — at the smaller groups hiding within `$D_3$` and within the clock, the subgroups that reveal a group's structure.
+The six symmetries of an equilateral triangle — three rotations and three reflections — form a group, `$D_3$`, under composition: do one move, then another. We named the moves, composed them by juxtaposition reading right to left, and built the full Cayley table. The headline is the relation `$sr = r^2s$`, which means `$rs \neq sr$`: order matters now, and it will not stop mattering. Every group from here on must answer the commutativity question fresh — the clock's easy symmetry was the exception, not the rule.
