@@ -50,14 +50,28 @@ canon's symbol registry requires it, and then identically everywhere.
    Confidence, not comfort.
 7. **Fix page-local flow** as you go: logical contradictions in the prose framing, buried subjects,
    weak transitions, mumbled endings, hedges, em-dash monotony.
-8. **Metaphor & bridge audit.** Read each module's central image and its definition-seam. Kill or
-   rebuild any metaphor that points at the wrong referent (e.g. "slots and a crank" evoking a slot
-   machine — randomness) or that was announced as central and then abandoned; prefer a clean concrete
-   shape or no image to a broken one. Then confirm every formal definition is reached by an
-   intuition→definition bridge that decodes the notation piece by piece — add the bridge where a
-   definition arrives as a cliff. This is a **semantic** judgement (a careful human/LLM read), not
-   something the mechanical prose lint can catch; it is precisely why this pass exists.
-9. Write the edited modules to `runs/<run-id>/04_editorial/output/NN-<slug>.md` — same filenames as
+8. **Metaphor audit.** Read each module's central image. Kill or rebuild any metaphor that points at
+   the wrong referent (e.g. "slots and a crank" evoking a slot machine — randomness) or that was
+   announced as central and then abandoned; prefer a clean concrete shape or no image to a broken one.
+9. **Bridge sweep (the seams).** This is a first-class, whole-course pass — not a spot-check — because
+   the seams a blind parallel author can't see are exactly what this stage exists to catch. Walk the
+   course and **enumerate every seam**, then confirm each carries a real bridge (per `math-style.md`
+   §1), not an assertion:
+   - **intuition → definition** (within a module): the notation is decoded piece by piece onto the
+     picture; no definition lands as a cliff.
+   - **model → formalism** (within a module): when a definition reframes the idea through a *different*
+     model than the intuition built (clock-*stepping* → divide-and-*remainder*), the equivalence is
+     **constructed, not asserted** — show the mechanism that makes the two models the same. A lone
+     sentence claiming "this is exactly what X does" is the failure mode; rebuild it into a worked
+     hand-off.
+   - **module → module**: the next module's opening picks up where the last left off (callback, not a
+     cold restart); a big conceptual jump between modules gets a connective passage.
+   - **Ordering check:** every bridge sits **before or with** its definition. A bridge that appears
+     only *after* the formal block is a patch over a cliff — move it ahead of the block and rebuild it
+     so the definition arrives as the expected next step.
+   This is a **semantic** judgement (a careful human/LLM read), not something the mechanical prose lint
+   can catch; it is precisely why this pass exists.
+10. Write the edited modules to `runs/<run-id>/04_editorial/output/NN-<slug>.md` — same filenames as
    stage 03. (Assembly reads these, falling back to the authoring output if this stage was skipped.)
 
 Delegation: you may fan out per-module edits, but only **after** the canon's decisions are fixed, and
@@ -82,10 +96,13 @@ every sub-agent must edit against the same canon so the result stays consistent.
   `lint-prose.mjs` checks 5–6 (soothing adverbs; hand-holding phrases) are clean.
 - **(stem) Show the artifact:** each mechanism-bearing module carries a diagram, equation, or worked
   computation, not prose alone.
-- **Metaphor & bridge audit done (semantic, not lint):** every central image points true and is paid
-  off (the broken/abandoned ones were killed or rebuilt), and every formal definition is reached by a
-  bridge that decodes its notation — no definition lands as a cliff. The mechanical prose lint does
-  not catch this; it was checked by reading.
+- **Metaphor & bridge sweep done (semantic, not lint):** every central image points true and is paid
+  off (the broken/abandoned ones were killed or rebuilt). Every seam was enumerated and carries a real
+  bridge: each definition is reached by a notation-decode bridge (no cliff); every **model→formalism**
+  reframe (e.g. clock-stepping → divide-and-remainder) **constructs** the equivalence rather than
+  asserting it; module openings pick up where the last left off. Every bridge sits **before or with**
+  its definition — none is a patch placed after the block. The mechanical prose lint does not catch
+  this; it was checked by reading.
 - **Math is untouched:** every Definition/Theorem/Proof/Example and equation is identical to stage 03
   except for canon-required symbol unification applied identically everywhere.
 

@@ -70,6 +70,16 @@ to do. And wherever an intuition hands off to a formal definition, owe the reade
 that maps the picture onto the notation, piece by piece — never set an image beside a definition and
 trust them to find each other. (That handoff is the **bridge**; `_config/math-style.md` makes it a rule.)
 
+The trap a whole-course read is built to catch is the **framing shift**: the intuition builds one model
+(stepping and wrapping around a clock) and the definition quietly switches to another (dividing and
+taking a remainder). The two are equivalent, and *because* they're equivalent the author feels honest
+asserting it — "that's exactly what the clock does" — and moves on. But the reader hasn't seen *why*
+they're the same; the equivalence is the cliff. As editor, hunt these: when a definition reframes the
+idea through a different model than the prose built, the equivalence must be **constructed** (show the
+mechanism: one full lap of 12 plus 2 left over *is* the remainder) and placed **before** the definition,
+not patched in after it. An asserted equivalence is the most camouflaged cliff in the course, because it
+reads as a complete sentence rather than an obvious gap.
+
 ---
 
 ## The whole course

@@ -51,6 +51,25 @@ How to apply the boundary in practice:
 > reaching deliberately across the boundary — and it is the *only* place it may. The bridge
 > reads the definition; it never changes it (every symbol and condition stays exactly as the
 > formal block states them). A definition that arrives with no bridge is a defect — a cliff.
+>
+> **Two kinds of bridge — and the second is the one most often missing.**
+> 1. **Notation-decode bridge.** The intuition and the definition are the *same idea* in two
+>    registers; the bridge translates the symbols back to the picture (the binary-operation
+>    example above). This is the common case and the one the rules already name.
+> 2. **Framing-shift bridge.** The definition reframes the idea through a *different model*
+>    than the intuition built (the intuition counts steps and wraps around a clock; the
+>    definition speaks of *dividing and taking the remainder*). Here the two models are
+>    equivalent, but that equivalence is exactly the hard, non-obvious thing — and it must be
+>    **constructed, not asserted.** Show the mechanism that makes them the same ("14 steps on a
+>    12-clock is one full lap of 12 then 2 left over — the leftover *is* the remainder $14 = 1
+>    \times 12 + 2$"), so the reader *derives* the new model from the old one. A sentence that
+>    merely claims "this is exactly what the clock does" is an assertion, not a bridge.
+>
+> **Ordering: the bridge comes before or with the definition, never only after.** A bridge
+> placed after the formal block is a patch — the reader already hit the cliff. Build the
+> connective passage so the definition lands as the expected next step, not a surprise the
+> prose then apologizes for. (A framing-shift bridge that arrives only *after* its definition is
+> the canonical instance of this defect.)
 
 ---
 

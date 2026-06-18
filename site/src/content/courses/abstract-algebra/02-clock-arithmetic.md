@@ -40,22 +40,34 @@ Or: start at $3$, move $2$ steps. $3 \to 0 \to 1$. So $3 + 2 = 1$ as well.
 
 The wrap-around is the whole idea. On the 4-clock, four steps is zero steps — you end exactly where you began.
 
+## From stepping to a shortcut
+
+Counting steps one at a time is fine on the 4-clock. But suppose you start at $0$ on an ordinary 12-clock and take $14$ steps. Ticking the hand fourteen times works, but there is a faster way to see where it lands — and that faster way is the whole rule.
+
+Walk it in chunks instead of single steps. The first $12$ steps carry the hand once all the way around and back to $0$ — a full lap that changes nothing. That leaves $14 - 12 = 2$ steps still to take, landing on $2$. So the answer is just the number of steps **left over after removing whole laps**.
+
+"Left over after removing whole laps of $12$" is a phrase arithmetic already has a word for. Removing whole laps is dividing by $12$ and discarding the quotient; what's left over is the **remainder**:
+
+$$
+14 = \underbrace{1}_{\text{laps}} \times 12 + \underbrace{2}_{\text{steps left}}.
+$$
+
+The hand lands on $2$ because $14$ divided by $12$ leaves remainder $2$. The clock's wrap-around and "divide and keep the remainder" are not two facts to connect later — they are the *same act*, seen twice. That is the rule, and now we can state it precisely.
+
 ## The rule: mod n
 
-The term for this wrap-around is **modular arithmetic**, and the rule has a precise form.
+The term for this wrap-around is **modular arithmetic**.
 
 **Definition (modular arithmetic).** Let $n$ be a positive integer. For any integer $a$, the expression **$a \bmod n$** (read "$a$ mod $n$") is the remainder when $a$ is divided by $n$.
 
-In other words: divide $a$ by $n$, throw away the whole number part, keep what's left. The result is always one of $\{0, 1, 2, \ldots, n-1\}$.
+This is exactly the leftover-after-whole-laps we just computed: divide $a$ by $n$, discard the whole number of laps, keep what's left. The result is always one of $\{0, 1, 2, \ldots, n-1\}$ — you can never have $n$ or more steps left over, because another full lap would absorb them.
 
-A few examples to anchor this:
+A few more examples, each read as "whole laps, then the leftover":
 
-- $14 \bmod 12 = 2$, because $14 = 1 \times 12 + 2$.
-- $7 \bmod 4 = 3$, because $7 = 1 \times 4 + 3$.
-- $8 \bmod 4 = 0$, because $8 = 2 \times 4 + 0$.
-- $3 \bmod 5 = 3$, because $3 = 0 \times 5 + 3$.
-
-The **bridge** from the clock picture to this rule: "divide by $n$ and keep the remainder" is exactly what the clock's hand does when it sweeps past $n-1$ back to $0$. Moving $14$ steps on a 12-clock lands on $2$ because $14 = 1 \times 12 + 2$ — you did one full lap, then $2$ extra steps.
+- $14 \bmod 12 = 2$, because $14 = 1 \times 12 + 2$ — one lap, $2$ left.
+- $7 \bmod 4 = 3$, because $7 = 1 \times 4 + 3$ — one lap of the 4-clock, $3$ left.
+- $8 \bmod 4 = 0$, because $8 = 2 \times 4 + 0$ — two laps exactly, nothing left.
+- $3 \bmod 5 = 3$, because $3 = 0 \times 5 + 3$ — not even one full lap, so all $3$ steps are left over.
 
 **Addition mod $n$** works by computing the ordinary integer sum and then applying mod:
 

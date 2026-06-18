@@ -29,9 +29,12 @@ the finished product back against the schema, the canon, and the earlier stages'
    formal blocks (Definition/Theorem/Proof/Example) are precise and were not rewritten by the loop.
 5a. **Metaphor & bridge (by reading, not by lint):** confirm each module's central metaphor points at
    one correct referent with no misleading association (e.g. no "slots and a crank" reading as a slot
-   machine — randomness) and is paid off rather than announced and dropped; and confirm every formal
-   definition is reached by an intuition→definition bridge that decodes its notation piece by piece —
-   none arrives as a cliff. The prose linter (step 3) does **not** cover this; it must be read.
+   machine — randomness) and is paid off rather than announced and dropped. Then **enumerate the seams**
+   and confirm each carries a real bridge (`math-style.md` §1): every definition reached by a
+   notation-decode bridge (no cliff); every **model→formalism** reframe — where a definition switches to
+   a different model than the intuition built (clock-stepping → divide-and-remainder) — **constructs**
+   the equivalence rather than asserting it in one sentence; and each bridge sits **before or with** its
+   definition, never only after. The prose linter (step 3) does **not** cover this; it must be read.
 6. **Pedagogy & governance:** modules carry distributed retrieval checks and elaborated worked
    solutions; `_course.md` has provenance (`aiGenerated`, `generatedDate`, `sources`, `reviewed`);
    the bias screen was run.

@@ -189,6 +189,14 @@ Two failures recur at the intuition→definition seam, and both are **defects**,
   $a * b$ must land back in $S$"). A definition introduced with no bridge — a cliff straight
   into notation — is a defect. (This is the one sanctioned prose/formal crossing; see
   `_config/math-style.md` §1.)
+- **Bridge the framing shift, don't assert it.** The harder, more-often-missed case: when the
+  definition reframes the idea through a *different model* than the intuition built (the
+  intuition counts steps around a clock; the definition divides and takes a remainder), the two
+  models are equivalent — but that equivalence is the non-obvious thing the reader needs *built*.
+  **Construct it:** show the mechanism that makes them the same ("14 steps on a 12-clock is one
+  full lap then 2 left over — the leftover *is* the remainder"), placed **before or with** the
+  definition. A single sentence claiming "this is exactly what the clock does," especially dropped
+  in *after* the definition, is an assertion, not a bridge — and is a defect.
 
 ### Learning objectives
 
