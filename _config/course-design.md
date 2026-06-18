@@ -41,7 +41,8 @@ teaching, prose yields.
 
 In short: **prose owns the motivation, the imagery, the context, and the seams; pedagogy owns the
 teaching.** The editorial stage (`pipeline/04_editorial`) applies this precedence when it adjudicates
-the two. (None of this licenses padding: the four prose zones are still held to the whole-course rules —
+the two. Read it through the level dial (§2): at `intro`, "whether an analogy belongs" resolves to
+*yes — and a visualisation too*, required pedagogy rather than optional flourish. (None of this licenses padding: the four prose zones are still held to the whole-course rules —
 an analogy must cash out, context stays context.)
 
 ---
@@ -96,7 +97,8 @@ A module teaches **one big idea** and is readable in a single sitting.
 
 A course is boring when it spends the reader's attention without paying it back. The JEPA-style
 failure — one idea, gently restated for three hours, all analogy and nothing to grip — is a pipeline
-defect, not a taste call. Guard against it:
+defect, not a taste call. Guard against it — and remember these rules **scale with level** ("The level
+dial", §2; at `intro` analogies and a picture are *required*, and callbacks re-gloss):
 
 - **Advance every module.** Each module must break genuinely new ground. Restating a point already
   made — beyond a one-line callback — is the cardinal sin of pace; it makes the reader feel they are
@@ -278,6 +280,35 @@ notch *below* where you think the reader is — the curse of knowledge always ov
 - **Rigor**: full rigor is the default. Routine steps can be left to the reader; the
   interesting steps are shown.
 
+### The level dial: scaling the newer rules to the reader
+
+The calibration above sets *assumed knowledge, jargon, and rigor*. The newer prose/pedagogy rules —
+"Earn the reader's time" (§1), the prose↔pedagogy precedence, the canon's dedup ledger, "show the
+artifact", and the soothing/density lints — must **scale with level too**. They were written to cure
+an over-stuffed course; applied flat, they strip a beginner course of the very scaffolding `intro`
+demands. Read them through this dial.
+
+**At `intro` (and the beginner end of any kind):**
+
+- **Analogies and a visualisation are required, not rationed.** Every new abstract idea earns at least
+  one concrete analogy *or* a picture-you-can-hold (points on a map, dimmer-switches, a thermostat).
+  The anti-analogy-carousel rule still forbids opening *every* module with the same homey move — it
+  never licenses an analogy-free beginner course. "Plausible by example and picture" is a floor here.
+- **Callbacks re-gloss.** "Call back, never re-derive" means skip the full *derivation*, not the
+  *meaning*: a callback to a term an earlier module owns restates what it is in a few words ("the
+  representation — the short list of numbers from module 2"), because a beginner has forgotten. Naming
+  a heavy noun alone is the "huge noun reintroduced without explaining" defect.
+- **Reinforcement is pedagogy, not padding.** A second worked example of a hard idea, and spaced
+  re-explanation, are *desirable* at `intro`. "Advance every module" still governs *new ground*, but
+  the density rule must not cut a beginner's second look at a hard concept.
+- **Show the artifact a beginner can read.** The diagram/equation/worked number must be reachable and
+  paired with the intuition-picture; symbols, pseudocode, and borrowed terms (*gradient, weights,
+  optimizer*…) appear only **with** a plain-words gloss. Showing the *jargon* is not showing the *artifact*.
+
+**At `undergrad`/`grad`:** the dial runs the other way — analogies optional, callbacks terse,
+reinforcement minimal, density strict, jargon used freely after a brief gloss. The flat rules are about
+right *there*; it is the beginner end they were starving.
+
 A course must not mix levels silently. If a `highschool` course needs one idea from
 calculus, either teach that idea first (it becomes a module) or reframe to avoid it —
 never assume it.
@@ -297,6 +328,12 @@ never assume it.
 - **Honest prerequisites.** The `prerequisites` arrays (course-level and module-level)
   must list what is genuinely required. If module 7 needs module 4, say so. If a course
   needs prior calculus, the course `prerequisites` say so.
+- **No orphan terms (level-relative).** Every term a reader *at this `level`* would not already know is
+  either named in the course `prerequisites` (assumed known) or glossed in plain words at first use. A
+  term used but neither assumed nor taught is a defect — e.g. an `intro`, no-calculus course leaning on
+  "gradient" or "weights" as if known. Trace each module's load-bearing nouns against the prerequisites
+  before shipping. (`lint-prose.mjs` flags common advanced terms in `intro`/`highschool` courses as an
+  advisory.)
 - **No forward references.** Do not write "as we'll see later" as a substitute for
   teaching something now. A reader should never need a later module to understand the
   current one.

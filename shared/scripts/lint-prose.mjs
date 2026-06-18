@@ -77,6 +77,18 @@ const SOOTHING_PHRASES = [
 ];
 const MAX_SOOTHING_PHRASE_TOTAL = 2; // > this across the course => hard
 
+// Beginner-jargon watchlist (level-relative). For an `intro`/`highschool` course, any of these
+// advanced terms that appears in the prose but is NOT named in the course `prerequisites` is a SOFT
+// advisory — gloss it on first use or list it as assumed (the "orphan term" failure;
+// course-design §2 "The level dial" / §3). Heuristic and curated; advisory only, never gates.
+const BEGINNER_LEVELS = new Set(['intro', 'highschool']);
+const JARGON_WATCH = [
+  'gradient descent', 'gradient', 'gradients', 'backpropagation', 'backprop', 'optimizer',
+  'partial derivative', 'derivative', 'integral', 'eigenvalue', 'eigenvector', 'tensor',
+  'logits', 'logit', 'softmax', 'sigmoid', 'vector space', 'chain rule', 'stochastic',
+  'weights', 'matrix multiplication', 'dot product', 'cross-entropy', 'convolution',
+];
+
 // Stopwords ignored by the word-overuse check (function words carry no style).
 const STOPWORDS = new Set([
   'the', 'a', 'an', 'and', 'or', 'but', 'of', 'to', 'in', 'is', 'it', 'that',
@@ -161,6 +173,25 @@ function lintProse(slug) {
     const prose = isolateProse(raw);
     return { file: f, prose, words: countWords(prose) };
   });
+
+  // Course-level info for the level-relative checks: `level` and the `prerequisites` text.
+  let courseLevel = null;
+  let prereqText = '';
+  const coursePath = join(dir, '_course.md');
+  if (existsSync(coursePath)) {
+    const fm = readFileSync(coursePath, 'utf8').match(/^---\n([\s\S]*?)\n---/);
+    const front = fm ? fm[1] : '';
+    const lvl = front.match(/^level:\s*"?(\w+)"?/m);
+    courseLevel = lvl ? lvl[1] : null;
+    const fl = front.split('\n');
+    let inP = false;
+    const pl = [];
+    for (const ln of fl) {
+      if (/^prerequisites:/.test(ln)) { inP = true; pl.push(ln); continue; }
+      if (inP) { if (ln.trim() === '') continue; if (/^\s/.test(ln)) pl.push(ln); else break; }
+    }
+    prereqText = pl.join(' ').toLowerCase();
+  }
 
   const hard = [];
   const soft = [];
@@ -368,6 +399,31 @@ function lintProse(slug) {
     const isHard = sootheTotal > MAX_SOOTHING_PHRASE_TOTAL;
     lines.push(`   total: ${sootheTotal} (cap ${MAX_SOOTHING_PHRASE_TOTAL}) [${isHard ? 'HARD' : 'ok'}]`);
     if (isHard) hard.push(`over-soothing register: ${sootheTotal} hand-holding phrase(s) (cap ${MAX_SOOTHING_PHRASE_TOTAL})`);
+  }
+  lines.push('');
+
+  // --- check 7: beginner-jargon watchlist (level-relative, advisory) -------
+  lines.push('7. Beginner-jargon watchlist (intro/highschool advisory)');
+  if (!BEGINNER_LEVELS.has(courseLevel)) {
+    lines.push(`   (course level "${courseLevel ?? 'unknown'}" — check skipped)`);
+  } else {
+    const allProse = modules.map((m) => m.prose).join(' ').toLowerCase();
+    const esc = (s) => s.replace(/[.*+?^${}()|[\]\\/-]/g, '\\$&');
+    const hits = [];
+    for (const term of JARGON_WATCH) {
+      const re = new RegExp(`(?<![a-z])${esc(term)}(?![a-z])`, 'g');
+      const n = (allProse.match(re) || []).length;
+      if (n > 0 && !prereqText.includes(term)) hits.push({ term, n });
+    }
+    if (hits.length === 0) {
+      lines.push(`   (no watchlisted advanced term is used un-prerequisited in this ${courseLevel} course)`);
+    } else {
+      hits.sort((a, b) => b.n - a.n);
+      for (const h of hits) {
+        lines.push(`   "${h.term}" — ${h.n}x, not in prerequisites [SOFT]`);
+        soft.push(`advanced term "${h.term}" (${h.n}x) in an ${courseLevel} course, not named in prerequisites — gloss on first use or list it as assumed (orphan-term check)`);
+      }
+    }
   }
   lines.push('');
 

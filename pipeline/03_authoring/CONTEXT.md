@@ -83,6 +83,9 @@ Essentials course itself authors normally; it owns the shared canon rather than 
 - Every formal definition is reached by an intuition→definition bridge that decodes the notation,
   mapping each piece onto the intuition; no definition arrives as a cliff.
 - The bias screen was run: names/examples/scenarios are checked for stereotyping and balance.
+- **Level fit:** at the course `level`, jargon is unpacked — **no orphan terms** versus the
+  prerequisites (course-design §2–§3, "The level dial") — and at `intro` every abstract idea carries an
+  analogy or a picture and callbacks re-gloss the heavy nouns.
 
 ## Gate
 

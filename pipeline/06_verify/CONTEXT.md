@@ -35,6 +35,11 @@ the finished product back against the schema, the canon, and the earlier stages'
 6. **Pedagogy & governance:** modules carry distributed retrieval checks and elaborated worked
    solutions; `_course.md` has provenance (`aiGenerated`, `generatedDate`, `sources`, `reviewed`);
    the bias screen was run.
+6a. **Level fit (read against `level`):** every term is either assumed in `prerequisites` or glossed at
+   first use — no orphan terms (e.g. "gradient"/"weights" in an `intro`, no-calculus course); and at
+   `intro` every abstract idea has an analogy or a picture, with callbacks that re-gloss heavy nouns
+   (course-design §2, "The level dial"). `lint-prose.mjs` flags common advanced terms as an advisory;
+   the rest is read.
 7. **Base-path lint:** the shipped markdown must not contain hand-written absolute internal links
    (`](/...)` or `href="/..."`); links inside the site code go through `site/src/lib/url.ts`.
 8. **Build:** `bash shared/scripts/build-site.sh` — a clean Astro build re-validates the schema and

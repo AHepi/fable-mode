@@ -17,6 +17,9 @@ One symbol and one name for every recurring object. List the decision and any le
 
 Each shared fact has **one owner module** that gives the full treatment; every later use is a
 one-line **callback**, never a re-derivation. (A reminder is good; a fresh re-derivation is the bug.)
+At **`intro`** level the callback must **re-gloss** the term in a few words ("the kernel — the
+random-edit sampler from module 9"), not merely name it; a beginner has forgotten. (See
+`_config/course-design.md` §2, "The level dial".)
 
 | Fact | Owner (full treatment) | Callback in | Suggested callback line |
 |------|------------------------|-------------|-------------------------|

@@ -102,6 +102,10 @@ Before a course ships, hold the whole set to these:
   analogy, a definition) and runs the same skeleton, the set feels machine-stamped however good each
   piece is. Vary how pieces *open and unfold* — a result, a worked case, a diagram, a contrast, a
   failure, real data — not only their first and last lines. Keep each strong *and* different.
+- **Level-appropriate scaffolding.** Hold the course to its `level` (the dial in `course-design.md`
+  §2): at `intro`, every abstract idea has an analogy or a picture, callbacks **re-gloss** the heavy
+  nouns rather than merely name them, and no term is used that a beginner was never given. Strip-mining
+  a beginner course of analogies and pictures for the sake of density is a failure this pass must catch.
 
 These checks are not the writer's job alone — when work is produced in parallel, no single writer can see
 them. They belong to this dedicated editorial pass, read against the shared canon.
