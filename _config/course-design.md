@@ -61,6 +61,36 @@ A module teaches **one big idea** and is readable in a single sitting.
 - **One big idea per module.** If you find yourself teaching two genuinely separate
   concepts, that is two modules.
 
+### Earn the reader's time
+
+A course is boring when it spends the reader's attention without paying it back. The JEPA-style
+failure — one idea, gently restated for three hours, all analogy and nothing to grip — is a pipeline
+defect, not a taste call. Guard against it:
+
+- **Advance every module.** Each module must break genuinely new ground. Restating a point already
+  made — beyond a one-line callback — is the cardinal sin of pace; it makes the reader feel they are
+  not moving. Say a thing once, in its strongest form, then go.
+- **Word counts are a ceiling, not a target.** If a module loses nothing at half the length, halve it;
+  never pad to fill a section or hit a module count. **Scope by idea density, not coverage:** a subject
+  that is really one idea is a *mini-course* (3–6 modules), not a stretched first course. One
+  architecture, one theorem, one method does not become twelve modules by dilution.
+- **Vary the macro-shape, not just the hook.** If every module opens with the same kind of move (an
+  everyday analogy, a definition, a question) and runs the same skeleton, the set feels machine-stamped
+  however good each piece is. Differentiate how modules *begin and unfold* — a result first, a worked
+  case, a contrast, real data, starting mid-problem — not only their first line.
+- **An analogy serves the mechanism; it never replaces it.** A motivating image earns its place only by
+  handing off to the concrete thing — the definition, the diagram, the computation — and then getting
+  out of the way (the bridge, below). A module that explains by analogy and never shows the actual
+  object has taught nothing the reader can hold. Do not open every module with a homey analogy.
+- **Show the artifact (visual / quantitative subjects).** For anything with a shape or a number — an
+  architecture, a model, a proof, a dataset — prose alone is too low-bandwidth. Show it: a labelled
+  diagram of the structure, the actual equation, a worked computation with real numbers, or a few lines
+  of pseudocode. A `stem` module that explains a mechanism with **no** figure, equation, or computation
+  is under-built; give the eye and the hand something to grip.
+- **Confidence over comfort.** Trust the reader; do not soothe, coddle, or cushion every hard turn. See
+  `_config/voice/literary-maverick.md` ("Confidence, not comfort"; "Cut manner adverbs"); the
+  soothing-adverb and hand-holding-phrase tics are hard-flagged by `lint-prose.mjs`.
+
 ### Section shape
 
 > **Scope:** the detailed arc below is the **`stem` default** (the shape `shared/templates/module.md`

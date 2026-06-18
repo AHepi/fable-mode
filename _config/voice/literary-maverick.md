@@ -29,6 +29,10 @@ These are the qualities the rewrite loop is trying to maximize. Keep them in min
 
 **Choose living words.** Prefer verbs to "zombie nouns" — *decide*, not *make a decision*; *postpone*, not *implement a postponement*. Cut the hedge-fluff (*somewhat, fairly, relatively, arguably, it could be said that*) and trust the reader's common sense. End sentences on a strong stressed word, not a mumble. Reach for the occasional uncommon word against a plain backdrop, and let sound do some work — the right word often *feels* like its meaning.
 
+**Cut manner adverbs; they confess a weak verb.** A trailing *-ly* adverb is usually a verb apologizing for itself: *moved gently → drifted; said quietly → murmured; fell silently → fell; grew quickly → surged.* Replace verb-plus-adverb with one verb that already carries the manner. Keep an adverb only when it changes the meaning and no single verb holds it. Watch especially the soothing set — *gently, quietly, softly, silently, smoothly, calmly, simply, merely* — which an explanatory narrator overproduces by reflex; one of them repeated across a piece is the audible texture of writing that has gone soft.
+
+**Confidence, not comfort.** Classic style treats the reader as a capable equal, so it does not soothe, coddle, or hand-hold. Cut the reassuring register — *don't worry, no need to worry, bear with me, rest assured, take your time, this might seem hard but* — and stop cushioning every difficult turn. Difficulty is where the learning happens; name it plainly and keep moving rather than apologizing for it. A calm, declarative sentence reassures more than any reassurance does.
+
 **Break the right rules, keep the right ones.** Split infinitives ("to boldly go"), end on a preposition, open with *And* or *But*, use singular *they* — these prohibitions are folklore with no basis, and breaking them often reads better. But hold the line on distinctions that carry real meaning (*disinterested* ≠ uninterested; *fortuitous* ≠ fortunate; *refute* ≠ dispute), because getting them right is a courtesy to the reader and a signal that the whole text was written with care. The full lookup tables are in the **Usage and rules reference** at the end of this file — consult them whenever a usage call comes up rather than guessing.
 
 ## The rewrite loop
@@ -205,6 +209,8 @@ Compulsive hedging is throat-covering, not precision. Default to cutting these a
 *somewhat, fairly, rather, relatively, comparatively, nearly, partially, predominantly, presumably, seemingly, apparently, arguably, to a certain degree, to some extent, in part, sort of, kind of, more or less, it could be said that, it seems that, I would argue that, in my opinion.*
 
 Also weak: *very*, *really*, *quite*, *actually*, *basically*, *literally* (as an intensifier). "Soggy modifiers." A stronger noun or verb almost always beats an intensifier propping up a weak one — *exhausted*, not *very tired*; *insisted*, not *really said*.
+
+**Soothing manner adverbs** — *gently, quietly, softly, silently, smoothly, calmly, neatly, cleanly, effortlessly, seamlessly, simply, merely* — go the same way: almost always a weak verb in disguise, and the texture of a coddling narrator. **Reassurance phrases** — *don't worry, no need to worry, bear with me, rest assured, take your time* — are throat-covering of a different kind; cut them and trust the reader. (For courses these are enforced mechanically: `shared/scripts/lint-prose.mjs` hard-flags a soothing adverb that recurs across modules, and the hand-holding phrases above.)
 
 ### 6. The governing principle
 

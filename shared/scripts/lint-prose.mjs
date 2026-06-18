@@ -47,6 +47,36 @@ const MAX_IMAGE_WORD = 5; // an image word used >5 times in one module => hard f
 // Em-dash density: advisory only.
 const MAX_EMDASH_PER_1000 = 12;
 
+// Manner / soothing adverbs — usually a weak verb apologizing for itself ("moved
+// gently" -> "drifted"), and the engine of an over-soothing register. Capped by
+// per-module density AND course total. Hard flags (this is a known house failure).
+// The soothing manner cluster: adverbs that rarely earn their place in exposition
+// and are the audible texture of an over-soothing narrator. Treated as TICS — a
+// single one spread across many modules (e.g. "quietly" in nine of twelve) is the
+// smell, exactly like a stock phrase. Hard.
+const SOOTHING_ADVERBS = [
+  'gently', 'quietly', 'softly', 'silently', 'smoothly', 'calmly', 'patiently',
+  'deftly', 'gracefully', 'effortlessly', 'seamlessly', 'elegantly', 'tenderly',
+  'lovingly', 'soothingly', 'reassuringly', 'warmly', 'lightly', 'serenely',
+  'peacefully', 'comfortably', 'happily', 'nicely', 'gladly', 'neatly', 'cleanly',
+];
+const MAX_SOOTHING_MODULES = 3; // one soothing adverb in >3 modules => hard
+const MAX_SOOTHING_WORD_TOTAL = 6; // one soothing adverb >6 times total => hard
+// Minimizers — usually deletable filler ("simply", "merely"); advisory only, since
+// the occasional one is fine and they are not the soothing problem.
+const MINIMIZER_ADVERBS = ['simply', 'merely', 'plainly', 'easily', 'naturally', 'surely', 'readily'];
+const MAX_MINIMIZER_TOTAL = 10; // course-wide => soft
+
+// Over-soothing / hand-holding register — phrases that coddle the reader instead
+// of trusting them. Near-banned: confidence, not comfort.
+const SOOTHING_PHRASES = [
+  "don't worry", 'do not worry', 'no need to worry', 'not to worry', 'worry not',
+  'rest assured', 'bear with me', 'fear not', 'never fear', 'no cause for alarm',
+  'as you might expect', 'as you would expect', "as you'd expect", 'trust me',
+  'take my word', 'no shame in', 'take your time', 'gently now', 'ease into',
+];
+const MAX_SOOTHING_PHRASE_TOTAL = 2; // > this across the course => hard
+
 // Stopwords ignored by the word-overuse check (function words carry no style).
 const STOPWORDS = new Set([
   'the', 'a', 'an', 'and', 'or', 'but', 'of', 'to', 'in', 'is', 'it', 'that',
@@ -283,6 +313,61 @@ function lintProse(slug) {
     lines.push(`   operation symbol consistent (${[...opUsage.keys()][0]} only)`);
   } else {
     lines.push('   no generic operation glyphs detected');
+  }
+  lines.push('');
+
+  // --- check 5: soothing manner adverbs (tics) + minimizers ----------------
+  lines.push('5. Soothing manner adverbs (the over-soothing register)');
+  const sootheSet = new Set(SOOTHING_ADVERBS);
+  const sootheTally = new Map(); // word -> { total, files: [] }
+  for (const mod of modules) {
+    const counts = new Map();
+    for (const w of tokenize(mod.prose)) if (sootheSet.has(w)) counts.set(w, (counts.get(w) || 0) + 1);
+    for (const [w, c] of counts) {
+      if (!sootheTally.has(w)) sootheTally.set(w, { total: 0, files: [] });
+      const e = sootheTally.get(w);
+      e.total += c; e.files.push(`${mod.file}(${c})`);
+    }
+  }
+  if (sootheTally.size === 0) {
+    lines.push('   (no soothing manner adverbs found)');
+  } else {
+    for (const [w, e] of [...sootheTally].sort((a, b) => b[1].total - a[1].total)) {
+      const isHard = e.files.length > MAX_SOOTHING_MODULES || e.total > MAX_SOOTHING_WORD_TOTAL;
+      lines.push(`   "${w}" — ${e.total}x across ${e.files.length} module(s) [${isHard ? 'HARD' : 'ok'}]`);
+      if (isHard) hard.push(`soothing adverb "${w}": ${e.total}x across ${e.files.length} module(s) — a soothing tic; cut it or fold it into one strong verb`);
+    }
+  }
+  // minimizers — advisory
+  const minSet = new Set(MINIMIZER_ADVERBS);
+  const minCounts = new Map();
+  let minTotal = 0;
+  for (const mod of modules) for (const w of tokenize(mod.prose)) if (minSet.has(w)) { minTotal++; minCounts.set(w, (minCounts.get(w) || 0) + 1); }
+  if (minTotal > 0) {
+    const top = [...minCounts.entries()].sort((a, b) => b[1] - a[1]).map(([w, c]) => `${w}(${c})`).join(' ');
+    const hot = minTotal > MAX_MINIMIZER_TOTAL;
+    lines.push(`   minimizers — ${minTotal} total (cap ${MAX_MINIMIZER_TOTAL}) [${hot ? 'SOFT' : 'ok'}]  ${top}`);
+    if (hot) soft.push(`minimizer adverbs overused course-wide: ${minTotal} (${top}) — usually deletable filler`);
+  }
+  lines.push('');
+
+  // --- check 6: over-soothing register (hand-holding phrases) --------------
+  lines.push('6. Over-soothing register (hand-holding phrases)');
+  let sootheTotal = 0;
+  const sootheHits = [];
+  for (const phrase of SOOTHING_PHRASES) {
+    for (const mod of modules) {
+      const c = countPhrase(mod.prose, phrase);
+      if (c > 0) { sootheTotal += c; sootheHits.push(`"${phrase}" — ${mod.file} (${c})`); }
+    }
+  }
+  if (sootheHits.length === 0) {
+    lines.push('   (none of the tracked hand-holding phrases appear)');
+  } else {
+    for (const h of sootheHits) lines.push(`   ${h}`);
+    const isHard = sootheTotal > MAX_SOOTHING_PHRASE_TOTAL;
+    lines.push(`   total: ${sootheTotal} (cap ${MAX_SOOTHING_PHRASE_TOTAL}) [${isHard ? 'HARD' : 'ok'}]`);
+    if (isHard) hard.push(`over-soothing register: ${sootheTotal} hand-holding phrase(s) (cap ${MAX_SOOTHING_PHRASE_TOTAL})`);
   }
   lines.push('');
 

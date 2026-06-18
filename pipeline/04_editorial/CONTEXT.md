@@ -33,12 +33,18 @@ canon's symbol registry requires it, and then identically everywhere.
    module 07"). A reminder is good; a fresh full re-derivation is not. Keep the owner's full version.
 4. **Cap repetition.** Enforce the canon's stock-phrase caps and one-metaphor-per-idea: keep the
    single strongest instance of a tic phrase or running image, cut or vary the rest. Hold each
-   running metaphor to the module that owns it (metaphor-ownership map).
+   running metaphor to the module that owns it (metaphor-ownership map). And cap **whole-course
+   redundancy**: if the modules circle one idea, compress — collapse modules that only restate it and
+   cut within-module repetition past its first strong statement (`course-design.md`, "Earn the reader's
+   time"). A course that says the same thing many ways is exactly what this stage exists to catch.
 5. **Vary the templated edges.** Not all hooks may open with the same move, and not all recaps may
    close with "Next we…". Differentiate openings and closings across modules while keeping each
    strong.
 6. **Level the voice** to the canon's voice target so the eleven read as one narrator — pull the
-   dry modules warmer and the over-lyrical ones back, consistently.
+   dry modules warmer and the over-lyrical ones back, consistently. Also **de-soothe and de-adverb**:
+   cut the coddling register (no *don't worry / bear with me / take your time*) and the soothing-adverb
+   tics (*gently, quietly, silently, simply*) — replace verb-plus-adverb with one strong verb.
+   Confidence, not comfort.
 7. **Fix page-local flow** as you go: logical contradictions in the prose framing, buried subjects,
    weak transitions, mumbled endings, hedges, em-dash monotony.
 8. **Metaphor & bridge audit.** Read each module's central image and its definition-seam. Kill or
@@ -66,7 +72,13 @@ every sub-agent must edit against the same canon so the result stays consistent.
   the edited modules are assembled. Run it after stage 05, or on a staged copy.
 - Names and symbols are consistent across all modules (the canon registry holds).
 - No fact owned by one module is fully re-derived in another; later uses are callbacks.
-- The course reads in one voice; hooks and recaps are not template-stamped.
+- The course reads in one voice; hooks and recaps are not template-stamped, and the **macro-structure
+  varies** across modules (not every module the same skeleton or the same opening move).
+- **Density & tone:** no module merely restates an earlier one (a one-idea course was compressed, not
+  shipped at length); the over-soothing register is gone and soothing-adverb tics are cut —
+  `lint-prose.mjs` checks 5–6 (soothing adverbs; hand-holding phrases) are clean.
+- **(stem) Show the artifact:** each mechanism-bearing module carries a diagram, equation, or worked
+  computation, not prose alone.
 - **Metaphor & bridge audit done (semantic, not lint):** every central image points true and is paid
   off (the broken/abandoned ones were killed or rebuilt), and every formal definition is reached by a
   bridge that decodes its notation — no definition lands as a cliff. The mechanical prose lint does
