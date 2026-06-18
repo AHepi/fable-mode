@@ -55,7 +55,7 @@ html {
   text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
 }
-body { margin: 0; position: relative; }
+body { margin: 0; position: relative; overflow-x: clip; }
 /* CRT scanlines + mechanical grain — global, subtle, never intercept input */
 body::before {
   content: ""; position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0.3;
@@ -108,7 +108,7 @@ a:hover { color: var(--accent-bright); text-decoration: underline; text-underlin
 @media (max-width: 600px) { .nav a { padding: 0.45rem 0.55rem; letter-spacing: 0.06em; } .brand .label { display: none; } }
 
 /* ---- type ---- */
-h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height: 0.95; color: var(--text-strong); letter-spacing: -0.03em; text-transform: uppercase; }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height: 0.95; color: var(--text-strong); letter-spacing: -0.03em; text-transform: uppercase; overflow-wrap: break-word; }
 h1 { font-size: clamp(2.6rem, 7vw, 5rem); margin: 0 0 0.8rem; }
 h2 { font-size: clamp(1.7rem, 3.5vw, 2.4rem); margin: 3rem 0 0.9rem; }
 h3 { font-size: 1.25rem; margin: 1.8rem 0 0.5rem; letter-spacing: -0.02em; }
@@ -248,7 +248,7 @@ h3 { font-size: 1.25rem; margin: 1.8rem 0 0.5rem; letter-spacing: -0.02em; }
 }
 
 /* ---- reading prose (kept legible — lowercase, comfortable measure) ---- */
-.prose { font-family: var(--font-read); font-size: 1.08rem; line-height: 1.72; color: var(--text); max-width: 70ch; }
+.prose { font-family: var(--font-read); font-size: 1.08rem; line-height: 1.72; color: var(--text); max-width: 70ch; overflow-wrap: break-word; }
 .prose > :first-child { margin-top: 0; }
 .prose p { margin: 1.05rem 0; }
 .prose strong { color: var(--text-strong); font-weight: 700; }
@@ -257,18 +257,18 @@ h3 { font-size: 1.25rem; margin: 1.8rem 0 0.5rem; letter-spacing: -0.02em; }
 .prose h3 { font-size: 1.2rem; }
 .prose ul, .prose ol { padding-left: 1.4rem; } .prose li { margin: 0.4rem 0; }
 .prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
-.prose code { font-family: var(--font-mono); font-size: 0.86em; background: var(--surface-2); padding: 0.12rem 0.4rem; border-radius: 0; color: var(--accent-bright); border: 1px solid var(--border); }
-.prose pre { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0; padding: 1rem 1.2rem; overflow-x: auto; }
+.prose code { font-family: var(--font-mono); font-size: 0.86em; background: var(--surface-2); padding: 0.12rem 0.4rem; border-radius: 0; color: var(--accent-bright); border: 1px solid var(--border); overflow-wrap: break-word; }
+.prose pre { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0; padding: 1rem 1.2rem; overflow-x: auto; max-width: 100%; }
 .prose pre code { background: none; padding: 0; border: none; color: var(--text); }
 .prose blockquote { font-family: var(--font-read); font-style: normal; margin: 1.5rem 0; padding: 0.4rem 0 0.4rem 1.3rem; border-left: 3px solid var(--accent); color: var(--text-strong); }
 .prose blockquote p { margin: 0.4rem 0; }
 .prose img { max-width: 100%; height: auto; display: block; margin: 1.6rem auto; border: 1px solid var(--border); border-radius: 0; background: var(--surface); padding: 0.6rem; }
 .prose hr { border: none; border-top: 1px solid var(--border); margin: 2.4rem 0; }
-.prose table { border-collapse: collapse; margin: 1.5rem 0; font-family: var(--font-sans); font-size: 0.92rem; display: block; overflow-x: auto; }
+.prose table { border-collapse: collapse; margin: 1.5rem 0; font-family: var(--font-sans); font-size: 0.92rem; display: block; overflow-x: auto; max-width: 100%; }
 .prose th, .prose td { border: 1px solid var(--border); padding: 0.45rem 0.8rem; text-align: left; }
 .prose thead th { background: var(--surface-2); color: var(--text-strong); font-weight: 700; text-transform: uppercase; font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.04em; }
 .prose tbody tr:nth-child(even) { background: var(--surface); }
-.prose .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.6rem 0; margin: 1.4rem 0; }
+.prose .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.6rem 0; margin: 1.4rem 0; max-width: 100%; }
 .prose .katex { font-size: 1.04em; }
 .prose details { border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 0; padding: 0.4rem 1.1rem; margin: 1.1rem 0; background: var(--surface); }
 .prose details summary { cursor: pointer; font-family: var(--font-mono); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); padding: 0.5rem 0; list-style: none; display: flex; align-items: center; gap: 0.5rem; }

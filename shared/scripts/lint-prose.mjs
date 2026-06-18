@@ -429,6 +429,24 @@ function lintProse(slug) {
   }
   lines.push('');
 
+  // --- check 8: backtick-wrapped inline math (renders as code, not math) ---
+  lines.push('8. Backtick-wrapped math (ships as code, not rendered math)');
+  const reBacktickMath = /`\$[^`\n]+?\$`/g;
+  const btFindings = [];
+  for (const f of files) {
+    const m = readFileSync(join(dir, f), 'utf8').match(reBacktickMath);
+    if (m && m.length) btFindings.push({ file: f, n: m.length, sample: m[0] });
+  }
+  if (btFindings.length === 0) {
+    lines.push('   (none — inline math is bare $...$)');
+  } else {
+    for (const b of btFindings) {
+      lines.push(`   ${b.file} — ${b.n}x, e.g. ${b.sample} [HARD]`);
+      hard.push(`backtick-wrapped math in ${b.file}: ${b.n}x (e.g. ${b.sample}) — a code span, not rendered math; use bare $...$`);
+    }
+  }
+  lines.push('');
+
   // --- summary -------------------------------------------------------------
   lines.push('Summary');
   lines.push(`   hard flags:      ${hard.length}`);

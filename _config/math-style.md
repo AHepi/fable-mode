@@ -88,6 +88,11 @@ KaTeX is **not** full LaTeX. Stay inside the subset below or the build dies.
 - **Display math**: `$$...$$` on their own lines — centered, on its own line.
 - Do **not** use `\(...\)`, `\[...\]`, or `\begin{math}` — use the dollar forms, which
   is what `remark-math` parses.
+- **Never wrap math in backticks.** A code span around inline math — `` `$x$` `` — is Markdown
+  *code*, not math: KaTeX never sees it, so it ships as literal red text (`$x$`), not a rendered
+  symbol. Inline math is **bare** `$x$`; display is `$$...$$`. (The canon and these docs show symbols
+  in backticks to display them literally — that is for documentation; never copy that style into a
+  module's prose.) The verify lint (`lint-prose.mjs`) hard-flags backtick-wrapped math.
 
 ### Multi-line and aligned math
 
