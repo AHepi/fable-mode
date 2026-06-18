@@ -32,7 +32,7 @@ reinvent or rename them.
 **Ownership is not endorsement.** A metaphor earns a row only if it passes the referent/payoff/bridge
 test (points at exactly one correct referent with no misleading association, can be paid off, can be
 cashed into the content). A candidate that fails any of these is **cut**, not shared. (See
-`_config/voice/literary-maverick.md` and `_config/math-style.md` §1.)
+`_config/voice/editorial-craft.md` and `_config/math-style.md` §1.)
 
 ## 3. Shared VOICE target
 

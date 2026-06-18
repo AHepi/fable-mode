@@ -22,7 +22,8 @@ pipeline/NN_*/       <- the factory: numbered stages, run in order
   references/        <- stage-local reference material
   output/            <- scaffolding only; real per-run output goes under runs/
 _config/             <- global reference material ("the factory", stable across runs)
-  voice/             <- literary-maverick.md (prose) + math-style.md (formal)
+  voice/             <- literary-maverick.md (sentence engine) + editorial-craft.md (whole-course, stage 04)
+  math-style.md      <- formal/KaTeX content + the prose/formal boundary
   course-design.md   <- pedagogy & level calibration (operational rules)
   pedagogy/          <- evidence-base.md: research backing + exclusions (stages 02 & 03)
   content-schema.md  <- the contract the site validates (the 04 -> site boundary)

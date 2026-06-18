@@ -18,7 +18,8 @@ canon's symbol registry requires it, and then identically everywhere.
   "already-taught" ledger + dedup plan, the metaphor-ownership map, and the stock-phrase caps. This
   is the contract you edit against.
 - **L4** `runs/<run-id>/03_authoring/output/*.md` — every authored module, read **all together**.
-- **L3** `_config/voice/literary-maverick.md` — read its *whole-piece* and *whole-course* sections.
+- **L3** `_config/voice/editorial-craft.md` — the whole-piece + whole-course discipline; **this stage's core craft reference**.
+- **L3** `_config/voice/literary-maverick.md` — the sentence/passage engine, for the page-local prose fixes.
 - **L3** `_config/course-design.md` — for the per-kind section shape and the variety rule.
 
 ## Process

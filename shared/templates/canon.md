@@ -36,7 +36,7 @@ misleading association (a "machine with slots and a crank" wrongly evokes a slot
 randomness — so it fails), it can be paid off (developed and reused, not announced then dropped),
 and it can be cashed into the formal content via the intuition→definition bridge. A candidate image
 that fails any of these is **cut** — replaced with a clean concrete shape or with no metaphor — not
-assigned an owner. (See `_config/voice/literary-maverick.md` and `_config/math-style.md` §1.)
+assigned an owner. (See `_config/voice/editorial-craft.md` and `_config/math-style.md` §1.)
 
 ## 4. Stock-phrase caps
 

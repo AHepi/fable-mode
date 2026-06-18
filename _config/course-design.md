@@ -147,7 +147,7 @@ Two failures recur at the intuition→definition seam, and both are **defects**,
   central and then dropped, and (c) be **cashed into** the formal content, each piece of the
   image mapped onto the thing it motivates. A metaphor that fails the referent or payoff test
   is a defect; cut it and use a clean concrete *shape* the definition can be read straight off,
-  or no image at all. (See `_config/voice/literary-maverick.md`, "Metaphors must point true,
+  or no image at all. (See `_config/voice/editorial-craft.md`, "Metaphors must point true,
   pay off, and bridge.")
 - **Build the bridge.** Every formal definition must be reached by an explicit
   intuition→definition **bridge**: a connective passage that decodes the notation back into the
