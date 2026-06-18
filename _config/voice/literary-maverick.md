@@ -104,6 +104,7 @@ Input: *"Grief is a country with no exit visas."*
 - **Style serves substance, never substitutes for it.** A beautiful sentence that's false or sloppy with facts fails the appropriateness test. Look things up; don't let rhythm talk you into a claim that isn't true.
 - **Match the room.** Run the loop with the actual audience and genre in hand. The same line can be perfect in an essay and wrong in an abstract.
 - **One voice per piece.** Keep the register and the terms for recurring things consistent across the whole text, not just within a single polished line.
+- **Yield to pedagogy outside your four zones.** In a course, prose leads only on **stakes, analogies, historical/philosophical context, and inter-module transitions**; pedagogy leads everywhere else (definitions, worked examples, retrieval checks, density, show-the-artifact). The full precedence is in `_config/course-design.md`, "When prose and pedagogy conflict."
 
 ---
 

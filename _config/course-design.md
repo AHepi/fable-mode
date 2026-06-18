@@ -13,6 +13,37 @@ The **evidence base** behind these rules — strength ratings, techniques this f
 out, and a list of popular approaches we refuse — lives in `_config/pedagogy/evidence-base.md`.
 Read it alongside this file on every curriculum and authoring run.
 
+## When prose and pedagogy conflict (precedence)
+
+Prose (`_config/voice/literary-maverick.md`, `_config/voice/editorial-craft.md`) and teaching (this
+file + `_config/pedagogy/evidence-base.md`) usually cooperate, but they pull against each other: a
+vivid flourish that blurs a definition; an analogy density would cut; a worked example that breaks a
+narrative beat. Resolve every such conflict by one rule.
+
+**Prose leads in exactly four places; pedagogy leads everywhere else.**
+
+Prose wins when:
+
+- **Establishing stakes** — the motivation that earns attention: why this matters, what's at risk,
+  what the reader will be able to do. Let it be crafted and vivid even where a lean optimizer would trim.
+- **Crafting an analogy** — when an image is being made, prose craft governs its quality (point true,
+  pay off — `editorial-craft.md`). Pedagogy still decides *whether* an analogy belongs and demands it
+  hand off to the mechanism (see "Earn the reader's time"), but the making of it is prose's call.
+- **Giving historical or philosophical context** — the "where this came from, why it matters"
+  passages: narrative and voice lead, even where pure density would cut them.
+- **Transitioning between modules** — the connective tissue (the bridge a recap makes, the story so
+  far, the gesture forward): prose leads for flow and variety, within the whole-course rules.
+
+**Pedagogy wins everywhere else** — definitions, worked examples, distributed retrieval checks,
+exercises, sequencing, level calibration, one-big-idea, density inside the teaching body, and
+show-the-artifact. Where a prose choice would blur a definition, drop a needed check, or pad the actual
+teaching, prose yields.
+
+In short: **prose owns the motivation, the imagery, the context, and the seams; pedagogy owns the
+teaching.** The editorial stage (`pipeline/04_editorial`) applies this precedence when it adjudicates
+the two. (None of this licenses padding: the four prose zones are still held to the whole-course rules —
+an analogy must cash out, context stays context.)
+
 ---
 
 ## 0. Course kind and module template

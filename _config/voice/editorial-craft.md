@@ -16,6 +16,13 @@ writes), and alongside `_config/course-design.md` ("Earn the reader's time") and
 (the bridge). literary-maverick is the engine for the phrase, the sentence, the passage; this is the
 engine for the book.
 
+> **Precedence (prose ↔ pedagogy).** When prose and teaching conflict, apply the rule in
+> `_config/course-design.md` ("When prose and pedagogy conflict"): prose leads only on **stakes,
+> analogies, historical/philosophical context, and inter-module transitions**; pedagogy leads
+> everywhere else. The editor adjudicates by it — protect a crafted stakes/analogy/context/transition
+> passage from over-zealous trimming, but yield prose flourish that blurs a definition, drops a
+> retrieval check, or pads the teaching.
+
 ---
 
 ## The whole piece

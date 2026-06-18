@@ -20,7 +20,9 @@ canon's symbol registry requires it, and then identically everywhere.
 - **L4** `runs/<run-id>/03_authoring/output/*.md` — every authored module, read **all together**.
 - **L3** `_config/voice/editorial-craft.md` — the whole-piece + whole-course discipline; **this stage's core craft reference**.
 - **L3** `_config/voice/literary-maverick.md` — the sentence/passage engine, for the page-local prose fixes.
-- **L3** `_config/course-design.md` — for the per-kind section shape and the variety rule.
+- **L3** `_config/course-design.md` — for the per-kind section shape, the variety rule, and the
+  **prose ↔ pedagogy precedence** you adjudicate by (prose leads only on stakes, analogies,
+  historical/philosophical context, and inter-module transitions; pedagogy leads everywhere else).
 
 ## Process
 
