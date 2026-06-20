@@ -1,0 +1,127 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../lib/url';
+---
+
+<Base title="How it works" description="A plain-language guide to how Fable Academy researches, writes, and ships a course — and how to steer it.">
+  <section class="hero">
+    <p class="eyebrow">Field manual</p>
+    <h1>How a course gets made.</h1>
+    <p class="lead">
+      No code required to read this. It explains what happens between a one-line request
+      and a finished course on the shelf — and the one rule that keeps it improving.
+    </p>
+  </section>
+
+  <div class="prose">
+
+    <h2>Two halves: a factory and a shelf</h2>
+
+    <p>
+      This project is two things sharing one repository. The <strong>factory</strong> turns a single
+      plain-English request — <em>"make a course on abstract algebra for someone who finished high-school
+      maths"</em> — into a finished course. The <strong>shelf</strong> is this website, which automatically
+      lists and serves every course the factory finishes. Drop a new course onto the shelf and it shows up
+      here on its own; nobody edits the site to add it.
+    </p>
+
+    <h2>The one rule that matters</h2>
+
+    <blockquote>
+      <p><strong>Fix the factory, not the product.</strong></p>
+    </blockquote>
+
+    <p>
+      When a course reads badly — too dull, too soothing, a confusing leap — the instinct is to patch that
+      one page. Don't. The factory wrote that page by following written instructions, and it will write the
+      next course the same way. So we change the <strong>instructions</strong>, then let the factory rebuild.
+      A patched page fixes one course; a patched instruction fixes every course from now on. (The course you're
+      reading about clock arithmetic had a confusing jump; the fix was a new rule about "bridging," not a one-off edit.)
+    </p>
+
+    <h2>The assembly line: six stations</h2>
+
+    <p>
+      A request walks down a line of six stations, in order. Each station does one job, writes down what it did,
+      and hands its work to the next. Because every step is written to a file, you can open any of them and see
+      exactly what the machine was thinking.
+    </p>
+
+    <ol>
+      <li><strong>Research</strong> — gathers what the subject is, what the learner already needs to know, the
+        trustworthy sources, and the usual places people get stuck.</li>
+      <li><strong>Curriculum</strong> — decides the list of modules, their order, and what each one should teach.
+        This is the most important checkpoint: it's where a human can read one page and approve the whole shape
+        of the course before any writing happens — the cheapest place to fix a mistake.</li>
+      <li><strong>Authoring</strong> — writes the modules. Several writers work at once, each on a different module
+        and <em>blind to the others</em>. That's fast, but it's why two modules can drift apart or repeat themselves.</li>
+      <li><strong>Editorial</strong> — one editor reads <em>all</em> the modules together and makes them feel like a
+        single book: same names and symbols throughout, no module re-explaining what another already covered,
+        confident tone, and smooth "bridges" wherever an everyday picture has to hand off to a precise definition.
+        This station exists precisely to catch what the blind, parallel writers couldn't see.</li>
+      <li><strong>Assembly</strong> — moves the finished modules out of the workshop and onto the shelf (the website),
+        in the exact format the site expects.</li>
+      <li><strong>Verify</strong> — the final check: are the maths and the structure valid, does the tone hold, and
+        does the website actually build without errors? Only then does it ship.</li>
+    </ol>
+
+    <h2>Where everything lives</h2>
+
+    <p>
+      You don't need the file paths to understand the shape, but here it is in plain terms:
+    </p>
+
+    <ul>
+      <li><strong>The factory's rulebooks</strong> live in a folder of reference documents — the writing voice,
+        the maths style, the teaching rules, the brand. These are the instructions we change when we "fix the factory."</li>
+      <li><strong>Each station's job description</strong> sits in the station's own folder, written as a short contract:
+        what it reads, what it does, what it produces, and how it checks itself.</li>
+      <li><strong>The workshop</strong> is a dated folder for each course being built. Every station's working notes
+        and drafts land here, so a finished course leaves a complete paper trail. Nothing here is thrown away when the next
+        course is built — each run gets its own folder.</li>
+      <li><strong>The shelf</strong> is the finished-courses area the website reads from. Workshop drafts never go here directly;
+        only the assembly station crosses that line.</li>
+    </ul>
+
+    <h2>How to find what went wrong</h2>
+
+    <p>
+      Because each station writes its work to a file, diagnosing a bad course is just reading backwards. If a course
+      feels repetitive, the editorial station's notes show whether it caught the repetition. If a module teaches the
+      wrong thing, the curriculum page shows whether the plan was wrong or the writing was. You read down the line until
+      the defect first appears — that station's rulebook is what needs the fix.
+    </p>
+
+    <h2>Asking for a new course</h2>
+
+    <p>
+      You ask in one sentence: the subject, and who it's for. <em>"A course on the chemistry of cooking for curious
+      adults with no science background."</em> The factory turns that into a written brief — including its own notes on
+      what it's assuming about scope and difficulty — and walks the six stations. By default it runs straight through
+      and only pauses at the curriculum checkpoint; you can ask it to stop and show you more, or just let it ship.
+    </p>
+
+    <h2>How a change reaches this site</h2>
+
+    <p>
+      When work is done, it's saved and pushed to the project's main copy. That push automatically rebuilds and
+      republishes this website — no manual deploy step. So the path from "fix an instruction" to "the live site shows
+      the better course" is: change the rulebook → rebuild the course → push → the site updates itself.
+    </p>
+
+    <hr />
+
+    <p class="muted-note">
+      Want the technical version? The repository's <code>CLAUDE.md</code> and <code>CONTEXT.md</code> hold the full map
+      and routing rules, and each station folder under <code>pipeline/</code> carries its own contract.
+    </p>
+
+    <p><a href={url('browse')}>← Back to the catalog</a></p>
+
+  </div>
+</Base>
+
+<style>
+  .muted-note { color: var(--muted); font-size: 0.95rem; }
+  .prose hr { border: none; border-top: 2px solid var(--text-strong); margin: 2.5rem 0; }
+</style>

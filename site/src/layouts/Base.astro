@@ -19,6 +19,7 @@ const nav = [
   { href: url('browse'), label: 'Browse', on: is('browse') },
   { href: url('subjects'), label: 'Subjects', on: is('subjects') },
   { href: url('paths'), label: 'Paths', on: is('paths') },
+  { href: url('how-it-works'), label: 'How it works', on: is('how-it-works') },
 ];
 void subjectHue; // accent is unified to hazard red; per-subject hue intentionally ignored
 ---
@@ -51,6 +52,7 @@ void subjectHue; // accent is unified to hazard red; per-subject hue intentional
           <a href={url('browse')}>Browse</a>
           <a href={url('subjects')}>Subjects</a>
           <a href={url('paths')}>Paths</a>
+          <a href={url('how-it-works')}>How it works</a>
         </nav>
       </div>
     </footer>
