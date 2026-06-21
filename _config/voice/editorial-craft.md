@@ -103,12 +103,35 @@ Before a course ships, hold the whole set to these:
   (*gently, quietly, silently, simply*) that ride with it. Replace verb-plus-adverb with one strong
   verb. (`shared/scripts/lint-prose.mjs` checks 5–6 hard-flag a soothing-adverb tic and hand-holding
   phrases.)
-- **Strip the em dash.** The em dash (`—`) is banned in course prose (see `literary-maverick.md`,
-  "Ban the em dash"). Parallel authors reach for it to pack two ideas into one sentence; this pass is
-  where the pile-ups get broken apart. Replace each dash with a full stop (split the sentence, the
-  usual fix), or a comma, colon, or parentheses. A faithfully-quoted primary source keeps its own
-  dashes; everything else loses them. `lint-prose.mjs` check 3 hard-flags any em dash in non-quote
-  prose, so the course does not ship until they are gone.
+- **No em dashes: recompose, don't strip.** The em dash (`—`) is banned in course prose (see
+  `literary-maverick.md`, "No em dashes, and recompose rather than chop"). Parallel authors reach for
+  it to pack two ideas into one sentence, and a careless removal just relocates the damage: stranded
+  fragments (*Built, not grown.*), colon-and-semicolon salad, or a long parenthesis with a clumsy
+  resumptive after it (*Every part of it (…) every part was made*). This pass **rewrites** those
+  sentences so they flow, rather than swapping the dash for a period. A faithfully-quoted primary source
+  keeps its own dashes; everything else loses them, recomposed not chopped. `lint-prose.mjs` check 3
+  hard-flags any em dash in non-quote prose, so the course does not ship until they are gone.
+- **Line-edit for texture; break the sameness.** Consistency is this stage's job, but consistency is
+  not sameness, and over-unifying can *make* the machine-stamped feel it is supposed to cure. So read
+  the whole course for the tells of rule-assembled prose and fix them as a real line editor would:
+  - **Kill self-narration.** Cut sentences that announce the structure instead of being it (*This module
+    is about…*, *Here is the question this section exists to answer*, *A warning before…*, *Now do the
+    thing this module exists for*). Open in the material, not in a description of the material.
+  - **Budget the three staling devices** across the whole course, not just per page: the **rhetorical
+    question**, **direct second-person address** (*you stood, you worked out, you pocketed*), and the
+    **dramatic one-clause fragment**. Each is fine in small doses. When every module reaches for the same
+    one, thin them and vary the move.
+  - **Thin the glossary texture.** Bold a term at its true first definition, not on every reappearance,
+    and let most callbacks re-gloss *in passing prose* ("the running tab from earlier") rather than as a
+    bolded term trailing a parenthetical definition every time. The reader is reading a book, not a
+    flash-card deck.
+  - **De-staccato and de-colon.** Where short fragments or stacked colons and semicolons have piled up
+    (often the residue of dash-removal), recompose into sentences that breathe.
+  - **Demote the disciplines from quotas to defaults.** The course's analytic moves (steelman, the
+    evidence-vs-interpretation seam, naming a live debate, the one owned image) are *defaults*, not a
+    checklist every module must visibly perform in the same order. Where the same beat recurs module
+    after module in the same shape, vary which surface and how, so the reader feels an argument, not a
+    template being stamped.
 - **Show the artifact (`stem`).** A mechanism explained in prose alone is under-built; every
   mechanism-bearing module should carry a diagram, equation, or worked computation. Flag any that ship
   without one.
@@ -116,12 +139,14 @@ Before a course ships, hold the whole set to these:
   same "here's what's coming" promise made piece after piece is noise. Cap it.
 - **Vary the edges — and the macro-shape.** If every piece opens with the same kind of move (an everyday
   analogy, a definition) and runs the same skeleton, the set feels machine-stamped however good each
-  piece is. Vary how pieces *open and unfold* — a result, a worked case, a diagram, a contrast, a
-  failure, real data — not only their first and last lines. Keep each strong *and* different.
+  piece is. Vary how pieces *open and unfold*: a result, a worked case, a diagram, a contrast, a
+  failure, real data, not only their first and last lines. Keep each strong *and* different.
 - **Level-appropriate scaffolding.** Hold the course to its `level` (the dial in `course-design.md`
   §2): at `intro`, every abstract idea has an analogy or a picture, callbacks **re-gloss** the heavy
   nouns rather than merely name them, and no term is used that a beginner was never given. Strip-mining
   a beginner course of analogies and pictures for the sake of density is a failure this pass must catch.
+  (Re-glossing is a *prose* job: a few plain words in the sentence, not a bolded term plus a
+  parenthetical dictionary entry on every recurrence.)
 
 These checks are not the writer's job alone — when work is produced in parallel, no single writer can see
 them. They belong to this dedicated editorial pass, read against the shared canon.

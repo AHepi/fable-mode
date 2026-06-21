@@ -310,10 +310,14 @@ demands. Read them through this dial.
   one concrete analogy *or* a picture-you-can-hold (points on a map, dimmer-switches, a thermostat).
   The anti-analogy-carousel rule still forbids opening *every* module with the same homey move — it
   never licenses an analogy-free beginner course. "Plausible by example and picture" is a floor here.
-- **Callbacks re-gloss.** "Call back, never re-derive" means skip the full *derivation*, not the
-  *meaning*: a callback to a term an earlier module owns restates what it is in a few words ("the
-  representation — the short list of numbers from module 2"), because a beginner has forgotten. Naming
-  a heavy noun alone is the "huge noun reintroduced without explaining" defect.
+- **Callbacks re-gloss, in passing prose.** "Call back, never re-derive" means skip the full
+  *derivation*, not the *meaning*: a callback to a term an earlier module owns restates what it is in a
+  few words ("the representation, that short list of numbers from module 2"), because a beginner has
+  forgotten. Naming a heavy noun alone is the "huge noun reintroduced without explaining" defect. But
+  the re-gloss is a *prose* job, woven into the sentence. It is **not** a license to re-bold the term and
+  trail it with a parenthetical dictionary entry on every recurrence; that produces a flash-card texture
+  that fights the reading voice. Bold a term at its true first definition; thereafter remind in plain
+  running words.
 - **Reinforcement is pedagogy, not padding.** A second worked example of a hard idea, and spaced
   re-explanation, are *desirable* at `intro`. "Advance every module" still governs *new ground*, but
   the density rule must not cut a beginner's second look at a hard concept.

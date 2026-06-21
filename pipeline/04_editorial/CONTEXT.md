@@ -48,11 +48,17 @@ canon's symbol registry requires it, and then identically everywhere.
    cut the coddling register (no *don't worry / bear with me / take your time*) and the soothing-adverb
    tics (*gently, quietly, silently, simply*) — replace verb-plus-adverb with one strong verb.
    Confidence, not comfort.
-7. **Fix page-local flow** as you go: logical contradictions in the prose framing, buried subjects,
-   weak transitions, mumbled endings, hedges. **Strip every em dash** from the prose (banned; see
-   `editorial-craft.md`, "Strip the em dash") — split clause pile-ups into separate sentences, or use a
-   comma/colon/parentheses. Quotations keep their own punctuation. `lint-prose.mjs` check 3 hard-flags
-   any that remain.
+7. **Line-edit for flow and texture** (`editorial-craft.md`, "Line-edit for texture; break the
+   sameness"). Fix logical contradictions in the prose framing, buried subjects, weak transitions,
+   mumbled endings, hedges. Then act as a real line editor, not only a consistency enforcer: cut
+   self-narrating scaffolding (*This module is about…*), budget the staling tics across the whole course
+   (rhetorical questions, second-person address, dramatic one-clause fragments), thin the
+   bold-term-and-parenthetical-gloss texture, and treat the course's analytic moves (steelman, the
+   evidence-vs-interpretation seam, naming a debate, the owned image) as **defaults that vary in
+   surface**, not a checklist every module performs identically. **Remove every em dash by recomposing
+   the sentence**, not by swapping in a period, colon, or semicolon (banned; the careless removal leaves
+   stranded fragments and colon-salad). Quotations keep their own punctuation. `lint-prose.mjs` check 3
+   hard-flags any em dash that remains.
 8. **Metaphor audit.** Read each module's central image. Kill or rebuild any metaphor that points at
    the wrong referent (e.g. "slots and a crank" evoking a slot machine — randomness) or that was
    announced as central and then abandoned; prefer a clean concrete shape or no image to a broken one.

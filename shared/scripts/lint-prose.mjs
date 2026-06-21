@@ -453,6 +453,37 @@ function lintProse(slug) {
   }
   lines.push('');
 
+  // --- check 9: self-narration & staling tics (advisory) -------------------
+  // The residue of rule-assembled prose: sentences that announce the structure
+  // instead of being it, and devices that go stale when every module leans on
+  // them. Advisory only; the editorial pass reads this and line-edits.
+  lines.push('9. Self-narration & staling tics (advisory)');
+  const narrationRe = /\b(this (module|section|chapter) (is about|exists to|does|will)|in this module|here is the question|a warning before|what this (module|section) (is about|does)|now do the thing|the thing this whole)\b/gi;
+  let narrationTotal = 0;
+  const narrationHits = [];
+  let colonSemiTotal = 0, qTotal = 0, fragTotal = 0, words9 = 0;
+  for (const mod of modules) {
+    const p = mod.proseNoQuotes ?? mod.prose;
+    const n = (p.match(narrationRe) || []).length;
+    if (n) { narrationTotal += n; narrationHits.push(`${mod.file} (${n})`); }
+    colonSemiTotal += (p.match(/[:;]/g) || []).length;
+    qTotal += (p.match(/\?/g) || []).length;
+    // crude dramatic-fragment proxy: very short "sentences" of 1–3 words ending in a period.
+    fragTotal += (p.match(/(?:^|[.!?]\s)[A-Z][a-z]+(?:\s+\w+){0,2}\./g) || []).length;
+    words9 += mod.words;
+  }
+  const csPer1000 = words9 ? (colonSemiTotal / words9) * 1000 : 0;
+  if (narrationTotal === 0) {
+    lines.push('   self-narration: (none of the tracked phrases appear)');
+  } else {
+    lines.push(`   self-narration phrases: ${narrationTotal} total [SOFT]  ${narrationHits.join(', ')}`);
+    soft.push(`self-narrating scaffolding: ${narrationTotal} occurrence(s) (${narrationHits.join(', ')}) — cut sentences that announce the structure; open in the material`);
+  }
+  lines.push(`   colon+semicolon density: ${csPer1000.toFixed(1)}/1000 words (${colonSemiTotal} total)${csPer1000 > 22 ? ' [SOFT — high; often dash-removal residue]' : ''}`);
+  if (csPer1000 > 22) soft.push(`high colon/semicolon density: ${csPer1000.toFixed(1)}/1000 words — often the residue of removing em dashes by substitution; recompose into flowing sentences`);
+  lines.push(`   rhetorical '?' count: ${qTotal} · short-fragment proxy: ${fragTotal} (advisory texture signals, read in editorial)`);
+  lines.push('');
+
   // --- summary -------------------------------------------------------------
   lines.push('Summary');
   lines.push(`   hard flags:      ${hard.length}`);
