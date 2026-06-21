@@ -1,7 +1,7 @@
 # Evidence-Based Pedagogy
 
 The research backing for how Fable Academy courses teach. This is an **L3 reference** (a stable
-constraint, like `voice/literary-maverick.md` or `math-style.md`): read it on the **curriculum (02)**
+constraint, like `_config/voice/literary-maverick.md` or `_config/math-style.md`): read it on the **curriculum (02)**
 and **authoring (03)** stages and *internalize it as constraints*, not as text to copy.
 
 `course-design.md` is the **operational** pedagogy spec — the rules a module must follow (section
