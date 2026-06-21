@@ -49,7 +49,10 @@ canon's symbol registry requires it, and then identically everywhere.
    tics (*gently, quietly, silently, simply*) — replace verb-plus-adverb with one strong verb.
    Confidence, not comfort.
 7. **Fix page-local flow** as you go: logical contradictions in the prose framing, buried subjects,
-   weak transitions, mumbled endings, hedges, em-dash monotony.
+   weak transitions, mumbled endings, hedges. **Strip every em dash** from the prose (banned; see
+   `editorial-craft.md`, "Strip the em dash") — split clause pile-ups into separate sentences, or use a
+   comma/colon/parentheses. Quotations keep their own punctuation. `lint-prose.mjs` check 3 hard-flags
+   any that remain.
 8. **Metaphor audit.** Read each module's central image. Kill or rebuild any metaphor that points at
    the wrong referent (e.g. "slots and a crank" evoking a slot machine — randomness) or that was
    announced as central and then abandoned; prefer a clean concrete shape or no image to a broken one.

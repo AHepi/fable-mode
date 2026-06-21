@@ -2,7 +2,7 @@
 // Advisory PROSE-continuity audit for a shipped course. Catches the cross-module
 // and within-module *prose* problems the schema/reference validators miss: tic
 // phrases that repeat across modules, words hammered too hard inside one module,
-// runaway em-dash density, and inconsistent math symbol/naming choices.
+// em dashes (banned in prose), and inconsistent math symbol/naming choices.
 // This is a STYLE editor, not a correctness gate — it reads PROSE only (math,
 // code, and frontmatter are stripped first) and never inspects definitions or
 // proofs. Usage:
@@ -46,8 +46,7 @@ const IMAGE_WORDS = new Set([
 ]);
 const MAX_IMAGE_WORD = 5; // an image word used >5 times in one module => hard flag
 
-// Em-dash density: advisory only.
-const MAX_EMDASH_PER_1000 = 12;
+// Em dash: banned in prose (hard). Quotations are exempt (see check 3).
 
 // Manner / soothing adverbs — usually a weak verb apologizing for itself ("moved
 // gently" -> "drifted"), and the engine of an over-soothing register. Capped by
@@ -173,7 +172,11 @@ function lintProse(slug) {
   const modules = files.map((f) => {
     const raw = readFileSync(join(dir, f), 'utf8');
     const prose = isolateProse(raw);
-    return { file: f, prose, words: countWords(prose) };
+    // For the em-dash ban: drop blockquote lines first. Primary-source
+    // quotations live in `>` blocks and must keep their punctuation faithful,
+    // so a dash inside a genuine quote is not the author's tic and is exempt.
+    const proseNoQuotes = isolateProse(raw.replace(/^[ \t]*>.*$/gm, ' '));
+    return { file: f, prose, words: countWords(prose), proseNoQuotes };
   });
 
   // Course-level info for the level-relative checks: `level` and the `prerequisites` text.
@@ -267,23 +270,26 @@ function lintProse(slug) {
   }
   lines.push('');
 
-  // --- check 3: em-dash density --------------------------------------------
-  lines.push('3. Em-dash density (advisory)');
+  // --- check 3: em-dash ban ------------------------------------------------
+  // The em dash is banned in course prose. It packs several clauses into one
+  // sentence and asks the reader to hold them all at once — cognitively
+  // draining, and a crutch the old word ceilings encouraged. Replace it with a
+  // full stop (split the sentence — the usual fix), or a comma, colon, or
+  // parentheses. Quotations (blockquote `>` lines) are exempt: a dash inside a
+  // faithfully-rendered primary source stays.
+  lines.push('3. Em-dash usage (banned in prose)');
   const dashFindings = [];
   for (const mod of modules) {
-    const dashes = (mod.prose.match(/—/g) || []).length;
+    const dashes = ((mod.proseNoQuotes ?? mod.prose).match(/—/g) || []).length;
     if (dashes === 0) continue;
-    const per1000 = mod.words > 0 ? (dashes / mod.words) * 1000 : 0;
-    const hot = per1000 > MAX_EMDASH_PER_1000;
-    dashFindings.push({ file: mod.file, dashes, words: mod.words, per1000, hot });
+    dashFindings.push({ file: mod.file, dashes });
   }
   if (dashFindings.length === 0) {
-    lines.push('   (no em-dashes found)');
+    lines.push('   (none — em-dash-free prose)');
   } else {
     for (const f of dashFindings) {
-      const tag = f.hot ? `SOFT — above ~${MAX_EMDASH_PER_1000}/1000` : 'ok';
-      lines.push(`   ${f.file} — ${f.dashes} em-dash(es), ${f.per1000.toFixed(1)}/1000 words [${tag}]`);
-      if (f.hot) soft.push(`high em-dash density in ${f.file}: ${f.per1000.toFixed(1)}/1000 words (${f.dashes} dashes)`);
+      lines.push(`   ${f.file} — ${f.dashes} em-dash(es) [HARD]`);
+      hard.push(`em-dash in ${f.file}: ${f.dashes}x — banned in prose; split into separate sentences (or use a comma/colon/parentheses). Quotations are exempt.`);
     }
   }
   lines.push('');

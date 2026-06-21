@@ -87,9 +87,14 @@ feedback that *explains* rather than just marking right/wrong.
 
 A module teaches **one big idea** and is readable in a single sitting.
 
-- **Target length**: roughly 1,000–2,500 words of body text, plus its math and
-  exercises. `estimatedMinutes` in the frontmatter should reflect an honest reading +
-  working time (a typical module is 10–25 minutes; longer means split it).
+- **Length follows the idea, not a word count.** A module often runs somewhere around
+  1,000–3,000 words of body text, but treat that as a loose orientation, **not a target to hit
+  or a ceiling to enforce**. Let the idea set the length: cover it well, at the level the reader
+  needs, then stop. `estimatedMinutes` should reflect honest reading and working time; if a
+  module runs well past a single sitting, that usually means it holds two ideas and should split.
+  **Never compress prose to hit a number.** Cramming several clauses into one sentence to fit a
+  limit (the em dash is the usual symptom) trades the reader's comprehension for a word count,
+  which is exactly backwards. If anything, prefer more short sentences over fewer dense ones.
 - **One big idea per module.** If you find yourself teaching two genuinely separate
   concepts, that is two modules.
 
@@ -103,10 +108,13 @@ dial", §2; at `intro` analogies and a picture are *required*, and callbacks re-
 - **Advance every module.** Each module must break genuinely new ground. Restating a point already
   made — beyond a one-line callback — is the cardinal sin of pace; it makes the reader feel they are
   not moving. Say a thing once, in its strongest form, then go.
-- **Word counts are a ceiling, not a target.** If a module loses nothing at half the length, halve it;
-  never pad to fill a section or hit a module count. **Scope by idea density, not coverage:** a subject
-  that is really one idea is a *mini-course* (3–6 modules), not a stretched first course. One
-  architecture, one theorem, one method does not become twelve modules by dilution.
+- **Density is the rule; length is downstream of it.** The thing to control is whether every
+  paragraph earns its place, not whether the module hits a word count. If a module loses nothing at
+  half the length, halve it; never pad to fill a section or hit a module count. Equally, never *cut*
+  below what the idea needs, or squeeze the sentences, just to land under some figure. **Scope by idea
+  density, not coverage:** a subject that is really one idea is a *mini-course* (3–6 modules), not a
+  stretched first course. One architecture, one theorem, one method does not become twelve modules by
+  dilution.
 - **Vary the macro-shape, not just the hook.** If every module opens with the same kind of move (an
   everyday analogy, a definition, a question) and runs the same skeleton, the set feels machine-stamped
   however good each piece is. Differentiate how modules *begin and unfold* — a result first, a worked
@@ -434,7 +442,7 @@ items (one big idea, ordering, objectives, distributed retrieval, length, frontm
       module body, attempt-before-reveal in `<details>` blocks), not all questioning at
       the end.
 - [ ] Objectives are written as observable verbs and reflect what the module delivers.
-- [ ] Each module length is sane (~1,000–2,500 words; `estimatedMinutes` honest).
+- [ ] Each module's length follows its idea (length is a loose guide, not a quota; no prose compressed to hit a number; `estimatedMinutes` honest).
 - [ ] Each module has assessment matched to its kind (§0): *(stem)* 3–6 exercises
       mechanical → conceptual; (skill) a rubric self-check; (humanities) an open/essay prompt with
       criteria; (language) drills + spaced review.

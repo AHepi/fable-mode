@@ -100,9 +100,15 @@ Before a course ships, hold the whole set to these:
   it, and cut within-module repetition past its first strong statement. Every piece must break new
   ground. (Operational rules: `course-design.md`, "Earn the reader's time".)
 - **Confidence, not comfort.** Level out any soothing, coddling register and the manner-adverb tics
-  (*gently, quietly, silently, simply*) that ride with it — replace verb-plus-adverb with one strong
+  (*gently, quietly, silently, simply*) that ride with it. Replace verb-plus-adverb with one strong
   verb. (`shared/scripts/lint-prose.mjs` checks 5–6 hard-flag a soothing-adverb tic and hand-holding
   phrases.)
+- **Strip the em dash.** The em dash (`—`) is banned in course prose (see `literary-maverick.md`,
+  "Ban the em dash"). Parallel authors reach for it to pack two ideas into one sentence; this pass is
+  where the pile-ups get broken apart. Replace each dash with a full stop (split the sentence, the
+  usual fix), or a comma, colon, or parentheses. A faithfully-quoted primary source keeps its own
+  dashes; everything else loses them. `lint-prose.mjs` check 3 hard-flags any em dash in non-quote
+  prose, so the course does not ship until they are gone.
 - **Show the artifact (`stem`).** A mechanism explained in prose alone is under-built; every
   mechanism-bearing module should carry a diagram, equation, or worked computation. Flag any that ship
   without one.
