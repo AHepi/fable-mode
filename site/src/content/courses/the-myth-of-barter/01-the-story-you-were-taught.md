@@ -15,11 +15,11 @@ prerequisites: []
 
 Open almost any introductory economics textbook to page one of the chapter on money, and you will meet the same little fable before you meet a single definition. Long ago, it says, before there were coins or banks or credit cards, people traded. A man with a surplus of grain found a man with a surplus of pots, and they swapped. It worked, until it didn't, and the story of money is the story of how human cleverness fixed what was broken.
 
-It is a good story. It is tidy, it is intuitive, and you have almost certainly believed some version of it your whole life without ever being asked to. That is exactly why it deserves a careful hearing. Before this course takes the story apart, and it will, you need to feel its full pull. A story you have only ever heard sneered at is a story you cannot really judge. So this module does something that may feel strange in a course built to dismantle a myth: it states the myth as sympathetically and as forcefully as it can be stated. Nothing here gets debunked. The reader who finishes this module should think the story is reasonable, even obvious. The doubts come later, and they will land harder for being earned.
+It is a good story, tidy and intuitive, and you have almost certainly believed some version of it your whole life without ever being asked to. That is exactly why it deserves a careful hearing. The course will take the story apart, but first you need to feel its full pull, because a story you have only ever heard sneered at is a story you cannot really judge. So the strange thing to do in a course built to dismantle a myth is to state that myth as sympathetically and as forcefully as it can be stated, and that is what comes next. Nothing here gets debunked. Anyone who finishes these pages should find the story reasonable, even obvious. The doubts come later, and they will land harder for being earned.
 
 ## Context & background
 
-Start with the thing the story says came first. **Barter** is swapping goods directly for goods, with no money in between. You have a chicken, I have a knife, you would rather have the knife and I would rather have the chicken, so we trade, and each of us walks away better off. No coin changes hands. No one writes anything down. The exchange is complete in the moment it happens. Picture a market with no cash at all, just people holding up what they have and pointing at what they want.
+Start with the thing the story says came first. **Barter** is swapping goods directly for goods, with no money in between. You have a chicken, I have a knife, you would rather have the knife and I would rather have the chicken, so we trade, and each of us walks away better off. No coin changes hands. No one writes anything down. The exchange is complete in the moment it happens. A market like this has no cash in it at all, only people holding up what they have and pointing at what they want.
 
 Hold onto that picture, because the story's whole engine is the trouble hidden inside it. For a barter trade to happen, a very particular thing has to be true: you have to want what I have, and I have to want what you have, both of us, at the same moment. This requirement has a name. Economists call it **the double coincidence of wants**: barter only works if each side happens to want exactly what the other has, at the same time. Two wants have to coincide, in two directions, in one instant, or there is no deal.
 
@@ -67,7 +67,7 @@ The double coincidence of wants is the requirement that for a barter trade to ha
 
 ## Analysis & interpretation
 
-Now step back from the story and ask a question about its *kind*. What sort of claim is this, exactly?
+Step back from the story now and ask what *kind* of claim it is, because the kind turns out to matter more than the content.
 
 Notice how the story is actually told. It does not say: here is a specific people, in a specific place, at a specific time, and here is the record of them bartering and then, on this date, adopting money. It says: *imagine* a society without money. *Picture* the difficulty. *Suppose* someone hits on the idea of a common medium of exchange. The story is built out of "imagine" and "suppose" and "it stands to reason," not out of tablets and ruins and dated documents. It is an origin reasoned out from the armchair, a deduction about what *must have* happened, given how sensible people would behave.
 

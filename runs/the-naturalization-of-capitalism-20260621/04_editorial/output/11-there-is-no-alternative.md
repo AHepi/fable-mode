@@ -15,7 +15,7 @@ prerequisites: [01-the-lens, 10-how-it-feels-natural]
 
 A society can be governed from inside a room so well built that the people in it never notice it has walls. The light is even, the temperature comfortable, the floor steady. Nothing presses on you. And because nothing presses, it does not occur to you that you are anywhere in particular at all. This is a built place, with an architect and a date of construction and a door, rather than the world itself, the only place there is. The most complete form of enclosure is the kind you cannot see, because to see a wall you have to imagine the space on its other side, and that imagining is precisely what the walls are built to prevent.
 
-That room has a name now, and a slogan painted over the (invisible) door: *there is no alternative.* This module is about how it got built (recently, deliberately, by people whose names and meeting dates we know) and then about how to find the walls. We are at the end of the course. The whole point of the lens was to bring us here.
+That room has a name now, and a slogan painted over the invisible door: *there is no alternative.* It was built recently and deliberately, by people whose names and meeting dates we know, and the walls can be found. The lens was pointing here all along.
 
 ## Context & background
 
@@ -23,7 +23,7 @@ Back at the start we named a move: **naturalization**, making a recent, continge
 
 This module takes the strongest version of the claim, the one that goes past *normal* to *necessary*: not "this is how we live" but "there is no other way to live, and there never could be." That sense has a name, given by **Mark Fisher**, a British writer and critic, in a short, sharp book called *Capitalist Realism* (2009): **capitalist realism**: the felt sense that no alternative to capitalism is even imaginable. Not that the alternatives are bad. That there are none to picture. Fisher popularized a line that captures it (he credited it to the critics Fredric Jameson and Slavoj Žižek): it has become easier to imagine the end of the world than the end of capitalism. Asteroids, plagues, the collapse of the climate: the imagination supplies these freely. A different way of organizing work and ownership it cannot supply at all.
 
-You might take that as the final proof that the thing really is natural: if nobody can even *picture* an outside, surely there isn't one. Hold that thought in its strongest form (it is the deepest version of the intuition this whole course has been answering) and turn to where the walls came from.
+You might take that as the final proof that the thing really is natural: if nobody can even *picture* an outside, surely there isn't one. That is the deepest version of the intuition this whole course has been answering. Grant it its full strength, then turn to where the walls came from.
 
 ## Narrative / exposition
 
@@ -67,7 +67,7 @@ Before reading on, in your own words: what is the difference between saying *no 
 
 ## Analysis & interpretation
 
-Here the reader has every right to push back. *Fine. You've shown it was built. So what's the alternative? Knock it down and put what in its place?*
+Here the reader has every right to push back. *Fine. You've shown it was built. So tell me the alternative, what to put in its place once it comes down.*
 
 The honest answer is that this course does not have one, and that this is a position, not an evasion. Denaturalizing is not the same as prescribing. The lens gives you **eyes, not a blueprint**. Everything in these eleven modules works to recover the sentence *it didn't have to be this way*, to show that a thing which feels like the floor under your feet was laid by human hands and could have been laid differently. That is a claim about contingency, not a claim that some other arrangement is ready to install, or would be better. A worked-out replacement economy is a different and enormous project, and you should be suspicious of anyone who hands you one in a closing chapter.
 

@@ -21,9 +21,9 @@ Not in a forgotten edition. This year's edition. Open the introductory economics
 
 ## Context & background
 
-Picture a page that keeps getting reprinted. Each new edition of the textbook is reset, recut, reillustrated. The charts are updated, the examples are swapped for fresher ones, the cover is redesigned. And page one of the money chapter says the same thing it said in your parents' edition and their parents' edition: long ago, people bartered. The error is not a typo that survived a careless proofreader. It is load-bearing. It is the part of the page nobody thinks to question, because it does not feel like a claim at all. It feels like background, like the way a story has to begin.
+Consider a page that keeps getting reprinted. Each new edition of the textbook is reset, recut, reillustrated. The charts are updated, the examples are swapped for fresher ones, the cover is redesigned. And page one of the money chapter says the same thing it said in your parents' edition and their parents' edition: long ago, people bartered. The error is not a typo that survived a careless proofreader. It is load-bearing. It is the part of the page nobody thinks to question, because it does not feel like a claim at all. It feels like background, like the way a story has to begin.
 
-That is the thing to notice. A false claim that survives this well is usually not surviving by accident. It survives because it is useful, because it makes something else easy to believe, because pulling it out would mean rebuilding the room it holds up. The task of this module is to name what it holds up.
+That is the thing to notice. A false claim that survives this well is usually not surviving by accident. It survives because it is useful, because it makes something else easy to believe, because pulling it out would mean rebuilding the room it holds up. What it holds up is what comes next.
 
 One warning before we start, and it is the most important sentence in the module. To say a story does a job is **not** to say someone wrote it as a job. Naming the work a myth performs is a different act from accusing anyone of forging it. Keep those two apart and this module is honest analysis. Blur them and it collapses into a cheap accusation. The next section draws the line carefully, because everything here depends on it.
 

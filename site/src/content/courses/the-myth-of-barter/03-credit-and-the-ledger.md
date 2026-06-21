@@ -13,7 +13,7 @@ prerequisites: [01-the-story-you-were-taught, 02-why-it-cant-be-the-history]
 
 ## The hook
 
-Picture the end of a long evening at a bar where the bartender knows you. Four drinks, none of them paid for, and yet nothing about the night felt like borrowing. You signed nothing. No coin left your pocket. When you settle up, the bartender does not weigh out what you owe in beer or peanuts. She reads a number off a screen, in dollars, and you hand over the dollars.
+It is the end of a long evening at a bar where the bartender knows you. Four drinks, none of them paid for, and yet nothing about the night felt like borrowing. You signed nothing, and no coin left your pocket. When you settle up, the bartender does not weigh out what you owe in beer or peanuts. She reads a number off a screen, in dollars, and you hand over the dollars.
 
 Something strange has happened. All night your tab was reckoned in dollars: every drink had a price the instant it was poured. But for most of the evening no dollar moved. The thing that counted the debt and the thing that finally paid it were not the same kind of thing.
 
@@ -23,7 +23,7 @@ That gap, between the money you reckon in and the money you hand over, is the mo
 
 In module 01 you met the story at its strongest: **the barter myth**, in which people first swapped goods directly, money was then invented to fix the clumsiness of swapping, and markets and credit grew up afterward on top of money. In module 02 you saw why that sequence cannot be the history: no society has ever been found running on barter and then upgrading to money. What communities actually ran on was **credit and debt tracked socially**, the two sides of one relationship. People kept a running tab of who owed whom, settled by custom rather than by haggling out a price every time.
 
-If the running tab was already there, what did it get reckoned in? You can owe someone, but you have to owe them *some amount of something*. What was the something, before there were coins?
+If the running tab was already there, it had to be reckoned in something. You can owe someone, but you have to owe them *some amount of something*. What was the something, before there were coins?
 
 The answer comes from **Mesopotamia**, the land between the Tigris and Euphrates, roughly where Iraq is now, in the centuries around 3000 BCE: the world of the first cities, temples, writing, and surviving account books. Here is the fact the module turns on. Mesopotamian temples and palaces kept detailed accounts in silver and barley more than two thousand years before anyone struck a coin. There were no coins in this world. There was a great deal of money.
 
@@ -49,7 +49,7 @@ A second clue sits right alongside the account books. When you ask what the earl
 
 This module's evidence is not a single quotable line but a *type* of object, so the honest thing is to describe that type faithfully rather than invent one tablet.
 
-Picture a small clay tablet of a kind found by the thousands across Mesopotamian sites: a private loan record. Pressed into it, in cuneiform, is roughly this shape of information: a quantity of silver or barley named as the amount owed; the name of the person who owes it and the person it is owed to; often a rate of interest; sometimes a date for repayment; and the names of witnesses. Some such tablets were sealed inside an inscribed clay envelope, so the inner tablet could not be altered without breaking the seal.
+Take a small clay tablet of a kind found by the thousands across Mesopotamian sites, a private loan record. Pressed into it, in cuneiform, is roughly this shape of information: a quantity of silver or barley named as the amount owed, the name of the person who owes it and the person it is owed to, often a rate of interest, sometimes a date for repayment, and the names of witnesses. Some such tablets were sealed inside an inscribed clay envelope, so the inner tablet could not be altered without breaking the seal.
 
 Now read it. What is *not* there is any coin. The silver named on the tablet need never have been seen by the borrower; it is the measure the debt is counted in, not necessarily a thing handed over. The tablet is not money you spend. It is money in a deeper sense: a debt made durable in clay, money-of-account made visible, with no coin in sight.
 
