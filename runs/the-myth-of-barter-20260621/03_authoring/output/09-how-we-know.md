@@ -2,7 +2,7 @@
 title: "How We Know, and How to Read an Origin Story"
 course: the-myth-of-barter
 order: 9
-summary: "The tools that overturned the barter myth, and the one question you can now put to any origin story: is this remembered, or required by a theory?"
+summary: "The tools that overturned the barter myth, and the one question you can now put to any origin story: is it remembered, or only what some theory needs to be true?"
 estimatedMinutes: 24
 objectives:
   - "Describe how the historical claims in this course are actually known: cuneiform records, ethnography, numismatics, and law codes."
@@ -47,7 +47,7 @@ For most of this course the primary sources were objects, the tablet and the coi
 
 > "No example of a barter economy, pure and simple, has ever been described, let alone the emergence from it of money."
 >
-> — Caroline Humphrey, "Barter and Economic Disintegration," *Man* (1985). Caroline Humphrey is an anthropologist; this is her summary of the ethnographic record.
+> Caroline Humphrey, "Barter and Economic Disintegration," *Man* (1985). Caroline Humphrey is an anthropologist; this is her summary of the ethnographic record.
 
 Read it the way you would read any source: for what it can carry and what it cannot. What it *can* carry is precise and devastating to the myth. It says that the specific thing the standard sequence requires, a whole society running on direct goods-for-goods swaps and then graduating to money, has never once been found by the people whose job is to find such things. That is a statement about the evidence, and it is the empirical hole at the center of the myth.
 
@@ -72,7 +72,7 @@ The thread running through all four: each is a *survival* from the past itself, 
 
 Now lift the diagnostic question off this one myth and make it portable, because that is the skill you actually keep.
 
-Run it as two steps. First, find the load-bearing claim about the past. Strip away the decoration and ask what the story needs to have *happened* for its point to stand. The barter myth needs a real sequence: barter first, then money invented to fix it. Second, ask of that claim: is it **remembered, or required by a theory?** Hunt for the survival. Is there a tablet, a coin, a witness, a record of any kind that came down from the time itself? Or does the only support turn out to be that the claim makes a tidy story make sense?
+Run it as two steps. First, find the load-bearing claim about the past. Strip away the decoration and ask what the story needs to have *happened* for its point to stand. The barter myth needs a real sequence: barter first, then money invented to fix it. Second, put the diagnostic to that claim. Is it a memory, attested in something that survived, or is it only what the theory needs to be true? Hunt for the survival. Is there a tablet, a coin, a witness, a record of any kind that came down from the time itself? Or does the only support turn out to be that the claim makes a tidy story make sense?
 
 The trap to watch for is the one module 01 named. A story can be told in the full voice of history, "long ago, people did X," and still rest on nothing but what the theory requires. The "long ago" is doing rhetorical work. It dresses a deduction in the costume of a memory. Once you have caught the barter myth doing this, you start seeing the move everywhere, in accounts of how nations began, why some custom exists, how a market or a technology came to be the standard. Many such stories are partly remembered and partly required, and the interesting work is sorting which parts are which.
 
