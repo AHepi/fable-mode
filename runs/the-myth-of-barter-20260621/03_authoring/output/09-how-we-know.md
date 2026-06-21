@@ -15,7 +15,7 @@ prerequisites: [01-the-story-you-were-taught, 02-why-it-cant-be-the-history, 03-
 
 You came into this course believing something, and you are leaving believing something else. That much is ordinary. People change their minds. What is worth stopping over, on this last page, is *how* it happened. You were not argued out of the barter story by a cleverer story. You were walked over to a window and shown a clay tablet, a coin, a law carved in stone, and a shelf of ethnographies, and asked to look. The belief did not survive the looking.
 
-That is the real gift of these nine modules, and it is not a fact about money. It is a method. You now know how to tell the difference between a past that is recorded and a past that is merely reasoned out, and you can use that anywhere. This module does not teach you anything new about ledgers or jubilees. It names the thing your hands have already been doing, so you can do it on purpose next time, with a different myth, on your own.
+That is the real gift of these nine modules, and it is not a fact about money. It is a method. You now know how to tell the difference between a past that is recorded and a past that is only reasoned out, and you can use that anywhere. This module does not teach you anything new about ledgers or jubilees. It names the thing your hands have already been doing, so you can do it on purpose next time, with a different myth, on your own.
 
 ## Context & background
 
@@ -39,11 +39,11 @@ The fourth is the **law code**, and module 04 read the oldest famous one, the Co
 
 Notice what these four have in common. Each is a *survival*, a thing left behind by the past itself rather than reasoned out about the past from a distance. That is the whole difference between the case this course made and the case the textbook made. The textbook reasoned. This course pointed.
 
-But here is where the method turns its sharpest edge on the course itself. Evidence is not the same as what you make of it. A tablet recording a debt in silver is evidence. "Therefore money is essentially a measure of debt" is **interpretation**, and a particular school's interpretation at that, the reading A. Mitchell Innes and David Graeber gave it. The tablet does not speak that sentence; a theorist does. Throughout this course the prose tried to mark that seam in the open, to say "here is what the object shows" and then, separately, "here is what someone concludes from it." The credit theory of money fits the record better than the commodity theory does, and the course said so. But "fits the record better" is a long way from "proven," and the argument between the two theories is genuinely unsettled. The course handed you a method, not a new doctrine to swap in for the old one. If you walk away certain that chartalism is simply correct, you have learned the conclusion and missed the lesson.
+But here is where the method turns its sharpest edge on the course itself. Evidence is not the same as what you make of it. A tablet recording a debt in silver is evidence. "Therefore money is essentially a measure of debt" is **interpretation**, and a particular school's interpretation at that, the reading A. Mitchell Innes and David Graeber gave it. The tablet does not speak that sentence; a theorist does. Throughout this course the prose tried to mark that seam in the open, to say "here is what the object shows" and then, separately, "here is what someone concludes from it." The credit theory of money fits the record better than the commodity theory does, and the course said so. But "fits the record better" is a long way from "proven," and the argument between the two theories is genuinely unsettled. The course handed you a method, not a new doctrine to swap in for the old one. If you walk away certain that chartalism is the plain truth, you have learned the conclusion and missed the lesson.
 
 ## Primary source
 
-For most of this course the primary sources were objects, the tablet and the coin and the stone. End instead on a sentence, because one sentence has been quietly load-bearing under module 02 and deserves to be read as a source in its own right.
+For most of this course the primary sources were objects, the tablet and the coin and the stone. End instead on a sentence, because one sentence has been load-bearing under module 02 and deserves to be read as a source in its own right.
 
 > "No example of a barter economy, pure and simple, has ever been described, let alone the emergence from it of money."
 >
