@@ -56,7 +56,7 @@ fits the subject during the curriculum stage; copy the matching template per mod
 | kind | template | spine | math rules |
 |------|----------|-------|------------|
 | `stem` (default) | `shared/templates/module.md` | hook → intuition → definition → worked example → checks → exercises → recap | **on** (`math-style.md`, KaTeX validated) |
-| `humanities` | `shared/templates/module.humanities.md` | hook → context → narrative → primary source → analysis → checks → discussion/essay → recap | off |
+| `humanities` | `shared/templates/module.humanities.md` | hook → context → narrative → primary source → analysis → checks → discussion/essay → **closing story** (replaces the recap) | off |
 | `language` | `shared/templates/module.language.md` | hook → dialogue → vocabulary → grammar pattern → pronunciation → drills → spaced review → recap | off |
 | `skill` | `shared/templates/module.skill.md` | hook → scenario → framework → walkthrough → checks → practice scenario → reflection → recap | off |
 | `general` | `shared/templates/module.md` (adapt) | as appropriate | off |
@@ -175,7 +175,34 @@ finished course.
 6. **Exercises** — a few problems for the reader to do, each with a worked solution (see
    §5).
 7. **Recap** *(prose)* — three to five sentences naming what was established and what it
-   sets up next. A bridge, not a summary dump.
+   sets up next. A bridge, not a summary dump. **(`humanities` and other narrative kinds replace
+   this with the closing story, below.)**
+
+### The closing story (humanities and other narrative kinds)
+
+A summary that restates the lesson in the abstract is the weakest way to end a module. It is also
+where the self-referential tics breed ("what we established", "the two disciplines were…"). For
+`humanities` (and any narrative-suited kind), **replace the recap with a closing story**: a fact-dense
+piece of narrative non-fiction, one real scene, episode, or figure, that *illustrates the module's
+lessons by showing the concepts at work in the actual world*. A reader remembers a Babylonian scribe
+pressing a debt into wet clay far longer than a sentence defining "unit of account", and the story
+consolidates the vocabulary better, because the terms reappear doing real work in a concrete case.
+
+Hold it to five rules:
+- **Verifiable facts only.** Vivid through *real attested detail* (a real tablet, person, practice,
+  number), never through invented scenes, names, dates, or quotations. This is the course's
+  highest-fabrication-risk section; where a specific is uncertain, stay general. The research stage
+  supplies the true material; the verify stage reads every story for a smuggled-in fake.
+- **It points true.** Every beat cashes out a concept the module taught; the story turns on the actual
+  lesson, not a fun fact bolted on. Vet it like a metaphor (point-true / pay-off / cash-in).
+- **It consolidates by instantiation.** Weave the module's key terms back in, doing work in the case;
+  do not list them. (The distributed `<details>` retrieval checks still live in the body and carry the
+  explicit retrieval; the story carries the closure.)
+- **Length is free of the teaching budget, but held to fact-density.** Keeping the teaching body lean
+  and putting the engagement here is the point. But "free" is not "padded": every stretch carries a
+  real fact or advances the illustration.
+- **Vary it across the course.** Different kinds of scene, different shapes, so "and now the story"
+  never hardens into its own template tic. (The `stem` recap rule above is unchanged.)
 
 ### Motivating image and the intuition→definition bridge
 

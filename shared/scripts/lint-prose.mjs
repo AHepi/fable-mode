@@ -459,13 +459,18 @@ function lintProse(slug) {
   // them. Advisory only; the editorial pass reads this and line-edits.
   lines.push('9. Self-narration & staling tics (advisory)');
   const narrationRe = /\b(this (module|section|chapter) (is about|exists to|does|will)|in this module|here is the question|a warning before|what this (module|section) (is about|does)|now do the thing|the thing this whole)\b/gi;
-  let narrationTotal = 0;
-  const narrationHits = [];
+  // Directive metadiscourse: standing beside the reader issuing instructions, and
+  // reciting the analytic method as it is performed. Show the thing instead.
+  const directiveRe = /\b(notice (that|how|what|first|next|the)|hold (that|this|onto|it) (in mind|loosely|firmly)?|hold (that|this|onto)\b|keep (that|this|the|them|it)[^.]{0,30}\bin (mind|view|hand)|remember (that|how|this|the)|carry (this|that|it|one)[^.]{0,30}(with you|out of|forward)|mark the seam|the seam between|two disciplines came)\b/gi;
+  let narrationTotal = 0, directiveTotal = 0;
+  const narrationHits = [], directiveHits = [];
   let colonSemiTotal = 0, qTotal = 0, fragTotal = 0, words9 = 0;
   for (const mod of modules) {
     const p = mod.proseNoQuotes ?? mod.prose;
     const n = (p.match(narrationRe) || []).length;
     if (n) { narrationTotal += n; narrationHits.push(`${mod.file} (${n})`); }
+    const d = (p.match(directiveRe) || []).length;
+    if (d) { directiveTotal += d; directiveHits.push(`${mod.file} (${d})`); }
     colonSemiTotal += (p.match(/[:;]/g) || []).length;
     qTotal += (p.match(/\?/g) || []).length;
     // crude dramatic-fragment proxy: very short "sentences" of 1–3 words ending in a period.
@@ -478,6 +483,12 @@ function lintProse(slug) {
   } else {
     lines.push(`   self-narration phrases: ${narrationTotal} total [SOFT]  ${narrationHits.join(', ')}`);
     soft.push(`self-narrating scaffolding: ${narrationTotal} occurrence(s) (${narrationHits.join(', ')}) — cut sentences that announce the structure; open in the material`);
+  }
+  if (directiveTotal === 0) {
+    lines.push('   directive metadiscourse: (none of the tracked phrases appear)');
+  } else {
+    lines.push(`   directive metadiscourse (notice/hold/keep-in-view/remember/mark-the-seam): ${directiveTotal} total [SOFT]  ${directiveHits.join(', ')}`);
+    soft.push(`directive metadiscourse: ${directiveTotal} occurrence(s) (${directiveHits.join(', ')}) — don't instruct the reader to notice/hold/remember, and don't recite the method ("mark the seam"); show the thing so the noticing happens on its own`);
   }
   lines.push(`   colon+semicolon density: ${csPer1000.toFixed(1)}/1000 words (${colonSemiTotal} total)${csPer1000 > 22 ? ' [SOFT — high; often dash-removal residue]' : ''}`);
   if (csPer1000 > 22) soft.push(`high colon/semicolon density: ${csPer1000.toFixed(1)}/1000 words — often the residue of removing em dashes by substitution; recompose into flowing sentences`);

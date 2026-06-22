@@ -38,6 +38,13 @@ the finished product back against the schema, the canon, and the earlier stages'
 6. **Pedagogy & governance:** modules carry distributed retrieval checks and elaborated worked
    solutions; `_course.md` has provenance (`aiGenerated`, `generatedDate`, `sources`, `reviewed`);
    the bias screen was run.
+6b. **Closing stories (narrative kinds), by reading:** for `humanities` and other narrative kinds,
+   each module's closing story is read for (a) **no fabrication** — every name, date, quotation, and
+   scene is verifiable, vivid through real attested detail, not invented (this is the course's highest
+   fabrication risk and the prose lint cannot catch it); (b) **points true** — the story illustrates the
+   module's actual concept rather than entertaining beside it; and (c) **no self-narration or recited
+   discipline** — the prose shows rather than announcing ("notice", "mark the seam", "what we
+   established"). Flag any invented specific as a BLOCK.
 6a. **Level fit (read against `level`):** every term is either assumed in `prerequisites` or glossed at
    first use — no orphan terms (e.g. "gradient"/"weights" in an `intro`, no-calculus course); and at
    `intro` every abstract idea has an analogy or a picture, with callbacks that re-gloss heavy nouns

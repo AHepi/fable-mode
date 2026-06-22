@@ -114,9 +114,19 @@ Before a course ships, hold the whole set to these:
 - **Line-edit for texture; break the sameness.** Consistency is this stage's job, but consistency is
   not sameness, and over-unifying can *make* the machine-stamped feel it is supposed to cure. So read
   the whole course for the tells of rule-assembled prose and fix them as a real line editor would:
-  - **Kill self-narration.** Cut sentences that announce the structure instead of being it (*This module
-    is about…*, *Here is the question this section exists to answer*, *A warning before…*, *Now do the
-    thing this module exists for*). Open in the material, not in a description of the material.
+  - **Kill self-narration and directive metadiscourse.** Cut sentences that announce the structure
+    (*This module is about…*, *Here is the question this section exists to answer*, *A warning before…*)
+    and sentences that stand beside the reader issuing instructions (*Notice that…*, *Hold that in
+    mind*, *Keep X in view*, *Remember…*, *Carry this with you*, *Mark the seam*). Both are pervasive
+    and both are filler that rushes in when a paragraph has run out of content. Open in the material;
+    write the sentence so the point lands and the reader notices without being told to. (Genuine
+    `<details>` retrieval prompts are different and stay.)
+  - **Enact disciplines, don't recite them.** This is the deeper cut. The course's analytic moves
+    (the evidence-vs-interpretation distinction, the steelman) must be *performed in the argument*, not
+    *named as you make them*. Strike "now mark the seam between evidence and interpretation", "two
+    disciplines came with that, first… second…", and any recap that lists the methods as takeaways.
+    Keep the distinction real in the prose; name a seam at most once in a whole course. A discipline
+    repeated as a phrase ("mark the seam" thirteen times) is the single loudest tic this pass must kill.
   - **Budget the three staling devices** across the whole course, not just per page: the **rhetorical
     question**, **direct second-person address** (*you stood, you worked out, you pocketed*), and the
     **dramatic one-clause fragment**. Each is fine in small doses. When every module reaches for the same
@@ -141,6 +151,14 @@ Before a course ships, hold the whole set to these:
   analogy, a definition) and runs the same skeleton, the set feels machine-stamped however good each
   piece is. Vary how pieces *open and unfold*: a result, a worked case, a diagram, a contrast, a
   failure, real data, not only their first and last lines. Keep each strong *and* different.
+- **The closing story (narrative kinds).** For `humanities` (and other narrative kinds) each module
+  ends not with a recap but with a fact-dense **closing story** that illustrates the lesson in the real
+  world (`course-design.md`, "The closing story"). Read every one for three things: it uses **only
+  verifiable facts** (no invented scene, name, date, or quotation, the course's top fabrication risk),
+  it **points true** (each beat cashes out a concept the module taught, not a fun fact bolted on), and
+  the set of stories is **varied** (different scenes and shapes, so the device does not become its own
+  tic). Kill or send back any story that entertains without carrying the lesson, or that buys its vivid
+  detail with invention.
 - **Level-appropriate scaffolding.** Hold the course to its `level` (the dial in `course-design.md`
   §2): at `intro`, every abstract idea has an analogy or a picture, callbacks **re-gloss** the heavy
   nouns rather than merely name them, and no term is used that a beginner was never given. Strip-mining

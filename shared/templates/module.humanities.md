@@ -72,5 +72,27 @@ criteria the learner applies to their own writing. Give 2-4 prompts, then the ru
 </details>
 -->
 
-## Recap
-<!-- PROSE: two or three sentences. What did we establish, and what tension remains open? -->
+## The story
+<!--
+CLOSING NARRATIVE, not a summary. Replaces the old recap. A fact-dense piece of
+narrative non-fiction (one scene, episode, or figure from the real history) that
+ILLUSTRATES the module's lessons by showing the concepts operating in the world,
+and in doing so consolidates the module's vocabulary better than a recap list.
+
+Rules:
+- VERIFIABLE FACTS ONLY. Vivid through real attested detail (a real tablet, a real
+  person, a documented practice, a real number), never through invented scenes,
+  names, dates, or quotations. If a specific isn't certain, stay general. This is
+  the highest fabrication-risk section in the course; hold the line.
+- POINTS TRUE. Every beat cashes out a concept the module taught. The story turns on
+  the module's actual lesson; it is not a fun fact bolted on. Vet it like a metaphor:
+  does it pay off the teaching, or just entertain?
+- CONSOLIDATES BY INSTANTIATION. The module's key terms reappear here doing real
+  work in a concrete case, which is the retrieval/closure the old recap gave, done
+  better. Weave the terms in; do not list them.
+- VOICE: this is where literary-maverick sings. Engaging non-fiction about the real
+  past. No metadiscourse, no "as we learned"; just tell it well.
+- Its word count is NOT charged against the teaching body's length, but it is held
+  to fact-density: every stretch carries a real fact or advances the illustration.
+- VARY it across the course so "and now the story" never becomes its own template tic.
+-->

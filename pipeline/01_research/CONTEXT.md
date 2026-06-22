@@ -29,6 +29,12 @@ for learners.
   (with a dependency sketch), **Prerequisite analysis** (known vs. must-teach for this level),
   **Hooks & examples**, **Common pitfalls/misconceptions**, **Sources** (if gathered),
   **Open questions** for the curriculum stage.
+- For `humanities` and other narrative kinds, also include **Story material**: per likely module, one
+  or two *real, attested* episodes, figures, or scenes (with sources, and dates kept rough/verifiable)
+  that a closing story could be built from to illustrate that module's concept. The authoring stage's
+  closing story must be vivid through *real* detail, so surfacing accurate material here is what keeps
+  it from being invented later. Flag anything uncertain `[verify]`; never supply a fact you are not
+  confident is real.
 
 ## Verify
 
