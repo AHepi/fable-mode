@@ -1,0 +1,116 @@
+---
+title: The Money in Your Account
+course: what-money-actually-is
+order: 9
+summary: "Modern money is created when banks lend, a central bank of record says so, and the contrast with metal-backed money is where the ancient argument reaches the balance in your account, kept clear of policy."
+estimatedMinutes: 30
+objectives:
+  - "Explain endogenous credit money (\"loans create deposits\") and how the Bank of England's 2014 account reversed the textbook money-multiplier story."
+  - "Contrast how the commodity theory (via Mises's regression theorem) and the credit and state theory each handle fiat money."
+  - "Distinguish chartalism, a theory of money's nature, from Modern Monetary Theory, a present-day policy program, and state the relationship without taking a policy position."
+prerequisites: [04-credit-and-the-state]
+---
+
+## The hook
+
+You take out a loan and the bank does not hand you a stack of notes it kept in a vault. It types a number into your account. The number was not there a second ago, and no gold moved, no older deposit shrank, no saver was quietly relieved of their savings to fund you. The bank wrote the figure into existence as the matching half of the debt you just signed. Your asset, the balance, and the bank's asset, your promise to repay, came into the world together in the same keystroke.
+
+That is the ordinary, daily mechanism of money in a modern economy, and it has been hiding in plain sight inside every textbook that taught the opposite. For decades the story ran the other way: banks gather deposits, keep a fraction in reserve, lend out the rest, and a fixed pool of reserves gets multiplied through the system into a larger stock of money. The ancient quarrel this course has been adjudicating, commodity or claim, sorted by Schumpeter's monetary-vs-real frame, finally arrives at the figure on your screen. The figure turns out to settle one question cleanly and to leave the deeper one exactly as open as the temple tablets left it.
+
+## Context & background
+
+Three threads come together in this module, and they need to be kept from tangling. The first is how money is actually created in a modern banking system. The second is fiat money, the present-day form of the commodity-versus-credit argument that ran through the whole front half of the course. The third is a fence, a boundary that has to be walked once and walked carefully, between chartalism as a theory of what money is and a current policy program that draws on it.
+
+The credit and state theories kept distinct in module 4 are the equipment for the first two threads. Recall the column they belong to. Innes argued that money is credit, a coin or note being a transferable IOU. Knapp argued the state theory, that money is valid because the state names it acceptable at its pay-offices. Keynes made the money of account the primary concept, the unit that debts and prices are expressed in. Lerner argued that tax-acceptance gives a token its value. Against them stands the commodity theory at strength from module 2: money as the most saleable good, with Mises's regression theorem grounding its value in a former, non-monetary commodity value. Those are the live theories. This module asks what each of them does with the bank entry that moved no gold and with the paper note that is backed by no metal at all.
+
+A word on what this module refuses to be. It is not technical monetary economics. There is no money-multiplier arithmetic presented as settled, no reserve mechanics worked through, no model of interest rates. The point is narrower and sharper: how money comes into existence, what the two theories make of that, and where the theory of money's nature stops and a policy argument begins.
+
+## Narrative / exposition
+
+Start with the mechanism, because everything else in the module hangs off it. When a bank makes a loan, it credits the borrower's account with a deposit equal to the loan. The deposit is new money. It was not transferred from a saver, not drawn down from a reserve of cash, not multiplied up from a base of gold or notes. It was created by the act of lending, as a bookkeeping entry that records a new asset for the bank, your loan agreement, and a new liability, the deposit it owes you. This is **endogenous money** or **credit money**: money created within the economy when banks lend, rather than multiplied from a fixed reserve base. The phrase that names it is **loans create deposits**, and the order of those words is the whole point. The loan comes first. The deposit is its consequence, not its precondition.
+
+The older textbook ran the causation backwards. In that account, deposits come first: savers put money in, the bank holds a fraction as reserve, lends out the rest, that lent money is redeposited elsewhere, lent again, and so on, so that a fixed quantity of reserves supports a larger quantity of bank money through repeated rounds. This is **the money multiplier**, and on it the quantity of money is set, at bottom, by the quantity of reserves the central bank supplies. Banks are intermediaries that pass existing money along. The picture is tidy, it is teachable, and as a description of how money is actually created it is misleading. In practice banks do not wait for reserves to lend; they lend, creating deposits, and the reserves are managed afterward. Causation runs from credit to money, not from a reserve base up to a multiplied stock.
+
+This is the credit theory's modern vindication, and it has to be stated with exact care about what it does and does not vindicate. On the question of how money in a contemporary economy comes into being, the credit account is right and the commodity-flavored "multiply up a fixed base" account is wrong. Money in your account is created by lending, a relation between a creditor and a debtor, which is precisely what Innes said money was. That is a genuine win, and it is on one front: the *mechanism of modern money*. It is not a verdict on where money *originally* came from or on what money is *in its nature* across all times and places. A theory can describe today's plumbing correctly and still be wrong about the source. The commodity theorist can grant every word of the bank-lending account and reply that none of it touches the regression theorem, which is a claim about how a money's value is *anchored*, not about how today's deposits are *created*. Keeping those two questions apart is the discipline this module turns on. The endogenous-money fact is large, and it is bounded.
+
+Now fiat, where the ancient argument shows its modern face. **Fiat money** is money by declaration and acceptance, with no metal behind it: a note that is not a claim on gold, a deposit that is not redeemable in silver, valuable because it is issued and taken, not because of what it is made of. Every major currency today is fiat. For the credit and state theory this is unremarkable, even expected. If money was never fundamentally a commodity, if it was always a unit of account and a token the state names acceptable at its pay-offices, then a pure token with no metal behind it is not a strange late mutation. It is money showing its true form, with the commodity wrapping finally stripped away. The chartalist takes fiat as the **normal** case. Knapp's state naming and Lerner's tax-acceptance do the explaining: the state names the unit, demands it back in taxes, and that demand gives the otherwise valueless token a use and so a value.
+
+The commodity theorist has more work to do here, and the honest thing is to give that work its real shape rather than to declare it impossible. The metallist explains fiat through Mises's regression theorem, the argument that money's value today traces back, day by day, to a time when the money-stuff was valued as an ordinary commodity. Modern fiat money, on this reading, is not valuable out of nowhere. It inherited its value from the metal-backed money it replaced, which inherited its value from commodity money before that, the chain of valuation running back through the historical moment when the currency was still convertible into gold or silver, and back of that to the metal valued for itself. What is different now is that the commodity link has been **severed**. The convertibility was cut, the gold window closed, and yet the value did not vanish at the cut. The metallist reads that as a regression chain still doing its work from a historically distant origin: value, once established in a commodity, carried forward by habit and continuity into tokens that no longer touch metal. The chartalist reads the same severed link as the decisive evidence that the commodity was never what made the money money in the first place, since money kept working perfectly well once the commodity was gone.
+
+The same fact, the value that survived the cut, two readings. The metallist sees an origin still propagating through a severed chain. The chartalist sees a confirmation that the origin was never load-bearing. This is the silver problem in modern dress, an administered standard that shifts the case without settling it, returning on new ground. The early record handed the two theories one body of evidence, the silver-denominated tablet, and let each read it. The modern record hands them another, the unbacked note that holds its value, and does the same. Neither reading is forced by the fact alone. Each has something to say, and the fact does not crown a winner.
+
+## Primary source
+
+The institutional statement of all this is a single paper, and it is worth being precise about what it is. In 2014 the Bank of England, in its Quarterly Bulletin, published *Money creation in the modern economy*, an article from economists in the Bank's Monetary Analysis directorate. The Bank is not a heterodox pamphleteer or a partisan in the theory wars. It is the central bank of the United Kingdom, an institution of record, and it set out the mechanism plainly: most money in the modern economy is created by commercial banks making loans, and the older "money multiplier" account, in which banks lend out a multiple of central-bank reserves, is a misleading description of how money is actually created.
+
+The lines below are given as a labelled paraphrase, not a transcription. The wording follows the sense of the paper's central claims; the exact phrasing across the article is not reproduced here.
+
+> In the modern economy, most money takes the form of bank deposits, and the principal way those deposits are created is through commercial banks making loans: whenever a bank makes a loan, it simultaneously creates a matching deposit in the borrower's account, and so creates new money. This is the reverse of the sequence often described, in which banks receive deposits and then lend them out. The related notion that the central bank fixes a quantity of reserves which is then multiplied up into a larger quantity of loans and deposits does not describe how money is created in reality.
+>
+> Bank of England, *Money creation in the modern economy*, Quarterly Bulletin (2014), on how banks create money, paraphrased
+
+Read what the paraphrase does and, more importantly, what it does not do. It describes a mechanism. It says how deposits come into being and corrects a textbook account of that mechanism. It does not say that the credit theory of money's *origin* is therefore proved, and it does not say what money is in its nature. A central bank reporting that loans create deposits is reporting how its own system works in the present, with the authority that comes from running the system. That authority is real and it is specific. It settles the plumbing. It leaves the philosophy where it found it.
+
+## Check yourself
+
+Before reading on, answer from memory. The Bank of England's 2014 account establishes that loans create deposits and that the money-multiplier story is misleading. Explain why this does **not** settle the origin debate between the commodity and credit theories.
+
+<details><summary>Show answer</summary>
+
+The Bank's account is about the *mechanism of modern money*: how deposits are created in a contemporary banking system. It establishes that money is created when banks lend, not multiplied up from a fixed reserve base. That is a claim about how today's money comes into existence. The origin debate is a different question: what money is in its nature, and where it first came from, across all times and places. A theory can describe today's mechanism correctly and still be wrong, or unproven, about the source. The commodity theorist can accept every word about bank lending and reply that the regression theorem, a claim about how money's *value* is anchored, is untouched by a description of how today's *deposits* are *created*. The 2014 paper settles one front decisively and leaves the deeper question open.
+
+</details>
+
+## Analysis & interpretation
+
+The fence has to be built now, in one clearly bounded passage, because the territory just past the edge of this module is where the most confusion in the whole subject lives.
+
+**Chartalism** is a theory of money's nature and history. It is the line that runs from Knapp's state theory through Lerner's tax-acceptance, the claim that money is fundamentally a unit of account that the state names and demands, not a commodity that trade threw up. It is one of the two theories this course has been weighing since module 1, and it is a claim about what money *is*.
+
+**Modern Monetary Theory**, MMT, is a present-day policy program. It draws on chartalism, and it makes claims of a different kind: claims about what a currency-issuing government can and should do. That a sovereign issuer of its own fiat currency faces a different budget constraint than a household, that such a government is not revenue-constrained in the way the household model suggests, that taxes function to manage the currency and the economy rather than to fund spending in the first instance, that a job guarantee could anchor the price level. Those are propositions about deficits, inflation, employment, and the proper conduct of fiscal policy. They are arguments about what governments ought to do.
+
+The relationship is genuine and the direction matters. MMT draws on chartalism; chartalism does not entail MMT. A theory of money's nature is one drawer; a program for fiscal policy is another, and they do not collapse into each other. One can hold the state theory of money, accept that money is a creature of the state and that loans create deposits, and reject every policy conclusion the MMT program reaches. One can also accept the policy conclusions while caring nothing for the historical-nature debate. The two are logically separable, and the entanglement that makes people treat "chartalist" and "MMT" as synonyms is a confusion of a theory of money with a theory of what to do with money.
+
+This course takes no position on the policy program. Not for it, not against it. Whether a currency-issuing government should run larger deficits, whether a job guarantee would work, whether taxes do or do not "fund" spending in any policy-relevant sense are live political and economic questions that lie outside an adjudication of what money fundamentally is. The fence is the whole point. The state theory of money is in scope, examined and weighed like every other theory in the course. The policy program is named, located in its own drawer, and left there. Naming the relationship is not endorsing the program, and noting that the program over-reaches in some critics' view would be taking a side this course declines to take. Both drawers stay shut on the policy question. Only the theory-of-money drawer stays open.
+
+## Check yourself
+
+From memory: state the difference between chartalism and Modern Monetary Theory, and explain why holding one does not commit you to the other.
+
+<details><summary>Show answer</summary>
+
+Chartalism is a theory of money's *nature and history*: the claim, running from Knapp through Lerner, that money is fundamentally a unit of account the state names and demands, not a commodity. Modern Monetary Theory is a present-day *policy program*: a set of claims about what a currency-issuing government can and should do (on deficits, taxation, inflation, a job guarantee). MMT draws on chartalism, but the entailment runs only one way. A theory of what money *is* does not by itself tell you what fiscal policy a government *ought to* pursue. So one can accept the state theory of money, and accept that loans create deposits, while rejecting every MMT policy conclusion, or accept the policy program while caring nothing for the nature debate. They are separable: a theory of money in one drawer, a theory of what to do with money in another.
+
+</details>
+
+## Discussion & writing prompts
+
+No single right answer. These are for thinking and writing; the rubric below names what a strong response does, whichever way you come down.
+
+1. **The win and its limit.** The Bank of England's 2014 account vindicates the credit theory on one front. State precisely which front, and write the strongest version of the commodity theorist's reply: what can a metallist grant about bank lending and still maintain about money's nature?
+
+2. **Fiat, two ways.** Take the fact that fiat currencies kept their value after convertibility into gold was cut. Read it once as the metallist reads it (a regression chain still propagating from a severed commodity link) and once as the chartalist reads it (proof the commodity was never load-bearing). Then say what evidence, if any, could decide between the two readings, or argue that none can.
+
+3. **Keeping the drawers shut.** A friend says, "If you believe money is a creature of the state, you must be an MMT supporter." Answer them. Make the distinction between a theory of money's nature and a policy program do the work, without yourself taking a position for or against the policy program.
+
+4. **Where the plumbing ends.** The 2014 paper settles how modern money is created and leaves what money fundamentally is untouched. Argue either that this is the natural limit of what a central bank's authority can settle, or that the mechanism it describes carries more weight for the nature debate than this module allows. Either way, name the precise point where description stops and interpretation begins.
+
+<details><summary>What a strong response does</summary>
+
+- Keeps the mechanism of modern money (loans create deposits) distinct from the origin and nature debate, and never treats the Bank of England's account as a verdict on what money fundamentally is.
+- Attributes claims to the right thinkers: the regression theorem to Mises, the state theory to Knapp, tax-acceptance to Lerner, "money is credit" to Innes, the money of account to Keynes, rather than blending them into one chartalist voice.
+- Gives the commodity theory its strongest modern form (the regression theorem applied to a now-severed commodity link) before answering it, and gives the chartalist reading equal weight, so neither side is a strawman.
+- Holds the chartalism-versus-MMT distinction firmly and takes no policy position, treating MMT as a program named and fenced rather than a side to be argued for or against.
+- Stays inside the evidence and the frame the course has built, claiming no verdict the module has not earned.
+
+</details>
+
+## The story
+
+The correction came from the institution with the most to lose by issuing it.
+
+In the first quarter of 2014, the Bank of England published an article in its Quarterly Bulletin titled *Money creation in the modern economy*. The Quarterly Bulletin is a dry, technical publication, the sort of document that circulates among economists and central-bank watchers and almost no one else. This particular article did not stay there. It said, in the plain prose of a monetary authority describing its own system, that the account of money creation in the standard textbooks was wrong. Money in the modern economy, it stated, is mostly bank deposits, and those deposits are created when commercial banks make loans. Whenever a bank makes a loan, it creates a matching deposit, and so creates new money. The familiar picture, in which banks take in deposits and lend out a multiple of their reserves, with the central bank fixing the base that gets multiplied up, was described as a misleading account of how money actually comes to be.
+
+Consider whose voice that is. Not a heterodox economist on the margins, not a pamphleteer with a theory to sell. The central bank of the United Kingdom, an institution whose entire function rests on understanding the money it manages, reporting that the textbook version of its own work had the causation backwards. The article carried no air of revolution. It read as a clarification, a setting-straight, the kind of thing said calmly because the people saying it run the machinery and know how it runs. The companion piece in the same issue walked through the mechanics of money in the modern economy in the same flat, authoritative register. Loans come first. Deposits follow. The reserves are managed around the lending, not the source from which the lending is multiplied.
+
+What the article cashed out is exactly the credit theory's modern face, and the discipline is to see precisely how far it reaches. A bank entry that moved no gold, a deposit conjured as the matching half of a debt, money created within the economy by the act of lending rather than drawn from a fixed store: this is endogenous credit money, stated by the body with the authority to state it, and on the question of how today's money is made it closes the case. Innes, the outsider who said in 1913 that money is credit and was ignored for decades, would have recognized the mechanism instantly. And the article did not say, because it was not its question to answer, that the credit theory therefore wins the argument this course has been holding open since module 1. It described how the money in your account comes to exist. It left untouched what that money is, in its nature, and where it first came from. A central bank correcting the textbook is a large thing and a bounded one. It tells you, with full authority, how the plumbing works. It does not tell you, because no central bank can, what money has been since the temple scribes first weighed out silver against an administered standard and wrote the debt down.
