@@ -51,7 +51,7 @@ The cleanest statement of why the nature question stays open comes from where th
 >
 > Joseph Schumpeter, *History of Economic Analysis* (1954), on the monetary-versus-real division, paraphrased
 
-The passage does the thing this whole module asks of you. It states two positions, in their own terms, and then declines to declare the contest over because the contest is genuinely not over. Schumpeter sorted the quarrel and handed down the columns; he did not crown a winner, and a reader who treats "monetary analysis" as a synonym for the correct answer has misread the frame as a verdict. The discipline the course has held from its first page is the discipline on the page here: give each side its fair statement, mark the dispute as live, and let the reader hold both.
+The passage does the thing this whole module asks of you. It states two positions, in their own terms, and then declines to declare the contest over because the contest is genuinely not over. Schumpeter sorted the quarrel and handed down the columns; he named no victor, and a reader who treats "monetary analysis" as a synonym for the correct answer has misread the frame as a verdict. The discipline the course has held from its first page is the discipline on the page here: give each side its fair statement, mark the dispute as live, and let the reader hold both.
 
 ## Analysis & interpretation
 
