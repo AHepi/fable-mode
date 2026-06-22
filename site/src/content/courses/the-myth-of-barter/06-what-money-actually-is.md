@@ -17,13 +17,13 @@ For five modules you have gathered evidence against the story everyone is taught
 
 So here is a fair question. If the barter story is wrong about where money came from, what *is* money? The question is not what a coin does, but the deeper one underneath all of money's forms: what kind of object is money at all.
 
-There are two serious answers, arguing for over a century with no settlement. This module is where you meet both, lay them side by side, and judge them with the evidence you now hold. One of them, you will see, is the very theory the barter story was built to serve.
+There are two serious answers, and they have argued for over a century with no settlement. Laid side by side and judged against the evidence you now hold, one of them turns out to be the very theory the barter story was built to serve.
 
 ## Context & background
 
-The temptation, coming to these two theories, will be to pick a team, especially since the whole course has knocked down the story one of the teams needs. Resist it. Both theories are *objects of study* here, not candidates for your loyalty. A course that spent five modules teaching you to distrust a too-tidy story would be cheating if it handed you another one.
+It is tempting to pick a team, especially since five modules have knocked down the story one of the teams needs. But a story that loses an argument about its origins has not thereby surrendered the deeper question, and trading one too-tidy answer for another would be its own kind of carelessness. Both theories are worth studying at full strength.
 
-Think of the two theories as **two maps of the same country**. A road map and a topographic map of the same land are both true and both useful, yet each shows what the other hides: the road map gets you town to town and says nothing of the mountains; the topographic map gives every ridge and river and leaves the roads out. Ask which is "correct" and you have asked a confused question. Ask which you need *for this journey* and you can answer. That is how to hold the commodity theory and the credit theory at once, without pretending one is the territory.
+The two theories work like **two maps of the same country**. A road map and a topographic map of the same land are both true and both useful, yet each shows what the other hides. The road map gets you town to town and says nothing of the mountains. The topographic map gives every ridge and river and leaves the roads out. Asking which is "correct" is a confused question; asking which you need for a given journey has an answer. The commodity theory and the credit theory sit together the same way, neither one the territory itself.
 
 Before either theory, there is a plain textbook list of what money *does*, and both have to account for it. **The functions of money** are usually given as three. Money is a **medium of exchange**, the thing that physically changes hands so a deal can happen (you hand over a coin, you walk away with bread). Money is a **store of value**, something you can hold now and spend later (you can keep a coin for a year; you cannot keep a fish). And money is a **unit of account**, the measuring-stick you price things and reckon debts in, even when no coin moves ("you owe me three shekels").
 
@@ -33,7 +33,7 @@ That last one should ring a bell. Unit of account against medium of exchange was
 
 ### The first map: money is a special commodity
 
-Start with the theory the barter story was made for, and steelman it, because it is far stronger than the previous five modules might have led you to expect.
+Start with the theory the barter story was made for. It is far stronger than the previous five modules might have led you to expect, and it deserves its strongest hearing.
 
 Call it **the commodity theory of money**, sometimes called **metallism**: the view that money is fundamentally a special kind of commodity, a useful good that grew out of barter to make trading easier, whose value rests on its material. Money is a *thing*, chosen out of all the tradeable things because it does the medium-of-exchange job best. You met the seed of this in module 01, named as "the theory this story needs." The reasoning runs out of the barter problem: if direct swapping fails because you cannot always find someone who wants exactly what you have (the double coincidence of wants, from module 01), the fix is to trade through some good *everyone* will accept, and some candidates are better than others.
 
@@ -49,11 +49,11 @@ The rival theory starts not from the marketplace but from the ledger. Module 03'
 
 Call it **the credit theory of money**, also known as **chartalism**: the view that money is fundamentally a *unit of account and a measure of debt*, backed by social and state obligation, rather than a commodity that grew out of barter. Money is not a thing at all but a *relationship and a record*: a way of measuring who owes what to whom, and a promise that the owing will be honored.
 
-Notice what this does with the functions of money: it reorders them. The commodity theory puts the medium of exchange first and the unit of account on the side; the credit theory flips this. The **unit of account** (the measuring-stick for debts) comes first, and a *medium of exchange* (the thing that changes hands) is just one optional way to settle a debt once you can measure it. This is the hinge from module 03, now doing theoretical work. Mesopotamia had money-of-account for millennia before it had a coin to hand across a counter, and on the credit theory that is not a curiosity but the normal shape of money, with circulating coin the late and optional part.
+This reorders the functions of money. The commodity theory puts the medium of exchange first and the unit of account on the side. The credit theory flips that. The **unit of account** (the measuring-stick for debts) comes first, and a *medium of exchange* (the thing that changes hands) is just one optional way to settle a debt once you can measure it. This is the hinge from module 03, now doing theoretical work. Mesopotamia had money-of-account for millennia before it had a coin to hand across a counter, and on the credit theory that is not a curiosity but the normal shape of money, with circulating coin the late and optional part.
 
 Where the commodity theory explains fungibility by the uniformity of the metal, the credit theory explains it by the uniformity of the *measure*. A debt of three shekels is interchangeable with any other not because both are the same stuff but because both are three units on the same scale, like two distances both measured as three miles.
 
-One more discipline: **do not blend the thinkers.** "The credit theory" is a family, not one voice, and its members disagree.
+"The credit theory" is a family, not one voice, and its members disagree, so it is worth keeping them apart.
 
 **A. Mitchell Innes**, an early-twentieth-century writer on money, made the boldest version in essays of 1913 and 1914: money is credit and nothing but credit. A coin, a banknote, a ledger entry, all are records of a debt, an acknowledgment that the issuer owes the holder something. The metal is almost beside the point.
 
@@ -65,11 +65,11 @@ One more discipline: **do not blend the thinkers.** "The credit theory" is a fam
 
 Four thinkers, four emphases: pure credit (Innes), the state (Knapp), customary law (Grierson), social relation (Ingham). They share a starting move, money as measure and obligation rather than commodity, and diverge after it.
 
-One last tool, and the commodity theory's most uncomfortable case. **Fiat money** is money that counts as money by declaration and acceptance, not for the value of its material: a paper banknote, a number in a bank account. The note in your pocket is worth nothing as paper, yet it is money, because it is issued, accepted, and demanded back in taxes. The commodity theory works hard to explain why a worthless token functions as money. The credit theory does not blink: of course it works, because money was never about the material. Fiat is not a strange exception but money showing its true nature.
+The commodity theory's most uncomfortable case has a name. **Fiat money** is money that counts as money by declaration and acceptance, not for the value of its material: a paper banknote, a number in a bank account. The note in your pocket is worth nothing as paper, yet it is money, because it is issued, accepted, and demanded back in taxes. The commodity theory works hard to explain why a worthless token functions as money. The credit theory does not blink: of course it works, because money was never about the material. Fiat is not a strange exception but money showing its true nature.
 
-There is a sweeping version of the credit theory to set firmly aside. Some writers push the idea to a claim that human society as such rests on a founding "primordial debt" to gods or ancestors, from which money and taxation descend. It is provocative, associated with parts of David Graeber's work and others before him, and widely judged an over-reach that cannot be tested. Flag it as a contested extension, not part of the solid credit theory: a theory that explains *everything* by an unprovable founding debt starts to look like exactly the theory-driven origin story this course has taught you to distrust.
+One sweeping version of the credit theory sits well outside its solid core. Some writers push the idea to a claim that human society as such rests on a founding "primordial debt" to gods or ancestors, from which money and taxation descend. It is provocative, associated with parts of David Graeber's work and others before him, and widely judged an over-reach that cannot be tested. It is a contested extension, not load-bearing credit theory, and a theory that explains *everything* by an unprovable founding debt starts to resemble exactly the theory-driven origin story this course has been dismantling.
 
-A second guard, named in module 05. Chartalism has a modern descendant in a school of *policy* argument about government spending and money. That is a separate thing. Here, chartalism is a theory about what money *is* and where it came from, not a program for what a government should do today. Keep the historical theory and the modern policy debate in separate drawers.
+Chartalism also has a modern descendant, a school of *policy* argument about government spending and money already met in module 05. That is a separate thing. Here, chartalism is a theory about what money *is* and where it came from, not a program for what a government should do today. The historical theory and the modern policy debate belong in separate drawers.
 
 ## Primary source
 
@@ -83,7 +83,7 @@ What you call a dollar is not the coin or the note in your hand. The coin is onl
 
 ## Analysis & interpretation
 
-Lay the two maps side by side and keep an honest scorecard. Crown no winner.
+The two maps go side by side now, on an honest scorecard with no winner crowned.
 
 **What the commodity theory explains well.** It explains, better than its rival, *why metals were chosen*: when money takes a circulating form it overwhelmingly lands on metal, and the durable/divisible/portable/scarce reasons are simply correct. Its other strength is **trade between strangers and across borders**. A foreign merchant who shares none of your laws or social bonds will still take silver, because silver is worth something as silver. Here the medium-of-exchange job really does come first, and a debt-and-trust account strains: there is no shared web of trust or law to anchor the debt. The commodity theory's home ground is exactly where the credit theory is weakest.
 
@@ -95,7 +95,7 @@ Lay the two maps side by side and keep an honest scorecard. Crown no winner.
 
 So the scorecard names no champion, only a genuine, unsettled disagreement. The commodity theory is strong where money meets the stranger and the border; the credit theory is strong where money meets the ledger, the law, and the state. Reasonable scholars, on the same evidence, still come down differently, and a careful reader should be able to say *why each is tempting* rather than rush to pick.
 
-But notice the one thing this module *has* settled, an analytical payoff that does not depend on choosing a theory. The barter story is not a neutral piece of history that happens to sit near the commodity theory. It is **the commodity theory's required origin myth.** If money is essentially a commodity that grew out of barter to ease exchange, then there *must* have been a barter stage for it to grow out of, and the story of clever traders converging on silver is not decoration; it is load-bearing. The theory needs the story to be true. That is why the barter myth is told with such confidence despite the empty space where its evidence should be (module 02). It is not remembered. It is required, by a theory of what money is. Whether that theory is right is unsettled. That the story serves it is not.
+One thing is settled, though, and it does not depend on choosing a theory. The barter story is not a neutral piece of history that happens to sit near the commodity theory. It is **the commodity theory's required origin myth.** If money is essentially a commodity that grew out of barter to ease exchange, then there *must* have been a barter stage for it to grow out of, and the story of clever traders converging on silver is not decoration; it is load-bearing. The theory needs the story to be true. That is why the barter myth is told with such confidence despite the empty space where its evidence should be (module 02). It is not remembered. It is required, by a theory of what money is. Whether that theory is right is unsettled. That the story serves it is not.
 
 ## Check yourself
 
@@ -109,9 +109,9 @@ The commodity theory puts the **medium of exchange** first, with the unit of acc
 
 </details>
 
-A second check, on the discipline of the module.
+A second check.
 
-Why does this module refuse to declare the credit theory the winner, even though the previous five modules dismantled the barter story the commodity theory needs?
+Why should the credit theory not be declared the winner, even though the previous five modules dismantled the barter story the commodity theory needs?
 
 <details><summary>Show answer</summary>
 
@@ -138,6 +138,16 @@ No single right answer. The rubric below is what a strong response does, whichev
 
 </details>
 
-## Recap
+## The story
 
-You now hold both maps. The **functions of money** are its jobs: medium of exchange, store of value, unit of account. The **commodity theory** (metallism) says money is fundamentally a special commodity that grew out of barter, valued for its material, with the medium of exchange first; it explains why metals were chosen and how strangers trade across borders, and it strains against the unit-of-account-before-coin record and against fiat money. The **credit theory** (chartalism) says money is fundamentally a unit of account and a measure of debt, backed by social and state obligation, with the measuring-stick first; here Innes, Knapp, Grierson, and Ingham each say something distinct, and the theory fits Mesopotamia, governed debt, and fiat money while straining on metal and the stranger. The scorecard names no champion. But one thing is settled: the barter story is the commodity theory's *required* origin myth, needed by the theory rather than dug from the ground. The next module takes the credit theory in hand and turns to debt itself, and to the feeling you almost certainly hold, that a debt must always be paid.
+On Yap, a small island in the western Pacific, the money was made of stone, and the largest pieces could not be lifted by one man, or ten.
+
+The Yapese called it **rai**: discs of crystalline limestone, carved with a hole through the center so a pole could be run through to carry them, ranging from the size of a dinner plate to slabs of around twelve feet across. The island had no such stone of its own. The limestone was quarried hundreds of miles away, on Palau and other distant islands, cut and shaped by work parties, and ferried home across open ocean on rafts and canoes, a voyage so dangerous that the labor and the risk were a large part of what gave a great stone its worth. We know this in such detail because an American visitor, **William Henry Furness III**, spent time on the island early in the twentieth century and described the system in a 1910 book on what he called the island of stone money.
+
+Here is where Yap becomes the commodity theory's nightmare and the credit theory's clean illustration. The biggest stones were far too heavy to move, so they did not move. A rai might sit at the edge of a path or in front of a house for generations while its ownership changed hands many times over. When one Yapese paid another with a great stone, the stone itself stayed exactly where it was. What changed was only the answer to the question of who owned it, an answer the community knew, agreed on, and carried in collective memory. There was no vault and no coin passing across a counter. There was a shared record of who held a claim on what, which is to say a ledger kept in people's heads rather than on a clay tablet.
+
+The most famous case pushes the point as far as it will go. Furness reported a stone that had been lost on the voyage home, slipped from its raft in a storm and sunk to the floor of the sea, where no one could ever see or touch it again. The crew came back and told what had happened, and the island agreed that the loss was no one's fault and that the stone, wherever it now lay on the ocean bottom, was as good as any stone standing on land. Its owners went on being counted among the wealthy. The money was real and spendable even though the physical object was gone for good, because what made it money was never the disc you could put your hands on. It was the undisputed, commonly held knowledge of who owned it.
+
+That single fact would be hard to fit into the commodity theory, where money is a useful good valued for its material and changing hands as a medium of exchange. A stone no one can reach, that never moves, that may be at the bottom of the sea, is doing none of the things a commodity-medium is supposed to do. Yet it works as money, because it is functioning exactly as the credit theory says money fundamentally functions: as a **unit of account** and a claim, a measure of who owns what, settled by social agreement rather than by the metal in the hand.
+
+The case so struck economists that the island of stone money kept being written about long after Furness. **John Maynard Keynes** remarked on it, and decades later **Milton Friedman** devoted an essay to it, drawing the comparison that turns the story all the way around: the immovable stones of Yap, he suggested, were not really so different from the gold sitting in the vaults of a modern central bank, where ownership shifts between nations while the bars themselves stay put on their shelves, untouched, recorded in a ledger. The Yapese, on this reading, had not done anything primitive. They had grasped, with stone, the same thing the credit theory grasps about a dollar: that the money is the agreed record of the claim, and the object you can touch, when there is one at all, is only its receipt.
