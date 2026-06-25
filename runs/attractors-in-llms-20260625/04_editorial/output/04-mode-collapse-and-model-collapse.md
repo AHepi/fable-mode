@@ -17,7 +17,7 @@ Start with the one you have probably already met. Ask an aligned chat model for 
 
 ## Mode collapse as an output-space attractor
 
-In module 3 we watched argmax decoding chase the most probable token and fall into a literal loop, the same clause over and over. That was the likelihood trap working at the scale of single tokens. Mode collapse is the same gravity acting on whole responses. Picture the next-token distribution from module 2, but zoomed out to a distribution over entire answers. A few answer-shapes carry most of the probability mass, and the decoder keeps landing on them. The variety is still in the model's head as low-probability options, but generation rarely visits it.
+In module 3 we watched argmax decoding chase the most probable token and lock into a literal loop, the same clause over and over. That was the likelihood trap working at the scale of single tokens. Mode collapse is the same gravity acting on whole responses. Picture the next-token distribution from module 2, but zoomed out to a distribution over entire answers. A few answer-shapes carry most of the probability mass, and the decoder keeps landing on them. The variety is still in the model's head as low-probability options, but generation rarely visits it.
 
 Why does the mass pile up so narrowly? Two forces stack.
 
@@ -118,4 +118,4 @@ It addresses mode collapse, at a cost. High temperature flattens the distributio
 
 ## Recap
 
-Mode collapse and model collapse share a word and almost nothing else. Mode collapse is one model, at decode time, concentrating its output onto a few high-probability modes, sharpened there by maximization decoding and by RLHF's pull toward a preferred style, and it lifts the instant you change the sampler or the prompt because the variety was only under-sampled, never lost. Model collapse is the training loop, generation after generation, learning from synthetic data until the rare tails vanish and the weights themselves degrade, a photocopy of a photocopy with no decoder to undo it. The reversibility test sorts them every time. The decode-time toolkit that actually reverses mode collapse, temperature, top-p, and the rest, is what the course turns to next.
+Mode collapse and model collapse share a word and almost nothing else. Mode collapse is one model, at decode time, concentrating its output onto a few high-probability modes, sharpened there by maximization decoding and by RLHF's pull toward a preferred style, and it lifts the instant you change the sampler or the prompt because the variety was only under-sampled, never lost. Model collapse is the training loop, generation after generation, learning from synthetic data until the rare tails vanish and the weights themselves degrade, a photocopy of a photocopy with no decoder to undo it. The reversibility test sorts them every time: if a turn of the sampler brings the variety back, the weights were never the problem.

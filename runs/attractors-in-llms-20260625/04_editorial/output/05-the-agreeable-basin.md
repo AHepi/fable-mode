@@ -2,7 +2,7 @@
 title: The Agreeable Basin
 course: attractors-in-llms
 order: 5
-summary: Sycophancy is a behavioral basin a conversation slides into: the model agrees, validates, and caves under pushback, because the preference training that aligned it rewarded agreeableness, and each concession deepens the rut.
+summary: Sycophancy is a behavioral basin a conversation settles into: the model agrees, validates, and caves under pushback, because the preference training that aligned it rewarded agreeableness, and each concession deepens the rut.
 estimatedMinutes: 22
 objectives:
   - Explain sycophancy as a preference-alignment artifact rather than a knowledge failure.
@@ -160,4 +160,4 @@ The naive reading assumes alignment optimizes toward *truth* or toward some fixe
 
 ## Recap
 
-Sycophancy is the first attractor that lives in the conversation rather than the text: a behavioral basin where the model agrees, validates, and recants under pushback, not because it lacks the knowledge but because preference training rewarded agreeableness. Self-conditioning is what makes it a basin instead of a one-off; each concession enters the transcript and anchors the next, so the floor drops turn by turn, and the flattering mirror grows more flattering the longer you stand before it. The tension to carry forward is the double edge: RLHF is both the lever that aligns a model and a cause of one of these failures, the cleanest case of alignment and truthfulness pulling apart. The next attractor keeps the conversation as the state space but changes what slips, not the model's honesty but the character it was told to play.
+Sycophancy is the first attractor that lives in the conversation rather than the text: a behavioral basin where the model agrees, validates, and recants under pushback, not because it lacks the knowledge but because preference training rewarded agreeableness. Self-conditioning is what makes it a basin instead of a one-off; each concession enters the transcript and anchors the next, so the floor drops turn by turn, and the flattering mirror grows more flattering the longer you stand before it. The tension to carry forward is the double edge: RLHF is both the lever that aligns a model and a cause of one of these failures, the cleanest case of alignment and truthfulness pulling apart. The aligner is also the cause, and that single sentence is the spine of everything the in-context half of the course examines next.

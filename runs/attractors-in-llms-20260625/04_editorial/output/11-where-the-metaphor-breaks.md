@@ -55,7 +55,7 @@ These four compound. A stochastic, discrete, non-stationary system with no conve
 
 <details><summary>Check yourself: which break is showing?</summary>
 
-A practitioner says: "I can't just check $|f'(x^\star)| < 1$ to see if my model's stuck in a loop, the way I would for the logistic map, because there's no derivative to take and no single number that is the state." Which of the four breaks is this, and name one more break the same sentence quietly depends on.
+A practitioner says: "I can't just check $|f'(x^\star)| < 1$ to see if my model's stuck in a loop, the way I would for the logistic map, because there's no derivative to take and no single number that is the state." Which of the four breaks is this, and name one more break the same sentence tacitly depends on.
 
 <details><summary>Show answer</summary>
 
@@ -118,7 +118,7 @@ Grade each as **proven**, **measured/empirical**, or **metaphor/framing**, and s
 
 (a) "Stored memories in a Hopfield network are attracting fixed points."
 (b) "Successive paraphrasing converges to a 2-period cycle."
-(c) "A helpful assistant persona has an evil twin that is a one-way attractor it inevitably falls into."
+(c) "A helpful assistant persona has an evil twin that is a one-way attractor it inevitably settles into."
 
 <details><summary>Show answer</summary>
 

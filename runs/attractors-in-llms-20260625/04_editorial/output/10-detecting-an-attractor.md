@@ -14,7 +14,7 @@ prerequisites:
   - "05-the-agreeable-basin"
 ---
 
-Here is a transcript. A coding assistant has been answering questions for a while, and the last stretch looks like this:
+A coding assistant has been answering questions for a while, and the last stretch of the session looks like this:
 
 ```
 > What's a clean way to memoize this?

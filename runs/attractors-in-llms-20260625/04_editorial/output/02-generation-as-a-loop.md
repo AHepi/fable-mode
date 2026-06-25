@@ -27,7 +27,7 @@ joyful, cheerful, content, pleased, joyful, cheerful, content, pleased ...
 
 Nothing broke. No bug fired. The model is doing exactly what it was built to do, one token at a time, and the result is a four-word loop it cannot climb out of. The list reads like the toy trajectories from module 1 after they reached their destination: the same handful of values, returning forever. That is not a coincidence of phrasing. Generation is an iterated map, and what you just watched is the map landing on a cycle.
 
-Module 1 built the machinery on scalar numbers: a state $x_t$, a rule $f$, the trajectory $x_0, x_1, x_2, \dots$ it traces, and the fixed points, cycles, and basins that trajectory can fall into. This module carries that exact machinery onto a language model with no change to its shape. Only two pieces get reinterpreted. The state stops being a single number and becomes the whole text so far. The rule stops being halve-and-add-one and becomes the model together with its sampler. Everything else, the looping, the settling, the attractors, comes along for free.
+Module 1 built the machinery on scalar numbers: a state $x_t$, a rule $f$, the trajectory $x_0, x_1, x_2, \dots$ it traces, and the fixed points, cycles, and basins that trajectory can settle into. This module carries that exact machinery onto a language model with no change to its shape. Only two pieces get reinterpreted. The state stops being a single number and becomes the whole text so far. The rule stops being halve-and-add-one and becomes the model together with its sampler. Everything else, the looping, the settling, the attractors, comes along for free.
 
 ## The loop, drawn
 
