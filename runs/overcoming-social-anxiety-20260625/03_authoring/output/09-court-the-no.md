@@ -23,9 +23,9 @@ That's the whole lesson, and you don't need a camera or a hundred days to learn 
 
 You already know the move that breaks the loop. In module 7 you learned to treat a feared situation as **a behavioral experiment**: write the prediction, go test it, let reality have a vote, and remember that success is a surprised prediction, not a calm body. This module takes that engine and points it somewhere that feels, at first, insane. Instead of waiting for a feared situation to come to you, you go out and *manufacture* one. On purpose. Small.
 
-Here's why that's faster than carefully dodging embarrassment for the rest of your life. Social anxiety runs on two overestimates: how *likely* a social disaster is, and how *bad* it would be if it came. Researchers who studied this found the second one, the overblown sense of the *cost*, does a lot of the heavy lifting. You don't just think you might fumble. You think the fumble would be catastrophic, that people would think less of you in some lasting way. As long as you never fumble, that price tag never gets checked. It sits in your head, enormous and unargued.
+Here's why that's faster than carefully dodging embarrassment forever. Social anxiety runs on two overestimates: how *likely* a social disaster is, and how *bad* it would be. Researchers who studied this found the second one, the overblown sense of the *cost*, does a lot of the heavy lifting. You don't just think you might fumble. You think the fumble would be catastrophic, that people would think less of you in some lasting way. As long as you never fumble, that price tag never gets checked. It sits in your head, enormous and unargued.
 
-A deliberate small "failure" checks the price tag. You commit a tiny harmless blunder, or ask for something likely to get a no, then watch what *actually* happens. Almost always: a shrug, a polite no, a moment of nothing, and the world rolls on. The gap between the catastrophe you predicted and the shrug you got is the lesson, and the bigger that gap, the more the fear has to give ground.
+A deliberate small "failure" checks the price tag. You commit a tiny harmless blunder, or ask for something likely to get a no, then watch what *actually* happens. Almost always: a shrug, a polite no, a moment of nothing, and the world rolls on. The gap between the catastrophe you predicted and the shrug you got is the lesson, and the bigger that gap, the more the fear gives ground.
 
 Think of it as a small safe dose, like a vaccine. A vaccine gives your body a tiny, controlled taste of the thing it's afraid of, just enough to learn the threat is survivable, so the real encounter doesn't lay you flat. A courted no does the same for the fear of rejection, a staged stumble for the fear of looking foolish. You take a trivial dose of the exact thing you dread, your system learns it's survivable, and the dread loses its grip on the real situations that matter.
 
@@ -43,7 +43,7 @@ Notice the through-line. Across all three, **the win is hearing the no, or commi
 
 <details><summary>Check yourself: in rejection practice, what counts as the win?</summary>
 
-Hearing the **no** and noticing you're fine. The win is desensitizing yourself to the rejection, not winning the request. A yes is a nice bonus and tells you your predicted cost was too high, but it isn't the scorecard. If you find yourself only feeling good when they say yes, you've slipped back into letting the outcome judge you, which is the loop this drill exists to break.
+Hearing the **no** and noticing you're fine. The win is getting used to the rejection, not winning the request. A yes is a nice bonus that tells you your predicted cost was too high, but it isn't the scorecard. If you only feel good when they say yes, you've slipped back into letting the outcome judge you, which is the loop this drill exists to break.
 
 </details>
 
@@ -69,9 +69,9 @@ And drop a crutch, the way you practiced in **module 8**. The classic crutch her
 
 <details><summary>Check yourself: someone designs a "drill" where they cut in front of a long line at the pharmacy to practice handling disapproval. What's wrong with it, and how would you fix it?</summary>
 
-It breaks the safety rule, because the cost lands on *other people*, not on the person doing the drill. Everyone behind them in the line is genuinely inconvenienced, and some of them might need that medicine. The target of a drill is always your own discomfort, never someone else's. The whole point is courting *trivial* risk that you carry yourself.
+It breaks the safety rule, because the cost lands on *other people*. Everyone behind them is genuinely inconvenienced, and some might need that medicine. The target of a drill is always your own discomfort, never someone else's, and the point is courting *trivial* risk that you carry yourself.
 
-The fix is to find a version where you're the only one paying. Ask a clerk if you can have a small discount "just because," and accept the no. Ask a barista an obvious question. The embarrassment is yours, the inconvenience to anyone else is close to zero, and you still get to test the price tag.
+The fix is a version where you're the only one paying. Ask a clerk for a small discount "just because" and accept the no. Ask a barista an obvious question. The embarrassment is yours, the inconvenience to anyone else is close to zero, and you still get to test the price tag.
 
 </details>
 
@@ -103,8 +103,8 @@ A strong rep isn't a calm one. It's one where reality got a clear chance to disa
 
 ## One question for you
 
-Think of a small thing you've wanted but never asked for, because the asking felt too exposing. A seat swap on a train. A favor from a neighbor. A discount you assumed wasn't on offer. Notice that you've been quietly paying the price of the no your whole life, every time, by never asking, so as to avoid paying it once, in reality, where it usually turns out to cost almost nothing. What has the imagined no already talked you out of?
+Think of a small thing you've wanted but never asked for, because the asking felt too exposing. A seat swap on a train. A favor from a neighbor. A discount you assumed wasn't on offer. You've been paying the price of the no your whole life, every time, by never asking, to avoid paying it once in reality, where it usually costs almost nothing. What has the imagined no already talked you out of?
 
 ## So that's the dare
 
-You spend an enormous amount of energy steering around small social failures, and the steering is what keeps them feeling huge. Go court a few on purpose, in tiny safe doses, and the fear learns what your reasoning never could: that the cost you dreaded is survivable, and usually trivial. The no is the win. The shrug is the lesson. Next we'll turn to holding your ground and saying what you actually think, which is its own kind of courted risk, with its own quiet payoff.
+You spend an enormous amount of energy steering around small social failures, and the steering is what keeps them feeling huge. Go court a few on purpose, in tiny safe doses, and the fear learns what your reasoning never could: that the price tag you'd been carrying around was wildly inflated. The no is the win. The shrug is the lesson. Next we turn to holding your ground and saying what you actually think, which is its own kind of courted risk, with its own quiet payoff.
