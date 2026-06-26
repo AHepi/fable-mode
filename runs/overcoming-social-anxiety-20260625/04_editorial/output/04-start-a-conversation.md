@@ -61,7 +61,7 @@ You met a version of this in module 1, when you watched the loop run without tou
 
 For each of your three openers, before you go in:
 
-**Write the prediction.** What exactly do you think will happen? How likely is it, as a percentage? How bad would it really be if it did? "I'll say something flat, they'll give me a weird look and turn away. 60% likely." Specific, with a number. Vague dread can't be tested; a specific forecast can.
+**Predict.** What exactly do you think will happen? How likely is it, as a percentage? How bad would it really be if it did? "I'll say something flat, they'll give me a weird look and turn away. 60% likely." Specific, with a number. Vague dread can't be tested; a specific forecast can.
 
 **Drop a crutch.** Name one safety behavior you'll deliberately leave behind, so the test is clean. The obvious one here is the rehearsed line, the perfect opener you script and re-script in your head before you'll allow yourself to speak. Leave it. Walk up with nothing prepared and use whatever free information is actually in front of you. (A couple of physiological sighs first, from module 2, are fair game; they steady you for the approach. The crutch you're dropping is the scripting, not the breath.)
 

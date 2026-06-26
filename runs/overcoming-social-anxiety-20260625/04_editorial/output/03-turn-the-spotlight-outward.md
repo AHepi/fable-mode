@@ -17,7 +17,7 @@ Researchers once asked a group of students to put on a deeply embarrassing T-shi
 
 Sit with that gap for a second, because you live inside it every day. The person convinced the whole room is tracking their flushed neck, their too-long pause, the joke that landed wrong, is starring in a film only they are watching. Everyone else is the lead in their own. Psychologists call this the spotlight effect: we steadily overestimate how much our appearance and our slip-ups register with other people. The spotlight you feel burning down on you is real to you and dim to almost everyone else. It is, in your experience, far brighter than it is.
 
-That gap is not a comfort to repeat to yourself. It is a lever. This module is about getting your hand on it.
+That gap is not a comfort to repeat to yourself. It is a lever, and the rest of this is how you get your hand on it.
 
 ## Where your attention goes, anxiety follows
 

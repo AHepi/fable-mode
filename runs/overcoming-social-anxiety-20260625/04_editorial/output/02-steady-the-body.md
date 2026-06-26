@@ -32,7 +32,7 @@ Notice the image, because the rest of the module hangs on it. You are **tapping 
 
 Researchers tested this. In a 2023 study, people who did a short daily practice of these exhale-led breaths came out with better mood and lower physical arousal than people doing other breathing patterns. So the effect is real and it's been measured. It's also modest, and it's a body tool, not a cure for social anxiety. Hold both of those at once.
 
-> A gentle note on the body: if you have a relevant heart or lung condition, or you're pregnant, check with a clinician before making this a regular practice. And if any breathing technique ever makes you lightheaded, stop and breathe normally. This should feel like a small easing, never like a strain.
+> One note on the body: if you have a relevant heart or lung condition, or you're pregnant, check with a clinician before making this a regular practice. And if any breathing technique ever makes you lightheaded, stop and breathe normally. This should feel like a small easing, never like a strain.
 
 <details><summary>Check yourself: what are the three moves of the sigh?</summary>
 
@@ -58,7 +58,7 @@ In module 1 you met the **crutches**: the small protective habits, the over-rehe
 
 The breath can become exactly that crutch. It's the easiest one in this whole course to fall into, because it works a little and it feels responsible. The trap sounds like this: *I have to breathe perfectly first, or I'll lose it. I can't go in until I'm calm enough. Let me do a few more sighs.* And a few more. And now you're standing in the corridor doing the technique instead of opening the door, using a tool meant to move you toward people as a sophisticated way to keep avoiding them.
 
-If you only remember one thing from this module, remember this: the breath buys you a doorway, and then you walk through it whether you feel ready or not. Two sighs, then go in. You do not get to wait until you feel calm. Waiting to feel calm is the thing the rest of this course is built to break.
+So here is the rule that matters more than the technique: the breath buys you a doorway, and then you walk through it whether you feel ready or not. Two sighs, then go in. You do not get to wait until you feel calm. Waiting to feel calm is the thing the rest of this course is built to break.
 
 ## Field drill: two sighs, then in
 
