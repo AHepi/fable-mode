@@ -11,9 +11,9 @@ objectives:
 prerequisites: ["01-your-anxiety-loop", "07-the-behavioral-experiment"]
 ---
 
-There's a particular grip people use on a coffee mug when they're nervous. Both hands, white knuckles, holding it like it might bolt. You did it through that whole catch-up with the new colleague, and on the walk home you thought, well, I got through that. And you did. But ask the next question. Why do you think you got through it? If you're honest, some part of you answers: because I held the mug. Because I kept my hands busy and my voice steady and I rehearsed the work story before I told it. The mug saved the chat.
+There's a particular grip people use on a coffee mug when they're nervous. Both hands, white knuckles, holding it like it might bolt. You did it through that whole catch-up with the new colleague, and on the walk home you thought, well, I got through that. And you did. But ask the next question. Why do you think you got through it? If you're honest, some part of you answers: because I held the mug. Because I kept my hands busy and rehearsed the work story before I told it. The mug saved the chat.
 
-That is the lie at the center of this module, and it is a comfortable, sticky, plausible lie. The mug saved nothing. Nothing was coming for you. But because you gripped it, you will never get to find that out, and so you'll grip it again next time, and the time after that.
+That is the lie at the center of this module, comfortable and sticky and plausible. The mug saved nothing. Nothing was coming for you. But because you gripped it, you'll never find that out, so you'll grip it again next time, and the time after that.
 
 ## What a crutch is, and the trick it plays
 
@@ -21,13 +21,13 @@ You met these in module 1 as one of the four links of the loop: the **crutches**
 
 Here's the trick they play, the one module 1 called the hinge this whole course turns on: **the crutch steals the credit.** You get through the conversation, and your mind has to explain why the disaster didn't land. The crutch is right there, hand raised: *I did it. I'm the reason you survived.* So the lesson you file away is never "the catastrophe was never going to happen." It's "I narrowly avoided catastrophe by gripping the mug." The fear doesn't shrink. It gets one more piece of evidence that it was right, and that you need the crutch to make it through. The thing that feels like armor is the wall keeping the good news out.
 
-There's a second cost, quieter and meaner. A lot of crutches make you come across *worse*, not better. The person gone silent, staring at their notes, reads as cold or checked-out, not as the warm, interested person they'd be with their attention on the room. So the crutch can quietly cause a little of the awkwardness you dread, and then you blame yourself rather than the crutch.
+There's a second cost, quieter and meaner. A lot of crutches make you come across *worse*, not better. The person gone silent, staring at their notes, reads as cold or checked-out, not as the warm, interested person they'd be with their attention on the room. So the crutch can quietly cause a little of the awkwardness you dread, and then you blame yourself for it.
 
 ## Take an inventory
 
 You can't fade what you haven't named, and crutches are slippery precisely because they feel like normal behavior rather than symptoms. So the first real skill here is making the list.
 
-Go situation by situation, not in the abstract. Picture a specific kind of social moment that gets you, a meeting where you might have to speak, a party where you won't know many people, a phone call you've been putting off. Now walk through it and ask, at each point, *what do I do to feel safer?* Not "what do I do well." What do I do to keep the bad thing from happening. The answers are your crutches.
+Go situation by situation, not in the abstract. Picture a specific social moment that gets you, a meeting where you might have to speak, a party where you won't know many people, a phone call you've put off. Walk through it and ask, at each point, *what do I do to feel safer?* Not what do I do well. What do I do to keep the bad thing from happening. The answers are your crutches.
 
 For each one, name the feared catastrophe underneath it. This is the part people skip, and it's the part that matters, because a crutch only exists to prevent a specific imagined disaster. The grip on the mug isn't random; it's there because *if my hands shake, people will see I'm pathetic.* The over-rehearsing is there because *if I don't have the words ready, I'll freeze and look stupid.* The seat by the door is there because *if it gets unbearable, I need to escape.* Write the crutch, then write the catastrophe it guards against. That pairing is the raw material for every test you'll run.
 
@@ -46,7 +46,7 @@ It **steals the credit.** When the feared disaster doesn't happen, your mind han
 
 Once you've got the list, you don't have to throw all of it away at once. Think of it the way you'd think about training wheels on a bike.
 
-The training wheels feel like the thing keeping you upright. As long as they're on, you cannot learn the one fact that matters, which is that you can balance on your own. The wheels are quietly doing the balancing, or at least your nervous system is convinced they are, so the skill never transfers to you. The only way to learn you can ride is to take them off and discover the bike doesn't tip over. That discovery is impossible while the wheels are bolted on.
+The training wheels feel like the thing keeping you upright. As long as they're on, you can't learn the one fact that matters, which is that you can balance on your own. Your nervous system is convinced the wheels are doing the balancing, so the skill never transfers to you. The only way to learn you can ride is to take them off and discover the bike doesn't tip over, and that discovery is impossible while they're bolted on.
 
 But nobody sane rips the training wheels off, points the kid down a steep hill, and walks away. You raise them a little. You hold the seat, then let go for three seconds, then five. You fade the support in steps, fast enough that real learning happens, gentle enough that the learner doesn't crash and quit. That graded fading is usually more sustainable than going cold turkey on everything at once, and there's no prize for the most reckless version. The honest aim, said plainly: the crutches ultimately keep the fear alive, so you want to fade them. *How fast* is yours to set. Drop one crutch this week, not all five. Loosen the grip on the mug before you put it down entirely. The direction is fixed; the step size is yours.
 
@@ -54,9 +54,9 @@ But nobody sane rips the training wheels off, points the kid down a steep hill, 
 
 Here's the genuinely tricky part, the one that trips up everyone who gets this far, because not everything that looks like a crutch is one.
 
-You prepare for a big presentation for a week. Is that a crutch? You bring a drink to a party. Crutch? You decide to leave a draining event after an hour. Crutch? The honest answer is: it depends entirely on *why*, and only you can see the why.
+You prepare a week for a big presentation. Crutch? You bring a drink to a party. Crutch? You leave a draining event after an hour. The honest answer is that it depends entirely on *why*, and only you can see the why.
 
-The test is the catastrophe. **A crutch is a thing you do because you believe the disaster would happen without it.** A genuine choice is a thing you do because it serves something you actually care about, and you could drop it without dread. Preparing for that presentation because the content genuinely matters to you and you want to do it justice is a value-driven choice; you'd happily wing a low-stakes chat. Preparing for a five-minute team update by scripting every word four times because *if I'm not word-perfect they'll see I don't belong here* is a crutch wearing the costume of diligence. Same action, opposite engine.
+The test is the catastrophe. **A crutch is something you do because you believe the disaster would happen without it.** A genuine choice serves something you actually care about, and you could drop it without dread. Preparing for that presentation because the content matters to you and you want to do it justice is a value-driven choice; you'd happily wing a low-stakes chat. Scripting every word of a five-minute team update because *if I'm not word-perfect they'll see I don't belong here* is a crutch wearing the costume of diligence. Same action, opposite engine.
 
 Run two quick checks on anything you're unsure about. First: *what am I afraid would happen if I didn't do this?* If the answer is a social catastrophe, you're looking at a crutch. If there's no real dread, just a sensible preference, it's probably a choice. Second: *would I still do this for something I wasn't anxious about?* You'd prepare a wedding speech you were excited to give; you wouldn't grip the mug at dinner with your closest friend. The grip only shows up where the fear does. That's the tell.
 
@@ -75,7 +75,7 @@ This week you pick one real situation and run it with a single crutch deliberate
 
 You'll run it the way module 7 taught: as a behavioral experiment. The crutch you drop is the variable. Everything hinges on predicting first, because a prediction is the only thing reality can disagree with, and disagreement is the entire point.
 
-Pick the situation and the crutch. Maybe you usually rehearse your one comment in the meeting four times before you'll say it, so this week you say something unrehearsed. Maybe you always hold a drink at the gathering, so this week you put it down and let your hands be empty for ten minutes. Maybe you keep your eyes on your notes, so this week you look at the person who's speaking. One crutch, named in advance, set down on purpose.
+Pick the situation and the crutch. Maybe you usually rehearse your one comment four times before you'll say it, so this week you say something unrehearsed. Maybe you always hold a drink, so this week you put it down and let your hands be empty for ten minutes. Maybe you keep your eyes on your notes, so this week you look at the person speaking. One crutch, named in advance, set down on purpose.
 
 <details>
 <summary>Run it as a behavioral experiment (module 7). Commit to your prediction before you go.</summary>
