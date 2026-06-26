@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="An equilateral triangle with corners labelled 1, 2, 3, beside curved arrows showing a 120-degree rotation and a dashed vertical line of reflection.">
+  <title>Symmetries of an equilateral triangle</title>
+  <!-- the triangle -->
+  <polygon points="80,170 220,170 150,40" fill="none" stroke="#7aa2f7" stroke-width="2"/>
+  <!-- vertex labels -->
+  <circle cx="80" cy="170" r="3" fill="#bb9af7"/>
+  <circle cx="220" cy="170" r="3" fill="#bb9af7"/>
+  <circle cx="150" cy="40" r="3" fill="#bb9af7"/>
+  <text x="66" y="184" fill="#e7ecf3" font-family="sans-serif" font-size="14">1</text>
+  <text x="226" y="184" fill="#e7ecf3" font-family="sans-serif" font-size="14">2</text>
+  <text x="150" y="32" fill="#e7ecf3" font-family="sans-serif" font-size="14" text-anchor="middle">3</text>
+  <!-- axis of reflection (vertical through apex) -->
+  <line x1="150" y1="20" x2="150" y2="185" stroke="#9aa6b6" stroke-width="1" stroke-dasharray="4 4"/>
+  <!-- rotation arrow -->
+  <path d="M150 105 m 60 0 a 60 60 0 0 1 -30 52" fill="none" stroke="#bb9af7" stroke-width="2"/>
+  <polygon points="120,157 132,150 130,164" fill="#bb9af7"/>
+  <text x="250" y="110" fill="#9aa6b6" font-family="sans-serif" font-size="12">rotate 120°</text>
+  <text x="156" y="16" fill="#9aa6b6" font-family="sans-serif" font-size="12">flip</text>
+</svg>

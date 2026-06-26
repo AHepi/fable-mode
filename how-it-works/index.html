@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>How it works · Fable Academy</title><meta name="description" content="A plain-language guide to how Fable Academy researches, writes, and ships a course — and how to steer it."><link rel="icon" href="/fable-mode/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/fable-mode/_astro/browse.BhwwLFAb.css">
+<style>.muted-note[data-astro-cid-wlncami7]{color:var(--muted);font-size:.95rem}.prose[data-astro-cid-wlncami7] hr[data-astro-cid-wlncami7]{border:none;border-top:2px solid var(--text-strong);margin:2.5rem 0}
+</style></head> <body> <header class="site-header"> <div class="bar"> <a class="brand" href="/fable-mode/"><span class="spark"></span><span class="label">Fable Academy</span></a> <nav class="nav"> <a href="/fable-mode/browse/">Browse</a><a href="/fable-mode/subjects/">Subjects</a><a href="/fable-mode/paths/">Paths</a><a href="/fable-mode/how-it-works/" aria-current="page">How it works</a> </nav> </div> </header> <main class="page">  <section class="hero" data-astro-cid-wlncami7> <p class="eyebrow" data-astro-cid-wlncami7>Field manual</p> <h1 data-astro-cid-wlncami7>How a course gets made.</h1> <p class="lead" data-astro-cid-wlncami7>
+No code required to read this. It explains what happens between a one-line request
+      and a finished course on the shelf — and the one rule that keeps it improving.
+</p> </section> <div class="prose" data-astro-cid-wlncami7> <h2 data-astro-cid-wlncami7>Two halves: a factory and a shelf</h2> <p data-astro-cid-wlncami7>
+This project is two things sharing one repository. The <strong data-astro-cid-wlncami7>factory</strong> turns a single
+      plain-English request — <em data-astro-cid-wlncami7>"make a course on abstract algebra for someone who finished high-school
+      maths"</em> — into a finished course. The <strong data-astro-cid-wlncami7>shelf</strong> is this website, which automatically
+      lists and serves every course the factory finishes. Drop a new course onto the shelf and it shows up
+      here on its own; nobody edits the site to add it.
+</p> <h2 data-astro-cid-wlncami7>The one rule that matters</h2> <blockquote data-astro-cid-wlncami7> <p data-astro-cid-wlncami7><strong data-astro-cid-wlncami7>Fix the factory, not the product.</strong></p> </blockquote> <p data-astro-cid-wlncami7>
+When a course reads badly — too dull, too soothing, a confusing leap — the instinct is to patch that
+      one page. Don't. The factory wrote that page by following written instructions, and it will write the
+      next course the same way. So we change the <strong data-astro-cid-wlncami7>instructions</strong>, then let the factory rebuild.
+      A patched page fixes one course; a patched instruction fixes every course from now on. (The course you're
+      reading about clock arithmetic had a confusing jump; the fix was a new rule about "bridging," not a one-off edit.)
+</p> <h2 data-astro-cid-wlncami7>The assembly line: six stations</h2> <p data-astro-cid-wlncami7>
+A request walks down a line of six stations, in order. Each station does one job, writes down what it did,
+      and hands its work to the next. Because every step is written to a file, you can open any of them and see
+      exactly what the machine was thinking.
+</p> <ol data-astro-cid-wlncami7> <li data-astro-cid-wlncami7><strong data-astro-cid-wlncami7>Research</strong> — gathers what the subject is, what the learner already needs to know, the
+        trustworthy sources, and the usual places people get stuck.</li> <li data-astro-cid-wlncami7><strong data-astro-cid-wlncami7>Curriculum</strong> — decides the list of modules, their order, and what each one should teach.
+        This is the most important checkpoint: it's where a human can read one page and approve the whole shape
+        of the course before any writing happens — the cheapest place to fix a mistake.</li> <li data-astro-cid-wlncami7><strong data-astro-cid-wlncami7>Authoring</strong> — writes the modules. Several writers work at once, each on a different module
+        and <em data-astro-cid-wlncami7>blind to the others</em>. That's fast, but it's why two modules can drift apart or repeat themselves.</li> <li data-astro-cid-wlncami7><strong data-astro-cid-wlncami7>Editorial</strong> — one editor reads <em data-astro-cid-wlncami7>all</em> the modules together and makes them feel like a
+        single book: same names and symbols throughout, no module re-explaining what another already covered,
+        confident tone, and smooth "bridges" wherever an everyday picture has to hand off to a precise definition.
+        This station exists precisely to catch what the blind, parallel writers couldn't see.</li> <li data-astro-cid-wlncami7><strong data-astro-cid-wlncami7>Assembly</strong> — moves the finished modules out of the workshop and onto the shelf (the website),
+        in the exact format the site expects.</li> <li data-astro-cid-wlncami7><strong data-astro-cid-wlncami7>Verify</strong> — the final check: are the maths and the structure valid, does the tone hold, and
+        does the website actually build without errors? Only then does it ship.</li> </ol> <h2 data-astro-cid-wlncami7>Where everything lives</h2> <p data-astro-cid-wlncami7>
+You don't need the file paths to understand the shape, but here it is in plain terms:
+</p> <ul data-astro-cid-wlncami7> <li data-astro-cid-wlncami7><strong data-astro-cid-wlncami7>The factory's rulebooks</strong> live in a folder of reference documents — the writing voice,
+        the maths style, the teaching rules, the brand. These are the instructions we change when we "fix the factory."</li> <li data-astro-cid-wlncami7><strong data-astro-cid-wlncami7>Each station's job description</strong> sits in the station's own folder, written as a short contract:
+        what it reads, what it does, what it produces, and how it checks itself.</li> <li data-astro-cid-wlncami7><strong data-astro-cid-wlncami7>The workshop</strong> is a dated folder for each course being built. Every station's working notes
+        and drafts land here, so a finished course leaves a complete paper trail. Nothing here is thrown away when the next
+        course is built — each run gets its own folder.</li> <li data-astro-cid-wlncami7><strong data-astro-cid-wlncami7>The shelf</strong> is the finished-courses area the website reads from. Workshop drafts never go here directly;
+        only the assembly station crosses that line.</li> </ul> <h2 data-astro-cid-wlncami7>How to find what went wrong</h2> <p data-astro-cid-wlncami7>
+Because each station writes its work to a file, diagnosing a bad course is just reading backwards. If a course
+      feels repetitive, the editorial station's notes show whether it caught the repetition. If a module teaches the
+      wrong thing, the curriculum page shows whether the plan was wrong or the writing was. You read down the line until
+      the defect first appears — that station's rulebook is what needs the fix.
+</p> <h2 data-astro-cid-wlncami7>Asking for a new course</h2> <p data-astro-cid-wlncami7>
+You ask in one sentence: the subject, and who it's for. <em data-astro-cid-wlncami7>"A course on the chemistry of cooking for curious
+      adults with no science background."</em> The factory turns that into a written brief — including its own notes on
+      what it's assuming about scope and difficulty — and walks the six stations. By default it runs straight through
+      and only pauses at the curriculum checkpoint; you can ask it to stop and show you more, or just let it ship.
+</p> <h2 data-astro-cid-wlncami7>How a change reaches this site</h2> <p data-astro-cid-wlncami7>
+When work is done, it's saved and pushed to the project's main copy. That push automatically rebuilds and
+      republishes this website — no manual deploy step. So the path from "fix an instruction" to "the live site shows
+      the better course" is: change the rulebook → rebuild the course → push → the site updates itself.
+</p> <hr data-astro-cid-wlncami7> <p class="muted-note" data-astro-cid-wlncami7>
+Want the technical version? The repository's <code data-astro-cid-wlncami7>CLAUDE.md</code> and <code data-astro-cid-wlncami7>CONTEXT.md</code> hold the full map
+      and routing rules, and each station folder under <code data-astro-cid-wlncami7>pipeline/</code> carries its own contract.
+</p> <p data-astro-cid-wlncami7><a href="/fable-mode/browse/" data-astro-cid-wlncami7>← Back to the catalog</a></p> </div>  </main> <footer class="footer"> <div class="bar"> <span>Fable Academy. Courses researched and written by an automated pipeline.</span> <nav> <a href="/fable-mode/browse/">Browse</a> <a href="/fable-mode/subjects/">Subjects</a> <a href="/fable-mode/paths/">Paths</a> <a href="/fable-mode/how-it-works/">How it works</a> </nav> </div> </footer> <script type="module">const s=window.matchMedia("(prefers-reduced-motion: reduce)").matches;if(!s&&"IntersectionObserver"in window){const t=Array.from(document.querySelectorAll(".card, .subject-tile, .path-card, .section-head"));t.forEach(e=>e.classList.add("reveal")),document.querySelectorAll(".catalog-grid, .subject-grid").forEach(e=>{Array.from(e.children).forEach((r,c)=>r.style.setProperty("--rev-i",String(c%6)))});const o=new IntersectionObserver(e=>{for(const r of e)r.isIntersecting&&(r.target.classList.add("in"),o.unobserve(r.target))},{rootMargin:"0px 0px -6% 0px",threshold:.05});t.forEach(e=>o.observe(e))}</script> </body> </html> 
